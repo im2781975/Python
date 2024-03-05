@@ -26,3 +26,7 @@ second_int=int(second)
 t = first_int + second_int
 print("Total Money (string) is: ",total)
 print("Total Money (int) is: ",t)
+string_first= str(first)
+print("After Type conversion number is:",string_first)
+float_first = float(first)
+print("After Type conversion number is:",float_first)
