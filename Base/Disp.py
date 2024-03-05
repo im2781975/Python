@@ -74,7 +74,28 @@ else:
 
 num = 1
 while num <=10:
+    num += 1
+    if num == 2 or num %2 == 0:
+        continue
     print(num)
-    num +=1
-    if num == 5:
+    if num == 8:
         break
+    
+number = [5, 10, 15, 20]
+sum = 0
+for num in number:
+    print(num)
+    sum +=num
+    if sum > 20:
+        print("Max", sum)
+print(sum)
+text = "ibrahim"
+for char in text:
+    print(char)
+#for i in range(1, 10)
+for i in range(1, 10, 2):
+#range(start, end, step)
+    print(i)
+friends = ['A', 'B', 'C']
+for friend in friends:
+    print(friend)
