@@ -48,3 +48,26 @@ elif first_int>second_int:
     print("Varified")
 else:
     print("Not Varified")
+
+a = 34
+boss = False
+# +=, -=, *=, /=
+a+=23
+print(a)
+#in, not, not in, is, is not
+# and, or
+if a > 5:
+    print("True")
+else:
+    print("False")
+if boss is True or boss is not False:
+    print("True")
+else:
+    print("False")
+if a > 5:
+    if a%2 == 0 and a > 7:
+        print("Even")
+    else:
+        print("Odd")
+else:
+    print("less than 5")
