@@ -71,3 +71,10 @@ if a > 5:
         print("Odd")
 else:
     print("less than 5")
+
+num = 1
+while num <=10:
+    print(num)
+    num +=1
+    if num == 5:
+        break
