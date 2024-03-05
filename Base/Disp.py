@@ -19,6 +19,7 @@ print("First Money is:",first)
 second = input("Second Money: ")
 print("Second Money is:",second)
 print("First money is: ",first,"Second Money is: ",second)
+
 #concatenate string
 total = first+second
 first_int=int(first)
@@ -30,6 +31,7 @@ string_first= str(first)
 print("After Type conversion number is:",string_first)
 float_first = float(first)
 print("After Type conversion number is:",float_first)
+
 print("Sum is:",first_int + second_int)
 print("Diff is:",first_int - second_int)
 print("Mult is:",first_int * second_int)
@@ -38,9 +40,11 @@ print("Modulo is:",first_int % second_int)
 #it will return integer
 print("Division is:",first_int//second_int)
 print("Power is:",first_int**second_int)
+
+# >, <, >=, <=, ==, !=
 if first_int!=second_int:
     print("Varified")
 elif first_int>second_int:
-    print("varified")
+    print("Varified")
 else:
     print("Not Varified")
