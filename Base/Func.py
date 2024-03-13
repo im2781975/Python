@@ -52,3 +52,13 @@ def a_lot(a, b):
 res = a_lot(5, 9)
 print(res)
 
+balance = 3000
+def buy(item, price):
+    #for used global balance
+    global balance
+   # balance = 2200
+    print(f'previous balance:',balance)
+    balance-=price
+    print(f'After buying {item} balance:',balance)
+buy('glass', 1000)
+print(f'global accessed balance is:',balance)
