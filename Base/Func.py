@@ -62,3 +62,11 @@ def buy(item, price):
     print(f'After buying {item} balance:',balance)
 buy('glass', 1000)
 print(f'global accessed balance is:',balance)
+
+#from build-in import build as b
+#from build-in import *(all)
+highest = max(1, 2, 3, 4, 5)
+lowest = min(1, 2, 3, 4, 5)
+count = len([1, 10])
+s = sum([1, 2, 3, 4, 5])
+print(highest, lowest, count, s)
