@@ -52,14 +52,18 @@ elif first_int>second_int:
 else:
     print("Not Varified")
 
-a = 34
-boss = False
 # +=, -=, *=, /=
-a+=23
-print(a)
 #in, not, not in, is, is not
 # and, or
+a = 34
+boss = False
+a+=23
+print(a)
 if a > 5:
+    print("True")
+elif a > 3:
+    print("True")
+elif a==2:
     print("True")
 else:
     print("False")
@@ -67,6 +71,15 @@ if boss is True or boss is not False:
     print("True")
 else:
     print("False")
+coin = 'head'
+if boss == False:
+    print("False")
+    if coin == 'tail':
+        print("Batting")
+    else:
+        print("Bowling")
+else:
+    print("True")
 if a > 5:
     if a%2 == 0 and a > 7:
         print("Even")
