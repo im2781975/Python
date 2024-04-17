@@ -7,12 +7,15 @@ print(name)
 print(double)
 print(is_single)
 print(age + double)
-
-#print(type(name))
+print(age * double)
+print(type(name))
 print(type(double))
 print(type(is_single))
+#Alt + shift + A - Multiline comment
+#Ctrl + / - Single line comment
+print("******")
 print('Ibrahim' + ' ' + 'Aslam')
-test = f"Name {name}, age {age}, is_single {is_single}. "
+test = f"Name {name}, age {age}, is_single {is_single}, interest rate {double}%."
 print(test)
 first = input("First Money: ")
 print("First Money is:",first)
