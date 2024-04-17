@@ -41,10 +41,10 @@ print("Mult is:",first_int * second_int)
 print("Division is:",first_int/second_int)
 print("Modulo is:",first_int % second_int)
 #it will return integer
-print("Division is:",first_int//second_int)
+print("Signed Division is:",first_int//second_int)
 print("Power is:",first_int**second_int)
 
-# >, <, >=, <=, ==, !=
+# >, <, >=, <=, ==, !==
 if first_int!=second_int:
     print("Varified")
 elif first_int>second_int:
