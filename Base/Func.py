@@ -1,7 +1,6 @@
 def double_it(num):
     num = num*2
     print(num)
-    return num
 double_it(8)
 double_it(9)
 
@@ -12,11 +11,11 @@ def sum(a, b, c = 0):
     #res = a + b
     #return res
 total = sum(23, 24)
-print(total)
+print("Total value:",total)
 
 final = double_it(total)
 print("Final value is:",final)
-
+#Without return it will show None
 def all_sum(x, y, *args):
     print(args)
     s = 0
