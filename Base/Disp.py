@@ -87,7 +87,7 @@ if a > 5:
         print("Odd")
 else:
     print("less than 5")
-
+print("******")
 num = 1
 while num <=10:
     num += 1
@@ -103,7 +103,7 @@ for num in number:
     print(num)
     sum +=num
     if sum > 20:
-        print("Max", sum)
+        print("Greater ", sum)
 print(sum)
 text = "ibrahim"
 for char in text:
