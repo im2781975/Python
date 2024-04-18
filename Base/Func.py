@@ -40,20 +40,32 @@ def all_sum(x, y, *args):
 t = all_sum(45, 56, 77, 89)
 print(t)
 
-#def full(title, first, last)
+def full_name(first, last):
+    name = f'Name is {first} {last}'
+    return name
+#name = full_name('Molla', 'ibrahim')
+name = full_name(first = 'Molla', last = 'ibrahim')
+print(name)
+
+#kargs
+def famous_name(first, last,**addition):
+    name = f'Info is {last} {first}'
+    #print(addition)
+    #print(addition['title'])
+    for key,value in addition.items():
+        print(key, value)
+    return name
+xy = famous_name(first = 'Molla', last = 'ibrahim', title = "Worker", addition = "Student")
+print(xy)
+
 def full(*title, first, last):
     name = f'{title} {first} {last}'
     return name
-def f(first, last, **add):
-    name = f'{first} {last}'
-    print(add['title'])
-    for key,value in add.items():
-        print(key, value)
+    
 #name = full('ibrahim', 'molla')
 #name = full(last = 'molla', first = 'ibrahim')
 #name = full(title = 'DJ', last = 'molla', first = 'ibrahim')
-name = f(title = 'DJ', last = 'molla', first = 'ibrahim')
-#print(name)
+print(name)
 
 def a_lot(a, b):
     add = a+b
