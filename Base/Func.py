@@ -16,6 +16,19 @@ print("Total value:",total)
 final = double_it(total)
 print("Final value is:",final)
 #Without return it will show None
+
+#args
+def all_(*nu):
+    to = 0
+    for num in nu:
+        print(num)
+        to += num
+        print(to)
+    return nu
+xy = all_(23, 45, 89)
+print(xy)
+
+#minimum required two parametre
 def all_sum(x, y, *args):
     print(args)
     s = 0
