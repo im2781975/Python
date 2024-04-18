@@ -4,13 +4,13 @@ def double_it(num):
 double_it(8)
 double_it(9)
 
-def sum(a, b, c = 0):
+def s(a, b, c = 0):
     res = a + b + c
     return res
 #def sum(a, b):
     #res = a + b
     #return res
-total = sum(23, 24)
+total = s(23, 24)
 print("Total value:",total)
 
 final = double_it(total)
@@ -89,8 +89,14 @@ print(f'global accessed balance is:',balance)
 
 #from build-in import build as b
 #from build-in import *(all)
-highest = max(1, 2, 3, 4, 5)
-lowest = min(1, 2, 3, 4, 5)
-count = len([1, 10])
+#from [file name] import [function] as [our choice name]
+from func import double_it as dt
+result = dt(5)
+print(result)
+highest = max([1, 2, 3, 4, 5])
+print("Highest value is:",highest)
+smallest = min(1, 2, 3, 4, 5)
+print("Lowest value is:",smallest)
+count = len([1, 5])
 s = sum([1, 2, 3, 4, 5])
-print(highest, lowest, count, s)
+print(highest,smallest,count,s)
