@@ -14,9 +14,15 @@ sleep(5)
 for i in range(0, 3):
     pyautogui.write('i am here',interval = 0.25)
     pyautogui.press('enter')
-"""
+
 with open('message.txt','w') as file:
     file.write('python')
+with open('message.txt','a') as file:
+    file.write('python')
+with open('message.txt','r') as file:
+    text = file.read()
+    print(text)
+"""
 try:
     x = 45/1
     print(x)
