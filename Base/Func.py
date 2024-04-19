@@ -4,6 +4,12 @@ def double_it(num):
 double_it(8)
 double_it(9)
 
+double = lambda x : x*2
+square = lambda x:x*x
+addition = lambda x, y:x + y
+#d = double(34)
+d = addition(22, 78)
+print("Value is:",d)
 def s(a, b, c = 0):
     res = a + b + c
     return res
@@ -17,6 +23,10 @@ final = double_it(total)
 print("Final value is:",final)
 #Without return it will show None
 
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+#E = map(square,numbers)
+E = map(lambda x: x**2,numbers)
+print(list(E))
 #args
 def all_(*nu):
     to = 0
@@ -47,6 +57,16 @@ def full_name(first, last):
 name = full_name(first = 'Molla', last = 'ibrahim')
 print(name)
 
+actress = [
+    {'name' : 'A', 'age' :12 },
+    {'name' : 'B', 'age' :17 },
+    {'name' : 'C', 'age' :25 },
+    {'name' : 'D', 'age' :35 },
+    ]
+juniors = filter(lambda x : x['age'] < 25,actress)
+Fiver = filter(lambda x : x['age'] % 5 == 0, actress)
+print(list(Fiver))
+print(list(juniors))
 #kargs
 def famous_name(first, last,**addition):
     name = f'Info is {last} {first}'
