@@ -21,3 +21,20 @@ if 'molla' in name:
     print('exits')
 else:
     print('No')
+#tuple
+def multi():
+    return 3, 4
+print(multi())
+things = 'A', 'B', 'C', 'D', 'E', 'F', 'G'
+print(things)
+print(things[0])
+print(things[-1])
+print(things[5:2:-1])
+print(type(things))
+for item in things:
+    print(item)
+print(len(things))
+mega = ([1, 2, 3],[4, 5, 6])
+#change able in 2D tuple
+mega[0][1] = 66
+print(mega)
