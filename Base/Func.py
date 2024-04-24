@@ -3,13 +3,22 @@ def double_it(num):
     print(num)
 double_it(8)
 double_it(9)
-
 double = lambda x : x*2
-square = lambda x:x*x
-addition = lambda x, y:x + y
-#d = double(34)
-d = addition(22, 78)
-print("Value is:",d)
+square = lambda x : x*x
+add = lambda x, y : x+y
+ded = lambda x, y : x - y
+mult = lambda x, y : x*y
+div = lambda x, y : x/y
+div_int = lambda x, y: x//y
+Rem = lambda x, y : x%y
+print(f'double is :{double(78)}')
+print(f'Square is :{square(89)}')
+print(f'addition is :{add(34, 78)}')
+print(f'deduction is :{ded(34, 78)}')
+print(f'Multiplication is :{mult(34, 78)}')
+print(f'Division is :{div(78, 34)}')
+print(f'Div_int is: :{div_int(78, 34)}')
+print(f'Remainder is: :{Rem(78, 34)}')
 def s(a, b, c = 0):
     res = a + b + c
     return res
