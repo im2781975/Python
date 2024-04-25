@@ -45,3 +45,19 @@ ani = [x, y, z]
 for a in ani:
     a.sound()
 """
+class book:
+    def __init__(self, name):
+        self.name = name
+    def read(self):
+        raise NotImplementedError
+class physics(book):
+    def __init__(self, name, lab):
+        self.lab = lab
+        super().__init__(name)
+    def read(self):
+        print("Reading")
+topon = physics('topon', False)
+print(issubclass(physics, book))
+print(isinstance(topon, physics))
+print(isinstance(topon, book))
+topon.read()
