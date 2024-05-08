@@ -8,7 +8,7 @@ def double_dacker():
 
 print(double_dacker())
 print(double_dacker()())
-
+double_dacker()()
 def do_something(work):
     print("Starting")
     #print(work)
@@ -19,7 +19,15 @@ def coding():
     print("Coded")
 #do_something(2)
 do_something(coding)
-
+def tim(func):
+    def outer():
+        print("Time Started")
+        print(func)
+        print("Time ended")
+    return outer
+def get():
+    print("Factorial Starting")
+tim(get)()
 def timer(func):
     start = time.time()
     def outer(*args,**kargs):
