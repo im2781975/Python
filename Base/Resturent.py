@@ -6,10 +6,10 @@ class user:
         self.email = email
         self.address = address
 class customer(user):
-    def __init__(self, name, money):
+    def __init__(self, name, phone, email, address, money):
         self.wallet = money
         self.__order = None
-        super().__init(name)
+        super().__init(name, phone, email, address)
     @property
     def order(self):
         return self.__order
@@ -29,8 +29,15 @@ class customer(user):
     def write_review(self, stars):
         pass
 class employe(user):
-    def __init__(self, name, salary, starting_date, depart):
-        super().__init__(name)
+    def __init__(self, name, phone, email, address, salary, starting_date, depart):
+        super().__init__(name, phone, email, address)
+        self.salary = salary
+        self.starting_date = starting_date
+        self.depart = depart
+
+class chef(employe):
+    def __init__(self, name, phone, email, address, salary, starting_date, depart, cooking_item):
+        super().__init__(name, phone, email, address, salary, starting_date, depart)
         self.salary = salary
         self.starting_date = starting_date
         self.depart = depart
