@@ -16,6 +16,12 @@ class customer(user):
     def place_order(self, order):
         self.order = order
         print(f'{self.name} {order.items}')
+    def eat(self, order):
+        print(f'{self.name} {order.items} ' )
     def pay_for_order(self, amount):
+        # TODO : sibmit the money to manager
         pass
-    
+    def give_tips(self, tips_amount):
+        pass
+    def write_review(self, stars):
+        pass
