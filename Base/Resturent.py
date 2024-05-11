@@ -1,7 +1,10 @@
 from abc import ABC,abstractmethod
 class user:
-    def __init__(self, name):
+    def __init__(self, name, phone, email, address):
         self.name = name
+        self.phone = phone
+        self.email = email
+        self.address = address
 class customer(user):
     def __init__(self, name, money):
         self.wallet = money
@@ -25,3 +28,10 @@ class customer(user):
         pass
     def write_review(self, stars):
         pass
+class employe(user):
+    def __init__(self, name, salary, starting_date, depart):
+        super().__init__(name)
+        self.salary = salary
+        self.starting_date = starting_date
+        self.depart = depart
+        
