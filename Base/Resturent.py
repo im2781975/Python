@@ -13,3 +13,9 @@ class customer(user):
     @order.setter
     def order(self, order):
         self.__order = order
+    def place_order(self, order):
+        self.order = order
+        print(f'{self.name} {order.items}')
+    def pay_for_order(self, amount):
+        pass
+    
