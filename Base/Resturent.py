@@ -6,8 +6,32 @@ class Resturent:
         self.server = None
         self.manager = None
         self.menu = []
+        self.expense = 0
+        self.balance = 0
         self.revenue = 0
         self.profit = 0
+    def add_employee(self, employee_type, employee):
+        if employee_type == 'chef':
+            self.chef = employee
+        elif employee_type == 'manager':
+            self.manager = employee
+        else employee_type == 'server':
+            self.server = employee
+    def receive_payment(self, order, amount, customer):
+        if amount >= order.bill:
+            self.revenue += order.bill
+            self.balance += order.bill
+            customer.due_amount = 0
+            return amount - order.bill
+    def pay_expences(self, amount, description):
+        if amount < self.balance:
+            self.balance -= amount
+            self.expence += amount
+        else:
+            print(f'Not Enough money to pay {amount}')
+    def pay_salary(self, employee):
+        if employee.salary < self.balance:
+            employee.receive_salary()
 class user:
     def __init__(self, name, phone, email, address):
         self.name = name
@@ -41,9 +65,12 @@ class employe(user):
     def __init__(self, name, phone, email, address, salary, starting_date, depart):
         super().__init__(name, phone, email, address)
         self.salary = salary
+        self.due = salary
         self.starting_date = starting_date
         self.depart = depart
-
+        
+    def receive_salary(self):
+        self.due = 0
 class chef(employe):
     def __init__(self, name, phone, email, address, salary, starting_date, depart, cooking_item):
         super().__init__(name, phone, email, address, salary, starting_date, depart)
@@ -61,4 +88,3 @@ class server(employe):
         pass
     def receive_tips(self, amount):
         tips_earning += amount
-    
