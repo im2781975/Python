@@ -47,6 +47,7 @@ class user:
 class customer(user):
     def __init__(self, name, phone, email, address, money):
         self.wallet = money
+        self.due_bill = 0
         self.__order = None
         super().__init(name, phone, email, address)
     @property
@@ -57,7 +58,8 @@ class customer(user):
         self.__order = order
     def place_order(self, order):
         self.order = order
-        print(f'{self.name} {order.items}')
+        self.bill_due = order.bill
+        print(f'{self.name} {order.bill}')
     def eat(self, order):
         print(f'{self.name} {order.items} ' )
     def pay_for_order(self, amount):
@@ -138,6 +140,14 @@ class menu:
             print(f'{burger.name} {burger.price} ')
         for drink in self.drinks:
             print(f'{drink.name} {drink.price} ')
+class order:
+    def __init__(self, customer, items):
+        self.customer = customer
+        self.items = items
+        total = 0
+        for item in items:
+            total += item.price
+        self.bill = total
 x = pizza('A', 1200, 'L', ['B', 'C'])
 Menu = menu()
 Menu.add_menu_item('pizza', x)
@@ -151,6 +161,6 @@ rest.add_employee('manager', manager)
 chef = chef('Z', 234, 'Y', 'X', 456, '2000', 'core', 'chinese')
 rest.add_employee('chef', chef)
 rest.show_employee()
-
-
+cust = customer('M', 678, 'N', "O", 4567)
+order = order('B', [x, y])
 
