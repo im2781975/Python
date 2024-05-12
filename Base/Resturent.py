@@ -15,7 +15,7 @@ class Resturent:
             self.chef = employee
         elif employee_type == 'manager':
             self.manager = employee
-        else employee_type == 'server':
+        elif employee_type == 'server':
             self.server = employee
     def receive_payment(self, order, amount, customer):
         if amount >= order.bill:
@@ -92,14 +92,14 @@ class Food:
     def __init__(self, name, price):
         self.name = name
         self.price = price
-        sel.cooking_time = 15
+        self.cooking_time = 15
 class Burger(Food):
     def __init__(self, name, price, meat, ingredients):
         super().__init__(name, price)
         self.meat = meat
         self.ingredients = ingredients
 class pizza(Food):
-    def __init__(self, name, prize  size, topping):
+    def __init__(self, name, price, size, topping):
         super().__init__(name, price)
         self.size = size
         self.topping = topping
@@ -115,10 +115,10 @@ class menu:
     def add_menu_item(self, item_type, item):
         if item_type == 'pizza':
             self.pizzas.append(item)
-        elif item_type = 'burger':
-            self.burgers.append(burger)
-        elif item_type = 'drink':
-            self.drinks.append(drink)
+        elif item_type == 'burger':
+            self.burgers.append(item)
+        elif item_type == 'drink':
+            self.drinks.append(item)
     def remove_pizza(self, pizza):
         if pizza in self.pizzas:
             self.pizzas.remove(pizza)
@@ -129,3 +129,10 @@ class menu:
             print(f'{burger.name} {burger.price} ')
         for drink in self.drinks:
             print(f'{drink.name} {drink.price} ')
+x = pizza('A', 1200, 'L', ['B', 'C'])
+Menu = menu()
+Menu.add_menu_item('pizza', x)
+y = Burger('B', 2300, 'M', ['C', 'D'])
+Menu.add_menu_item('burger', y)
+Menu.show_menu()
+#def main():
