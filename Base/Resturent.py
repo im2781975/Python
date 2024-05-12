@@ -2,6 +2,7 @@ from abc import ABC,abstractmethod
 class Resturent:
     def __init__(self, name, rent, menu = []):
         self.name = name
+        self.orders = []
         self.chef = None
         self.server = None
         self.manager = None
@@ -18,12 +19,16 @@ class Resturent:
             self.manager = employee
         elif employee_type == 'server':
             self.server = employee
+    def add_order(self, order):
+        self.orders.append(order)
     def receive_payment(self, order, amount, customer):
         if amount >= order.bill:
             self.revenue += order.bill
             self.balance += order.bill
             customer.due_amount = 0
             return amount - order.bill
+        else:
+            print(f'please provide more')
     def pay_expences(self, amount, description):
         if amount < self.balance:
             self.balance -= amount
@@ -47,9 +52,9 @@ class user:
 class customer(user):
     def __init__(self, name, phone, email, address, money):
         self.wallet = money
-        self.due_bill = 0
+        self.due_amount = 0
         self.__order = None
-        super().__init(name, phone, email, address)
+        super().__init__(name, phone, email, address)
     @property
     def order(self):
         return self.__order
@@ -163,4 +168,7 @@ rest.add_employee('chef', chef)
 rest.show_employee()
 cust = customer('M', 678, 'N', "O", 4567)
 order = order('B', [x, y])
-
+cust.pay_for_order(order)
+cust.place_order(order)
+rest.receive_payment(order, 40, cust)
+print(rest.revenue, rest.balance)
