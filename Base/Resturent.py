@@ -1,4 +1,13 @@
 from abc import ABC,abstractmethod
+class Resturent:
+    def __init__(self, name):
+        self.name = name
+        self.chef = None
+        self.server = None
+        self.manager = None
+        self.menu = []
+        self.revenue = 0
+        self.profit = 0
 class user:
     def __init__(self, name, phone, email, address):
         self.name = name
