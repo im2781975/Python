@@ -1,11 +1,12 @@
 from abc import ABC,abstractmethod
 class Resturent:
-    def __init__(self, name, menu = []):
+    def __init__(self, name, rent, menu = []):
         self.name = name
         self.chef = None
         self.server = None
         self.manager = None
         self.menu = menu
+        self.rent = rent
         self.expense = 0
         self.balance = 0
         self.revenue = 0
@@ -32,6 +33,11 @@ class Resturent:
     def pay_salary(self, employee):
         if employee.salary < self.balance:
             employee.receive_salary()
+    def show_employee(self):
+        if self.chef is not None:
+            print(f'{self.chef.name} with salary {self.chef.salary}')
+        if self.manager is not None: 
+            print(f'{self.manager.name} with salary {self.manager.salary}')
 class user:
     def __init__(self, name, phone, email, address):
         self.name = name
@@ -75,11 +81,14 @@ class chef(employe):
     def __init__(self, name, phone, email, address, salary, starting_date, depart, cooking_item):
         super().__init__(name, phone, email, address, salary, starting_date, depart)
         self.cooking_item = cooking_item
-class server(employe):
-    def __init__(self, name, phone, email, address, salary, starting_date, depart, cooking_item):
+class Manager(employe):
+    def __init__(self, name, phone, email, address, salary, starting_date, depart):
         self.tips_earning = 0
         super().__init__(name, phone, email, address, salary, starting_date, depart)
-        self.cooking_item = cooking_item
+class server(employe):
+    def __init__(self, name, phone, email, address, salary, starting_date, depart):
+        self.tips_earning = 0
+        super().__init__(name, phone, email, address, salary, starting_date, depart)
     def take_order(self, order):
         pass
     def transfer_order(self, order):
@@ -136,3 +145,12 @@ y = Burger('B', 2300, 'M', ['C', 'D'])
 Menu.add_menu_item('burger', y)
 Menu.show_menu()
 #def main():
+rest = Resturent('A', 2000, menu)
+manager = Manager('Z', 234, 'Y', 'X', 456, '2000', 'core')
+rest.add_employee('manager', manager)
+chef = chef('Z', 234, 'Y', 'X', 456, '2000', 'core', 'chinese')
+rest.add_employee('chef', chef)
+rest.show_employee()
+
+
+
