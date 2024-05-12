@@ -1,11 +1,11 @@
 from abc import ABC,abstractmethod
 class Resturent:
-    def __init__(self, name):
+    def __init__(self, name, menu = []):
         self.name = name
         self.chef = None
         self.server = None
         self.manager = None
-        self.menu = []
+        self.menu = menu
         self.expense = 0
         self.balance = 0
         self.revenue = 0
@@ -88,3 +88,44 @@ class server(employe):
         pass
     def receive_tips(self, amount):
         tips_earning += amount
+class Food:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        sel.cooking_time = 15
+class Burger(Food):
+    def __init__(self, name, price, meat, ingredients):
+        super().__init__(name, price)
+        self.meat = meat
+        self.ingredients = ingredients
+class pizza(Food):
+    def __init__(self, name, prize  size, topping):
+        super().__init__(name, price)
+        self.size = size
+        self.topping = topping
+class drinks(Food):
+    def __init__(self, name, price, iscold = True):
+        super().__init__(name, price)
+        self.iscold = iscold
+class menu:
+    def __init__(self):
+        self.burgers = []
+        self.pizzas = []
+        self.drinks = []
+    def add_menu_item(self, item_type, item):
+        if item_type == 'pizza':
+            self.pizzas.append(item)
+        elif item_type = 'burger':
+            self.burgers.append(burger)
+        elif item_type = 'drink':
+            self.drinks.append(drink)
+    def remove_pizza(self, pizza):
+        if pizza in self.pizzas:
+            self.pizzas.remove(pizza)
+    def show_menu(self):
+        for pizza in self.pizzas:
+            print(f'{pizza.name} {pizza.price} ')
+        for burger in self.burgers:
+            print(f'{burger.name} {burger.price} ')
+        for drink in self.drinks:
+            print(f'{drink.name} {drink.price} ')
