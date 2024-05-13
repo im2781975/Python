@@ -32,11 +32,14 @@ class Resturent:
     def pay_expences(self, amount, description):
         if amount < self.balance:
             self.balance -= amount
-            self.expence += amount
+            self.expences += amount
         else:
             print(f'Not Enough money to pay {amount}')
     def pay_salary(self, employee):
+        print(f'{employee.name} {employee.salary} ')
         if employee.salary < self.balance:
+            self.balance -= employee.salary
+            self.expences += employee.salary
             employee.receive_salary()
     def show_employee(self):
         if self.chef is not None:
@@ -171,4 +174,9 @@ order = order('B', [x, y])
 cust.pay_for_order(order)
 cust.place_order(order)
 rest.receive_payment(order, 40, cust)
-print(rest.revenue, rest.balance)
+
+rest.pay_expences(rest.rent, 'Rent')
+print(rest.revenue, rest.balance, rest.expense)
+rest.pay_salary(chef)
+print(rest.revenue)
+
