@@ -20,7 +20,7 @@ class ClassRoom:
         self.students = []
     def add_student(self, student):
         serial_id = f'{self.name} - {len(self. students) + 1 }'
-        self.id = serial_id
+        student.id = serial_id
         student.classroom = self.name
         self.students.append(student)
     def __str__(self):
