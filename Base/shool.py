@@ -18,6 +18,9 @@ class school:
     def __repr__(self)->str:
         for key, value in self.classrooms.items():
             print(key)
+        eight = self.classrooms['eight']
+        for student in eight.students:
+            print(student.name)
         return ''
 class ClassRoom:
     def __init__(self, name):
@@ -59,9 +62,9 @@ class Student(Person):
     def id(self, val):
         self.__id == val
 school = school('A', 'B')
-nine = ClassRoom('nine')
-school.add_classroom(nine)
+eight = ClassRoom('eight')
+school.add_classroom(eight)
 
-abul = Student('Abir khan', nine)
+abul = Student('Abir khan', eight)
 school.student_admission(abul)
 print(school)
