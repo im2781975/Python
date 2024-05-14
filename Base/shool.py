@@ -21,6 +21,8 @@ class school:
         eight = self.classrooms['eight']
         for student in eight.students:
             print(student.name)
+        for subject in eight.subjects:
+            print(subject.name,subject.teacher.name)
         return ''
 class ClassRoom:
     def __init__(self, name):
@@ -31,20 +33,29 @@ class ClassRoom:
         serial_id = f'{self.name} - {len(self. students) + 1 }'
         student.id = serial_id
         self.students.append(student)
+    def add_subject(self, sub):
+        self.subjects.append(sub)
     def __str__(self):
         return f'{self.name} - {len(self.students)} '
     def get_top_students(self):
         pass
+class Subject:
+    def __init__(self, name, teacher):
+        self.name = name
+        self.teacher = teacher
+        self.max_marks = 100
+        self.pass_marks = 30
 class Person:
     def __init__(self, name):
         self.name = name
 class Teacher(Person):
-    def __init__(self, name, sub):
-        super().__init(name)
-        self.sub = subjects 
+    def __init__(self, name):
+        super().__init__(name)
+    def __repr__(self) ->str:
+        return f'{self.name}'
     def teach(self):
-        self.teach = teach
-    def take_exam(self, sub, students):
+        pass
+    def take_exam(self, students):
         for student in students:
             marks = random.randint(0, 100)
 class Student(Person):
@@ -67,4 +78,8 @@ school.add_classroom(eight)
 
 abul = Student('Abir khan', eight)
 school.student_admission(abul)
+
+A_teacher = Teacher('B')
+A = Subject('A', A_teacher)
+eight.add_subject(A)
 print(school)
