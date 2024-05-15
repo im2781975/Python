@@ -35,6 +35,9 @@ class ClassRoom:
         self.students.append(student)
     def add_subject(self, sub):
         self.subjects.append(sub)
+    def take_final(self):
+        for sub in self.subjects:
+            sub.exam(self.students)
     def __str__(self):
         return f'{self.name} - {len(self.students)} '
     def get_top_students(self):
@@ -45,6 +48,11 @@ class Subject:
         self.teacher = teacher
         self.max_marks = 100
         self.pass_marks = 30
+
+    def exam(self, students):
+        for student in students:
+            mark = self.teacher.take_exam()
+            student.marks[self.name] = mark
 class Person:
     def __init__(self, name):
         self.name = name
@@ -55,9 +63,9 @@ class Teacher(Person):
         return f'{self.name}'
     def teach(self):
         pass
-    def take_exam(self, students):
-        for student in students:
-            marks = random.randint(0, 100)
+    def take_exam(self):
+        marks = random.randint(0, 100)
+        return marks
 class Student(Person):
     def __init__(self, name, classroom):
         super().__init__(name)
