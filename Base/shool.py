@@ -132,6 +132,9 @@ class Student(Person):
             point = school.grade_to_val(grade)
             sum += point
             print(self.name, grade, point)
+        points_avg = sum/len(self.subject_grade)
+        self.grade = school.value_to_grade(points_avg)
+        print(f'{self.name}{self.grade}{points_avg}')
     @property
     def id(self):
         return self.__id
