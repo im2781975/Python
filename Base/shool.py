@@ -23,6 +23,9 @@ class school:
             print(student.name)
         for subject in eight.subjects:
             print(subject.name,subject.teacher.name)
+        for student in eight.students:
+            for key, value in student.marks.items():
+                print(student.name, key, value)
         return ''
 class ClassRoom:
     def __init__(self, name):
@@ -90,4 +93,5 @@ school.student_admission(abul)
 A_teacher = Teacher('B')
 A = Subject('A', A_teacher)
 eight.add_subject(A)
+eight.take_final()
 print(school)
