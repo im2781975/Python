@@ -77,6 +77,64 @@ class counter(phitron):
         else:
             for bus in self.total_bus_list:
                 print(f"{bus['coach']} {bus['driver']} {bus['arrival']}")
+while(True):
+    company = phitron()
+    b = counter()
+    print("1.create account")
+    print("2.Login account")
+    print("3.Exit")
+    
+    user_input = int(input("Enter choice: "))
+    if user_input == 3:
+        break
+    elif user_input == 1:
+        b.create_account()
+    elif user_input == 2:
+        name = input("username:")
+        password = input("password:")
+        flag = 0
+        isAdmin = False
+        if name ="admin" and password = "1234":
+            isAdmin = True
+        if isAdmin = False:
+            for user in b.get_user:
+                if user["username"] ==name and user["password"] == password:
+                    flag = 1
+                    break
+            if flag:
+                while True:
+                    print("1.Available buses: ")
+                    print("Show bus info: ")
+                    print("3.Reservation: ")
+                    print("4.Exit")
+                a = int(input("Enter choice: "))
+                if a==4:
+                    break
+                elif a==1:
+                    b.available_bus()
+                elif a==2:
+                    b.show_ticket()
+                elif a==3:
+                    b.reservation()
+            else:
+                print("No username found")
+        else:
+            while True:
+                print("1.show bus: ")
+                print("2.available bus")
+                print("3.show bus info")
+                print("4.Exit")
+                a = int(input("Enter choice: "))
+                if a==4:
+                    break
+                elif a==2:
+                    b.available_bus()
+                elif a==1:
+                    b.add_bus()
+                elif a==3:
+                    b.show_ticket()
+            else:
+                print("No username found")
 #print(vars(b))
 company = phitron()
 company.add_bus()
