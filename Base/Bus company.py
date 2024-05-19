@@ -53,6 +53,7 @@ class counter(phitron):
     def show_ticket(self):
         bus_no = int(input("Enter bus number: "))
         for w in self.total_bus_list:
+                print(f"{w['coach']} {w['driver']} {w['arrival']}")
             a = 1
             if bus_no = w['coach']:
                 for i in range(5):
