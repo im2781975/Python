@@ -45,7 +45,12 @@ class counter(phitron):
                     print("Already booked")
                 else:
                     w['seat'][seat_no -1] = passenger
-                    
+            else:
+                print("No bus available")
+        for bus in self.total_bus_list:
+            print(bus['seat'])
 #print(vars(b))
 company = phitron()
 company.add_bus()
+c = counter()
+c.reservation()
