@@ -12,4 +12,26 @@ class bus:
         self.to = to
         self.seat = ["Empty" for i in range (20)]
 b = bus(2, "abc", "13.00", "13.30", "Dhaka", "barisal")
-print(vars(b))
+class phitron:
+    total_bus = 5
+    total_bus_list = [{}, {}]
+    def add_bus(self):
+        bus_no = int(input("Enter:"))
+        flag = 1
+        for w in self.total_bus_list:
+            if bus_no==w['coach']:
+                print("Already added")
+                flag = 0
+                break
+        if flag:
+            bus_driver = input("Name: ")
+            bus_arrival = input("Arrival time: ")
+            bus_depart = input("Depart time: ")
+            bus_from = input("From dst")
+            bus_to = input("To dst: ")
+            self.new_bus = bus(bus_no, bus_driver, bus_arrival, bus_depart, bus_from, bus_to)
+            self.total_bus_list.append(vars(self.new_bus))
+            print("Added successfully")
+#print(vars(b))
+company = phitron()
+company.add_bus()
