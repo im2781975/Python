@@ -33,6 +33,7 @@ class phitron:
             self.total_bus_list.append(vars(self.new_bus))
             print("Added successfully")
 class counter(phitron):
+    user_list = []
     def reservation(self):
         bus_no = int(input("Enter: "))
         for w in self.total_bus_list:
@@ -47,8 +48,32 @@ class counter(phitron):
                     w['seat'][seat_no -1] = passenger
             else:
                 print("No bus available")
-        for bus in self.total_bus_list:
-            print(bus['seat'])
+        """for bus in self.total_bus_list:
+            print(bus['seat'])"""
+    def show_ticket(self):
+        bus_no = int(input("Enter bus number: "))
+        for w in self.total_bus_list:
+            a = 1
+            if bus_no = w['coach']:
+                for i in range(5):
+                    for j in range(2):
+                        print(f"{a}.{w['seat'][a-1]}",end = "\t")
+                        a+= 1
+                    for j in range(2):
+                        print(f"{a}.{w['seat'][a-1]}",end = "\t")
+                        a+= 1
+                    print()
+    def create_account(self):
+        name = input("username: ")
+        password= input("password: ")
+        self.new_user = user(name, password)
+        self.user_list.append(vars(self.new_user))
+    def available_bus(self):
+        if len(self.total_bus_list) == 0:
+            print("Unavaiable bus")
+        else:
+            for bus in self.total_bus_list:
+                print(f"{bus['coach']} {bus['driver']} {bus['arrival']}")
 #print(vars(b))
 company = phitron()
 company.add_bus()
