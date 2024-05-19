@@ -53,9 +53,9 @@ class counter(phitron):
     def show_ticket(self):
         bus_no = int(input("Enter bus number: "))
         for w in self.total_bus_list:
-                print(f"{w['coach']} {w['driver']} {w['arrival']}")
-            a = 1
-            if bus_no = w['coach']:
+            if bus_no==w['coach']:
+                print(f"{bus['coach']} {bus['driver']} {bus['arrival']}")
+                a=1
                 for i in range(5):
                     for j in range(2):
                         print(f"{a}.{w['seat'][a-1]}",end = "\t")
@@ -64,6 +64,8 @@ class counter(phitron):
                         print(f"{a}.{w['seat'][a-1]}",end = "\t")
                         a+= 1
                     print()
+    def get_user(self):
+        return self.user_list
     def create_account(self):
         name = input("username: ")
         password= input("password: ")
