@@ -20,24 +20,33 @@ class Product:
         self.quantity = quantity
     def __repr__(self):
         return f"{self.name} {self.price} {self.quantity}"
-class store:
+class Store:
     def __init__(self):
         self.total_product = {}
+    def add_product(self, seller_id, product):
+        print(seller_id)
+        product_Dict = vars(product)
+        print(product_Dict)
+        if seller_id not in self.total_product:
+            self.total_product[seller_id] = []
+        self.total_product[seller_id].append(product_Dict)
 class owner(person):
     def __init__(self, email, password):
         super().__init__(email, password)
 class seller(person):
     def __init__(self, email, password):
         super().__init__(email, password)
-    def add_product(self, name, price, quantity):
+    def add_product(self, store, name, price, quantity):
         product = Product(name, price, quantity)
-        print(product)
+        store.add_product(self.user_id, product)
 class customer(person):
     def __init__(self, email, password):
         super().__init__(email, password)
+store = Store()
 s= seller("kepler646@gmail.com", 1234)
 m = seller("hakim@gmail.com", 2345)
 print(s)
-s.add_product("xphone", 120, 24)
-m.add_product("yphone", 150, 6)
+s.add_product(store, "xphone", 120, 24)
+m.add_product(store, "yphone", 150, 6)
 print(m)
+print(store.total_product)
