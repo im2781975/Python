@@ -44,6 +44,9 @@ class seller(person):
     def add_product(self, store, name, price, quantity):
         product = Product(name, price, quantity)
         store.add_product(self.user_id, product)
+    def sell_info(self, store):
+        print(self.user_id)
+        print(store.total_product[self.user_id][0])
 class customer(person):
     def __init__(self, email, password):
         self.total_buy_amount = 0
@@ -82,6 +85,9 @@ print(m)
 print(store.total_product)
 cust = customer("@gmail.com", 3456)
 #print(store.total_product)
+s.sell_info(store)
+print("--")
 cust.buy_product(store,101, "yphone",1)
 cust.show_product(store)
 print(cust.total_buy_product,cust.total_buy_amount)
+
