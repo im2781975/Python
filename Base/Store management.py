@@ -30,9 +30,9 @@ class Store:
         if seller_id not in self.total_product:
             self.total_product[seller_id] = []
             seller_info = {}
-            seller_info["total sell_product"] = 0
-            seller_info["total sell_amount"] = 0
-            seller_info["total profit_amount"] = 0
+            seller_info["total_sell_product"] = 0
+            seller_info["total_sell_amount"] = 0
+            seller_info["total_profit_amount"] = 0
             self.total_product[seller_id].append(seller_info)
         self.total_product[seller_id].append(product_Dict)
 class owner(person):
@@ -46,6 +46,8 @@ class seller(person):
         store.add_product(self.user_id, product)
 class customer(person):
     def __init__(self, email, password):
+        self.total_buy_amount = 0
+        self.buy_product = 0
         super().__init__(email, password)
     def show_products(self, store):
       #  print(store.total_product[100])
@@ -58,6 +60,18 @@ class customer(person):
             for index in range(1, len(store.total_product[seller_id])):
                 product = store.total_product[seller_id][index]
                 print(product["name"], product["price"], product["quantity"])
+    def buy_product(self, store, seller_id, product_name, quantity):
+        #print(store.total_product[seller_id])
+        for index in range(1, len(store.total_product[seller_id])):
+            product = store.total_product[seller_id][index]
+            if product["name"] == product_name:
+                product["quantity"] -= quantity
+                self.total_buy_product += quantity
+                self.total_buy_amount += product["price"]*quantity
+                seller = store.total_product[seller_id][0]
+                seller["total_sell_product"]+=quantity
+                seller["total_sell_amount"]+=product["price"]*quantity
+        
 store = Store()
 s= seller("kepler646@gmail.com", 1234)
 m = seller("hakim@gmail.com", 2345)
@@ -67,5 +81,7 @@ m.add_product(store, "yphone", 150, 6)
 print(m)
 print(store.total_product)
 cust = customer("@gmail.com", 3456)
-cust.show_products(store)
-print(store.total_product)
+#print(store.total_product)
+cust.buy_product(store,101, "yphone",1)
+cust.show_product(store)
+print(cust.total_buy_product,cust.total_buy_amount)
