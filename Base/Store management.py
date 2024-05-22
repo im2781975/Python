@@ -29,10 +29,11 @@ class Store:
         print(product_Dict)
         if seller_id not in self.total_product:
             self.total_product[seller_id] = []
-            self.seller_info = {}
-            self.seller_info["total sell_product"] = 0
-            self.seller_info["total sell_amount"] = 0
-            self.seller_info["total profit_amount"] = 0
+            seller_info = {}
+            seller_info["total sell_product"] = 0
+            seller_info["total sell_amount"] = 0
+            seller_info["total profit_amount"] = 0
+            self.total_product[seller_id].append(seller_info)
         self.total_product[seller_id].append(product_Dict)
 class owner(person):
     def __init__(self, email, password):
@@ -51,7 +52,11 @@ class customer(person):
         all_seller_keys = store.total_product.keys()
         for seller_id in all_seller_keys:
             print(seller_id)
+            """
             for product in store.total_product[seller_id]:
+                print(product["name"], product["price"], product["quantity"]) """
+            for index in range(1, len(store.total_product[seller_id])):
+                product = store.total_product[seller_id][index]
                 print(product["name"], product["price"], product["quantity"])
 store = Store()
 s= seller("kepler646@gmail.com", 1234)
@@ -63,3 +68,4 @@ print(m)
 print(store.total_product)
 cust = customer("@gmail.com", 3456)
 cust.show_products(store)
+print(store.total_product)
