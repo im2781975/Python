@@ -35,9 +35,27 @@ class Store:
             seller_info["total_profit_amount"] = 0
             self.total_product[seller_id].append(seller_info)
         self.total_product[seller_id].append(product_Dict)
-class owner(person):
+class Owner(person):
     def __init__(self, email, password):
+        self.total_sell_products = 0
+        self.total_sell_amount = 0
+        self.total_profit_amount = 0
         super().__init__(email, password)
+    def show_info(self, store):
+        all_seller_id = total_product.keys()
+       # print(all_seller_id)
+        for seller_id in all_seller_id:
+            #print(seller_id)
+            sell_info = store.total_product[seller_id][0]
+            #print(sell_info)
+            self.total_sell_products += sell_info["total_sell_product"]
+            self.total_sell_amount += sell_info["total_sell_amount"]
+        sell_info = {
+            "total_sell_product":self.total_sell_products,
+            "total_sell_amount":self.total_sell_amount,
+            "total_profit_amount":self.total_profit_amount
+        }
+        return sell_info
 class seller(person):
     def __init__(self, email, password):
         super().__init__(email, password)
@@ -90,4 +108,5 @@ print("--")
 cust.buy_product(store,101, "yphone",1)
 cust.show_product(store)
 print(cust.total_buy_product,cust.total_buy_amount)
-
+owner = Owner("@gmail.com", 789)
+owner.shop_info(store)
