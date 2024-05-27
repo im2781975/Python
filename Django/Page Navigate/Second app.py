@@ -9,6 +9,12 @@ urlpatterns = [
 from django.shortcuts import render
 from django.http import HttpResponse
 def courses(request):
-    return HttpResponse("This is courses page")
+    return HttpResponse('''
+    <h1>this is courses page <\h1>
+    <a href = '/second_app/feedback/'>Feedback</a>
+    ''')
 def feedback(request):
-    return HttpResponse("This is feedback page")
+    return HttpResponse('''
+    <h1>this is feedback page <\h1>
+    <a href = '/second_app/courses/'>Feedback</a>
+    ''')
