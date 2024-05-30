@@ -7,7 +7,7 @@ b = "molla"
 print(name, length)
 print(name + ' ' + b)
 print("name[3]:", name[3])
-
+print(5* "\njenny\'s \"Lectures\"")
 #swap
 a = input("Enter the value of a: ")
 b = input("Enter the value of b: ")
