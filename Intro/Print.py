@@ -6,3 +6,12 @@ length = len(name)
 b = "molla"
 print(name, length)
 print(name + ' ' + b)
+
+#swap
+a = input("Enter the value of a: ")
+b = input("Enter the value of b: ")
+tmp = a
+a = b
+b = tmp
+print("Value of a is:", a)
+print("Value of b is:", b)
