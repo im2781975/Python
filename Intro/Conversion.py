@@ -9,3 +9,10 @@ print(0b101, 0B101)
 print(0x87, 0X87)
 #converted hexa to decimal to decimal
 print(type(0x87))
+length = len("ibrahim")
+print("Your name has " + str(length) + " characters");
+print(int("10") + int("10"))
+first = input("Enter integer:")
+sec = input("Enter integer:")
+sum = int(first) + int(sec)
+print(sum)
