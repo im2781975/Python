@@ -16,3 +16,8 @@ a = b
 b = tmp
 print("Value of a is:", a)
 print("Value of b is:", b)
+#calculate bmi
+weight = input("Entet weight: ")
+height = input("Enter height: ")
+bmi = int(weight)/float(height)**2
+print(round(bmi, 2))
