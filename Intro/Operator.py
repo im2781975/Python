@@ -36,5 +36,10 @@ e =5
 #it will compare address
 print(id(c) == id(d))
 print(id(e) == id(a))
-
+#Membership
+str = "ibrahim"
+print('m' in str)
+print('i' not in str)
+l = [1, 3 ,  5, 7]
+print(5 in l)
 
