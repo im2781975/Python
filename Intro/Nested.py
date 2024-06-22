@@ -43,4 +43,26 @@ if (num % 4 == 0 and num % 100 !=0) or (num % 400 == 0):
     print("Leap Year")
 else:
     print("Not Leap Year")
+
+#rolear coaster billing
+height = int(input("Enter height: "))
+bill = 0
+if height > 3:
+    print("Enter ride")
+    age = int(input("Enter age: "))
+    if age < 12:
+        bill = 150
+        print("Ticket price is 150")
+    elif age <= 18:
+        bill = 250
+        print("Ticket price is 250")
+    else:
+        bill = 500
+        print("Ticket price is 500")
+    want_photo = input("Do you want to take a photo(y/n): ")
+    if(want_photo == 'y' and want_photo != 'n'):
+        bill += 50
+    print(f"Total bill is {bill}")
+else:
+    print("Can't ride")
     """
