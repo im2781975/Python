@@ -12,4 +12,12 @@ if height > 3:
 else:
     print("Can't ride")
 #number check
-
+num = int(input("Enter Integer: "))
+if num % 2 == 0:
+    print("Even")
+    if num > 30:
+        print("Greater than 30")
+    else:
+        print("Less than 30")
+else:
+    print("Odd");
