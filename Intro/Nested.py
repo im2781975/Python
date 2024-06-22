@@ -1,3 +1,4 @@
+"""
 #height check
 height = int(input("Enter height: "))
 if height > 3:
@@ -35,3 +36,11 @@ elif bmi < 35:
     print(f"your bmi is {bmi} & you are obese")
 else:
     print(f"your bmi is {bmi} & you are clinically unfit")
+    
+#leap year
+num = int(input("Enter Year: "))
+if (num % 4 == 0 and num % 100 !=0) or (num % 400 == 0):
+    print("Leap Year")
+else:
+    print("Not Leap Year")
+    """
