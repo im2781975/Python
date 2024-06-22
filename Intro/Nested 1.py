@@ -18,9 +18,10 @@ if add_peperoni == 'Y' or add_peperoni == 'y':
         bill += 30
     else:
         bill += 50
-add_cheese = input("Do you want peperoni: ")
+add_cheese = input("Do you want cheese: ")
 if add_cheese == 'Y' or add_cheese == 'y':
     if size == 's' or size == 'S':
-        bill += 30
+        bill += 20
     else:
         bill += 50
+print(f"Final bill is {bill}")
