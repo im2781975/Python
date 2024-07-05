@@ -23,3 +23,17 @@ print(num.pop(1)) #num.pop(idx)
 num.insert(2, 78)#(pos, value)
 print(num.count(0)) #count elements
 print(f"After append & insertion num is: {num} ")
+
+from random import *
+#import randorm
+#x = random.randint(a, b)
+#x = randint(a, b)
+x = randint(1, 7) #a <= x <= b
+x = randrange(1, 9) #a <= x < b
+x = random()
+x = uniform(1, 3) #a < x <=b,it will return floating point
+l = [2, 8, 5, 1, 9]
+x = choice(l)
+shuffle(l) #it shuffle the list
+print(l)
+print(x)
