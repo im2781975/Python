@@ -23,3 +23,13 @@ print(num.pop(1)) #num.pop(idx)
 num.insert(2, 78)#(pos, value)
 print(num.count(0)) #count elements
 print(f"After append & insertion num is: {num} ")
+
+#Nested list
+num = [1, 10, 15, [20, -10, 15], 17, -20]
+print(len(num))
+print(num[3][1], num[len(num) -1])
+#slice
+print(num[3][0:3], num[3][-1:3], num[3][::-1])
+#num[3][-1:3] num[pos][pos:length]
+num = [1, 10, 15, ["Aa", "Bb", "Cc"], 17, -20]
+print(num[3][0:3], num[3][-1:3], num[3][::-1], num[3][2])
