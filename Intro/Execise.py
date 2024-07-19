@@ -21,3 +21,16 @@ splited = name.split(" ")
 length = len(splited)
 x = random.randint(0, length -1)
 print(f"{splited[x]} will pay the bill ")
+
+#Hide money
+row1 = [-1, -1, -1]
+row2 = [-1, -1, -1]
+row3 = [-1, -1, -1]
+matrix = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3} ")
+position = input("Enter position: ");
+row = int(position[0])
+col = int(position[1])
+row_select = matrix[row - 1];
+row_select[col - 1] = 'x';
+print(f"{row1}\n{row2}\n{row3} ")
