@@ -34,3 +34,25 @@ col = int(position[1])
 row_select = matrix[row - 1];
 row_select[col - 1] = 'x';
 print(f"{row1}\n{row2}\n{row3} ")
+
+#rock-paper-scissors
+# 0 -> Rock, 1->paper, 2->scissors
+from random import *
+GameImages = ["rock", "paper", "scissors"]
+user = int(input("Enter (0/1/2): "))
+if user >= 3 and user < 0:
+    print("Invalid Input")
+else:
+    print(f"You choose {user} which is: {GameImages[user]} ")
+    computer = randint(0, 2)
+    print(f"Computer choice: {computer} which is {GameImages[computer]}")
+    if user == computer:
+        print("draw")
+    elif computer == 0 and user == 2:
+        print("You lose")
+    elif user == 0 and computer == 2:
+        print("You win")
+    elif user > computer:
+        print("You win")
+    elif user < computer:
+        print("You lose")
