@@ -20,3 +20,17 @@ for i in number:
     sqr.append(sq)
     print(sqr)
 print("List Of Square is: ", square)
+#For else
+#else portion will after completing the loop
+num = [2, 4, 6, 8]
+for i in num:
+    print(i)
+else:
+    print("Seccess")
+for i in num:
+    if i > 8:
+        print(i)
+        break
+else:
+    print("There hasn't int which is greater than 8")
+print("Out of loop")
