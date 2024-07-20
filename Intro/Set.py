@@ -46,3 +46,16 @@ set1.symmetric_difference(set2)
 set2.symmetric_difference_update(set1)
 set2.symmetric_difference_update((11, 15))
 print(set2)
+set1 = {1, 2, 3, 4, 5}
+set2 = {4, 10, 7, 8, -10}
+print(set1.isdisjoint(set2))
+print(set1.isdisjoint((['Hakim', 'sakib'])))
+#method
+print(set1.issubset(set2))
+#print(set1 <= set2)
+print(set1.issuperset(set2))
+#print(set1 >= set2)
+set2.clear()
+#del set2
+#it will remove whole set
+print(set2)
