@@ -56,3 +56,32 @@ else:
         print("You win")
     elif user < computer:
         print("You lose")
+
+#calculate avg height from a list of height
+height = input("Enter height: ")
+height_list = height.split()
+cnt = 0
+for height in height_list:
+    cnt += 1
+for i in range(0, cnt):
+    height_list[i] = int(height_list[i])
+total = 0
+for val in height_list:
+    total += val
+avg = 0
+avg = total/cnt
+print(round(avg))
+
+#calculate maximum number
+num = input("Enter values: ")
+val = num.split()
+cnt = 0
+for i in val:
+    cnt += 1
+for i in range(len(val)):
+    val[i] = int(val[i])
+maxi = val[0]
+for i in val:
+    if i > maxi:
+        maxi = i
+print(maxi)
