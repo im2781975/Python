@@ -16,3 +16,13 @@ first = input("Enter integer:")
 sec = input("Enter integer:")
 sum = int(first) + int(sec)
 print(sum)
+
+#indentation
+for i in range(5):
+    print("a")
+    print("b")
+    if i == 2:
+        print("welcome")
+        if True:
+            print("Hello")
+print("Bye")
