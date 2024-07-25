@@ -11,8 +11,33 @@ def DefaultArg(name, age, dept = "Cs"):
 def ArbetryArg(*num):
     sum = 0
     for i in num:
+        print(f"Elements are {i} ")
         sum += i
     print(f"Sum is: {sum} ")
+def ArbetryPosArg(*num, name):
+    sum = 0
+    print(name)
+    for i in num:
+        print(f"Elements are {i} ")
+        sum += i
+    print(f"Sum is: {sum} ")
+def ArbetryfPosArg(name, *num):
+    sum = 0
+    print(name)
+    for i in num:
+        print(f"Elements are {i} ")
+        sum += i
+    print(f"Sum is: {sum} ")
+#Arbetry key args
+#its a key_value pair like dictionary
+def Info(**kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+#args must be before kargs
+def info(*args, **kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+    print(args)
 add(7, 11)
 func("molla")
 func("Aslam")
@@ -26,3 +51,9 @@ greet("ibrahim", age = 28)
 DefaultArg("Mollavai", 26)
 DefaultArg("Mollavai", 26, "ME")
 ArbetryArg(9, 8, 7, 6, 5, 4)
+ArbetryPosArg(1, 3, 5, name = "Mollavai")
+#it will count 1 as a name
+ArbetryfPosArg(1, 3, 5)
+Info(name = "Ab", age = 34, dept = "Cs")
+Info(name = "Cd", age = 43)
+info(2, 4, 6, name = "Ab", age = 34, dept = "Cs")
