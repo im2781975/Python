@@ -45,3 +45,31 @@ for i in range(101):
         print(i, "FizzBuzz")
     else:
         print(i)
+
+#How many canes Of color need to paint a wall.(a cane max paint 7sq area )
+import math
+def PaintCalculation(height, weidth, coverage):
+    area = height * weidth
+    #NoOfCanes = round(area / coverage)
+    NoOfCanes = math.ceil(area / coverage)
+    print(f"{NoOfCanes} Canes need ")
+h = int(input("Enter height: "))
+w = int(input("Enter Weidth: "))
+cover = 7
+PaintCalculation(height = h, weidth = w, coverage = cover)
+
+#prime checker
+import math
+def PrimeChecker(num):
+    IsPrime = True
+    if num == 1:
+        IsPrime = False
+    for i in range(2, math.ceil(num/2) + 1):
+        if num % i == 0:
+            IsPrime = False
+    if IsPrime == True:
+        print("Prime Number")
+    else:
+        print("Its not a prime number")
+num = int(input("Enter number: "))
+PrimeChecker(num)
