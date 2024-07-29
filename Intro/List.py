@@ -33,3 +33,41 @@ print(num[3][0:3], num[3][-1:3], num[3][::-1])
 #num[3][-1:3] num[pos][pos:length]
 num = [1, 10, 15, ["Aa", "Bb", "Cc"], 17, -20]
 print(num[3][0:3], num[3][-1:3], num[3][::-1], num[3][2])
+
+#Dict
+#num = { 'A': 123, 'B': 235,'C': 789,'A' : 666,}
+#duplicate key will be override
+#num = dict({ 'A': 123, 'B': 235,'C': 789,'A' : 666,})
+num = dict([('A', 1234), ('B', 2345), ('C', 3456)])
+num['D'] = {4567, 7777, 9999}
+num['B'] ={'Home':9876, 'work':5432}
+num['A'] = 2345
+print(num)
+print(num['A'])
+print(num['B'], num['B']['work'])
+print(num.get('B'))
+for i in num:
+    print(i)
+    print(num[i])
+#it will print dictionary or tuple pair
+for i in num.items():
+    print(i)
+#copy
+xyz = num.copy()
+print("--")
+print(xyz)
+print(len(xyz))
+print("--")
+data = {
+    1: 'abc', 2: 'bcd', 0: 'cde',
+}
+print(data[0])
+print(data.keys())
+print(data.values())
+print(data.items())
+#for delete key
+del data[2]
+#print(data.pop(0))
+print(data.popitem())
+data.clear()
+print(data)
