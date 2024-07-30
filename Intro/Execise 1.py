@@ -73,3 +73,26 @@ def PrimeChecker(num):
         print("Its not a prime number")
 num = int(input("Enter number: "))
 PrimeChecker(num)
+
+#marks to grade
+studentMarks = { "A":23, "B": 35, "C":78}
+grade = {}
+for i in studentMarks:
+    marks = studentMarks[i]
+    if marks > 90:
+        grade[i] = "A+"
+    elif marks > 80:
+        grade[i] = "A"
+    elif marks > 70:
+        grade[i] = "B+"
+    elif marks > 60:
+        grade[i] = "B"
+    elif marks > 50:
+        grade[i] = "C"
+    elif marks > 40:
+        grade[i] = "D"
+    else:
+        grade[i] = "F"
+print(grade)
+    
+    
