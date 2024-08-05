@@ -55,3 +55,37 @@ def DaysInMonth(year, month):
 year = int(input("Enter Year: "))
 month = int(input("Enter Month: "))
 print(DaysInMonth(year, month))
+
+#Calculator
+def add(a, b):
+    return a + b
+def sub(a, b):
+    return a - b
+def mult(a, b):
+    return a * b
+def Div(a, b):
+    return a/b
+Operations = {
+    "+" : add, "-" : sub, "*" : mult, "/" : Div,
+}
+def Calculator():
+    num = int(input("Enter num: "))
+    for i in Operations:
+        print(i)
+    flag = True
+    while flag:
+        symbol = input("Pick an Operation: ")
+        num2 = int(input("Enter 2nd Number: "))
+        CalculatorFunc = Operations[symbol]
+        output = CalculatorFunc(num, num2)
+        print(f"{num} {symbol} {num2} = {output} ")
+        ShouldContinue = input(f"Enter 'y' to continue with {output} & 'n' for continue with new calculation else 'x' for exits ").lower()
+        if ShouldContinue == 'y':
+            num = output
+        elif ShouldContinue == 'n':
+            flag = False
+            Calculator()
+        elif ShouldContinue == 'x':
+            flag = False
+            print("Bye")
+Calculator()
