@@ -31,3 +31,32 @@ for i in range(0, 100, 2):
     #exclude 100
     total += i
 print(total)
+
+#return
+def FormateName(name, surname):
+    name.title()
+    surname.title()
+    FormattedName = name.title()
+    FormattedSurname = surname.title()
+    print(f"{FormattedName} {FormattedSurname} ")
+    print(f"{name} {surname} ")
+    
+FormateName("Molla", "vai")
+import statistics
+def MeanMedianMode(list1):
+    return statistics.mean(list1), statistics.mode(list1), statistics.median(list1)
+    #return [statistics.mean(list1), statistics.mode(list1), statistics.median(list1)]
+print(MeanMedianMode([2, 4, 1, 7, 5, 9]))
+a, b, c = MeanMedianMode([2, 4, 1, 7, 5, 9])
+print(f"Mean is {a}\nMode is {b}\nMedian is {c}")
+
+
+def add(a, b):
+    if a == 0 & b == 0:
+        return"entered zero for both"
+    else:
+        return a + b
+x = int(input("First variable: "))
+y= int(input("Second variable: "))
+print(add(x, y))
+
