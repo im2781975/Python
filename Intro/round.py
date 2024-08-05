@@ -60,3 +60,9 @@ x = int(input("First variable: "))
 y= int(input("Second variable: "))
 print(add(x, y))
 
+def func(x):
+    return x + 1
+def func2(a, b):
+    return a + b
+x = func2(9, 11)
+print(func(x))
