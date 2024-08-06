@@ -89,3 +89,41 @@ def Calculator():
             flag = False
             print("Bye")
 Calculator()
+
+#Guess the number
+import random
+EasyLevel = 10
+HardLevel = 5
+def SetDifficulties(level):
+    if level == 'easy':
+        return EasyLevel
+    if level == 'hard':
+        return HardLevel
+def CheckNumber(GuessNumber, ans, attempt):
+    if GuessNumber < ans:
+        print("Guess is too low")
+        return attempt - 1
+    elif GuessNumber > ans:
+        print("Guess is too high")
+        return attempt - 1
+    else:
+        print(f"Guess is right..ans is {answer} ")
+print("Assume number from 1 to 50: ")
+answer = random.randint(1, 51)
+level = input("choose difficulty...'easy' or 'hard': ")
+attempt = SetDifficulties(level)
+if attempt != EasyLevel and attempt != HardLevel:
+    print("Wrong Entered.play again")
+    
+GuessNumber = 0
+while GuessNumber != answer:
+    print(f"{attempt} left ")
+    GuessNumber = int(input("Guess Number: "))
+    attempt = CheckNumber(GuessNumber, answer, attempt)
+    if attempt == 0:
+        print("You loose")
+        break
+    elif GuessNumber != answer:
+        print("Guess again")
+        
+        
