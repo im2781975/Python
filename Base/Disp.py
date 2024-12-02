@@ -105,6 +105,13 @@ for num in number:
     if sum > 20:
         print("Greater ", sum)
 print(sum)
+num = [5, 10, 15, 20]
+sum = 0
+for i in num[:]:  # Iterating over a copy of the list
+    sum += i
+    num.append(sum)
+print(num)
+
 text = "ibrahim"
 for char in text:
     print(char)
