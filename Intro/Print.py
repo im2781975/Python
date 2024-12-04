@@ -16,15 +16,3 @@ a = b
 b = tmp
 print("Value of a is:", a)
 print("Value of b is:", b)
-#calculate bmi
-weight = input("Entet weight: ")
-height = input("Enter height: ")
-bmi = int(weight)/float(height)**2
-print(round(bmi, 2))
-#left age
-age = int(input("Enter age: "))
-year_left = 90 - age
-days_left = year_left*365
-month_left = year_left*12
-weeks_left = year_left * 52
-print(f"you have left {days_left} days, {month_left} months, {weeks_left} weeks")
