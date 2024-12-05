@@ -21,6 +21,7 @@ else:
     print("No")
 print(x)
 #tuple is immuteable
+
 #list
 name = ['Alice', 'Bob', 'Craig', 'Diana', 'Eric']
 name.insert(1, 'Sia')
@@ -31,6 +32,7 @@ name.reverse()
 for element in name:
     print(element)
 print(name.count('Alice'))
+
 #dict
 state = {
     'A' : 'B', 'C' : 'D',
@@ -39,6 +41,7 @@ state = {
 print(state['A'])
 for k in state.keys():    
     print('{} is the capital of {}'.format(state[k], k))
+
 #set
 from collections import defaultdict
 state_capitals = defaultdict(lambda: 'Boston', {
@@ -48,16 +51,19 @@ state_capitals = defaultdict(lambda: 'Boston', {
     'Georgia': 'Atlanta'
 })
 print(state_capitals['Alabama'])
+
 #string
 s = """w'o"w""" 
 print(repr(s))
 print(str(s)) 
 print(eval(repr(s)) == s)
+
 #datetime
 import datetime 
 today = datetime.datetime.now() 
 print(str(today))
 print(repr(today))
+
 #class
 class Represent(object):    
     def __init__(self, x, y):        self.x, self.y = x, y    
