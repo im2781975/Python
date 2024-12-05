@@ -1,4 +1,20 @@
+#keyword
+import keyword
+print(keyword.kwlist)
+
+#assign value
+a, b, _ = 1, 2, 3
+print(a, b, _)
+c = d = e = 1
+print(c, d, e)
+x = y = [12, 13, 14]
+x = [9, 10, 11]
+y[0] = -1
+print(x, y)
+n = [1, 2, [3, 4, 5], 6]
+print(n[2], n[2][2])
 print(reversed("Hello"))
+
 #isinstance
 i = 7
 if isinstance(i, int):
