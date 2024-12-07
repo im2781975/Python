@@ -122,3 +122,19 @@ print(dic.keys(), dic.values())
 tuple = (123, 'hello') 
 tuple1 = ('world')
 print(tuple, tuple[0])
+
+#Enum
+from enum import Enum
+class Color(Enum):    
+    red = 1    
+    green = 2    
+    blue = 3 
+print(Color.red)  
+print(Color(1))  
+print(Color['red']) 
+
+class Colour(Enum):   
+    red = 1   
+    green = 2   
+    blue = 3
+[c for c in Colour]
