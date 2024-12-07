@@ -9,9 +9,9 @@ print(A.difference(B))
 print(A.symmetric_difference(B))
 #print(A ^ B)
 print(A.issuperset(B))
-print(A >= B)
+#print(A >= B)
 print(A.issubset(B))
-print(A <= B)
+#print(A <= B)
 print(A.isdisjoint(B))
 
 
