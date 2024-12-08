@@ -44,3 +44,6 @@ unique_A = set(A)
 print(unique_A)
 print(list(set(unique_A)))
 
+from collections import Counter
+A = Counter(['a','b','b','c'])
+print(A)
