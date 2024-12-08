@@ -13,7 +13,15 @@ print(A.issuperset(B))
 print(A.issubset(B))
 #print(A <= B)
 print(A.isdisjoint(B))
-
+A.update(B)
+#A |= B
+print(A)
+A.intersection_update(B)
+A &= B
+print(A)
+A.difference_update(B)
+A -= B
+print(A)
 
 #Existence check
 print(2 in {1, 2, 3})
