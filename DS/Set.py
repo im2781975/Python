@@ -17,11 +17,14 @@ A.update(B)
 #A |= B
 print(A)
 A.intersection_update(B)
-A &= B
+#A &= B
 print(A)
 A.difference_update(B)
-A -= B
+#A -= B
 print(A)
+print(len(A), len(B))
+print(len(A & B) == 0)
+print((A & B) == set())
 
 #Existence check
 print(2 in {1, 2, 3})
