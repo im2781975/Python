@@ -21,3 +21,16 @@ float + float = float
 float + complex = complex
 complex + complex =complex
 
+import math
+a, b = 1, 2
+#return radian
+res = math.sinh(a)
+res = math.cosh(a)
+#return arc tangent of pi
+res = math.atan(math.pi)
+# returns the Euclidean norm, same as math.sqrt(a*a + b*b)
+res = math.hypot(a, b)
+res = math.degrees(a)
+res = math.radians(57.29577951308232)
+
+print(3 * ('ab'), 3 * ('a', 'b'))
