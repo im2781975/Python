@@ -35,4 +35,9 @@ A.discard(7)
 A.remove(2)
 print(A)
 
+#print unique element
+A = [1, 2, 3, 1, 4, 5]
+unique_A = set(A)
+print(unique_A)
+print(list(set(unique_A)))
 
