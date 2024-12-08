@@ -15,3 +15,16 @@ print(A.issubset(B))
 print(A.isdisjoint(B))
 
 
+#Existence check
+print(2 in {1, 2, 3})
+print(4 not in{1, 2, 3})
+
+#Add or discard
+A = {1, 2, 3, 4, 5}
+A.add(6)
+A.discard(7)
+#if element not in set remove() give error
+A.remove(2)
+print(A)
+
+
