@@ -35,3 +35,7 @@ res = math.radians(57.29577951308232)
 
 print(3 * ('ab'), 3 * ('a', 'b'))
 
+import cmath
+complex_num = cmath.sqrt(-1) 
+while complex_num: 
+    print(complex_num)  
