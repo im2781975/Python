@@ -55,3 +55,22 @@ d['key'] = 'full'
 d['key']          
 d = {}
 d.setdefault('Another_key', []).append("This worked!")
+
+fish = {'name': "Nemo", 'hands': "fins", 'special': "gills"} 
+dog = {'name': "Clifford", 'hands': "paws", 'color': "red"}
+fishdog = {**fish, **dog}
+print(fishdog)
+from collections import ChainMap 
+dict(ChainMap(fish, dog))
+{'hands': 'fins', 'color': 'red', 'special': 'gills', 'name': 'Nemo'}
+from itertools import chain 
+dict(chain(fish.items(), dog.items())) 
+{'hands': 'paws', 'color': 'red', 'name': 'Clifford', 'special': 'gills'}
+fish.update(dog) 
+print(fish)
+
+mydict = { 'a': '1', 'b' : '2'}
+print(mydict.keys())
+print(mydict.values())
+print(mydict.items())
+
