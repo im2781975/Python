@@ -93,3 +93,56 @@ Person("Jon Skeet", datetime.date(1991, 7, 6), 185)]
 person.sort(key=attrgetter('name'))
 by_birthday = attrgetter('birthday') 
 person.sort(key=by_birthday) 
+
+b = ["blah"] * 3
+b.clear()
+b = [1, 3, 5] * 5
+a = list(range(10)) 
+del a[::2] 
+del a[-1] 
+del a[:]
+
+lst = [1, 2, 3, 4]
+lst[-1]  
+lst[-2]  
+lst[-5]
+lst[len(lst)-1]
+lst[1:]      
+lst[:3]      
+lst[::2]     
+lst[::-1]    
+lst[-1:0:-1] 
+lst[5:8]
+lst[1:10]
+lst[::-1] 
+lst[3:1:-1] 
+reversed(lst)[0:2]
+
+data = 'chandan purohit    22 2000'
+name_slice = slice(0,19)
+age_slice = slice(19,21) 
+salary_slice = slice(22,None)
+print(data[name_slice]) 
+print(data[age_slice])
+print(data[salary_slice])
+
+lst = []
+if not lst:   
+    print("list is empty")
+
+my_list = ['foo', 'bar', 'baz']
+for item in my_list:    
+    print(item)
+for (index, item) in enumerate(my_list):    
+    print('The item in position {} is: {}'.format(index, item))
+for i in range(0,len(my_list)):    print(my_list[i])
+for item in my_list:    
+    if item == 'foo':        
+        del my_list[0]    
+    print(item)
+
+lst = ['test', 'twest', 'tweast', 'treast'] 
+'test' in lst 
+'toast' in lst
+slst = set(lst)
+'test' in slst
