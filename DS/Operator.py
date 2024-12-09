@@ -46,3 +46,49 @@ if 3.14 < x < 3.142:
     print("x is near pi")
 else:
     print("Outer")
+
+#comparizon operator
+if 1 > -1 < 2 > 0.5 < 100 != 24:
+    print("Yes")
+else:
+    print("No")
+    
+a = b = 'Python is fun!'
+print(a == b, a is b)
+a = [1, 2, 3, 4, 5] 
+b = a
+print(a == b, a is b)
+b = a[:]
+print(a == b, a is b)
+
+if myvar is not None:   
+    print("Not none");
+if myvar is None:    
+    print("None")
+    
+sentinel = object() 
+def myfunc(var = sentinel):
+    if var is sentinel:     
+        print("Yes")
+    else:   
+        print("No")
+        
+print("alpha" < "beta")
+print('12' != '1')
+print('12' == 12)
+
+class Foo(object):    
+    def __init__(self, item):        self.my_item = item
+    def __eq__(self, other):        return self.my_item == other.my_item   
+a = Foo(5)
+b = Foo(5) 
+a == b     
+a != b     
+a is b
+
+class Bar(object):    
+    def __init__(self, item):        self.other_item = item 
+    def __eq__(self, other):        return self.other_item == other.other_item    
+    def __ne__(self, other):        return self.other_item != other.other_item   
+c = Bar(5) 
+a == c    
