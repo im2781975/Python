@@ -17,3 +17,10 @@ for i in range(2,4):
 for s in lst[1::2]:    
     print(s) for i in range(1, len(lst), 2):
         print(lst[i])
+
+lst=[[1,2,3],[4,5,6],[7,8,9]]
+print (lst[0])
+print (lst[1])
+print (lst[2])
+print (lst[0][0])
+print (lst[0][1])
