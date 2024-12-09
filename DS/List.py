@@ -24,3 +24,72 @@ print (lst[1])
 print (lst[2])
 print (lst[0][0])
 print (lst[0][1])
+
+a = [1, 2, 3, 4, 5]
+b = [8, 9]
+a.append(6)
+a.append(b)
+a.extend(b)
+a.insert(0, 0)
+a.insert(2, 5)
+a.extend(range(3))
+a.index(7)
+a.index(7, 8)
+a.pop(2)
+a.pop(8)
+a.pop()
+a.remove(9)
+a.reverse()
+a.count(7)
+a.sort()
+a.sort(reverse=True)
+my_string = "hello world"
+a.append(my_string)
+
+a = [1, 2, 3, 4, 5, 6] + [7, 7] + b
+
+import datetime
+class Person(object):   
+    def __init__(self, name, birthday, height):        
+        self.name = name        
+        self.birthday = birthday
+        self.height = height   
+    def __repr__(self):        return self.name
+l = [Person("John Cena", datetime.date(1992, 9, 12), 175),     
+Person("Chuck Norris", datetime.date(1990, 8, 28), 180),     
+Person("Jon Skeet", datetime.date(1991, 7, 6), 185)]
+l.sort(key=lambda item: item.name)
+l.sort(key=lambda item: item.birthday)
+l.sort(key=lambda item: item.height)
+
+import datetime
+l = [{'name':'John Cena', 'birthday': datetime.date(1992, 9, 12),'height': 175}, {'name': 'Chuck Norris', 'birthday': 
+    datetime.date(1990, 8, 28),'height': 180}, {'name': 'Jon Skeet', 'birthday': 
+        datetime.date(1991, 7, 6), 'height': 185}]
+l.sort(key=lambda item: item['name'])
+l.sort(key=lambda item: item['birthday'])
+l.sort(key=lambda item: item['height'])
+
+import datetime
+l = [{'name':'John Cena', 'birthday': datetime.date(1992, 9, 12),'size': {'height': 175, 'weight': 100}}, {'name': 'Chuck Norris', 'birthday': 
+    datetime.date(1990, 8, 28),'size' : {'height': 180, 'weight': 90}}, {'name': 'Jon Skeet', 'birthday': 
+        datetime.date(1991, 7, 6), 'size': {'height': 185, 'weight': 110}}] 
+l.sort(key=lambda item: item['size']['height'])
+        
+from operator import itemgetter,attrgetter 
+people = [{'name':'chandan','age':20,'salary':2000},          {'name':'chetan','age':18,'salary':5000},          {'name':'guru','age':30,'salary':3000}]
+by_age = itemgetter('age') 
+by_salary = itemgetter('salary') 
+people.sort(key=by_age)
+people.sort(key=by_salary)
+
+list_of_tuples = [(1,2), (3,4), (5,0)] 
+list_of_tuples.sort(key=itemgetter(1)) 
+print(list_of_tuples)
+
+persons = [Person("John Cena", datetime.date(1992, 9, 12), 175),           
+Person("Chuck Norris", datetime.date(1990, 8, 28), 180),         
+Person("Jon Skeet", datetime.date(1991, 7, 6), 185)]
+person.sort(key=attrgetter('name'))
+by_birthday = attrgetter('birthday') 
+person.sort(key=by_birthday) 
