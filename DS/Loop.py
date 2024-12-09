@@ -62,3 +62,22 @@ for i in range(2):
         break 
 else:    
     print('done')
+
+a = [1, 2, 3, 4] 
+for i in a:    
+    if type(i) is not int:        print(i)        
+        break 
+    else:    
+        print("no exception")
+
+a = 10 
+while True:    
+    a = a-1    
+    print(a)    
+    if a<7:        
+        break
+print('Done.')
+
+i = 0 
+while i < 4:
+    i = i + 1
