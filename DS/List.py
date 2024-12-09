@@ -146,3 +146,53 @@ lst = ['test', 'twest', 'tweast', 'treast']
 'toast' in lst
 slst = set(lst)
 'test' in slst
+
+alist = ['a1', 'a2', 'a3']
+blist = ['b1', 'b2', 'b3']
+for a, b in zip(alist, blist):    print(a, b)
+
+alist = ['a1', 'a2', 'a3'] 
+blist = ['b1', 'b2', 'b3', 'b4']
+for a, b in zip(alist, blist):    print(a, b)
+
+alist = [] len(list(zip(alist, blist)))
+
+alist = ['a1', 'a2', 'a3']
+blist = ['b1'] 
+clist = ['c1', 'c2', 'c3', 'c4'] 
+for a,b,c in itertools.zip_longest(alist, blist, clist):
+    print(a, b, c)
+    
+alist = [123, 'xyz', 'zara', 'abc'] 
+alist.insert(3, [2009]) print("Final List :", alist)
+
+len(['one', [2, 3], 'four']) 
+names = ["aixk", "duke", "edik", "tofp", "duke"] 
+list(set(names))
+import collections
+collections.OrderedDict.fromkeys(names).keys()
+
+alist = [[[1,2],[3,4]], [[5,6,7],[8,9,10], [12, 13, 14]]]
+print(alist[0][0][1])
+print(alist[1][1][2])
+alist[0][0].append(11)
+print(alist[0][0][2])
+for row in alist:
+    for col in row:       
+        print(col)
+[col for row in alist for col in row]
+alist[1].insert(2, 15)
+for row in range(len(alist)): 
+    for col in range(len(alist[row])):       
+        print(alist[row][col])
+print(alist[1][1:])
+print(alist)
+
+my_list = [None] * 10 
+my_list = ['test'] * 10
+my_list=[{1}] * 10
+print(my_list)
+my_list[0].add(2)
+print(my_list)
+my_list=[{1} for _ in range(10)]
+
