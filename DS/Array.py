@@ -24,3 +24,6 @@ my_char_array = array('c', ['g','e','e','k'])
 print(my_char_array.tostring())
 
 my_array = array('i', [1,2,3,4,5]) c = my_array.tolist()
+my_char_array = array('c', ['g','e','e','k']) 
+my_char_array.fromstring("stuff") 
+print(my_char_array)
