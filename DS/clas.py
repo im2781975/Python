@@ -137,4 +137,124 @@ class Person(object):
 bob = Person("Bob", "Bobberson", 42)
 alice = Person.from_full_name("Alice Henderson", 31)
 bob.greet()
+class Foo(object):    
+    def foo_method(self):        
+        print "foo Method" 
+class Bar(object):    
+    def bar_method(self):        
+        print "bar Method" 
+class FooBar(Foo, Bar):    
+    def foo_method(self):        
+        super(FooBar, self).foo_method()
+
+class Foo(object):        
+    def __init__(self):            
+        print "foo init"    
+class Bar(object):        
+    def __init__(self):            
+        print "bar init"    
+class FooBar(Foo, Bar):        
+    def __init__(self):            
+        print "foobar init"          
+        super(FooBar, self).__init__()   
+a = FooBar()
+print isinstance(a,FooBar)
+print isinstance(a,Foo)
+print isinstance(a,Bar)
+
+class MyClass(object):    
+    def __init__(self):       
+        self._my_string = ""     
+    @property    
+    def string(self):        
+        """A profoundly important string."""        
+        return self._my_string    
+    @string.setter    
+    def string(self, new_value):        
+        assert isinstance(new_value, str), "Give me a string, not a %r!" % type(new_value)        
+        self._my_string = new_value    
+        @string.deleter    
+        def x(self):        
+            self._my_string = None
+mc = MyClass() 
+mc.string = "String!" 
+print(mc.string) 
+del mc.string
+            
+class Character(object):    
+    def __init__(name, max_hp):        
+        self._name = name        
+        self._hp = max_hp        
+        self._max_hp = max_hp
+    @property    
+    def hp(self):        
+        return self._hp
+    @property 
+    def name(self):
+        return self.name 
+    def take_damage(self, damage): 
+        self.hp -= damage 
+        self.hp = 0 if self.hp <0 else self.hp 
+    @property 
+    def is_alive(self): 
+        return self.hp != 0 
+    @property 
+    def is_wounded(self): 
+        return self.hp < self.max_hp if self.hp > 0 else False 
+    @property 
+    def is_dead(self): 
+        return not self.is_alive
+bilbo = Character('Bilbo Baggins', 100) 
+bilbo.hp 
+bilbo.hp = 200      
+bilbo.is_alive 
+bilbo.is_wounded 
+bilbo.is_dead 
+bilbo.take_damage( 50 )
+bilbo.hp 
+bilbo.is_alive 
+bilbo.is_wounded 
+bilbo.is_dead 
+bilbo.take_damage( 50 ) 
+bilbo.hp 
+bilbo.is_alive 
+bilbo.is_wounded
+bilbo.is_dead
+
+class Rectangle(object):    
+    def __init__(self, width, height, color='blue'):        
+        self.width = width        
+        self.height = height        
+        self.color = color      
+    def area(self):       
+        return self.width  * self.height
+default_rectangle = Rectangle(2, 3) 
+print(default_rectangle.color) # 
+blue red_rectangle = Rectangle(2, 3, 'red') 
+print(red_rectangle.color)
+
+class Rectangle2D(object):    
+    def __init__(self, width, height, pos=[0,0], color='blue'):          
+        self.width = width        
+        self.height = height        
+        self.pos = pos       
+        self.color = color 
+r1 = Rectangle2D(5,3)
+r2 = Rectangle2D(7,8) 
+r1.pos[0] = 4 
+r1.pos 
+r2.pos
+
+class Rectangle2D(object):    
+    def __init__(self, width, height, pos=None, color='blue'):          
+        self.width = width        
+        self.height = height        
+        self.pos = pos or [0, 0]
+        self.color = color
+r1 = Rectangle2D(5,3)
+r2 = Rectangle2D(7,8) 
+r1.pos[0] = 4
+r1.pos 
+r2.pos
+
 
