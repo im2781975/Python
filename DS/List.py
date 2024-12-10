@@ -234,3 +234,100 @@ for x in range(10):
 print(even_numbers)
 
 [x if x % 2 == 0 else None for x in range(10)]
+
+data = [[1, 2], [3, 4], [5, 6]] 
+output = [element for each_list in data for element in each_list] 
+print(output)
+
+data = [[1,2],[3,4],[5,6]] 
+def f():
+    output=[]
+    for each_list in data:         
+        for element in each_list:    
+            output.append(element)      
+    return output
+    
+data = [[1], [2, 3], [4, 5]] 
+output = [element for each_list in data                if len(each_list) == 2                for element in each_list                if element != 5] 
+print(output)
+
+[x**2 for x in range(10)]
+
+for i in [x**2 for x in range(10)]:   
+    print(i)
+for square in (x**2 for x in range(1000000)):
+    
+{x for x in range(5)}
+{x for x in range(1, 11) if x % 2 == 0}
+
+text = "When in the Course of human events it becomes necessary for one people..." 
+{ch.lower() for ch in text if ch.isalpha()}
+
+filter(lambda x: x % 2 == 0, range(10)) 
+map(lambda x: 2*x, range(10)) 
+reduce(lambda x,y: x+y, range(10)) 
+
+[x for x in range(10) if x % 2 == 0]
+[2*x for x in range(10)]
+
+filtered = filter(lambda x: x % 2 == 0, range(10))
+results = map(lambda x: 2*x, filtered)
+results = [2*x for x in range(10) if x % 2 == 0]
+
+[x + y for x, y in [(1, 2), (3, 4), (5, 6)]]
+[x + y for x, y in zip([1, 3, 5], [2, 4, 6])]
+
+for x, y in [(1,2), (3,4), (5,6)]:    print(x+y)
+[(x, y) for x, y in [(1, 2), (3, 4), (5, 6)]]
+
+print (sum(    1 for x in range(1000)    if x % 2 == 0 and    '9' in str(x) ))
+
+items = ["1","2","3","4"] 
+[int(item) for item in items]
+
+items = ["1","2","3","4"]
+map(float, items)
+
+[x + y for x in [1, 2, 3] for y in [3, 4, 5]]
+[[x + y for x in [1, 2, 3]] for y in [3, 4, 5]]
+
+l = [] 
+for y in [3, 4, 5]:    
+    temp = []   
+    for x in [1, 2, 3]:      
+        temp.append(x + y)    
+    l.append(temp)
+
+matrix = [[1,2,3], [4,5,6],      [7,8,9]]
+[[row[i] for row in matrix] for i in range(len(matrix))]
+[[[i + j + k for k in 'cd'] for j in 'ab'] for i in '12']
+
+list_1 = [1, 2, 3 , 4] 
+list_2 = ['a', 'b', 'c', 'd'] 
+list_3 = ['6', '7', '8', '9']
+[(i, j) for i, j in zip(list_1, list_2)]
+[(i, j, k) for i, j, k in zip(list_1, list_2, list_3)]
+
+lst = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+lst[::2]
+lst[::3]
+lst[2:4]
+lst[2:]
+lst[:4]
+
+a = [1, 2, 3, 4, 5]
+b = a[::-1]
+a.reverse()
+if a = b:   
+    print(True) 
+print(b)
+
+def shift_list(array, s):
+    s %= len(array)
+    s *= -1
+    shifted_array = array[s:] + array[:s]
+    return shifted_array
+my_array = [1, 2, 3, 4, 5]
+shift_list(my_array, -7)
+shift_list(my_array, 5)
+shift_list(my_array, 3)
