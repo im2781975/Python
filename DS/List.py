@@ -196,3 +196,41 @@ my_list[0].add(2)
 print(my_list)
 my_list=[{1} for _ in range(10)]
 
+squares = [x * x for x in (1, 2, 3, 4)]
+for x in (1, 2, 3, 4):    
+    squares.append(x * x)
+    
+[s.upper() for s in "Hello World"]
+[w.strip(',') for w in ['these,', 'words,,', 'mostly', 'have,commas,']]
+
+sentence = "Beautiful is better than ugly"
+["".join(sorted(word, key = lambda x: x.lower())) for word in sentence.split()]
+
+[x for x in 'apple' if x in 'aeiou' else '*']
+[x if x in 'aeiou' else '*' for x in 'apple']
+
+def foo(i):    
+    return i, i + 0.5 
+for i in range(3):    
+    for x in foo(i):   
+        yield str(x)
+        
+[str(x)   
+    for i in range(3)      
+        for x in foo(i) ]
+        
+[x.sort() for x in [[2, 1], [4, 3], [0, 1]]]
+[sorted(x) for x in [[2, 1], [4, 3], [0, 1]]]
+
+[print(x) for x in (1, 2, 3)]
+
+from random import randrange 
+[randrange(1, 7) for _ in range(10)]
+
+[x for x in range(10) if x % 2 == 0]
+
+for x in range(10):   
+    if x % 2 == 0:        even_numbers.append(x)
+print(even_numbers)
+
+[x if x % 2 == 0 else None for x in range(10)]
