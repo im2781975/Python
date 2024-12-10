@@ -331,3 +331,7 @@ my_array = [1, 2, 3, 4, 5]
 shift_list(my_array, -7)
 shift_list(my_array, 5)
 shift_list(my_array, 3)
+
+my_list = [3, -4, -2, 5, 1, 7] sorted( my_list, key=lambda x: abs(x))
+list( filter( lambda x: x>0, my_list))
+list( map( lambda x: abs(x), my_list))
