@@ -335,3 +335,42 @@ shift_list(my_array, 3)
 my_list = [3, -4, -2, 5, 1, 7] sorted( my_list, key=lambda x: abs(x))
 list( filter( lambda x: x>0, my_list))
 list( map( lambda x: abs(x), my_list))
+
+def append(elem, to=[]):
+    to.append(elem) 
+    return to
+append(1)
+append(3, [])
+
+def append(elem, to=None):
+    if to is None:      
+        to = []
+    to.append(elem)    
+    return to
+    
+def foo(x):
+    x[0] = 9
+    print(x)
+y = [4, 5, 6] 
+foo(y)    
+print(y)
+
+def foo(x): 
+    x[0] = 9          
+    x = [1, 2, 3]  
+    x[2] = 8     
+y = [4, 5, 6]  
+foo(y)          
+y
+
+x = [3, 1, 9]
+y = x 
+x.append(5)  
+x.sort()      
+x = x + [4]   
+z = x          
+x += [6]       
+x = sorted(x) 
+x 
+y 
+z
