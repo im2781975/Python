@@ -179,3 +179,147 @@ arg_dict = {'d':4, 'c':3}
 unpacking(1, 2, **arg_dict)
 arg_dict = {'c':3, 'd':4, 'not_a_parameter': 75}
 unpacking(1, 2, **arg_dict)
+
+def func(myList):   
+    for item in myList:       
+        print(item)
+func([1,2,3,5,7])
+aList = ['a','b','c','d'] 
+func(aList)
+
+s=lambda x:x*x s(2)  
+name_lengths = map(len, ["Mary", "Isla", "Sam"]) 
+print(name_lengths) 
+
+total = reduce(lambda a, x: a + x, [0, 1, 2, 3, 4])
+print(total)  
+
+arr=[1,2,3,4,5,6]
+[i for i in filter(lambda x:x>4,arr)]
+
+def raise(x, y): 
+    if y in (3,4,5): 
+        return x**y 
+    raise NumberNotInRangeException("You should provide a valid exponent")
+from functors import partial 
+raise_to_three = partial(raise, y=3) 
+raise_to_four = partial(raise, y=4) 
+raise_to_five = partial(raise, y=5)
+
+def print_args(func):    
+    def inner_func(*args, **kwargs):        
+        print(args)      
+        print(kwargs)
+        return func(*args, **kwargs)   
+    return inner_func
+@print_args 
+def multiply(num_a, num_b):    return num_a * num_b
+print(multiply(3, 5))
+
+class Decorator(object):    
+    """Simple decorator class."""   
+    def __init__(self, func):        self.func = func    
+    def __call__(self, *args, **kwargs):        
+        print('Before the function call.')        
+        res = self.func(*args, **kwargs)        
+        print('After the function call.')       
+        return res
+@Decorator 
+def testfunc():    
+    print('Inside the function.') 
+testfunc()
+    
+from types import MethodType 
+class Decorator(object):  
+    def __init__(self, func):
+        self.func = func
+    def __call__(self, *args, **kwargs): 
+        print('Inside the decorator.')
+        return self.func(*args, **kwargs)
+    def __get__(self, instance, cls): 
+        return self if instance is None else MethodType(self, instance)
+class Test(object): 
+    @Decorator
+    def __init__(self): 
+        pass
+a = Test()
+
+from types import MethodType 
+class CountCallsDecorator(object): 
+    def __init__(self, func):
+        self.func = func 
+        self.ncalls = 0    # 
+    def __call__(self, *args, **kwargs): 
+        self.ncalls += 1 
+        return self.func(*args, **kwargs) 
+    def __get__(self, instance, cls): 
+        return self if instance is None else MethodType(self, instance) 
+class Test(object):
+    def __init__(self): 
+        pass 
+    @CountCallsDecorator
+    def do_something(self): 
+        return 'something was done' 
+a = Test() 
+a.do_something() 
+a.do_something.ncalls  
+b = Test() 
+b.do_something()
+b.do_something.ncalls 
+
+def decoratorfactory(message):    def decorator(func):       
+        def wrapped_func(*args, **kwargs):            
+            print('The decorator wants to tell you: {}'.format(message))            
+            return func(*args, **kwargs)        
+        return wrapped_func  
+    return decorator
+@decoratorfactory('Hello World') 
+def test():   
+    pass 
+test()
+
+def decoratorfactory(*decorator_args, **decorator_kwargs):    
+    class Decorator(object):        def __init__(self, func):           
+            self.func = func        
+        def __call__(self, *args, **kwargs):            
+            print('Inside the decorator with arguments {}'.format(decorator_args))           
+            return self.func(*args, **kwargs)           
+    return Decorator
+@decoratorfactory(10) 
+def test():   
+    pass 
+test()
+
+def decorator(func):    # Copies the docstring, name, annotations and module to the decorator    
+    @wraps(func)    
+    def wrapped_func(*args, **kwargs):        
+        return func(*args, **kwargs)    
+    return wrapped_func 
+@decorator 
+def test():   
+    pass 
+test.__name__
+
+class Decorator(object):    
+    def __init__(self, func):       
+        self._wrapped = wraps(func)(self)          
+    def __call__(self, *args, **kwargs):        
+        return self._wrapped(*args, **kwargs)
+@Decorator 
+def test():   
+    """Docstring of test."""
+    pass 
+test.__doc__
+
+import time 
+def timer(func):    
+    def inner(*args, **kwargs):
+        t1 = time.time()        
+        f = func(*args, **kwargs)        
+        t2 = time.time()        
+        print 'Runtime took {0} seconds'.format(t2-t1)        
+        return f    
+    return inner
+@timer 
+def example_function():   
+example_function()
