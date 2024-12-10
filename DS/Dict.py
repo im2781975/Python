@@ -156,3 +156,40 @@ dict1 = {'w': 1, 'x': 1}
 dict2 = {'x': 2, 'y': 2, 'z': 2}
 {k: v for d in [dict1, dict2] for k, v in d.items()}
 {**dict1, **dict2}
+
+things = [("animal", "bear"), ("animal", "duck"), ("plant", "cactus"), ("vehicle", "harley"),    ("vehicle", "speed boat"), ("vehicle", "school bus")]
+dic = {} 
+f = lambda x: x[0]
+for key, group in groupby(sorted(things, key=f), f):    
+    dic[key] = list(group) 
+dic
+
+things = [["animal", "bear"], ["animal", "duck"], ["vehicle", "harley"], ["plant", "cactus"],       ["vehicle", "speed boat"], ["vehicle", "school bus"]]
+dic = {} 
+f = lambda x: x[0]
+for key, group in groupby(sorted(things, key=f), f):   
+    dic[key] = list(group)
+dic
+
+c = groupby(['goat', 'dog', 'cow', 1, 1, 2, 3, 11, 10, ('persons', 'man', 'woman')])
+dic = {} 
+for k, v in c:
+    dic[k] = list(v)
+dic
+    
+list_things = ['goat', 'dog', 'donkey', 'mulato', 'cow', 'cat', ('persons', 'man', 'woman'),'wombat', 'mongoose', 'malloo', 'camel']
+c = groupby(list_things, key=lambda x: x[0])
+dic = {}
+for k, v in c:    
+    dic[k] = list(v) 
+dic
+
+list_things = ['goat', 'dog', 'donkey', 'mulato', 'cow', 'cat', ('persons', 'man', 'woman'), 'wombat', 'mongoose', 'malloo', 'camel'] 
+sorted_list = sorted(list_things, key = lambda x: x[0]) 
+print(sorted_list) 
+print()
+c = groupby(sorted_list, key=lambda x: x[0])
+dic = {}
+for k, v in c:   
+    dic[k] = list(v)
+dic
