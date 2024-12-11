@@ -257,4 +257,84 @@ r1.pos[0] = 4
 r1.pos 
 r2.pos
 
+class C:    
+    x = 2
+    def __init__(self, y):        self.y = y 
+C.x 
+c1 = C(3) 
+c1.x 
+c1.y 
+c2 = C(4) 
+c2.x 
+c2.y
+c2.x = 4 
+c2.x 
+C.x
+
+class D:   
+    x = []    
+    def __init__(self, item):        self.x.append(item)
+d1 = D(1) 
+d2 = D(2) 
+d1.x 
+d2.x 
+D.x
+
+class Country(object):   
+    def __init__(self):        
+        self.cities=[]           
+    def addCity(self,city):        self.cities.append(city)
+
+class City(object):   
+    def __init__(self, numPeople):        
+        self.people = []        
+        self.numPeople = numPeople                  
+    def addPerson(self, person):        
+        self.people.append(person)       
+    def join_country(self,country):        
+        self.country = country        
+        country.addCity(self)               
+        for i in range(self.numPeople):                
+            person(i).join_city(self) 
+class Person(object):    
+    def __init__(self, ID):        
+        self.ID=ID    
+    def join_city(self, city):        
+        self.city = city        
+        city.addPerson(self)           
+    def people_in_my_country(self):        
+        x= sum([len(c.people) for c in self.city.country.cities])        
+        return x       
+US=Country() 
+NYC=City(10).join_country(US) 
+SF=City(5).join_country(US) 
+print(US.cities[0].people[0].people_in_my_country())
+
+dir(list)
+[m for m in dir(list) if not m.startswith('__')]
+ 
+class Singleton:    
+    def __new__(cls):        
+    try:            
+        it = cls.__it__        
+    except AttributeError:            
+        it = cls.__it__ = object.__new__(cls)        
+    return it    
+    def __repr__(self):        
+        return '<{}>'.format(self.__class__.__name__.upper())    
+    def __eq__(self, other):         return other is self
+
+@Singleton 
+class Single:   
+    def __init__(self):        
+        self.name=None        
+        self.val=0    
+    def getName(self):        
+        print(self.name) 
+x=Single.Instance() 
+y=Single.Instance() 
+x.name='I\'m single'
+x.getName() 
+y.getName()
+
 
