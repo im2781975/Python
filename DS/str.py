@@ -161,3 +161,119 @@ string.punctuation '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 string.whitespace ' \t\n\r\x0b\x0c'
 string.printable '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'
 
+ "    a line with leading and trailing space     ".strip() 'a line with leading and trailing space'
+ 
+">>> a Python prompt".strip('> ') 
+
+"     spacious string      ".rstrip() '     spacious string'
+
+"     spacious string      ".rstrip() 'spacious string      '
+
+reversed('hello')
+[char for char in reversed('hello')]
+ 
+''.join(reversed('hello'))
+def reversed_string(main_string):    
+    return main_string[::-1]
+reversed_string('hello')
+
+"This is a sentence.".split()
+" This is    a sentence.  ".split()
+"            ".split()
+
+"This is a sentence.".split(' ')
+"Earth,Stars,Sun,Moon".split(',')
+" This is    a sentence.  ".split(' ')
+"This is a sentence.".split('e')
+"This is a sentence.".split('en')
+"This is a sentence.".split('e', maxsplit=0)
+"This is a sentence.".split('e', maxsplit=1)
+"This is a sentence.".split('e', maxsplit=2) 
+ "This is a sentence.".split('e', maxsplit=-1)
+"This is a sentence.".rsplit('e', maxsplit=1)
+ "This is a sentence.".rsplit('e', maxsplit=2)
+"Make sure to foo your sentence.".replace('foo', 'spam')
+"It can foo multiple examples of foo if you want.".replace('foo', 'spam')
+"""It can foo multiple examples of foo if you want, \ ... or you can limit the foo with the third argument.""".replace('foo', 'spam', 1)
+"Hello World".isalpha()
+"Hello2World".isalpha()
+"HelloWorld!".isalpha()
+"HelloWorld".isalpha()
+"HeLLO WORLD".isupper()
+"HELLO WORLD".isupper()
+"".isupper()
+"Hello world".islower()
+"hello world".islower()
+"".islower()
+"hello world".istitle()
+"Hello world".istitle()
+"Hello World".istitle()
+"".istitle()
+"Hello2World".isalnum()
+"HelloWorld".isalnum()
+"2016".isalnum()
+ "Hello World".isalnum()
+ "\t\r\n".isspace()
+" ".isspace()
+"".isspace()
+
+my_str = ''
+my_str.isspace()
+my_str.isspace() or not my_str
+not my_str.strip()
+
+"foo" in "foo.baz.bar"
+ "" in "test"
+ 
+" ".join(["once","upon","a","time"])
+"---".join(["once", "upon", "a", "time"])
+
+s = "She sells seashells by the seashore."
+s.count("sh")
+s.count("se")
+s.count("sea")
+s.count("seashells")
+s.count("sea", start)
+
+t = s[start:]
+t.count("sea")
+
+"ß".lower()
+"ß".upper().lower()
+"ß".upper().lower()
+
+import unicodedata
+[unicodedata.name(char) for char in "ê"]
+[unicodedata.name(char) for char in "e"]
+unicodedata.normalize("NFKD", "ê") == unicodedata.normalize("NFKD", "e")
+
+import unicodedata
+def normalize_caseless(text):    return unicodedata.normalize("NFKD", text.casefold())
+def caseless_equal(left, right):    return normalize_caseless(left) == normalize_caseless(right)
+
+interstates_lengths = {    5: (1381, 2222),    19: (63, 102),    40: (2555, 4112),    93: (189,305), }
+for road, length in interstates_lengths.items():    miles,kms = length
+print('{} -> {} mi. ({} km.)'.format(str(road).rjust(4), str(miles).ljust(4), str(kms).ljust(4)))
+
+
+s = "This is a test string"
+s.startswith("T")
+s.startswith("Thi")
+s.startswith("thi")  
+s.startswith("is", 2)
+s.startswith(('This', 'That'))
+s.startswith(('ab', 'bc'))
+s.endswith('.')
+s.endswith('!')
+s.endswith('stop.')
+s.endswith('Stop.')
+s.endswith(('.', 'something'))
+s.endswith(('ab', 'bc'))
+ 
+s = b'\xc2\xa9 abc'
+s[0]  
+type(s)    
+u = s.decode('utf-8') 
+u[0] 
+type(u)
+u.encode('utf-8') 
