@@ -10,6 +10,8 @@ print(f"x:{x},\nx[3]:{x[3]}, \nx[3][2]:{x[3][2]} ")
 #insert
 name = ['A', 'B', 'C', 'D', 'E']
 name.insert(1, 'F')
+print(len(name))
+name.reverse()
 if 'B' in name:
     name.remove('B')
 for i in name:
