@@ -12,4 +12,7 @@ name = ['A', 'B', 'C', 'D', 'E']
 name.insert(1, 'F')
 if 'B' in name:
     name.remove('B')
+for i in name:
+    print(i)
+print(name.count('A'))
 print(f"name: {name}, \nname.index[F]: {name.index('F')} ")
