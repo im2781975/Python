@@ -1,36 +1,4 @@
 
-print(reversed("Hello"))
-
-#isinstance
-i = 7
-if isinstance(i, int):
-    i += 1
-elif isinstance(i, str):
-    i = int(i);
-    i += 1
-
-#Muteable
-def muteable(m):
-    m.append(3)
-x = [1, 2]
-muteable(x)
-if x == [1, 2]:
-    print("Yes")
-else:
-    print("No")
-print(x)
-#tuple is immuteable
-
-#list
-name = ['Alice', 'Bob', 'Craig', 'Diana', 'Eric']
-name.insert(1, 'Sia')
-name.remove('Bob')
-name.index('Alice')
-len(name)
-name.reverse()
-for element in name:
-    print(element)
-print(name.count('Alice'))
 
 #dict
 state = {
