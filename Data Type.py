@@ -1,36 +1,3 @@
-
-
-#dict
-state = {
-    'A' : 'B', 'C' : 'D',
-    'E' : 'F', 'G' : 'H'
-}
-print(state['A'])
-for k in state.keys():    
-    print('{} is the capital of {}'.format(state[k], k))
-
-#set
-from collections import defaultdict
-state_capitals = defaultdict(lambda: 'Boston', {
-    'Arkansas': 'Little Rock',
-    'Colorado': 'Denver',
-    'California': 'Sacramento',
-    'Georgia': 'Atlanta'
-})
-print(state_capitals['Alabama'])
-
-#string
-s = """w'o"w""" 
-print(repr(s))
-print(str(s)) 
-print(eval(repr(s)) == s)
-
-#datetime
-import datetime 
-today = datetime.datetime.now() 
-print(str(today))
-print(repr(today))
-
 #class
 class Represent(object):    
     def __init__(self, x, y):       
@@ -47,33 +14,6 @@ print(rep)
 r2 = eval(rep) 
 print(r2)  
 print(r2 == r)
-#string
-ing = 'Helloword'
-print(ing[0 : 6])
-#set
-et = {'A', 'B', 'C', 'A', 'C'} 
-print(et)
-st= set('abcded') 
-st.add('z')
-print(st)
-frset = frozenset('Mollavai')
-print(frset)
-#set is muteable(mean can add or remove) but frozen is immuteable
-#list
-list = [123, 'abcd', 10.2, 'd']
-list1 = ['hello', 'world']
-print(list[0: 2])
-print(list * 2)
-print(list + list1)
-#dictionary
-dic={'name' : 'red', 'age' : 10}
-print(dic, dic['name'])
-print(dic.keys(), dic.values())
-#tuple(immuteable)
-tuple = (123, 'hello') 
-tuple1 = ('world')
-print(tuple, tuple[0])
-
 #Enum
 from enum import Enum
 class Color(Enum):    
