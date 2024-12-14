@@ -23,3 +23,11 @@ for i in range(1, 11):
     else:
         print(i)
 
+for i in range(5):
+    print("a")
+    print("b")
+    if i == 2:
+        print("Welcome")
+        if True:
+            print("Hello")
+print("Bye")
