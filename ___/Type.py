@@ -7,7 +7,7 @@ c = d = e = 1
 print(f"values are:",a, b, _, c, d, e)
 #Convert string
 a = "Hello"
-print(type(a), list[a], tuple(a), set(a))
+print(type(a), list[a], tuple(a), set(a), a[0 : 4])
 #datetime
 import datetime
 today = datetime.datetime.now()
