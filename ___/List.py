@@ -22,3 +22,13 @@ for i in name:
     print(i)
 print(name.count('A'))
 print(f"name: {name}, \nname.index[F]: {name.index('F')} ")
+
+l1 = [1, 2, 3, 4, 5]
+l2 = ['Aa', 'Bb', 'Cc', 'Dd', 'Ee']
+for item in l1:
+    for name in l2:
+        print(item, name)
+        if item == 4 and name == 'Cc':
+            break
+    print("Inner")
+print("outer")
