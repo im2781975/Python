@@ -8,3 +8,7 @@ print(f"values are:",a, b, _, c, d, e)
 #Convert string
 a = "Hello"
 print(type(a), list[a], tuple(a), set(a))
+#datetime
+import datetime
+today = datetime.datetime.now()
+print(repr(today), str(today))
