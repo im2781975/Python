@@ -7,6 +7,10 @@ print(f"x:{x}, y:{y}")
 x = [1, 2, 3, [4, 5, 6], 7]
 print(f"x:{x},\nx[3]:{x[3]}, \nx[3][2]:{x[3][2]} ")
 
+lst = [1, 3.60, 'Hello', 'd']
+tisl = ["Hello", "world"]
+lst += tisl
+print(lst, lst[0 : 2], lst * 2)
 #insert
 name = ['A', 'B', 'C', 'D', 'E']
 name.insert(1, 'F')
