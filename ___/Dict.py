@@ -3,6 +3,7 @@ state = {
     'E' : 'F', 'G' : 'H',
 }
 print(state['A'])
+print(state.keys(), state.values())
 for key in state.keys():
     print('{} is the capital of {}'.format(state[key], key))
 #defaultdict
