@@ -45,3 +45,27 @@ print(type(0o123), type(0b101), type(0x87))
 
 length = len("ibrahim")
 print("name has " + str(length) + " character")
+
+#decorator
+#decorator
+def double_dacker():
+    print("dacker")
+    def inner():
+        print("inner")
+        return inner
+    return double_dacker
+print(double_dacker())
+print(double_dacker()())
+double_dacker()()
+
+def something(work):
+    print("start")
+    print(work())
+    #work()
+    print("End")
+def coding():
+    print("coded")
+    return "done"
+#something(2)
+something(coding)
+    
