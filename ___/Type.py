@@ -33,3 +33,15 @@ except:
     print("Error heppend")
 finally:
     print("Done")
+#conversion
+x, y = 10, 20.5
+print(type(x), type(y))
+print(x + y)
+print("sum is:",int("10") + int("10"))
+print(0o123, 0O123) #octal to decimal
+print(0b101, 0B101) #Binary to decimal
+print(0x87, 0X87) #Hexa to decimal
+print(type(0o123), type(0b101), type(0x87))
+
+length = len("ibrahim")
+print("name has " + str(length) + " character")
