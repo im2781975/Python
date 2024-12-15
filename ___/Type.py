@@ -108,3 +108,14 @@ print(age, name, double, single)
 print(type(age), type(name), type(double), type(single))
 print(age + double, age * double)
 print(f"Name: {name}\nage: {age}\nmoney: {double}\nsingle: {single} ")
+
+first = input("Enter first: ")
+sec = input("Enter second: ")
+intFirst = int(first)
+intSec = int(sec)
+#relational
+print(f"first != second :{intFirst != intSec}\nfirst >= second :{intFirst >= intSec}\nfirst <= second :{intFirst <= intSec}\nfirst == second :{intFirst == intSec}")
+#Assing
+a, boss = 23, True
+a += 32 # a *= 5 # a -= 32 # a /= 2
+print(a)
