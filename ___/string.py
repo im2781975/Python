@@ -7,3 +7,8 @@ print(eval(repr(s)) == s)
 ing = "Hello"
 rev = reversed("Hello")
 print(rev)
+
+#concatenate string
+first = input("Enter first:")
+sec = input("Enter second: ")
+print(first + sec)
