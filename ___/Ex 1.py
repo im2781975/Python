@@ -30,3 +30,15 @@ sec = input("Enter second: ")
 intFirst = int(first)
 intSec = int(sec)
 print(f"Sum is: {intFirst + intSec}\nSubtract is: {intFirst - intSec}\nMult is: {intFirst * intSec}\nDiv is: {intFirst / intSec}\nModulo is: {intFirst % intSec}")
+
+#buy item
+balance = 3000
+def buy(item, price):
+    #access global variable
+    global balance
+    #balance = 3200
+    print(f"previous balance: {balance} ")
+    balance -= price
+    print(f"After Buy balance: {balance} ")
+buy('glass', 2200)
+print('Global balance is: ', balance)
