@@ -12,3 +12,7 @@ print(rev)
 first = input("Enter first:")
 sec = input("Enter second: ")
 print(first + sec)
+
+text = "ibrahim"
+for char in text:
+    print(char)
