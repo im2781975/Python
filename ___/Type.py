@@ -47,25 +47,55 @@ length = len("ibrahim")
 print("name has " + str(length) + " character")
 
 #decorator
-#decorator
 def double_dacker():
     print("dacker")
     def inner():
         print("inner")
         return inner
-    return double_dacker
+    return 3000
 print(double_dacker())
 print(double_dacker()())
 double_dacker()()
 
 def something(work):
     print("start")
-    print(work())
-    #work()
+   # print(work())
+    work()
     print("End")
 def coding():
     print("coded")
-    return "done"
-#something(2)
+# something(2)
 something(coding)
-    
+
+def tim(func):
+    def outer():
+        print("started")
+        print(func)
+        print("outer")
+    return outer
+def get():
+    print("Factorial starting")
+tim(get)()
+
+import time
+def timer(func):
+    def outer(*args, **kargs):
+        start = time.time()
+        print("starting")
+        res = func(*args, **kargs)
+        print("Ended")
+        end = time.time()
+        print({end - start})
+        return res
+    return outer
+import math
+@timer
+def fact(n):
+    print("start")
+    res = math.factorial(n)
+    print(res)
+timer(fact(n = 5))
+@timer
+def out():
+    print("Going")
+out()
