@@ -32,3 +32,16 @@ for item in l1:
             break
     print("Inner")
 print("outer")
+
+number = [5, 10, 15, 20]
+sum = 0
+for num in number:
+    sum += num
+    print(num)
+    if sum > 20:
+        print(f"{sum} is Greater than 20")
+print(sum)
+for i in number[:]:
+    sum += i
+    number.append(sum)
+print(number)
