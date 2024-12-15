@@ -60,3 +60,16 @@ if a > 5:
         print("Odd")
 else:
     print("less than 5")
+    
+num = 1
+while num <= 10:
+    num += 1
+    if num % 2 == 0:
+        continue
+    print(num)
+    if num == 8:
+        break
+#for i  in range(1, 11):
+#range[start, end, step]
+for i in range(1, 11, 2):
+    print(i)
