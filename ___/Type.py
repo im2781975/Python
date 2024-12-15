@@ -38,6 +38,9 @@ x, y = 10, 20.5
 print(type(x), type(y))
 print(x + y)
 print("sum is:",int("10") + int("10"))
+first = input("Enter first:")
+sec = input("Enter second: ")
+print(str(first), float(sec))
 print(0o123, 0O123) #octal to decimal
 print(0b101, 0B101) #Binary to decimal
 print(0x87, 0X87) #Hexa to decimal
