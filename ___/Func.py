@@ -68,3 +68,25 @@ def Immuteable(lst):
     lst.append(3)
 x = (2, 5)
 Immuteable(x), print(x)
+
+def address(first, last):
+    name = f"name is: {first} {last}"
+    return name
+#name = address('Molla', 'ibrahim')
+name = address(first = 'Molla', last = 'ibrahim')
+print(name)
+"""                         """
+def intro(*title, first, last):
+    name = f"name is: {title} {first} {last} "
+    return name
+name = intro(first = 'ibrahim', last = 'molla')
+#name = intro('Dj',first = 'ibrahim', last = 'molla',)
+print(name)
+"""                         """
+def intro(first, last, **add):
+    name = f"{first} {last} {add}"
+    #print(add)
+    #print(add['title'])
+    return name
+name = intro(first = "hasan" ,  last = "mahmud", title = "Dj", add = "artist")
+print(name)
