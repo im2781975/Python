@@ -44,7 +44,6 @@ if boss is True or boss is not False:
     print("True")
 else:
     print("False")
-    
 coin = 'head'
 if boss = False:
     print("False")
@@ -52,3 +51,12 @@ if boss = False:
         print("Batting")
     else:
         print("Bowling")
+        
+a = 23
+if a > 5:
+    if a % 2 == 0 and a > 7:
+        print("Even")
+    else:
+        print("Odd")
+else:
+    print("less than 5")
