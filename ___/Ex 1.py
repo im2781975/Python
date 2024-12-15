@@ -27,5 +27,6 @@ print(int(first) + int(sec))
 #sum & mult
 first = input("Enter first: ")
 sec = input("Enter second: ")
-print(int(first) + int(sec))
-print(int(first) * int(sec))
+intFirst = int(first)
+intSec = int(sec)
+print(f"Sum is: {intFirst + intSec}\nSubtract is: {intFirst - intSec}\nMult is: {intFirst * intSec}\nDiv is: {intFirst / intSec}\nModulo is: {intFirst % intSec}")
