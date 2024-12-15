@@ -13,3 +13,11 @@ stateCapital = defaultdict(lambda: 'Boston',{
     'E' : 'F', 'G' : 'H',
 })
 print(stateCapital['X'])
+"""                    """
+actress = [
+    {'name' : 'A', 'age' : 12}, {'name' : 'B', 'age' : 17},
+    {'name' : 'C', 'age' : 15}, {'name' : 'D', 'age' : 22}
+    ]
+junior = filter(lambda x : x['age'] < 20, actress)
+fiver = filter(lambda x : x['age'] % 2 == 0, actress)
+print(list(junior), list(fiver))
