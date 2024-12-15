@@ -90,3 +90,24 @@ def intro(first, last, **add):
     return name
 name = intro(first = "hasan" ,  last = "mahmud", title = "Dj", add = "artist")
 print(name)
+"""                     """
+def greet(name, age):
+    print(f"name: {name}, age: {age} ")
+#keyword arg should be after positional arg
+greet("molla", 29)
+greet(name = "Hasan", age = 34)
+"""             """
+def defaultArg(first, last, dpt = "CS"):
+    print(f"name: {first} {last}\ndept: {dpt}")
+#default arg should be provided after non def arg
+defaultArg("Molla", "vai", "ME")
+defaultArg("Hasan", "vai")
+"""               """
+def arbitryArg(*num):
+    sum = 0
+    for i in num:
+        print(f"Elements are: {i}")
+        sum += i
+    print(f"sum is: {sum} ")
+arbitryArg(4, 6, 8)
+"""         """
