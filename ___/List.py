@@ -45,3 +45,7 @@ for i in number[:]:
     sum += i
     number.append(sum)
 print(number)
+
+num = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+E = map(lambda x : x * x, num)
+print(list(E))
