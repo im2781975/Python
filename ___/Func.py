@@ -21,6 +21,41 @@ print(f'Sum is: {sum(78, 97)}')
 print(f'Sum is: {sum(78, 23, 97)}')
 print(f"Double of sum is: {sum(78, 97)}\n")
 
+def sum(*num):
+    total = 0
+    for n in num:
+        total += n
+        print(total)
+    return num
+print(sum(23, 45, 89))
+
+def sum(x, y, *args):
+    print(args)
+    total = 0
+    for num in args:
+        print(num)
+        total += num
+    return total
+print(sum(2, 3, 6, 8))
+
+def operation(a, b):
+    add = a + b
+    sub = a - b
+    mult = a * b
+    div = a / b
+    divInt = a // b
+    return [add, sub, mult, div, divInt]
+    #return add, sub, mult, div, divInt
+print(operation(7, 9))
+
+from func import double_it as dt
+print(dt(5))
+highest = max([1, 2, 3, 4, 5])
+lowest = min(1, 2, 3, 4, 5, 6)
+count = len([1, 5])
+final = sum([1, 2, 3, 4, 5])
+print(highest, lowest, count, final)
+
 #list is changeable but tuple no
 def Muteable(lst):
     lst.append(3)
