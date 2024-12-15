@@ -48,6 +48,8 @@ def operation(a, b):
     #return add, sub, mult, div, divInt
 print(operation(7, 9))
 
+#from build-in import *(all)
+#from [file name] import [function] as [our choice name]
 from func import double_it as dt
 print(dt(5))
 highest = max([1, 2, 3, 4, 5])
