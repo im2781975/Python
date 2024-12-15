@@ -36,3 +36,19 @@ def display():
     for i in range(1, 11):
         print(i)
 display()
+
+#in, not, not in, is, is not
+#or, and
+boss = True
+if boss is True or boss is not False:
+    print("True")
+else:
+    print("False")
+    
+coin = 'head'
+if boss = False:
+    print("False")
+    if coin == 'tail':
+        print("Batting")
+    else:
+        print("Bowling")
