@@ -41,3 +41,38 @@ info['lang'] = 'python'
 info['name'] = 'X'
 for key, value in info.items():
     print(key, value)
+    
+#num = {'A' : 23, 'B' : 34, 'C' : 45, 'A' : 56}
+#num = dict({'A' : 23, 'B' : 34, 'C' : 45, 'A' : 56})
+#Duplicate key will be ovverride
+num = dict([('A', 23), ('B', 34), ('C', 45)])
+num['D'] = {67, 78, 89}
+num['B'] = {'Home' : 9876, 'work' : 5462}
+num['A'] = 12
+print(f"num: {num}\nnum['A']: {num['A']}\nnum['B']['work']: {num['B']['work']}\nnum.get(B): {num.get('B')}\n")
+for i in num:
+    print(i)
+    print(num[i])
+#print tuple
+for i in num.items():
+    print(i)
+#copy dict
+cpy = num.copy()
+print(cpy, len(cpy))
+
+Data = { 1 : 'abc', 2 : 'bcd', 3 : 'cde'}
+print(f"data[1]: {Data[1]}\ndata.keys(): {Data.keys()}\ndata.values(): {Data.values()}\ndata.items(): {Data.items()} ")
+del Data[2] #For delete data
+print(Data.popitem())
+print(Data.popitem())
+Data.clear() #For.clear dict
+print(Data)
+
+Data = {
+    "A" : {"roll" : 23, "age" : 22, "course" : "python"},
+    "B" : {"roll" : 12, "age" : 24, "course" : "java", "num" : [234, 876]}
+}
+Data["A"]["num"] = 789
+del Data["A"]["num"]
+#print(Data["A"].pop("num"))
+print(f"Data: {Data}\nData[A]: {Data['A']}\nData[B][num]: {Data['B']["num"]} ")
