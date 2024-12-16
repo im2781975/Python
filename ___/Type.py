@@ -1,6 +1,24 @@
 #keyword
 import keyword
 print(keyword.kwlist)
+#comparison
+comp = 6
+print(f"6 == 6: {comp == 6}\n6 != 6: {comp != 6}\n6 >= 6: {comp >= 6}\n6 <= 6: {comp <= 6}\n7 == 6: {(comp + 1) == 6}")
+#logical
+a, b, c = 7, 9, True
+print((a > 4) and (b < 10) and c)
+print((a > 4) or (b < 10))
+print(not(c))
+#Bitwise
+print(f"7 | 9: {a | b}\n7 & 9: {a & b}\n7 ^ 9: {a ^ b}\n~7: {~a}\n7 << 2: {a << 2}")
+#identity operator
+print(f"7 is 9: {a is b}\n7 is not 9: {a is not b} ")
+ing = "ibrahim"
+print("m" in ing, "x" not in ing)
+c, d = 5, 5
+e = 5
+print(id(c) == id(e), id(d) == id(c))
+    
 # Assign value
 a, b, _ = 1, 2, 3
 c = d = e = 1
