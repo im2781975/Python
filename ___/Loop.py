@@ -134,3 +134,18 @@ while num != -1:
     total += num
     num = int(input("Enter val(-1 for exit): "))
 print(total)
+"""                """
+rang = range(5)
+print(f"rang: {rang}\nrang[1]: {rang[1]} ")
+rang = range(2, 10, 2)#(start, end, stp)
+for i in rang:
+    print(i, rang)
+for i in range(10, 0, -2):
+    print(i, rang)
+#sum of even
+total = 0
+#exclude 100 sum even
+for i in range(0, 100, 2):
+    total += i
+print(total)
+
