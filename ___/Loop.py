@@ -149,3 +149,45 @@ for i in range(0, 100, 2):
     total += i
 print(total)
 
+i = 25
+if i == 10: print("i is 10")
+elif i == 15: print("i is 15")
+elif i == 20: print("i is 20")
+else: 
+    print("i isn't present")
+"""                 """
+i = 10
+print(True) if i < 15 else print("False")
+"""                 """
+x = 0
+res = { x > 0 : "positive", x < 0 : "negatives "}.get(True, "zero")
+print(res)
+x = 0
+{x > 0 : print("positive"), x < 0 : print("negetive")}.get(True, print("Zero"))
+"""                 """
+letter = "A"
+if letter == "B":
+    print("letter is B")
+else:
+    if letter == "C":
+        print("letter is C")
+    else:
+        if letter == "A":
+            print("letter is A")
+        else:
+            print("letter isn't A, B, C")
+"""             """
+num = 10
+if num > 5:
+    print("greater than 5")
+    if num <= 15:
+        print("Between 5 & 15")
+"""                 """
+i = 0
+if i != 0:
+    if i > 0:
+        print("positive")
+    else:
+        print("Negetive")
+else:
+    print("Zero")
