@@ -73,3 +73,22 @@ while num <= 10:
 #range[start, end, step]
 for i in range(1, 11, 2):
     print(i)
+
+name, cog = ['Aa', 'Bb', 'Cc'], 'Molla'
+for i in name:
+    print(i)
+    if i == 'Bb':  print("Hey")
+for x in cog:
+    print(x)
+    
+tes, lst = {2, 3, 5, -2, 10}, [2, 3, 5, -2, 10]
+sq, sqr = set(), []
+for i in tes:
+    square = i ** 2
+    sq.add(square)
+    print(sq)
+for i in lst:
+    sq = i**2
+    sqr.append(sq)
+    print(sqr)
+print(f"set: {sq}\nlist: {lst} ")
