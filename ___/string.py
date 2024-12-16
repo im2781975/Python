@@ -16,3 +16,17 @@ print(first + sec)
 text = "ibrahim"
 for char in text:
     print(char)
+
+name = input("whats your name: ")
+length = len(name)
+cog = "Molla"
+print(name + ' ' + cog, length)
+print("name[3]:", name[3])
+print(5 * "Molla\'s \"Lecture\"\n")
+#swap
+a = input("Enter a: ")
+b = input("Enter b: ")
+tmp = a 
+a = b 
+b = tmp
+print(a, b)
