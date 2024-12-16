@@ -57,3 +57,13 @@ if num % 2 == 0:
     print("Even")
 else:
     print("Odd")
+
+#digit sum of odd numbers
+def digsum(num):
+    total = 0
+    for i in str(num):
+        total += int(i)
+    return total
+lst = [367, 111, 562, 945, 6726, 873]
+newlist = [digsum(i) for i in lst if i & 1]
+print(newlist)
