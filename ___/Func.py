@@ -141,3 +141,38 @@ def mixArgs(*args, **kwargs):
     print(args)
 #mixArgs(a = 2, b = 4, c = 8,name = "hasan", dept = "mahmud", age = "24")
 mixArgs(2, 4, 6, name = "hasan", dept = "mahmud", age = "24")
+#scope
+a = 15
+def display():
+    a = 10
+    def show():
+        print(a)
+    show()
+display()
+print(a)
+"""             """
+a, b = 6, 9
+def disp():
+    if a < b:
+        c = a + b
+    print(c)
+disp()
+"""             """
+a = 52
+def disp():
+    #without global keyword we can access the variable not modify
+    global a
+    a += 1
+    print(a)
+disp()
+"""             """
+def disp():
+    a = 20
+    def show():
+        nonlocal a
+        a += 5
+        print(a)
+    print(a)
+    show()
+disp()
+print(a) #access global variable
