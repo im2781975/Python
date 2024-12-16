@@ -139,4 +139,5 @@ def mixArgs(*args, **kwargs):
     for key, value in kwargs.items():
         print(key, value)
     print(args)
-mixArgs(a = 2, b = 4, c = 8,name = "hasan", dept = "mahmud", age = "24")
+#mixArgs(a = 2, b = 4, c = 8,name = "hasan", dept = "mahmud", age = "24")
+mixArgs(2, 4, 6, name = "hasan", dept = "mahmud", age = "24")
