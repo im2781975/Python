@@ -111,3 +111,32 @@ def arbitryArg(*num):
     print(f"sum is: {sum} ")
 arbitryArg(4, 6, 8)
 """         """
+def arbitryArg(*num, name):
+    sum = 0
+    print(name)
+    for i in num:
+        print(f"Elements are: {i}")
+        sum += i
+    print(f"sum is: {sum} ")
+arbitryArg(4, 6, 8, name = "mollavai")
+def arbitry_Arg(name, *num):
+    sum = 0
+    print(name)
+    for i in num:
+        print(f"Elements are: {i}")
+        sum += i
+    print(f"sum is: {sum} ")
+arbitry_Arg(4, 6, 8)
+"""                 """
+def posArgs(**kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+posArgs(name = "Ab", dept = "Cs", age = "25")
+
+"""                     """
+#keyword arg should be after positional arg
+def mixArgs(*args, **kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+    print(args)
+mixArgs(a = 2, b = 4, c = 8,name = "hasan", dept = "mahmud", age = "24")
