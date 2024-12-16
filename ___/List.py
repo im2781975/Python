@@ -98,3 +98,4 @@ print(num.sort()) #output : None
 print(num.pop())
 print(num.pop(1))#num.pop(idx)
 print(num.count(0))
+print(num)
