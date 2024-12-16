@@ -99,3 +99,9 @@ print(num.pop())
 print(num.pop(1))#num.pop(idx)
 print(num.count(0))
 print(num)
+#nested
+num = [1, 10, 15, [20, -10, 15], 17, -20]
+print(len(num))
+print(f"num[3][1]: {num[3][1]}\nnum[len(num) - 1]: {num[len(num) - 1]}\nnum[3][0 : 3]: {num[3][0 : 3]}\nnum[3][-1 : 3]: {num[3][-1: 3]}\nnum[3][::-1]: {num[3][::-1]}\n ")
+num = [1, 10, 15, ["Aa", "Bb", "Cc"], 17, -20]
+print(f"num[3][1]: {num[3][1]}\nnum[len(num) - 1]: {num[len(num) - 1]}\nnum[3][0 : 3]: {num[3][0 : 3]}\nnum[3][-1 : 3]: {num[3][-1: 3]}\nnum[3][::-1]: {num[3][::-1]}\n ")
