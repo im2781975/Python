@@ -201,3 +201,122 @@ if i != 0:
         print("Negetive")
 else:
     print("Zero")
+"""                    """
+def match():
+    num = int(input("Enter choice: "))
+    match num:
+        case 1:
+            print("One")
+        case 2:
+            print("Two")
+        case 3:
+            print("Three")
+        case _:
+            print("Not Between 1 & 3")
+def match():
+    num = int(input("Enter choice: "))
+    match num:
+        case 1 | 2:
+            print("One Or Two")
+        case 3 | 4:
+            print("Three Or Four")
+        case 5 | 6:
+            print("Five Or Six")
+        case _:
+            print("Not Between 1 & 6")
+def match():
+    num = int(input("Enter choice: "))
+    match num:
+        case num if num > 0:
+            print("Positive")
+        case num if num < 0:
+            print("Negetive")
+        case _:
+            print("Zero")
+def match():
+    ing = "Hellow vai"
+    match(ing[6]):
+        case "w":
+            print("case 1 match")
+        case "W":
+            print("case 2 match")
+        case _:
+            print("char not in the string")
+def match(val):
+    match val:
+        case 1:
+            return "val is 1"
+        case 2:
+            return "val is 2"
+        case 3:
+            return "val is 3"
+        case _:
+            return "else"
+print(match(1))
+print(match(2))
+def match(ing):
+    match ing:
+        case ["a"] :
+            print("a")
+        case ["a", *b]:
+            print(f"a and {b} ")
+        case [*a, "e"] | (*a, "e"):
+            print(f"{a} and e ")
+        cese _:
+            print("No data")
+match([])
+match(["a"])
+match(["a", "b"])
+match(["b", "c", "d", "e"])
+"""             """
+def runMatch(dictionary):
+    match dictionary:
+        case {"name": n, "age": a} if "salary" not in dictionary:
+            print(f"Name: {n}, Age: {a}")
+        case {"name": n, "salary": s} if "age" not in dictionary:
+            print(f"Name: {n}, Salary: {s}")
+        case {"name": n, "age": a, "salary": s}:
+            print(f"Name: {n}, Age: {a}, Salary: {s}")
+        case {"age": a} | {"salary": s}:
+            print("Error: Name is missing in the data.")
+        case _:
+            print("Data does not match any known patterns.")
+runMatch({"name": "Jay", "age": 24})            
+runMatch({"name": "Ed", "salary": 25000})  
+runMatch({"name": "Al", "age": 27, "salary": 30000})
+runMatch({"age": 30})
+runMatch({})            
+"""             """
+from dataclasses import dataclass
+@dataclass
+class person:
+    name : str
+    age : int
+    salary: int
+@dataclass
+class programmer:
+    name : str
+    lang : str
+    framework : str
+def runMatch(instance):
+    match instance:
+        case Programmer("Om", language="Python", framework="Django"):
+            print(f"Name: Om, Language:Python, Framework:Django")
+        case Programmer("Rishabh", "C++"):
+            print("Name:Rishabh, Language:C++")
+        case Person("Vishal", age=5, salary=100):
+            print("Name:Vishal")
+        case Programmer(name, language, framework):
+            print(f"Name:{name}, Language:{language}, Framework:{framework}")
+        case Person():
+            print("He is just a person !")
+        case _:
+            print("This person is nothiing!")
+programmer1 = Programmer("Om", "Python", "Django")
+programmer2 = Programmer("Rishabh", "C++", None)
+programmer3 = Programmer("Sankalp", "Javascript", "React")
+person1 = Person("Vishal", 5, 100)
+runMatch(programmer1)
+runMatch(programmer2)
+runMatch(person1)
+runMatch(programmer3)
