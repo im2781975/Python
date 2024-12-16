@@ -92,3 +92,45 @@ for i in lst:
     sqr.append(sq)
     print(sqr)
 print(f"set: {sq}\nlist: {lst} ")
+
+cnt = 1
+while cnt <= 10: print(cnt); cnt += 1
+cnt = 5
+while cnt >= 5: print(cnt); cnt -= 1
+lst = [2, 3, 4, 5]
+while lst: print(lst, "Hi"); lst.pop()
+"""             """
+cnt = 1
+#while cnt <= 5:
+while True:
+    print(cnt)
+    cnt += 1
+    if cnt == 2:
+        break
+else:
+    print("Outer block")
+print("End")
+"""             """
+cnt = 1
+while cnt <= 5:
+    print(cnt)
+    cnt += 1
+else:
+    print("Outer block")
+print("End")
+
+#sentinal value
+num = int(input("Enter val(-1 for exit): "))
+while num != -1:
+    print(num)
+    num = int(input("Enter val(-1 for exit): "))
+else:
+    print("Outer Block")
+print("End")
+"""             """
+total = 0
+num = int(input("Enter val(-1 for exit): "))
+while num != -1:
+    total += num
+    num = int(input("Enter val(-1 for exit): "))
+print(total)
