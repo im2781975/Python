@@ -66,6 +66,7 @@ num = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 E = map(lambda x : x * x, num)
 print(list(E))
 num = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(f"num[len(num) - 1]: {num[len(num) - 1}")
 print(num[3], num[-3])
 #start : end
 print(f"num[:] {num[:]}\nnum[2:] {num[2:6]}\nnum[1:] {num[1:]}\nnum[:7] {num[:7]} ")
