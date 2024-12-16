@@ -82,3 +82,19 @@ print(num.pop(), num)
 num.sort() 
 num.reverse()
 print(num)
+print(f"length is: {len(num)} ")
+print(f"list is: {num}\nMaximum is: {max(num)}\nMinimum is: {min(num)} ")
+num.append(45)
+num.extend([46, 47, 48]) #For append more value
+num[1] = -1 
+num[2 : 4] = [49, 50, 51]
+x = int(input("Enter integer: "))
+if x in num: 
+    num.remove(x)
+else: 
+    print("Doesn't exit")
+print(num.sort()) #output : None
+#num.remove(x) remove first occurance
+print(num.pop())
+print(num.pop(1))#num.pop(idx)
+print(num.count(0))
