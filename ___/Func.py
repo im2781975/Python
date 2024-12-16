@@ -1,3 +1,25 @@
+def info(name, surname):
+    formattedName = name.title()
+    formattedSurname = surname.title()
+    print(f"{formattedName} {formattedSurname} ")
+    print(f"{name} {surname} ")
+info("Molla", "ibrahim")
+"""                 """
+from statistics import *
+def meanMedianMode(lst):
+    #return mean(lst), median(lst), mode(lst)
+    return [mean(lst), median(lst), mode(lst)]
+print(meanMedianMode([2, 4, 1, 7, 5, 9]))
+a, b, c = meanMedianMode([2, 4, 1, 7, 5, 9])
+print(f"mean: {a}\nMedian: {b}\nMode: {c} ")
+"""             """
+def add(a, b):
+    return a + b
+def func2(x):
+    return x + 1
+x = add(9, 11)
+print(func2(x))
+"""                """
 def double_it(num):
     num *= 2;
     return num
