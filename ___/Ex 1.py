@@ -42,3 +42,18 @@ def buy(item, price):
     print(f"After Buy balance: {balance} ")
 buy('glass', 2200)
 print('Global balance is: ', balance)
+
+
+#Board To metro
+height = int(input("Enter height: "))
+if height > 3:
+    print("Token required")
+    print("Board metro")
+else:
+    print("No Token Required")
+#Even or odd
+num = int(input("Enter number: "))
+if num % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
