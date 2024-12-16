@@ -1,3 +1,13 @@
+a, b = 10, 20
+print("Both are Equal" if a == b else "a is greater" if a > b else "b is greater")
+print(("b is minimum", "a is minimum")[a < b])
+print({True : "a is minimum", False: "b is minimum"}[a < b])
+print((lambda: "b is minimum", lambda: "a is minimum")[a < b]())
+print(a, "is minimum") if(a < b) else print(b, "is minimum")
+maxi = a if a > b else b
+Dict = {'max' : a if a > b else b}
+res = "Positive" if a > 0 else "negetive"
+
 #isinstance
 i = 7
 if isinstance(i, int):
