@@ -137,3 +137,17 @@ print(f"first != second :{intFirst != intSec}\nfirst >= second :{intFirst >= int
 a, boss = 23, True
 a += 32 # a *= 5 # a -= 32 # a /= 2
 print(a)
+
+#random
+from random import *
+#import random
+#x = random.randint(a, b)
+x = randint(1, 7) #a <= x <= b
+x = randrange(1, 7) #a <= x < b
+x = random() #x < 1
+x = uniform(1, 3) #a < x <= b(return float value)
+l = [2, 8, 5, 1, 9]
+x = choice(l)
+print(l)
+shuffle(l)
+print(x)
