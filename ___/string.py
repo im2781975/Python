@@ -30,3 +30,16 @@ tmp = a
 a = b 
 b = tmp
 print(a, b)
+
+#string is immutable like a[0] = 'R' cant assign
+a, b, c, d, e = 'ibrahimmolla', 'Molla vai', 'Molla\'s vai', "Molla's vai", """ibrahim
+molla """
+print(a, b, c, d)
+print(e)
+print(a)
+print(f"a[3]: {a[3]}\na[2 : 6]: {a[2 : 6]}\na[0 : 12]: {a[0 : 12]}\na[12 : 0 : -1]: {a[12 : 0 : -1]}\na[-1 : -12 : -1]: {a[-1 : -12 : -1]} ")
+print(a.upper(), a.lower(), a.capitalize())
+
+for char in b: print(char)
+if 'molla' in b: print("Exits")
+else: print("Not Exits")
