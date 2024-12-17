@@ -198,6 +198,20 @@ def disp():
     show()
 disp()
 print(a) #access global variable
+"""                """
+a, b = 15, 10
+def add():
+    c = a + b
+    print(c)
+add()
+def func():
+    var = 10
+    def unc():
+        nonlocal var
+        var += 10
+        print(var)
+    unc()
+func()
 #yield
 def fun():
     total = 0
