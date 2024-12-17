@@ -168,6 +168,11 @@ for i in rang:
     print(i, rang)
 for i in range(10, 0, -2):
     print(i, rang)
+    
+def table(n):
+    for i in range(1, 11):
+        print(i * n, end = " ")
+table(5)
 #sum of even
 total = 0
 #exclude 100 sum even
