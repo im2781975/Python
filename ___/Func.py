@@ -198,3 +198,11 @@ def disp():
     show()
 disp()
 print(a) #access global variable
+#yield
+def fun():
+    total = 0
+    for i in range(10):
+        total += i
+        yield total
+for i in fun():
+    print(i, end = " ")
