@@ -77,3 +77,15 @@ coordinates = (3, 5)
 x = coordinates[0]
 y = coordinates[1]
 print(f"X axis: {x}\nY axis: {y} ")
+#overlap
+def overlap(lst, lis):
+    for item in lst:
+        if item in lis:
+            return True
+    return False
+lst = [1, 2, 3, 4, 5]
+lis = [6, 2, 8, 9]
+if(overlap(lst, lis)):
+    print("Overlap")
+else:
+    print("Not Overlap")
