@@ -72,3 +72,8 @@ print(newlist)
 def evenOdd(x):
     print("Even" if x % 2 == 0 else "Odd")
 evenOdd(22)
+
+coordinates = (3, 5)
+x = coordinates[0]
+y = coordinates[1]
+print(f"X axis: {x}\nY axis: {y} ")
