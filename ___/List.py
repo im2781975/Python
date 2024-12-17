@@ -106,6 +106,3 @@ print(len(num))
 print(f"num[3][1]: {num[3][1]}\nnum[len(num) - 1]: {num[len(num) - 1]}\nnum[3][0 : 3]: {num[3][0 : 3]}\nnum[3][-1 : 3]: {num[3][-1: 3]}\nnum[3][::-1]: {num[3][::-1]}\n ")
 num = [1, 10, 15, ["Aa", "Bb", "Cc"], 17, -20]
 print(f"num[3][1]: {num[3][1]}\nnum[len(num) - 1]: {num[len(num) - 1]}\nnum[3][0 : 3]: {num[3][0 : 3]}\nnum[3][-1 : 3]: {num[3][-1: 3]}\nnum[3][::-1]: {num[3][::-1]}\n ")
-
-lst = [1, 2, 3, 4, 5, 6]
-print(f"tuple('Geeks'): {tuple('Geeks')}\ntuple(lst): {tuple(lst)} ")
