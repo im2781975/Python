@@ -33,7 +33,11 @@ print("m" in ing, "x" not in ing)
 c, d = 5, 5
 e = 5
 print(id(c) == id(e), id(d) == id(c))
-    
+#membership operator
+lst = [1, 2, 3, 4, 5]
+lst2 = lst
+print(f"in: {2 in lst}\nnot in: {7 not in lst}\nis: {lst is lst2}\nis not: {lst is not lst2}")
+
 # Assign value
 a, b, _ = 1, 2, 3
 c = d = e = 1
