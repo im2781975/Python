@@ -12,6 +12,8 @@ print(rev)
 first = input("Enter first:")
 sec = input("Enter second: ")
 print(first + sec)
+a, b = "molla", "vai"
+print("concatenate a & b: ",a + b)
 
 text = "ibrahim"
 for char in text:
