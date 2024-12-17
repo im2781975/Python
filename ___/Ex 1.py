@@ -67,3 +67,8 @@ def digsum(num):
 lst = [367, 111, 562, 945, 6726, 873]
 newlist = [digsum(i) for i in lst if i & 1]
 print(newlist)
+
+#check wheather a number even or odd
+def evenOdd(x):
+    print("Even" if x % 2 == 0 else "Odd")
+evenOdd(22)
