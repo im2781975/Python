@@ -175,3 +175,11 @@ print(x)
 #round
 print(f"round(2.5222, 2): {round(2.52222, 2)}\nround(2.555): {round(2.555)}\nround(2.5): {round(2.5)}\nround(674, -1): {round(674, -1)}\nround(675, -1): {round(675, -1)}\nround(674, -2): {round(674, -2)}\nround(675, -2): {round(675, -2)}" )
 print(f"round(675, -3): {round(675, -3)}\nround(-8/3, 2): {round(-8/3, 2)}\nround(-1.5, 2): {round(-1.5, 2)}\nround(675.678, -1): {round(675.678, -1)}\nround(6.777, 2): {round(6.777, 2)}\nround(6.777): {round(6.777)}\n " )
+
+#contains
+import operator
+print(operator.contains([1, 2, 3, 4, 5], 2))
+print(operator.contains("Hello World", 'O'))
+print(operator.contains({1, 2, 3, 4, 5}, 6))
+print(operator.contains({1: "Geeks", 2:"for", 3:"geeks"}, 3))
+print(operator.contains((1, 2, 3, 4, 5), 9))
