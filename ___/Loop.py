@@ -26,6 +26,12 @@ while cnt <= 10:
         break
     print("inner loop")
 print("outer loop")
+
+cnt = 0
+while cnt < 3:
+    cnt += 1
+    print("Hi")
+    
 #range
 for i in range(1, 11):
     if i == 7:
