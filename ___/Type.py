@@ -1,6 +1,11 @@
 #keyword
 import keyword
 print(keyword.kwlist)
+
+frset = frozenset({"A", "B", "C"})
+bit = bytearray(4)
+mem = memoryview(bytes(6))
+print(f"frset: {frset}\nbitarr: {bit}\nmemview: {mem} ")
 #comparison
 comp = 6
 print(f"6 == 6: {comp == 6}\n6 != 6: {comp != 6}\n6 >= 6: {comp >= 6}\n6 <= 6: {comp <= 6}\n7 == 6: {(comp + 1) == 6}")
