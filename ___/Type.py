@@ -13,6 +13,12 @@ print(f"frset: {frset}\nbitarr: {bit}\nmemview: {mem} ")
 #comparison
 comp = 6
 print(f"6 == 6: {comp == 6}\n6 != 6: {comp != 6}\n6 >= 6: {comp >= 6}\n6 <= 6: {comp <= 6}\n7 == 6: {(comp + 1) == 6}")
+# chaining comparison operators
+a = 5
+print("1 < a < 10: ",1 < a < 10)
+print("10 > a <= 9: ",10 > a <= 9)
+print("5 != a > 4: ",5 != a > 4)
+print("a < 10 < a*10 == 50: ",a < 10 < a*10 == 50)
 #logical
 a, b, c = 7, 9, True
 print((a > 4) and (b < 10) and c)
