@@ -125,6 +125,8 @@ timer(fact(n = 5))
 def out():
     print("Going")
 out()
+import math as mt
+print(mt.factorial(5))
 
 age, name, double, single = 45, "Hasan", 3.90, True
 print(age, name, double, single)
