@@ -85,6 +85,16 @@ while num <= 10:
     print(num)
     if num == 8:
         break
+
+i = 0
+while i < 10:
+    if i == 6:
+        i += 1
+        continue
+    else:
+        print(i, end = " ")
+    i += 1
+
 #for i  in range(1, 11):
 #range[start, end, step]
 for i in range(1, 11, 2):
