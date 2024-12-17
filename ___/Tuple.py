@@ -34,3 +34,6 @@ print(f"b.count(12): {b.count(12)}\nb.index(12): {b.index(12)} ")
 lst = [2, 3, 5, 8]
 print(f"lst: {tuple(lst)}")
 print((10, ) * 6, ("Molla") * 2)
+
+lst = [1, 2, 3, 4, 5, 6]
+print(f"tuple('Geeks'): {tuple('Geeks')}\ntuple(lst): {tuple(lst)} ")
