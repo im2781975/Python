@@ -1,7 +1,11 @@
 #keyword
 import keyword
 print(keyword.kwlist)
-
+#raise
+tmp = "am ironman"
+if tmp != "am":
+    raise TypeError("Both the string are different")
+    
 frset = frozenset({"A", "B", "C"})
 bit = bytearray(4)
 mem = memoryview(bytes(6))
