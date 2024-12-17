@@ -7,3 +7,8 @@ print(tes, st)
 frset = frozenset("Mollvai")
 print(frset)
 
+strset = set("mollavai")
+lstset = set([1, 2, "am", "ironman", 6, 9])
+print(f"strset: {strset}\nlstset: {lstset}\n")
+for i in lstset:
+    print(i, end = " ")
