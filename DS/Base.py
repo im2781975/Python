@@ -20,3 +20,9 @@ print("Hello, ", end="<br>")
 print("World!")
 print("Hello, ", end="BREAK")
 print("World!")
+
+try:   
+    x = 1.0 / 0.0    
+    print(x) 
+except ZeroDivisionError:   
+    print("Division by zero")
