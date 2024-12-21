@@ -374,3 +374,38 @@ x = sorted(x)
 x 
 y 
 z
+
+a = "abcdef"
+a[-1]   a[:]         a[::]        
+a[3:]        a[:4]       a[2:4]  
+a[::2]      a[1:4:2]   
+a[5:None:-1] 
+a[::-1]) 
+a[5:0:-1] 
+s = 'reverse me!'
+s[::-1]    
+lst = [1, 2, 3] 
+lst[1:3] = [4, 5] 
+print(lst) 
+
+lst = [1, 2, 3, 4, 5]
+lst[1:4] = [6] 
+print(lst)
+
+lst = [1, 2, 3]
+lst[:] = [4, 5, 6]
+print(lst) 
+
+lst = [1, 2, 3] 
+lst[:] = [4, 5, 6]
+print(lst) 
+
+lst = [1, 2, 3]
+lst[-2:] = [4, 5, 6] 
+print(lst) 
+
+arr = ['a', 'b', 'c'] 
+copy = arr[:]
+arr.append('d') 
+print(arr)   
+print(copy) 
