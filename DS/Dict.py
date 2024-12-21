@@ -199,4 +199,3 @@ dd = collections.defaultdict(list)
 for k, v in s: 
     dd[k].append(v)
 dd
-
