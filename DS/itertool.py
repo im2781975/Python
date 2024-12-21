@@ -81,3 +81,48 @@ list(itertools.permutations(a))
 list(itertools.permutations(a, 2))
 set(itertools.permutations(a))
 
+import itertools 
+for i in itertools.repeat('over-and-over', 3):
+    print(i)
+    
+import itertools as it
+import operator
+list(it.accumulate([1,2,3,4,5]))
+list(it.accumulate([1,2,3,4,5], func=operator.mul))
+
+import itertools as it
+it.cycle('ABCD')
+cycle_iterator = it.cycle('abc123')
+[next(cycle_iterator) for i in range(0, 10)]
+
+for x, y in itertools.product(xrange(10), xrange(10)):   
+    print x, y
+
+for x in xrange(10):
+    for y in xrange(10):        
+        print x, y
+        
+its = [xrange(10)] * 2 
+for x,y in itertools.product(*its):    
+    print x, y
+    
+from itertools import product 
+ a=[1,2,3,4] 
+b=['a','b','c'] 
+ product(a,b)
+for i in product(a,b): 
+    print i
+    
+for number in itertools.count():    
+    if number > 20:       
+        break    
+    print(number)
+    
+for number in itertools.count(start=10, step=4):    
+    print(number)   
+    if number > 20:       
+        break
+
+from itertools import chain 
+a = (x for x in ['1', '2', '3', '4']) 
+b = (x for x in ['x', 'y', 'z']) ' '.join(chain(a, b))
