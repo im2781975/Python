@@ -35,3 +35,21 @@ o['key1'] = "value1"
 o['key2'] = "value2"
 print(o)
 
+from collections import deque 
+d = deque('ghi')
+for elem in d:
+    print elem.upper()
+d.append('j') 
+d.appendleft('f')    
+ d.pop() 
+d.popleft() 
+list(d) 
+list(reversed(d)) 
+'h' in d  
+d.extend('jkl')  
+d.rotate(1) 
+d.rotate(-1)
+deque(reversed(d))
+d.clear() 
+d.pop()
+d.extendleft('abc')
