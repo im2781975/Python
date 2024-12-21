@@ -193,3 +193,10 @@ dic = {}
 for k, v in c:   
     dic[k] = list(v)
 dic
+
+s = [('NC', 'Raleigh'), ('VA', 'Richmond'), ('WA', 'Seattle'), ('NC', 'Asheville')] 
+dd = collections.defaultdict(list) 
+for k, v in s: 
+    dd[k].append(v)
+dd
+
