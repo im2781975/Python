@@ -1,3 +1,8 @@
+from operator import add 
+add(1, 1)
+from operator import mul 
+mul('a', 10)
+mul([3], 3)
 #Bitwise operator
 a, b = 10, -20
 print(~a, ~b)
