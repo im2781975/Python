@@ -35,3 +35,8 @@ next(filterfalse(find_something_smaller_than, car_shop))
 car_shop = [('Toyota', 1000), ('rectangular tire', 80), ('Porsche', 5000)] 
 generator = (car for car in car_shop if not car[1] < 100) 
 next(generator)
+
+alist = ['wolf', 'sheep', 'duck'] 
+list(filter(lambda x: x.startswith('d'), alist))
+from operator import methodcaller
+list(filter(methodcaller('startswith', 'd'), alist))
