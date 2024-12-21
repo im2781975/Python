@@ -126,3 +126,33 @@ for number in itertools.count(start=10, step=4):
 from itertools import chain 
 a = (x for x in ['1', '2', '3', '4']) 
 b = (x for x in ['x', 'y', 'z']) ' '.join(chain(a, b))
+
+from functools import partial
+def f(a, b, c, x):     
+    return 1000*a + 100*b + 10*c + x
+g = partial(f, 1, 1, 1) 
+print g(2)
+
+import functools
+import locale
+sorted(["A", "S", "F", "D"], key=functools.cmp_to_key(locale.strcoll))
+
+@lru_cache(maxsize=None) 
+def fibonacci(n): 
+    if n < 2:
+        return n 
+    return fibonacci(n-1) + fibonacci(n-2)
+    
+from functools import reduce
+def factorial(n):
+    return reduce(lambda a, b: (a*b), range(1, n+1))
+
+from Queue import Queue 
+question_queue = Queue() 
+for x in range(1,10):   
+    temp_dict = ('key', x)    
+    question_queue.put(temp_dict) 
+while(not question_queue.empty()):    
+    item = question_queue.get()    
+    print(str(item))
+    
