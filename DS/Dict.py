@@ -199,3 +199,22 @@ dd = collections.defaultdict(list)
 for k, v in s: 
     dd[k].append(v)
 dd
+
+dict1 = {'apple': 1, 'banana': 2} 
+dict2 = {'coconut': 1, 'date': 1, 'apple': 3}
+combined_dict = collections.ChainMap(dict1, dict2) 
+reverse_ordered_dict = collections.ChainMap(dict2, dict1)
+for k, v in combined_dict.items():    
+    print(k, v)
+for k, v in reverse_ordered_dict.items():
+    print(k, v)
+
+from itertools import groupby 
+from operator import itemgetter
+adict = {'a': 1, 'b': 5, 'c': 1}
+dict((i, dict(v))
+for i, v in groupby(adict.items(), itemgetter(1)))
+dict((i, dict(v)) for i, v in groupby(adict.items(), lambda x: x[1]))
+
+alist_of_tuples = [(5,2), (1,3), (2,2)] 
+sorted(alist_of_tuples, key=itemgetter(1,0))
