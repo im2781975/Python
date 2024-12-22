@@ -127,3 +127,103 @@ next(generator)
 next(generator)  
 
 sum(i ** 2 for i in range(4)) 
+
+def fib(a=0, b=1):   
+    """Generator that yields Fibonacci numbers. `a` and `b` are the seed values"""   
+    while True:      
+        yield a        
+        a, b = b, a + b 
+f = fib() 
+print(', '.join(str(next(f)) for _ in range(10)))
+
+def find_and_transform(sequence, predicate, func):  
+    for element in sequence:        
+        if predicate(element):            
+            return func(element)    
+    raise ValueError
+item = find_and_transform(my_sequence, my_predicate, my_func)
+item = next(my_func(x) for x in my_sequence if my_predicate(x))
+
+def first(generator): 
+    try: 
+        return next(generator) 
+    except StopIteration:
+        raise ValueError
+        
+for x, y in zip(a,b): 
+    print(x,y)
+    
+from functools import reduce
+def add(s1, s2):  
+    return s1 + s2
+reduce(add, asequence)
+import operator 
+reduce(operator.add, asequence)
+reduce(add, asequence, 10)
+
+def multiply(s1, s2):    
+    print('{arg1} * {arg2} = {res}'.format(arg1=s1, arg2=s2, res=s1*s2))    
+    return s1 * s2
+asequence = [1, 2, 3]
+cumprod = reduce(multiply, asequence, 5)
+print(cumprod)
+cumprod = reduce(multiply, asequence)
+print(cumprod)
+
+import operator
+reduce(operator.mul, [10, 5, -3])
+
+import operator
+reduce(operator.and_, [False, True, True, True])
+reduce(operator.or_, [True, False, False, False])
+
+names = ['Fred', 'Wilma', 'Barney']
+map(len, names)
+
+from itertools import imap
+imap(len, names)
+list(map(len, names))
+[len(item) for item in names]
+(len(item) for item in names) 
+
+list(map(abs, (1, -1, 2, -2, 3, -3)))
+map(lambda x:x*2, [1, 2, 3, 4, 5])
+
+def to_percent(num):   
+    return num * 100
+list(map(to_percent, [0.95, 0.75, 1.01, 0.1]))
+
+from functools import partial 
+from operator import mul
+rate = 0.9
+dollars = {'under_my_bed': 1000,           'jeans': 45,           'bank': 5000}
+sum(map(partial(mul, rate), dollars.values()))
+
+def average(*args):   
+    return float(sum(args)) / len(args) 
+measurement1 = [100, 111, 99, 97] 
+measurement2 = [102, 117, 91, 102] 
+measurement3 = [104, 102, 95, 101]
+list(map(average, measurement1, measurement2, measurement3))
+
+def median_of_three(a, b, c):    return sorted((a, b, c))[1]
+list(map(median_of_three, measurement1, measurement2, measurement3, measurement3))
+
+import operator 
+measurement1 = [100, 111, 99, 97] 
+measurement2 = [102, 117]
+list(imap(operator.sub, measurement1, measurement2))
+list(imap(operator.sub, measurement2, measurement1)) 
+list(map(operator.sub, measurement1, measurement2))
+list(map(operator.sub, measurement2, measurement1))
+
+insects = ['fly', 'ant', 'beetle', 'cankerworm']
+f = lambda x: x + ' is an insect' print(list(map(f, insects)))
+print(list(map(len, insects)))
+
+carnivores = ['lion', 'tiger', 'leopard', 'arctic fox'] 
+herbivores = ['african buffalo', 'moose', 'okapi', 'parakeet'] 
+omnivores = ['chicken', 'dove', 'mouse', 'pig']
+def animals(w, x, y, z):    
+    return '{0}, {1}, {2}, and {3} ARE ALL ANIMALS'.format(w.title(), x, y, z)
+import pprint pprint.pprint(list(map(animals, insects, carnivores, herbivores, omnivores)))
