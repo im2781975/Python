@@ -126,4 +126,7 @@ cmath.cosh((0+1j)*z) - cmath.cos(z)
 z = 2+3j
 abs(z) 
 z.conjugate()
-
+arr = ['a', 'b', 'c', 'd']
+print(arr[0])
+print(arr[1])
+print(arr[-2])
