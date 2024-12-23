@@ -39,3 +39,36 @@ arr = ['a', 'b', 'c', 'd']
 print(arr[0])
 print(arr[1])
 print(arr[-1])
+
+class Integer(object):   
+    def __init__(self, value):        
+        self.value = int(value) # Cast to an integer           
+    def __repr__(self):        
+        return '{cls}({val})'.format(cls=self.__class__.__name__,   val=self.value)      
+    def __pow__(self, other, modulo=None):        
+        if modulo is None:           
+            print('Using __pow__')            
+            return self.__class__(self.value ** other)       
+        else:            
+            print('Using __pow__ with modulo')            
+            return self.__class__(pow(self.value, other, modulo))      
+    def __float__(self):        
+        print('Using __float__')        
+        return float(self.value)       
+    def __complex__(self):        
+        print('Using __complex__')       
+        return complex(self.value, 0)
+Integer(2) ** 2                 
+Integer(2) ** 2.5               
+pow(Integer(2), 0.5)            
+operator.pow(Integer(2), 3)     
+operator.__pow__(Integer(3), 3) 
+pow(Integer(2), 3, 4)  
+Integer(2).__pow__(3, 4)   
+
+import math
+math.pow(Integer(2), 0.5)
+import cmath
+cmath.exp(Integer(2)) 
+
+z = y ** (1.0 / 3)
