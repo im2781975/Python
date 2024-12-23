@@ -218,3 +218,59 @@ dict((i, dict(v)) for i, v in groupby(adict.items(), lambda x: x[1]))
 
 alist_of_tuples = [(5,2), (1,3), (2,2)] 
 sorted(alist_of_tuples, key=itemgetter(1,0))
+
+adict = {'a': 3, 'b': 5, 'c': 1}
+min(adict)
+max(adict)
+sorted(adict)
+min(adict.items())
+max(adict.items())
+sorted(adict.items())
+from collections import OrderedDict 
+OrderedDict(sorted(adict.items()))
+res = OrderedDict(sorted(adict.items()))
+res['a']
+min(adict.items(), key=lambda x: x[1])
+max(adict.items(), key=operator.itemgetter(1))
+sorted(adict.items(), key=operator.itemgetter(1), reverse=True)
+
+list_of_tuples = [(0, 10), (1, 15), (2, 8)]
+min(list_of_tuples)
+min(list_of_tuples, key=lambda x: x[0]) 
+min(list_of_tuples, key=lambda x: x[1]) 
+sorted(list_of_tuples, key=lambda x: x[0])  
+sorted(list_of_tuples, key=lambda x: x[1])  
+
+import operator  
+max(list_of_tuples, key=operator.itemgetter(0))
+max(list_of_tuples, key=operator.itemgetter(1))
+sorted(list_of_tuples, key=operator.itemgetter(0), reverse=True)
+sorted(list_of_tuples, key=operator.itemgetter(1), reverse=True) 
+
+max([], default=42)   
+max([], default=0)  
+
+sorted((7, 2, 1, 5))  
+sorted(['c', 'A', 'b']) 
+sorted({11, 8, 1})
+sorted({'11': 5, '3': 2, '10': 15})
+sorted('bdca')
+
+import heapq
+heapq.nlargest(5, range(10))
+heapq.nsmallest(5, range(10))
+
+min(7,2,1,5)
+max(7,2,1,5)
+max([2, 7, 5])
+sorted([2, 7, 5])[-1]
+
+class MyClass(object):    
+    def __init__(self, value, name):        
+        self.value = value        
+        self.name = name           
+    def __lt__(self, other):        return self.value < other.value       
+    def __repr__(self):        return str(self.name)
+sorted([MyClass(4, 'first'), MyClass(1, 'second'), MyClass(4, 'third')]) 
+max([MyClass(4, 'first'), MyClass(1, 'second'), MyClass(4, 'third')]) 
+
