@@ -277,3 +277,109 @@ u = s.decode('utf-8')
 u[0] 
 type(u)
 u.encode('utf-8') 
+
+import re
+pattern = r"123" string = "123zzb"
+re.match(pattern, string)
+match = re.match(pattern, string)
+match.group()
+
+string = "\\t123zzb"
+pattern = "\\t123"
+re.match(pattern, string).group() 
+re.match(pattern, "\t123zzb").group()
+
+pattern = r"\\t123" 
+re.match(pattern, string).group()
+
+match = re.match(r"(123)", "a123zzb")
+match is None
+match = re.search(r"(123)", "a123zzb")
+match.group()
+
+pattern = r"(your base)"
+sentence = "All your base are belong to us."
+match = re.search(pattern, sentence)
+match.group(1)
+match = re.search(r"(belong.*)", sentence)
+match.group(1)
+
+match = re.search(r"^123", "123zzb")
+match.group(0)
+match = re.search(r"^123", "a123zzb")
+match is None
+match = re.search(r"123$", "zzb123")
+match.group(0)
+
+m = re.search("b", "ABC") 
+m is None
+m = re.search("b", "ABC", flags=re.IGNORECASE)
+m.group()
+m = re.search("a.b", "A\nBC", flags=re.IGNORECASE)
+m is None
+m = re.search("a.b", "A\nBC", flags=re.IGNORECASE|re.DOTALL)
+m.group()
+
+re.sub(r"t[0-9][0-9]", "foo", "my name t13 is t44 what t99 ever t44")
+re.sub(r"t([0-9])([0-9])", r"t\2\1", "t13 t19 t81 t25")
+re.sub(r"t([0-9])([0-9])", r"t\g<2>\g<1>", "t13 t19 t81 t25")
+
+items = ["zero", "one", "two"]
+re.sub(r"a\[([0-3])\]", lambda match: items[int(match.group(1))], "Items: a[0], a[1], something, a[2]")
+
+re.findall(r"[0-9]{2,3}", "some 1 text 12 is 945 here 4445588899")
+results = re.finditer(r"([0-9]{2,3})", "some 1 text 12 is 945 here 4445588899")
+print(results)
+for result in results:     
+    print(result.group(0))
+    
+import re 
+def is_allowed(string):    
+    characherRegex = re.compile(r'[^a-zA-Z0-9.]')    
+    string = characherRegex.search(string)  
+    return not bool(string)
+print (is_allowed("abyzABYZ0099"))
+print (is_allowed("#*@#$%^"))
+
+import re 
+data = re.split(r'\s+', 'James 94 Samantha 417 Scarlett 74') 
+print( data )
+
+sentence = "This is a phone number 672-123-456-9910" 
+pattern = r".*(phone).*?([\d-]+)"
+match = re.match(pattern, sentence)
+match.groups() 
+m.group() 
+m.group(0)
+m.group(1)
+m.group(2)
+m.group(1, 2) 
+
+match = re.search(r'My name is (?P<name>[A-Za-z ]+)', 'My name is John Smith')
+match.group('name')
+match.group(1)
+
+re.match(r'(\d+)(\+(\d+))?', '11+22').groups()
+re.match(r'(\d+)(?:\+(\d+))?', '11+22').groups()
+match = re.search(r'[b]', 'a[b]c') 
+match.group()
+
+match = re.search(r'\[b\]', 'a[b]c') 
+match.group()
+
+re.escape('a[b]c')
+match = re.search(re.escape('a[b]c'), 'a[b]c') 
+match.group()
+
+username = 'A.C.'
+re.findall(r'Hi {}!'.format(username), 'Hi A.C.! Hi ABCD!')
+re.findall(r'Hi {}!'.format(re.escape(username)), 'Hi A.C.! Hi ABCD!')
+
+import re
+text = 'You can try to find an ant in this string' 
+pattern = 'an?\w' 
+for match in re.finditer(pattern, text):
+    sStart = match.start()
+    sEnd = match.end()
+    sGroup = match.group()
+    print('Match "{}" found at: [{},{}]'.format(sGroup, sStart,sEnd))
