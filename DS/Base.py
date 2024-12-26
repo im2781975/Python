@@ -55,3 +55,30 @@ Counter(astring)
 import numpy as np 
 a=np.array([0,3,4,3,5,4,7]) >>> 
 print np.sum(a==3)
+
+d1 = {1:[]}
+d2 = d1.copy()
+d1 is d2
+d1[1] is d2[1]
+
+import copy 
+c = [[1,2]]
+d = copy.copy(c) 
+c is d
+c[0] is d[0]
+
+import copy 
+c = [[1,2]] 
+d = copy.deepcopy(c) 
+c is d
+c[0] is d[0]
+
+l1 = [1,2,3]
+l2 = l1[:] 
+l2
+l1 is l2
+
+s1 = {()} 
+s2 = s1.copy() 
+s1 is s2
+s2.add(3)
