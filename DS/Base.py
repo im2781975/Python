@@ -82,3 +82,44 @@ s1 = {()}
 s2 = s1.copy() 
 s1 is s2
 s2.add(3)
+
+def two_sum(a, b):
+    return a + b
+print(two_sum(2, 1)) 
+print(two_sum("a", "b"))
+
+def two_sum(a: str, b: str): 
+    return a + b
+def two_sum(a: int, b: int) -> int: 
+    return a + b
+import typing 
+Point = typing.NamedTuple('Point', [('x', int), ('y', int)])
+import typing
+T = typing.TypeVar("T")
+def get_first_element(l: typing.Sequence[T]) -> T:  
+    """Gets the first element of a sequence."""   
+    return l[0]
+
+div = int(input("Divisors of: ")) 
+for x in range(div+1):
+if div/x == div//x:      
+    print(x, "is a divisor of", div)
+
+div = int(input("Divisors of: ")) 
+for x in range(1,div+1):
+if div/x == div//x:      
+    print(x, "is a divisor of", div)
+    
+for i in range(4):   
+    d = i * 2 
+print(d)
+
+def noaccess():
+    for i in range(4):    
+        d = i * 2 
+noaccess()
+
+set1, tuple1 = {1,2}, (3,4) a = 
+set1 + tuple1
+b = 400 + 'foo'
+c = ["a","b"] - [1,2]
