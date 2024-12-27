@@ -72,3 +72,41 @@ import cmath
 cmath.exp(Integer(2)) 
 
 z = y ** (1.0 / 3)
+
+class sparselist(object):   
+    def __init__(self, size):       
+        self.size = size        
+        self.data = {}      
+    def __getitem__(self, index):        
+        if index < 0:            
+            index += self.size        
+        if index >= self.size:           
+            raise IndexError(index)
+        try:            
+            return self.data[index]        
+        except KeyError:            
+            return 0.0
+    def __setitem__(self, index, value):       
+        self.data[index] = value
+    def __delitem__(self, index):        
+        if index in self.data:            
+            del self.data[index]
+    def __contains__(self, value):        
+        return value == 0.0 or value in self.data.values()
+    def __len__(self):        
+        return self.size
+    def __iter__(self):        
+        return (self[i] for i in range(self.size))
+l = sparselist(10 ** 6) 
+0 in l  
+l[12345] = 10
+
+class adder(object):  
+    def __init__(self, first):        
+        self.first = first  
+    def __call__(self, second):       
+        return self.first + second
+add2 = adder(2) 
+add2(1) 
+add2(2)  
+
