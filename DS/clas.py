@@ -337,4 +337,144 @@ x.name='I\'m single'
 x.getName() 
 y.getName()
 
+class Parent(object):   
+    def introduce(self):    
+        print("Hello!")    
+    def print_name(self):        
+        print("Parent")
+        
+class Child(Parent):   
+    def print_name(self):        
+        print("Child")
+p = Parent()
+c = Child()
+p.introduce() 
+p.print_name() 
+c.introduce() 
+c.print_name()
 
+class A(object):
+    def func(self): 
+        pass
+@classmethod 
+def classMethod(self): 
+    pass
+class B(object):
+    unboundMeth = A.func
+a = A()
+b = B()
+print A.func
+print a.func
+print B.unboundMeth
+print b.unboundMeth
+print A.classMethod
+print a.classMethod
+
+class Parent(object):
+    def func(self):
+        pass    
+    func2 = func
+class Child(Parent):   
+    func = Parent.func
+class AnotherClass(object):   
+    func = Parent.func
+print Parent.func is Parent.func                
+print Parent.func2 is Parent.func2              
+print Child.func is Child.func                  
+print AnotherClass.func is AnotherClass.func 
+
+import turtle, time, random
+turtle.speed(0) 
+turtle.colormode(255)
+turtle.pensize(4)
+def triangle(size):
+    turtle.forward(size)
+    turtle.right(90)
+    turtle.forward(size)
+    turtle.right(135) 
+    turtle.forward(size * 1.5)
+while(1): 
+    turtle.setpos(random.randint(-200, 200), random.randint(-200, 200))
+    turtle.pencolor(random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
+    triangle(random.randint(5, 55))
+    turtle.pencolor(random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
+    
+class Card:
+    def __init__(self, suit, pips) : 
+        self.suit = suit self.pips = pips
+ace_of_spades = Card('Spades', 1) four_of_clubs = Card('Clubs',  4) six_of_hearts = Card('Hearts', 6)
+my_hand = [ace_of_spades, four_of_clubs, six_of_hearts]
+print(my_hand)
+
+string_of_card = str(ace_of_spades) 
+print(string_of_card)
+
+class Card: 
+    def __init__(self, suit, pips): 
+        self.suit = suit 
+        self.pips = pips
+    def __str__(self):       
+        special_names = {1:'Ace', 11:'Jack', 12:'Queen', 13:'King'}
+        card_name = special_names.get(self.pips, str(self.pips)) 
+        return "%s of %s" % (card_name, self.suit)
+ace_of_spades = Card('Spades', 1)
+print(ace_of_spades)
+my_hand = [ace_of_spades, four_of_clubs, six_of_hearts]
+print(my_hand)
+
+class Card:    
+    special_names = {1:'Ace', 11:'Jack', 12:'Queen', 13:'King'}    
+    def __init__(self, suit, pips):        
+        self.suit = suit        
+        self.pips = pips    
+    def __str__(self):       
+        card_name = Card.special_names.get(self.pips, str(self.pips))        
+        return "%s of %s (S)" % (card_name, self.suit)    
+   def __repr__(self):        
+       card_name = Card.special_names.get(self.pips, str(self.pips))       
+   return "%s of %s (R)" % (card_name, self.suit)
+ace_of_spades = Card('Spades', 1) 
+four_of_clubs = Card('Clubs',  4) 
+six_of_hearts = Card('Hearts', 6)
+my_hand = [ace_of_spades, four_of_clubs, six_of_hearts]
+print(my_hand)     
+print(ace_of_spades) 
+str_card = str(four_of_clubs)
+print(str_card)          
+repr_card = repr(four_of_clubs)
+print(repr_card) 
+print(four_of_clubs.__str__())
+print(four_of_clubs.__repr__())  
+
+class Card:    
+    special_names = {1:'Ace', 11:'Jack', 12:'Queen', 13:'King'}    
+    def __init__(self, suit, pips):        
+        self.suit = suit        
+        self.pips = pips    
+     def __repr__(self):       
+        card_name = Card.special_names.get(self.pips, str(self.pips))        
+        return "%s of %s" % (card_name, self.suit)
+print(six_of_hearts)         
+print(str(six_of_hearts))
+print([six_of_hearts])
+print(repr(six_of_hearts)) 
+
+class Card:   
+    special_names = {1:'Ace', 11:'Jack', 12:'Queen', 13:'King'}   
+    def __init__(self, suit, pips):       
+        self.suit = suit      
+        self.pips = pips
+    def __str__(self):        
+        card_name = Card.special_names.get(self.pips, str(self.pips))        
+        return "%s of %s" % (card_name, self.suit)
+    def __repr__(self):        
+        return "Card(%s, %d)" % (self.suit, self.pips)
+        
+expression = '5 + 3 * a' 
+a = 5 
+result = eval(expression)
+result
+
+code = compile('a * b + c', '<string>', 'eval')
+a, b, c = 1, 2, 3 
+eval(code)
