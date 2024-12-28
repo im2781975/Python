@@ -478,3 +478,6 @@ result
 code = compile('a * b + c', '<string>', 'eval')
 a, b, c = 1, 2, 3 
 eval(code)
+
+variables = {'a': 6, 'b': 7}
+eval('a * b', globals=variables) 
