@@ -123,3 +123,122 @@ set1, tuple1 = {1,2}, (3,4) a =
 set1 + tuple1
 b = 400 + 'foo'
 c = ["a","b"] - [1,2]
+
+def switch(value):   
+    if value == 1:
+        return "one"   
+    if value == 2:       
+        return "two"    
+    if value == 42:       
+        return "the answer to the question about life, the universe and everything"    
+    raise Exception("No case found!")
+switch(1)
+
+switch = {    1: lambda: 'one',    2: lambda: 'two',    42: lambda: 'the answer of life the universe and everything', }
+def default_case():    
+    raise Exception('No case found!')
+switch.get(1, default_case)()
+
+def run_switch(value):    
+    return switch.get(value, default_case)()
+run_switch(1)
+
+class SwitchBase:    
+    def switch(self, case):       
+        m = getattr(self, 'case_{}'.format(case), None)        
+        if not m:            
+            return self.default        
+        return m
+    __call__ = switch
+    
+class CustomSwitcher:    
+    def case_1(self):        
+        return 'one'    
+    def case_2(self):        
+        return 'two'    
+    def case_42(self):        
+        return 'the answer of life, the universe and everything!'    
+    def default(self):       
+        raise Exception('Not a case!')
+switch = CustomSwitcher()
+print(switch(1))
+print(switch(2))
+
+class Switch:   
+    def __init__(self, value):       
+        self._val = value    
+    def __enter__(self):      
+        return self    
+    def __exit__(self, type, value, traceback):       
+        return False # Allows traceback to occur    
+    def __call__(self, cond, *mconds):       
+        return self._val in (cond,)+mconds
+def run_switch(value):   
+    with Switch(value) as case:       
+        if case(1):           
+            return 'one'        
+        if case(2):           
+            return 'two'       
+        if case(3):           
+            return 'the answer to the question about life, the universe and everything'   
+         raise Exception('Not a case!')
+run_switch(1)
+
+a, b = (1, 2)
+print(a)
+print(b)
+head, *tail = [1, 2, 3, 4, 5]
+print(head)
+print(tail)
+
+l = [1, 2, 3, 4, 5]
+head = l[0]
+tail = l[1:]
+a, b, *other, z = [1, 2, 3, 4, 5] 
+print(a, b, z, other)
+
+a, _ = [1, 2] 
+print(a)
+a, _, c = (1, 2, 3) 
+print(a)
+
+a, *_ = [1, 2, 3, 4, 5] print(a)
+a, *_, b = [1, 2, 3, 4, 5] print(a, b)
+a, _, b, _, c, *_ = [1, 2, 3, 4, 5, 6] print(a, b, c)
+
+def fun1(arg1, arg2, arg3):    
+    return (arg1,arg2,arg3)
+fun1(1, 2, 3)
+def fun2(arg1='a', arg2='b', arg3='c'):    
+    return (arg1,arg2,arg3)
+fun2(1)
+fun2(1, 2) 
+fun2(arg2=2, arg3=3)
+l = [1,2,3]
+fun1(*l)
+fun1(*['w', 't', 'f'])
+fun1(*['oops'])
+d = {  'arg1': 1,  'arg2': 2,  'arg3': 3 } fun1(**d)
+fun1(**{'arg1':1, 'arg2':2})
+fun1(**{'arg1':1, 'arg2':2, 'arg3':3, 'arg4':4})
+fun2(**d)
+fun2(**{'arg2': 2})
+fun2(**{'arg1':1, 'arg2':2, 'arg3':3, 'arg4':4})
+
+def fun3(arg1, arg2='b', arg3='c')    
+    return (arg1, arg2, arg3)
+fun3(*[1])
+fun3(*[1,2,3])
+fun3(**{'arg1':1})
+fun3(**{'arg1':1, 'arg2':2, 'arg3':3})
+fun3(*[1,2], **{'arg3':3})
+fun3(*[1,2], **{'arg2':42, 'arg3':3})
+
+def fun1(*args, **kwargs):    print(args, kwargs)
+fun1(1,2,3)
+fun1(a=1, b=2, c=3)
+fun1('x', 'y', 'z', a=1, b=2, c=3)
+
+class MyString(str):   
+    def __init__(self, *args, **kwarg):        
+        print('Constructing MyString')        super(MyString, self).__init__(*args, **kwarg)
