@@ -225,3 +225,31 @@ from threading import Thread import time def countdown(n):    while n > 0:      
 
 from threading import Thread import time def countdown(n):    while n > 0:        n -= 1 COUNT = 10000000 with nogil:    t1 = Thread(target=countdown,args=(COUNT/2,))    t2 = Thread(target=countdown,args=(COUNT/2,))    start = time.time()    t1.start();t2.start()    t1.join();t2.join()   end = time.time() print end-start
 
+import multiprocessing
+import os
+def process():    
+    print("Pid is %s" % (os.getpid(),))
+processes = [multiprocessing.Process(target=process) for _ in range(4)]
+for p in processes:   
+    p.start() 
+for p in processes:   
+    p.join()
+
+import threading
+obj = {}
+obj_lock = threading.Lock()
+def objify(key, val):   
+    print("Obj has %d values" % len(obj))    
+    with obj_lock:        
+        obj[key] = val    
+    print("Obj now has %d values" % len(obj))
+ts = [threading.Thread(target=objify, args=(str(n), n))] for n in range(4)] 
+for t in ts:   
+    t.start() 
+for t in ts:
+    t.join() 
+    print("Obj final result:")
+import pprint; pprint.pprint(obj)
+
+import multiprocessing 
+plain_num = 0 shared_num = multiprocessing.Value('d', 0) lock = multiprocessing.Lock()
