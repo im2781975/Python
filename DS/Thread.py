@@ -104,3 +104,46 @@ for t in threads:
     t.start()
 for t in threads:   
     t.join()
+
+import multiprocessing
+import os
+def process():    
+    print("Pid is %s" % (os.getpid(),))
+processes = [multiprocessing.Process(target=process) for _ in range(4)]
+for p in processes:   
+    p.start() 
+for p in processes:   
+    p.join()
+
+import threading
+obj = {}
+obj_lock = threading.Lock()
+def objify(key, val):   
+    print("Obj has %d values" % len(obj))    
+    with obj_lock:        
+        obj[key] = val    
+    print("Obj now has %d values" % len(obj))
+ts = [threading.Thread(target=objify, args=(str(n), n))] for n in range(4)] 
+for t in ts:   
+    t.start() 
+for t in ts:
+    t.join() 
+    print("Obj final result:")
+import pprint; pprint.pprint(obj)
+
+import multiprocessing 
+plain_num = 0 
+shared_num = multiprocessing.Value('d', 0) 
+lock = multiprocessing.Lock()
+def increment(): 
+    global plain_num 
+    with lock:   
+        plain_num += 1  
+        shared_num.value += 1
+ps = [multiprocessing.Process(target=increment) for n in range(4)] 
+for p in ps:    
+    p.start() 
+for p in ps:   
+    p.join() 
+print("plain_num is %d, shared_num is %d" % (plain_num, shared_num.value))
+
