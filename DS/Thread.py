@@ -147,3 +147,81 @@ for p in ps:
     p.join() 
 print("plain_num is %d, shared_num is %d" % (plain_num, shared_num.value))
 
+class Stack:   
+    def __init__(self):       
+        self.items = []
+    def isEmpty(self): 
+        return self.items == []
+    def push(self, item):        
+        self.items.append(item)
+    def pop(self):
+        return self.items.pop()
+    def peek(self): 
+        return self.items[-1]
+    def size(self): 
+        return len(self.items)
+    def fullStack(self):
+        return self.items
+stack = Stack() 
+print('Current stack:', stack.fullStack()). 
+print('Stack empty?:', stack.isEmpty()) 
+print('Pushing integer 1') stack.push(1) 
+print('Pushing string "Told you, I am generic stack!"') 
+stack.push('Told you, I am generic stack!') 
+print('Pushing integer 3')
+stack.push(3)
+print('Current stack:', stack.fullStack()) 
+print('Popped item:', stack.pop()) 
+print('Current stack:', stack.fullStack()) 
+print('Stack empty?:', stack.isEmpty())
+
+def checkParenth(str):    
+    stack = Stack()    
+    pushChars, popChars = "<({[", ">)}]"   
+    for c in str:        
+        if c in pushChars:           
+            stack.push(c)        
+        elif c in popChars:           
+            if stack.isEmpty():                
+                return False         
+            else:                
+                stackTop = stack.pop()                # Checks to see whether the opening bracket matches the closing one               
+                balancingBracket = pushChars[popChars.index(c)]               
+                if stackTop != balancingBracket:                    
+                    return False        
+                    
+        else:            
+            return False    
+    return not stack.isEmpty()
+    
+from threading import Thread 
+import time 
+def countdown(n):    
+    while n > 0:      
+        n -= 1 
+COUNT = 10000000
+t1 = Thread(target=countdown,args=(COUNT/2,))
+t2 = Thread(target=countdown,args=(COUNT/2,)) 
+start = time.time()
+t1.start();t2.start() 
+t1.join();t2.join() 
+end = time.time() 
+print end- start
+
+import multiprocessing
+import time 
+def countdown(n):    
+    while n > 0:       
+        n -= 1
+COUNT = 10000000
+start = time.time() with multiprocessing.Pool as pool:    
+    pool.map(countdown, [COUNT/2, COUNT/2])   
+    pool.close()   
+    pool.join()
+    end = time.time() 
+print(end-start)
+
+from threading import Thread import time def countdown(n):    while n > 0:        n -= 1 COUNT = 10000000 t1 = Thread(target=countdown,args=(COUNT/2,)) t2 = Thread(target=countdown,args=(COUNT/2,)) start = time.time() t1.start();t2.start() t1.join();t2.join() end = time.time() print end-start
+
+from threading import Thread import time def countdown(n):    while n > 0:        n -= 1 COUNT = 10000000 with nogil:    t1 = Thread(target=countdown,args=(COUNT/2,))    t2 = Thread(target=countdown,args=(COUNT/2,))    start = time.time()    t1.start();t2.start()    t1.join();t2.join()   end = time.time() print end-start
+
