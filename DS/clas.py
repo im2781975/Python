@@ -481,3 +481,113 @@ eval(code)
 
 variables = {'a': 6, 'b': 7}
 eval('a * b', globals=variables) 
+
+import dis 
+def fib(n):    
+    if n <= 2:
+        return 1    
+    return fib(n-1) + fib(n-2)
+dis.dis(fib)
+
+import random 
+import inspect
+print(inspect.getsource(random.randint))
+print(inspect.getdoc(random.randint))
+
+def fib(n):
+    if n <= 2: 
+        return 1 
+    return fib(n-1) + fib(n-2) dir(fib.__code__)
+def fib(n): 
+    if n <= 2: 
+        return 1 
+    return fib(n-1) + fib(n-2) dir(fib.__code__)
+ 
+class Vehicle(object):   
+    """A generic vehicle class."""  
+    def __init__(self, position):       
+        self.position = position   
+    def travel(self, destination):       
+        route = calculate_route(from=self.position, to=destination)       
+        self.move_along(route) 
+class Car(Vehicle):   ...
+class Boat(Vehicle):   ... 
+class Plane(Vehicle):  ... 
+
+class RadioUserMixin(object):   
+    def __init__(self):     
+        self.radio = Radio()
+    def play_song_on_station(self, station):       
+        self.radio.set_station(station)       self.radio.play_song()
+class Car(Vehicle, RadioUserMixin):   ... 
+class Clock(Vehicle, RadioUserMixin):   ...
+
+class Mixin1(object):   
+    def test(self):        
+        print "Mixin1"
+class Mixin2(object):    
+    def test(self):        
+        print "Mixin2" 
+class BaseClass(object):    
+    def test(self):       
+        print "Base" 
+class MyClass(BaseClass, Mixin1, Mixin2):    pass
+x = MyClass() 
+x.test()
+
+class Book:    
+    def __init__(self, title, author):        
+        self.title = title        
+        self.author = author
+book1 = Book(title="Right Ho, Jeeves", author="P.G. Wodehouse")
+book1.title
+
+class P:    
+    def __init__(self,title,author):        
+        self.title = title       
+        self.setAuthor(author)    
+    def get_author(self):       
+        return self.author   
+    def set_author(self, author):       
+        if not author:           
+            self.author = "Unknown"        
+        else:
+            self.author = author
+book = Book(title="Ancient Manuscript", author="Some Guy")
+book.author = "" 
+
+class Book:    
+    def __init__(self, title, author):        
+        self.title = title        
+        self.author = author    
+    @property    
+    def author(self):        
+        return self.__author    
+    @author.setter    
+    def author(self, author):       
+        if not author:            
+            self.author = "Unknown"        
+        else:            
+            self.author = author
+book = Book(title="Ancient Manuscript", author="Some Guy") 
+book.author = " "
+book.author
+
+class Fruit:      
+    def check_ripeness(self):       
+    raise NotImplementedError("check_ripeness method not implemented!") 
+class Apple(Fruit):    
+    pass
+a = Apple() 
+a.check_ripeness() 
+
+class MontyPython:    
+    def joke(self):        
+        raise NotImplementedError()   
+    def punchline(self):        
+        raise NotImplementedError() 
+class ArgumentClinic(MontyPython):    
+    def joke(self):        
+        return "Hahahahahah"
+sketch = ArgumentClinic()
+sketch.punchline() NotImplementedError
