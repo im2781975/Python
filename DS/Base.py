@@ -242,3 +242,19 @@ fun1('x', 'y', 'z', a=1, b=2, c=3)
 class MyString(str):   
     def __init__(self, *args, **kwarg):        
         print('Constructing MyString')        super(MyString, self).__init__(*args, **kwarg)
+
+from operator import truediv, floordiv 
+assert truediv(10, 8) == 1.25            
+assert floordiv(10, 8) == 1     
+
+first, second, *tail, last = [1, 2, 3, 4, 5]
+print(first)
+print(second)
+print(tail)
+print(last)
+
+first, second, *tail, last = [1, 2, 3, 4]
+print(tail)
+first, second, *tail, last = [1, 2, 3]
+print(tail)
+print(last)
