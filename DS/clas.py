@@ -591,3 +591,71 @@ class ArgumentClinic(MontyPython):
         return "Hahahahahah"
 sketch = ArgumentClinic()
 sketch.punchline() NotImplementedError
+
+from abc import ABCMeta, abstractmethod 
+class MontyPython(metaclass=ABCMeta):    
+    @abstractmethod    
+    def joke(self):       
+        pass
+    @abstractmethod
+    def punchline(self):   
+        pass
+class ArgumentClinic(MontyPython):    
+    def joke(self):        
+        return "Hahahahahah"
+
+class ArgumentClinic(MontyPython):    
+    def joke(self):        
+        return "Hahahahahah"    
+    def punchline(self):        
+        return "Send in the constable!"
+
+class Mixin1(object):   
+    def test(self):        
+        print "Mixin1" 
+class Mixin2(object):    
+    def test(self):        
+        print "Mixin2" 
+class MyClass(Mixin1, Mixin2):    
+    pass
+class MyClass(Mixin2, Mixin1):    
+    pass
+obj = MyClass() 
+obj.test()
+
+class Base(object):    
+    def test(self):        
+        print("Base.")
+class PluginA(object):    
+    def test(self):        
+        super().test()       
+        print("Plugin A.")
+class PluginB(object):    
+    def test(self):        
+        super().test()       
+        print("Plugin B.")
+plugins = PluginA, PluginB
+class PluginSystemA(PluginA, Base): 
+    pass
+class PluginSystemB(PluginB, Base):  
+    pass
+PluginSystemA().test()
+PluginSystemB().test()
+
+class Base:    
+    plugins = []   
+    def __init_subclass__(cls, **kwargs):       
+        super().__init_subclass__(**kwargs)        
+        cls.plugins.append(cls)       
+    def test(self):       
+        print("Base.") 
+class PluginA(Base):    
+    def test(self):       
+        super().test()       
+        print("Plugin A.") 
+class PluginB(Base):    
+    def test(self):        
+        super().test()        
+        print("Plugin B.")
+PluginA().test()
+PluginB().test()
