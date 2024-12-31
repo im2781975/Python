@@ -896,3 +896,30 @@ if any(x == 3 for x in (a, b, c)):
 if 3 in (a, b, c):
 if a in (1, 2, 3):
     
+x = 7
+x.bit_length()
+(7).bit_length()
+7.2.as_integer_ratio()
+
+import math 
+from threading import Thread
+def calc_fact(num):    
+    math.factorial(num)
+num = 600000 
+t = Thread(target=calc_fact, daemon=True, args=[num]) 
+print("About to calculate: {}!".format(num)) t.start()
+t.join()
+
+def calc_fact(num):  
+    """ A slow version of factorial in native Python """   
+    res = 1    
+    while num >= 1:      
+        res = res * num
+        num -= 1   
+    return res
+def calc_fact(num):    
+    sleep(0.001)    
+    math.factorial(num)
+def xyz():  
+    return a, b
+a, b = xyz()
