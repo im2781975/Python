@@ -726,3 +726,173 @@ try:
 except KeyError:   
     speed = input("What is the air-speed velocity of an unladen swallow?") 
 print(speed)
+
+li = [[]] * 3
+li[0].append(1)
+print(li)
+
+li = [] 
+element = [[]] 
+li = element + element + এলেমেন্ত
+element.append(1)
+print(li)
+
+li = [[]] * 3 print([id(inner_list)for inner_list in li])
+li = [[] for _ in range(3)]
+print([id(inner_list) for inner_list in li])
+
+li = [] 
+li.append([]) 
+li.append([]) 
+li.append([]) 
+for k in li: 
+    print(id(k))
+    
+for i, elem in enumerate(tab):   
+    print((i, elem))
+
+def foo(name) :    
+    print(str(name).lower())
+def bar(listing) :    
+    l = list(listing)   
+    l.extend((1, 2, 3))    
+    return ", ".join(l)
+ 
+class Father(object):   
+    pass
+class Child(Father):   
+    pass
+
+class Car(object):   
+    def __init__(self):        
+        self.color = "red"        
+        self.wheels = [Wheel(), Wheel(), Wheel(), Wheel()]
+
+def foo(li=[]):   
+    li.append(1)    
+    print(li)
+foo([2])
+foo([3])
+foo()
+
+def foo(li=None):    
+    if not li:       
+        li = []   
+        li.append(1)    
+        print(li)
+foo()
+
+x = [] 
+foo(li=x) 
+foo(li="") 
+foo(li=0)
+
+def foo(li=None):   
+    if li is None:        
+        li = []    
+        li.append(1)   
+        print(li) 
+foo()
+
+alist = [0, 1, 2] 
+for index, value in enumerate(alist):    
+    alist.pop(index)
+    print(alist)
+    
+index = 0 
+alist = [0, 1, 2] 
+alist.pop(0) 
+
+index = 1 
+alist = [1, 2]
+alist.pop(1) 
+
+alist = [1,2,3,4,5,6,7] 
+for index, item in reversed(list(enumerate(alist))):   
+    if item % 2 == 0:        
+        alist.pop(index)
+print(alist)
+    
+alist = [0, 1, 2] 
+for index, value in enumerate(alist):    
+    if index == 20:            
+        break              
+    alist.insert(index, 'a') 
+print(alist)
+for item in alist:    
+    if item % 2 == 0:        
+        item = 'even' 
+print(alist)
+for index, item in enumerate(alist):  
+    if item % 2 == 0:        
+        alist[index] = 'even' 
+print(alist)
+
+zlist = [0, 1, 2]
+while zlist:    
+    print(zlist[0])   
+    zlist.pop(0) 
+print('After: zlist =', zlist)
+
+zlist = [0, 1, 2]
+x = 1 
+while len(zlist) > x:    
+    print(zlist[0])   
+    zlist.pop(0) 
+print('After: zlist =', zlist)
+
+zlist = [1,2,3,4,5] 
+i = 0
+while i < len(zlist):   
+    if zlist[i] % 2 == 0:       
+        zlist.pop(i)   
+    else:
+         i += 1
+print(zlist)
+
+zlist = [1,2,3,4,5] 
+z_temp = [] 
+for item in zlist:   
+    if item % 2 != 0:       
+        z_temp.append(item)
+zlist = z_temp 
+print(zlist)
+
+zlist = [1,2,3,4,5]
+[item for item in zlist if item % 2 != 0]
+
+-8 is (-7 - 1)
+-3 is (-2 - 1)
+ (255 + 1) is (255 + 1)
+ 'python' is 'py' + 'thon'
+ 'this is not a common string' is 'this is not' + ' a common string'
+'this is not a common string' == 'this is not' + ' a common string'
+
+myDict = {'first': 1, 'second': 2, 'third': 3} 
+print(myDict)
+print([k for k in myDict])
+
+from collections import OrderedDict.
+oDict = OrderedDict([('first', 1), ('second', 2), ('third', 3)])
+print([k for k in oDict])
+
+def func(**kw): 
+    print(kw.keys())
+func(a=1, b=2, c=3, d=4, e=5)
+dict_keys(['a', 'b', 'c', 'd', 'e'])
+
+i = 0 
+a = [i for i in range(3)]
+print(i)
+
+i = 0 
+for i in range(3):
+    pass 
+print(i)
+
+if a == 3 or b == 3 or c == 3:
+if any([a == 3, b == 3, c == 3]):
+if any(x == 3 for x in (a, b, c)):
+if 3 in (a, b, c):
+if a in (1, 2, 3):
+    
