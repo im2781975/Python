@@ -170,6 +170,27 @@ func(*args)
 kwargs = {"arg1" : "Here", "arg2" : "I", "arg3" : "am"}
 func(**kwargs)
 """                    """
+def func(*args):
+    for arg in args:
+        print(arg, end = " ")
+func('Here', 'i', 'am')
+"""                    """
+def func(tmp, *args):
+    print("\nFirst element is: ", tmp)
+    for arg in args:
+        print(arg, end = " ")
+func('Here', 'i', 'am')
+"""                    """
+print()
+def func(**kwargs):
+    for key, value in kwargs.items():
+        print("%s = %s" %(key, value))
+func(first = 'Geeks', mid = 'for', last = 'Geeks')
+"""                   """
+def func(args, **kwargs):
+    for key, value in kwargs.items():
+        print("%s = %s"%(key, value))
+func("Hi", first = 'Geeks', mid = 'for', last = 'Geeks')
 def func(*arg, **kwarg):
     print(arg, kwarg)
 args = {"Here i am"}
