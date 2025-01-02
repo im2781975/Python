@@ -37,3 +37,24 @@ print((10, ) * 6, ("Molla") * 2)
 
 lst = [1, 2, 3, 4, 5, 6]
 print(f"tuple('Geeks'): {tuple('Geeks')}\ntuple(lst): {tuple(lst)} ")
+"""					"""
+tup = ()
+tup = ('A', 'B')
+lst = [2, 3, 1, 5, 4]
+tup = tuple(lst)
+tup = tuple("Hello")
+tup = (5, "molla", 7, " vai")
+ple = (9, 1)
+print(tup[0]) #indexing
+print(tup + ple)
+print(("hello, ") * 3)
+tup = ("molla", "vai", " ibra")
+a, b, c = tup
+print(a, b, c)
+print(tup[:1], tup[::-1])
+"""                """
+tup = ("Molla")
+n = 2
+for i in range(int(n)):
+    tup = (tup, )
+    print(tup)
