@@ -373,3 +373,22 @@ if(x is y):
     print("True")
 else:
     print("False")
+"""				"""
+for i in range(5, 20, 2):
+    print(i, end = " ")
+print()
+for i in range(25, 2, -2):
+    print(i, end = " ")
+print()
+val = range(10)[0] #first
+val = range(10)[-1] #last element
+print(val)
+from itertools import chain
+res = chain(range(5), range(10, 20, 2))
+print(res)
+for i in res:
+    print(i, end = " ")
+print()
+fruits = ["A", "B", "C", "D"]
+for i in range(len(fruits)):
+    print(fruits[i], i, end = " ")
