@@ -116,3 +116,37 @@ x, y = ["a", "b", "c", "d"], ["a", "b", "c", "d"]
 print(x is y)
 if "b" in x:
     print("True")
+
+lst = ["A", "B", " C"]
+lst = []
+lst = [10, 20, 30]
+lst = ["A", 10, "B", 20, "C", 30]
+lst = [["A", "B"], ["C", " D"]]
+for i in range(1, 5):
+    lst.append(i)
+lst.append((7, 9))
+tsil = ["Z", "X"]
+tsil.append(lst)
+print(tsil)
+lst.insert(1, 7) #lst.insert(idx, val)
+lst.extend([8, 'Geeks', 'Always'])
+lst.reverse()
+rev = list(reversed(lst))
+print(rev)
+print(lst[:], lst[-1], lst[::-1])
+print(len(lst))
+
+"""                """
+string = input("Enter: ")
+lst = string.split()
+print(lst)
+n = int(input("Enter integer: "))
+lst = list(map(int, input("Enter the integer elements:").strip().split()))[:n]
+print(lst)
+"""            """
+lst = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+for i in range(0, 5):
+    if i in lst:
+        lst.remove(i)
+lst.pop(2)
+print(lst.pop())
