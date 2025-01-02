@@ -245,3 +245,20 @@ print(result)
 """                """
 tup = (2, 1, 0, 0, 0, 2, 2, 2)
 print(reduce(lambda x , y : x + y, tup, 6))
+
+import datetime
+today = datetime.datetime.today()
+print(f"{today :%B %d %Y} ")
+print('''Geeks'for'Geeks''')
+line = ord('\n')
+print(f"newline: {line} ")
+print(f"{{Double Braces}} ")
+
+dic = {'id' : 10, 'Name' : 'molla'}
+print(f"id: {dic['id']} name: {dic['Name']} ")
+num = 3.14167
+formatted = f"{num :.2f} "
+print(formatted)
+name, age = "Aslam", 22
+sentence = "name {} age {}".format(name, age)
+print(sentence)
