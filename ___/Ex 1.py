@@ -89,3 +89,20 @@ if(overlap(lst, lis)):
     print("Overlap")
 else:
     print("Not Overlap")
+# Even or odd
+seq = [0, 1, 1, 2, 3, 5, 8, 13]
+res = filter(lambda x : x % 2 == 0, seq)
+res = filter(lambda x : x % 2 != 0, seq)
+print(list(res))
+#IsMultiple
+def Ismultiple(num):
+    return num % 3 == 0
+num = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+res = list(filter(lambda x : Ismultiple(x), num))
+print(res)
+Even = [i for i in num if i % 2 == 0]
+print(Even)
+#split str
+text = "Python is awesome and versatile"
+filt = [word for word in text.split() if 'o' in word]
+print(filt) 
