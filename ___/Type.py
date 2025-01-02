@@ -183,3 +183,13 @@ print(operator.contains("Hello World", 'O'))
 print(operator.contains({1, 2, 3, 4, 5}, 6))
 print(operator.contains({1: "Geeks", 2:"for", 3:"geeks"}, 3))
 print(operator.contains((1, 2, 3, 4, 5), 9))
+"""				"""
+a, b = True, False
+print("type of bool is: ", type(a), type(b))
+x, y = 10, 5
+print("bool of integer is: ", bool(x == y))
+a, b, c, d= None, (), {}, 0.0
+#return false as it's none
+print("type of none is: ", bool(a), bool(b), bool(c), bool(d))
+e, f, g = 10, 20, -39
+print("type equivalenze is: ", e == f, bool(g))
