@@ -341,3 +341,35 @@ runMatch(programmer1)
 runMatch(programmer2)
 runMatch(person1)
 runMatch(programmer3)
+
+"""            """
+a, b, c = 0, 2, 4
+if a > b or b < c:
+    print("True")
+else:
+    print("False")
+if a or b or c:
+    print("\nAtleast one value has boolean true")
+if a and b and c:
+    print("\nAll number has boolean true")
+else:
+    print("\nAtleast one has boolean true")
+
+"""                """
+a = 0
+if not a:
+    print("\na is true")
+#equivalent
+b = 1
+if(a == 0):
+    print("a == 0: ", a == 0)
+if(a == b):
+    print("a == b", a == b)
+if(a!= b):
+    print("a != b", a != b)
+"""            """
+x, y = 10, 10
+if(x is y):
+    print("True")
+else:
+    print("False")
