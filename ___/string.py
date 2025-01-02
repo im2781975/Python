@@ -45,3 +45,39 @@ print(a.upper(), a.lower(), a.capitalize())
 for char in b: print(char)
 if 'molla' in b: print("Exits")
 else: print("Not Exits")
+
+string = '''House
+For
+Rent '''
+string = '''molla\'s "House" '''
+print(string[ : : -1], string[3 : 12], string[3 : -2])
+ing = "mollavai"
+ing = "".join(reversed(ing))
+print(ing)
+"""                    """
+lst = list(ing)
+lst[1] = 'p'
+tis = ''.join(lst)
+print(tis)
+"""                    """
+string = ing[0 : 2] + ' ' + tis[::-1]
+ing = "python\twork"
+ing = "\110\220\221\223"
+ing = r"\110\220\221\223"#Escape seq
+ing = "there has x\23x\25"
+ing = r"there has x\23x\25"
+print(ing)
+ing = "{} {} {}".format('Geeks', 'For', 'Life')
+ing = "{1} {0} {2}".format('Hasan', 'Alom', 'mahmud')
+ing = "{l} {f} {g}".format(g='Geeks', f='For', l='Life')
+ing = "{0:b}".format(8)
+ing = "{0:b}".format(16)
+ing = "{0:e}".format(165.789)
+ing = "{0:0.2f}". format(1/6)
+ing = "|{:<10}|{:^10}|{:>10}|".format('Geeks', 'for', 'Geeks')
+ing ="{0:^16} was founded in {1:<4}!".format("GeeksforGeeks", 2009)
+print(ing)
+
+integer = 12.3456789
+print('The value of Integer is %3.2f' %integer)
+print('The value of Integer is %3.4f' % integer)
