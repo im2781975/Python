@@ -81,3 +81,12 @@ print(ing)
 integer = 12.3456789
 print('The value of Integer is %3.2f' %integer)
 print('The value of Integer is %3.4f' % integer)
+
+ing = 'MollaVai'
+upper = lambda string : string.upper()
+print(upper(ing))
+formatNumeric = lambda num : f"{num : e} " if isinstance(num, int) else f"{num :,.2f} "
+print(formatNumeric(99999), formatNumeric(123.98))
+data = [(1, 'apple'), (2, 'banana'), (3, 'orange')]
+sortedData = sorted(data, key = lambda x : x[1])
+print(sortedData)
