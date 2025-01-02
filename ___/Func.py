@@ -316,3 +316,28 @@ b = order
 c = order
 if a(-1) or b(5) or c(10):
     print("Atleast one of the number is positive")
+def addition(x):
+    return x + x
+num = (1, 2, 3, 4)
+res = map(addition, num)
+res = map(lambda x : x + x, num)
+square = list(map(lambda x : x ** 2, num))
+print(list(res))
+"""                    """
+num, ber = [1, 2, 3], [4, 5, 6]
+res = map(lambda x, y : x + y, num, ber)
+print(list(res))
+ 
+lst = ['sat', 'sun', 'mon', 'fri']
+print(list(map(list, lst)))
+
+def even(num):
+    if num % 2 == 0:
+        return num * 2
+    else:
+        return num
+def double(num):
+    return 2 * num
+num = [1, 2, 3, 4, 5]
+print(list(map(even, num)))
+print(list(map(double, num)))
