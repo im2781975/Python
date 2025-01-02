@@ -163,6 +163,31 @@ def mixArgs(*args, **kwargs):
     print(args)
 #mixArgs(a = 2, b = 4, c = 8,name = "hasan", dept = "mahmud", age = "24")
 mixArgs(2, 4, 6, name = "hasan", dept = "mahmud", age = "24")
+def func(arg1, arg2, arg3):
+    print(arg1, arg2, arg3)
+args = ("Here", "I", "am")
+func(*args)
+kwargs = {"arg1" : "Here", "arg2" : "I", "arg3" : "am"}
+func(**kwargs)
+"""                    """
+def func(*arg, **kwarg):
+    print(arg, kwarg)
+args = {"Here i am"}
+kwargs = {"first" : "where", "mid" : "are", "last" : "You"}
+func(args, kwargs)
+"""                """
+def func(*arg, **kwarg):
+    print(arg)
+    print(kwarg)
+args = {1, 2, 3}
+kwargs = {"name" : "hasan", "mid" : "Alom", "last" : "mahmud"}
+func(args, kwargs)
+"""                """
+def example(*args):
+    total = sum(args)
+    print(total)
+example(2, 6, 9)
+
 #scope
 a = 15
 def display():
