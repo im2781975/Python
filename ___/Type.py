@@ -207,6 +207,7 @@ print(int(num), type(int(num)))
 num = 6.7
 print(complex(num))
 print(num, type(num))
-
+num = 7 * 3.0
+print(type(num))
 import decimal
 print(decimal.Decimal('1.1') + decimal.Decimal('4.9'))
