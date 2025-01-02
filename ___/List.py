@@ -111,3 +111,8 @@ lst = [1, 2, 3, 4, 5]
 while(x := len(lst)) > 2:
     lst.pop()
     print(x, end = " ")
+"""				"""
+x, y = ["a", "b", "c", "d"], ["a", "b", "c", "d"] 
+print(x is y)
+if "b" in x:
+    print("True")
