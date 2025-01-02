@@ -67,7 +67,7 @@ print(Data.popitem())
 print(Data.popitem())
 Data.clear() #For.clear dict
 print(Data)
-
+"""					"""
 Data = {
     "A" : {"roll" : 23, "age" : 22, "course" : "python"},
     "B" : {"roll" : 12, "age" : 24, "course" : "java", "num" : [234, 876]}
@@ -76,3 +76,34 @@ Data["A"]["num"] = 789
 del Data["A"]["num"]
 #print(Data["A"].pop("num"))
 print(f"Data: {Data}\nData[A]: {Data['A']}\nData[B][num]: {Data['B']["num"]} ")
+
+#declaration
+dic = {'Name' : 'Asam', 1 : [2, 3, 4]}
+dic = {}
+dic = dict({1 : 'Aa', 2 : 'Bb', 3 : 'Cc'})
+dic = dict([(1, 'Aa'), (2, 'Bb')])
+dic = {1 : 'Aa', 2 : 'Bb', 3 : {4 : 'Dd', 5 : 'Ee'}}
+dic[6] = 'Ff'
+dic[7] = 'Gg'
+dic['Add'] = 2, 4, 9
+dic[8] = {'Nested' : {'1' : 'Welcome', '2': 'Here'}}
+print(dic)
+dic = {1 : 'Aa', 2 : 'Bb', 3 : 'Cc'}
+print(dic[1], dic[2], dic[3], dic.get(3))
+dic = {'Dict1': {1: 'Geeks'}, 'Dict2': {'Name': 'For'}}
+print(dic['Dict1'][1])
+del(dic['Dict1'])
+print(dic)
+"""                """
+dic = {1 : "python", 2 : " java", 3 : "Ruby"};
+dic2 = dic.copy()
+dic.clear()
+print(dic2.items(), dic2.keys(), dic2.values())
+dic2.pop(2)
+print(dic2)
+dic2.popitem(), dic2.update({2 : "scala"})
+print(dic2.values())
+"""                    """
+dic = {"1" : "B", '2' : 'C'}
+print(dic.keys(), all(dic.keys()), dic.values(), all(dic.values()))
+print(sorted(dic))
