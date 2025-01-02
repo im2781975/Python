@@ -392,3 +392,36 @@ print()
 fruits = ["A", "B", "C", "D"]
 for i in range(len(fruits)):
     print(fruits[i], i, end = " ")
+"""					"""
+ing = "mollavai"
+for letter in ing:
+    print(letter, end = ' ')
+    if letter == 'a' or letter == 'i':
+        break
+print()
+i = 0
+while(True):
+    print(ing[i], end = ' ')
+    if ing[i] == 'a' or ing[i] == 'i':
+        break
+    i += 1
+"""                """
+print()
+for i in range(1, 5):
+    for j in range(2, 6):
+        if j % i == 0:
+            break
+        print(i, ' ', j)
+"""                 """
+for i in range(1, 11):
+    if i == 6:
+        continue
+    else:
+        print(i, end = ' ')
+"""                   """
+print()
+for i in ing:
+    if i == 'o':
+        print("Executed")
+        pass
+    print(i, end = " ")
