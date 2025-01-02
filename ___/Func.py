@@ -267,6 +267,46 @@ def fun():
 for i in fun():
     print(i, end = " ")
 
+def cube(x):
+    r = x ** 3
+    return r
+def add(a, b):
+    return a + b
+def IsTrue(a):
+    return bool(a)
+print("Addition is: {}".format(add(8, 3)))
+print("Boolean is: {}".format(IsTrue(2 < 8)))
+"""            """
+def func():
+    ing = "Here i am"
+    x = 10
+    return ing, x
+print(func())
+def func():
+    ing = "where are you"
+    x = 22
+    return [ing, x]
+print(func())
+def func():
+    dic = dict()
+    dic['str'] = "mollavai"
+    dic['x'] = 20
+    return dic
+print(func())
+"""                """
+def adder(x):
+    def add(y):
+        return x + y
+    return adder
+print(adder(23))
+"""                """
+def outer(x):
+    return x * 10
+def func():
+    return outer
+res = func()
+print(res(5))
+
 def order(x):
     print("Method called for value:", x)
     return True if x > 0 else False
