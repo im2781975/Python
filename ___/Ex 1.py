@@ -106,3 +106,17 @@ print(Even)
 text = "Python is awesome and versatile"
 filt = [word for word in text.split() if 'o' in word]
 print(filt) 
+
+def func(val):
+    letter = ['a', 'e', 'i', 'o', 'u']
+    if val in letter:
+        return True
+    else:
+        return False
+seq = ['g', 'e', 'e', 'j', 'k', 's', 'p', 'r']
+filt = filter(func, seq)
+lst = list(filt)
+if 's' in filt:
+    print("Yes")
+else:
+    print("No")
