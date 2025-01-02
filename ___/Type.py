@@ -193,3 +193,20 @@ a, b, c, d= None, (), {}, 0.0
 print("type of none is: ", bool(a), bool(b), bool(c), bool(d))
 e, f, g = 10, 20, -39
 print("type equivalenze is: ", e == f, bool(g))
+
+num = -8
+num = 6 * 6.9
+num = 2.7 + 9.8
+num = (1 + 5j) + (3 + 2j)
+num = (1 + 5j) - (3 + 2j)
+num = (1 + 5j) * (3 + 2j)
+num = (1 + 5j) / (3 + 2j)
+num = 4.8
+num = '3'
+print(int(num), type(int(num)))
+num = 6.7
+print(complex(num))
+print(num, type(num))
+
+import decimal
+print(decimal.Decimal('1.1') + decimal.Decimal('4.9'))
