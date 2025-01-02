@@ -92,3 +92,17 @@ circle_instance = Circle(5)
 # Calling the calculate_area method
 print("Area of the circle:", circle_instance.calculate_area())
 ////
+class Test: 
+    def __init__(self): 
+        self.str = "geeksforgeeks"
+        self.x = 20   
+  
+# This function returns an object of Test 
+def fun(): 
+    return Test() 
+      
+# Driver code to test above method 
+t = fun()  
+print(t.str) 
+print(t.x)
+////
