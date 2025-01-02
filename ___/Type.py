@@ -145,6 +145,8 @@ print(mt.factorial(5))
 age, name, double, single = 45, "Hasan", 3.90, True
 print(age, name, double, single)
 print(type(age), type(name), type(double), type(single))
+MyClass = type('MyClass', (object,), {'attr': 5})
+print(type(MyClass))
 print(age + double, age * double)
 print(f"Name: {name}\nage: {age}\nmoney: {double}\nsingle: {single} ")
 
