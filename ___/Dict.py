@@ -107,3 +107,9 @@ print(dic2.values())
 dic = {"1" : "B", '2' : 'C'}
 print(dic.keys(), all(dic.keys()), dic.values(), all(dic.values()))
 print(sorted(dic))
+"""					"""
+from collections import OrderedDict
+dic = OrderedDict([("A" ,  1), ("B" ,  2)])
+dic = {"foo" : 5, "baz" : 7}
+dic["bar"] = 9
+print(dic)
