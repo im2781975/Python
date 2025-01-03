@@ -27,3 +27,29 @@ print('h' in deq)
 for val in deq:
     print(val.upper(), end = "")
 deq.clear()
+deq = deque([1, 2, 3])
+deq.popleft()
+deq.appendleft(5)
+dl = deque()
+#dl = deque(maxlen = 100)
+dl.append(2)
+dl.extend([6, 7])
+dl.extendleft([-2, -1])
+dl.pop_left()
+dl.remove(1)
+dl.reverse()
+"""                """
+def bfs(graph, root):
+    distances = {}
+    distances[root] = 0
+    q = deque([root])
+    while q:
+        current = q.popleft()
+        for neighbor in graph[current]:
+            if neighbor not in distances:
+                distances[neighbor] = distances[current] + 1
+                q.append(neighbor)
+    return distance
+graph = {1: [2, 3], 2: [4], 3: [4, 5], 4: [3, 5], 5: []}
+result = bfs(graph, 1)
+print(result)
