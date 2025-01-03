@@ -148,3 +148,12 @@ print(oddList, square, adult)
 #upper
 animals = ['dog', 'cat', 'parrot', 'rabbit']
 print(list(map(lambda animal : animal.upper(), animals)))
+#count student 
+students = {}
+def add(name = None):
+    students['count'] = students.get('count', 0) + 1
+    if name:
+        students.setdefault('names', []).append(name)
+add("Alice")
+add("Bob")
+print(students)
