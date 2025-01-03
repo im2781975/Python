@@ -57,3 +57,23 @@ b.extend([2.9, 3.7, 5.9])
 print()
 for i in b:
     print(i, end = " ")
+"""						"""
+from array import array
+arr = array('i', [1, 2, 3, 4, 5])
+arr.append(6) #insert at last idx
+arr.insert(0, 1) #insert(idx, val)
+arr.remove(4) #del first occurance
+arr.reverse()
+arr.count(3)
+print(arr[0], arr.index(5))
+ray = array('i', [7, 8, 9])
+arr.extend(ray)
+c = [11, 12, 13]
+arr.fromlist(c)
+print(arr.buffer_info)
+for i in arr:
+    print(i, end = ' ')
+print()
+"""            """
+arr =  array('i',[2, 9, 11])
+print(arr.tolist())
