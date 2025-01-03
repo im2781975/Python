@@ -113,3 +113,8 @@ dic = OrderedDict([("A" ,  1), ("B" ,  2)])
 dic = {"foo" : 5, "baz" : 7}
 dic["bar"] = 9
 print(dic)
+OrderedDict([('foo', 5), ('bar', 6), ('baz', 7), ('foobar', 8)])
+o = OrderedDict()
+o['key1'] = "value1"
+o['key2'] = "value2"
+print(o)
