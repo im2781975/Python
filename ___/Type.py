@@ -262,3 +262,19 @@ print(formatted)
 name, age = "Aslam", 22
 sentence = "name {} age {}".format(name, age)
 print(sentence)
+"""					"""
+#Boolean logic
+print(1 and 2, 1 or 2, None or 1, 0 or [])
+print(1 and "Hello", "" and "Hello", )
+def printf():
+    print("Here i am")
+printf() and 0
+
+x, y = 5, 10
+print(["Less than", "Equal", " Greater than"][(x > y) - (x < y) + 1])
+
+import datetime
+aDate = None 
+if not aDate:
+    aDate = datetime.date.today()
+print("Assigned date:", aDate)
