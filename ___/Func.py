@@ -98,6 +98,59 @@ def address(first, last):
 name = address(first = 'Molla', last = 'ibrahim')
 print(name)
 """                         """
+def printKwargs(**kwargs):
+    print(kwargs)
+def printKwargs(**kwargs):
+    for key in kwargs:
+        print("key = {0}, value = {1}".format(key, kwargs[key]))
+printKwargs(a = "two", b = 1)
+"""                """
+def kwargs(x, **key):
+    print(key)
+kwargs(2, b = 3, c = 4)
+"""                """
+def arges(x, *args):
+    print("Formal arg: %s" %x)
+    for arg in args:
+        print("Another positional arg is: %s" %arg)
+arges(1, "two", 3)
+"""                """
+def fooBar(foo = None, Bar = None):
+    return "{}{}".format(foo, Bar)
+values = {"foo" : "foo", "Bar" : "barista"}
+print(fooBar(**values))
+"""                """
+def printArgs(arg, *args, key, keyword):
+    print("First positional arg is: {}".format(arg))
+    for i in args:
+        print("Another position args is: {}".format(i))
+    print("key value: {}".format(key))
+    print("keyword value: {}".format(keyword))
+printArgs(2, 8, 9, 1, key = 8, keyword = 9)
+"""                """
+def func(arg1, arg2, arg3):
+    print("arg1: %s" %arg1)
+    print("arg2: %s" %arg2)
+    print("arg3: %s" %arg3)
+kwargs = {"arg3" : 3, "arg2" : "two"}
+func(1, **kwargs)
+"""                """
+def func(**kwargs):
+    print(kwargs.get('value', 0))
+func()
+func(value = 1)
+"""                """
+def printArg(arg1, arg2):
+    print(str(arg1) + str(arg2))
+a = (1, 2)
+b = tuple([3, 4])
+printArg(a[0], b[1])
+printArg(a, b)
+"""                """
+a , b = [1, 3, 5, 7],[2, 4, 6, 8]
+zipped = zip(a, b)
+print(zipped)
+"""							"""
 def intro(*title, first, last):
     name = f"name is: {title} {first} {last} "
     return name
