@@ -53,3 +53,19 @@ def bfs(graph, root):
 graph = {1: [2, 3], 2: [4], 3: [4, 5], 4: [3, 5], 5: []}
 result = bfs(graph, 1)
 print(result)
+"""					"""
+import operator
+print(operator.pow(4, 2), operator.__pow__(4, 3))
+x, y = 2, 6
+print(x.__pow__(y), y.__rpow__(x))
+"""                    """
+import math
+from decimal import Decimal
+import cmath
+print(math.sqrt(9), math.sqrt(11.11), Decimal('6.25').sqrt())
+print(cmath.sqrt(4), cmath.sqrt(-4))
+"""                    """
+def modularInverse(x, p):
+    return pow(x, p - 2, p)
+print([modularInverse(x, 13) for x in range(1,13)])
+"""                    """
