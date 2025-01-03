@@ -212,6 +212,12 @@ print(complex(num))
 print(num, type(num))
 num = 7 * 3.0
 print(type(num))
+print(pow(3, 4, 17)) # 3 ** 4 % 17
+x = 2 ** 100
+cube = x ** 3
+root = cube ** (1.0 / 3)
+print(root)
+
 import decimal
 print(decimal.Decimal('1.1') + decimal.Decimal('4.9'))
 """						"""
