@@ -425,3 +425,15 @@ for i in ing:
         print("Executed")
         pass
     print(i, end = " ")
+"""					"""
+n = 5
+print("Hello") if n > 10 else print("Bye") if n > 5 else print("GoodBye")
+a = 1 
+if a == 3 or 4 or 6:
+    print('yes')
+else:
+    print('no')
+if a in (3, 4, 6): 
+    print('yes') 
+else:
+    print('no')
