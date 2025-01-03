@@ -196,6 +196,7 @@ print("type of none is: ", bool(a), bool(b), bool(c), bool(d))
 e, f, g = 10, 20, -39
 print("type equivalenze is: ", e == f, bool(g))
 
+print(2 ** 3, 2 ** -3, (-2) ** 0.5)
 num = -8
 num = 6 * 6.9
 num = 2.7 + 9.8
