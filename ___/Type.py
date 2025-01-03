@@ -285,3 +285,28 @@ aDate = None
 if not aDate:
     aDate = datetime.date.today()
 print("Assigned date:", aDate)
+#filter
+from itertools import filterfalse
+names = ['Fred', 'Wilma', 'Barney']
+def longName(name):
+    return len(name) > 5
+print(filter(longName, names), list(filter(longName, names)))
+print(list(filterfalse(longName, names)))
+print([name for name in names if len(name) > 5])
+print(list(filter(None, [1, 0, 2, [], '', 'a'])))
+from itertools import filterfalse
+print(list(filterfalse(None, [1, 0, 2, [], '', 'a'])))
+"""                     """
+car_shop = [('Toyota', 1000), ('rectangular tire', 80), ('Porsche', 5000)]
+def findSmaller(tup):
+    print('Check {0}, {1}$'.format(*tup)) 
+    return tup[1] < 100  
+result = next(filter(findSmaller, car_shop), None)
+print("Result:", result)
+generator = (car for car in car_shop if not car[1] < 100) 
+next(generator)
+"""                """
+alist = ['wolf', 'sheep', 'duck'] 
+print(list(filter(lambda x : x.startswith('d'), alist)))
+from operator import methodcaller
+print(list(filter(methodcaller('startswith', 'd'), alist)))
