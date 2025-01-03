@@ -58,6 +58,9 @@ import operator
 print(operator.pow(4, 2), operator.__pow__(4, 3))
 x, y = 2, 6
 print(x.__pow__(y), y.__rpow__(x))
+import math
+print(math.pow(2, 2), math.pow(2, -2), math.pow(-2, 5), math.e ** 2, math.exp(2), math.exp(10), math.exp(10).real)
+print(math.e ** 1e-3 - 1, math.exp(1e-3) - 1, math.expm1(1e-3), math.e ** 1e-15 - 1, math.exp(1e-15) - 1, math.expm1(1e-15))
 """                    """
 import math
 from decimal import Decimal
