@@ -37,21 +37,6 @@ lst
 from datetime import datetime 
 'North America: {dt:%m/%d/%Y}.  ISO: {dt:%Y-%m-%d}.'.format(dt=datetime.now()) '
 
-'{:c}'.format(65)
-'{:d}'.format(0x0a)
-'{:n}'.format(0x0a)
-'{0:x}'.format(10)
-'{0:X}'.format(10)
-'{:o}'.format(10)
-'{:b}'.format(10)
-'{0:#b}, {0:#o}, {0:#x}'.format(42)
-'8 bit: {0:08b}; Three bytes: {0:06x}'.format(42)
-r, g, b = (1.0, 0.4, 0.0) 
-'#{:02X}{:02X}{:02X}'.format(int(255 * r), int(255 * g), int(255 * b)) 
- '{:.>10}'.format('foo')
-'{:.>{}}'.format('foo', 10)
-'{:{}{}{}}'.format('foo', '*', '^', 15)
-
 data = ["a", "bbbbbbb", "ccc"] 
 m = max(map(len, data)) 
 for d in data:
@@ -78,21 +63,6 @@ class Example(object):
         return "{r:{f}}".format( r=raw, f=format_spec )
 inst = Example(1,2,3)
 print "{0:>20s}".format( inst )
-
-str. casefold
-str. upper 
-str. lower 
-str. capitalize
-str. title
-str. swapcase
-"XßΣ".casefold()
-"This is a 'string'.".upper()
-"This IS a 'string'.".lower()
-"this Is A 'String'.".capitalize()
-"this Is a 'String'".title()
-"this iS A STRiNG".swapcase()
-str.upper("This is a 'string'")
-map(str.upper,["These","are","some","'strings'"])
 
 translation_table = str.maketrans("aeiou", "12345") 
 my_string = "This is a string!" 
