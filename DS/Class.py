@@ -110,3 +110,16 @@ add2 = adder(2)
 add2(1) 
 add2(2)  
 
+class MyIterable:    
+    def __iter__(self):         return self    
+    def __next__(self):
+        pass
+class MySequence:    
+    def __getitem__(self, index):         
+        if (condition):             raise IndexError        
+        return (item)
+
+ex1 = MyIterableClass() 
+ex2 = MySequence() 
+for (item) in (ex1): pass
+for (item) in (ex2): pass
