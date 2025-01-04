@@ -76,6 +76,7 @@ ing = "{0:e}".format(165.789)
 ing = "{0:0.2f}". format(1/6)
 ing = "|{:<10}|{:^10}|{:>10}|".format('Geeks', 'for', 'Geeks')
 ing ="{0:^16} was founded in {1:<4}!".format("GeeksforGeeks", 2009)
+
 print(ing)
 
 integer = 12.3456789
@@ -90,3 +91,55 @@ print(formatNumeric(99999), formatNumeric(123.98))
 data = [(1, 'apple'), (2, 'banana'), (3, 'orange')]
 sortedData = sorted(data, key = lambda x : x[1])
 print(sortedData)
+"""				"""
+foo, bar, baz = 1, 'bar', 3.1416
+print('{}, {} & {}'.format(foo, bar, baz))
+print('{0}, {1}, {2} & {1}'.format(foo, bar, baz))
+print("X value {x}, Y value {y}".format(x = 2, y = 3))
+"""            """
+print('{:~<9s}, World'.format('Hello'))
+print('{:~>9s}, World'.format('Hello'))
+print('{:~^9s}'.format('Hello'))
+print('{:0=6d}'.format(-123))
+"""            """
+foo = 'bar'
+print(f'Foo is: {foo} ')
+print(f'{foo : ^7s}')
+"""            """
+print('{0:.0f}'.format(42.12345))
+print('{0:.1f}'.format(42.12345))
+print('{0:.3f}'.format(42.12345))
+print('{0:.5f}'.format(42.12345))
+print('{0:.7f}'.format(42.12345))
+print('{:.3f}'.format(42.12345))
+print('{answer:.3f}'.format(answer=42.12345))
+print('{0:.3e}'.format(42.12345))
+print('{0:.0%}'.format(42.12345))
+"""            """
+ing = 'Hello'
+a, b, c = 1.12345, 2.34567, 34.5678 
+digits = 2
+print('{0}! {1:.{n}f}, {2:.{n}f}, {3:.{n}f}'.format(ing, a, b, c, n = digits))
+'{first} {last}'.format_map(data) 'Hodor Hodor!'
+'{first} {last}'.format(first='Hodor', last='Hodor!')
+"""            """
+print('{:c}'.format(65))
+print('{:d}'.format(0x0a))
+print('{:n}'.format(0x0a))
+print('{0:x}'.format(10))
+print('{0:X}'.format(10))
+print('{:o}'.format(10))
+print('{:b}'.format(10))
+print('{0:#b}, {0:#o}, {0:#x}'.format(42))
+print('8 bit: {0:08b}; Three bytes: {0:06x}'.format(42))
+"""            """
+r, g, b = (1.0, 0.4, 0.0) 
+print('#{:02X}{:02X}{:02X}'.format(int(255 * r), int(255 * g), int(255 * b)))
+print('{:.>10}'.format('foo'))
+print('{:.>{}}'.format('foo', 10))
+print('{:{}{}{}}'.format('foo', '*', '^', 15))
+"""				"""
+ing = "Aslam"
+print("X£B".casefold(), ing.upper(), ing.lower(), ing.capitalize(), ing.title(), ing.swapcase())
+print(str.upper('Here are'))
+print(map(str.upper,["These","are","some","'strings'"]))
