@@ -198,3 +198,10 @@ print("planks_law_math:", results_math)
 print("planks_law_naive_math:", results_naive_math)
 print("\nResults using numpy:")
 print("planks_law_numpy:", results_numpy)
+"""				"""
+import random
+from string import punctuation, ascii_letters, digits
+symbols = punctuation + ascii_letters + digits
+secure = random.SystemRandom()
+password = "".join(secure.choice(symbols)for i in range(10))
+print(password)
