@@ -72,3 +72,20 @@ def modularInverse(x, p):
     return pow(x, p - 2, p)
 print([modularInverse(x, 13) for x in range(1,13)])
 """                    """
+import heapq
+num = [1, 4, 2, 100, 20, 50, 32, 200, 150, 8]
+print(heapq.nlargest(4, num))
+print(heapq.nsmallest(4, num))
+heapq.heapify(num)
+heapq.heappop(num)
+print(num)
+
+people = [{'firstname': 'John', 'lastname': 'Doe', 'age': 30},    
+        {'firstname': 'Jane', 'lastname': 'Doe', 'age': 25},    
+        {'firstname': 'Janie', 'lastname': 'Doe', 'age': 10},  
+        {'firstname': 'Jane', 'lastname': 'Roe', 'age': 22},    
+        {'firstname': 'Johnny', 'lastname': 'Doe', 'age': 12},    
+        {'firstname': 'John', 'lastname': 'Roe', 'age': 45}]
+oldest = heapq.nlargest(2, people, key = lambda s : s['age'])
+youngest = heapq.nsmallest(2, people, key = lambda s : s['age'])
+print(oldest, youngest)
