@@ -437,3 +437,89 @@ if a in (3, 4, 6):
     print('yes') 
 else:
     print('no')
+"""					"""
+i = 0
+while i < 7:
+    print(i, end = " ")
+    if i == 4:
+        break
+    i += 1
+"""                """
+print()
+for i in (0, 1, 2, 3, 4, 5):
+    print(i, end = " ")
+    if i == 2:
+        break
+"""                 """
+print()
+for i in (0, 1, 2, 3, 4, 5):
+    if i == 2 or i == 4:
+        continue
+    print(i, end = " ")
+"""                 """
+print()
+def breakLoop():
+    for i in range(1, 5):
+        if i == 2:
+            return i
+        print(i)
+    return (5)
+"""                 """
+print()
+def breakAll():
+    for j in range(1, 5):
+        for i in range(1, 4):
+            if i * j == 6:
+                return (i)
+            print(i * j)
+"""                    """
+print()
+for i in [0, 1, 2, 3, 4]:
+    print(i, end = ' ')
+print()
+for i in range(5):    
+    print(i, end = ' ')
+print()
+for i in ['One', 'Two', 'Three', 'Four']:
+    print(i, end = ' ')
+print()
+for i in range(1, 6):
+    print(i, end = ' ')
+print()
+for index, item in enumerate(['one', 'two', 'three', 'four']):   
+    print(index, '::', item, end = ' ')
+print()
+x = map(lambda e : e.upper(),['one', 'two', 'three', 'four']) 
+print(x, end = ' ')
+"""                    """
+print()
+for i in range(3):
+    print(i,  end = " ")
+else:
+    print("done")
+print()
+i = 3
+while i < 3:
+    print(i, end = ' ')
+    i += 1
+else:
+    print("done")
+"""                    """
+lst = [1, 2, 3, 4]
+for i in lst:
+    if type(i) is not int:
+        print(i, end = ' ')
+        break
+    else:
+        print("No exeception")
+"""                """
+print()
+"""                """
+a = 10
+while True:
+    a -= 1
+    print(a, end = " ")
+    if a < 7:
+        break
+print("Done")
+"""						"""
