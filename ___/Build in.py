@@ -105,3 +105,26 @@ while complex_num:
 import random
 num = random.randint(0, 12)
 print(str(num))
+"""				"""
+import random
+laugh = ["Aa", "Bb", " Cc"]
+random.shuffle(laugh)
+print(laugh, random.choice(laugh))
+print(random.sample(laugh, 1), random.sample(laugh, 2), random.sample(laugh, 3))
+print(random.randint(1, 100), random.randrange(100), random.randrange(20, 50), random.randrange(10, 20, 3), random.random(), random.uniform(1, 8))
+random.seed(5)
+print(random.randrange(0, 10), random.randrange(0, 10))
+random.seed(5)
+print(random.randrange(0, 10))
+"""            """
+state = random.getstate()
+random.setstate(state)
+print(state)
+random.seed(None)
+random.seed()
+"""            """
+probability = 0.3
+if random.random() < probability:    
+    print("Decision with probability 0.3") 
+else:    
+    print("Decision with probability 0.7")
