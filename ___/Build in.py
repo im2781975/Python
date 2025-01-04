@@ -101,3 +101,7 @@ import cmath
 complex_num = cmath.sqrt(-1) 
 while complex_num: 
     print(complex_num)  
+"""				"""
+import random
+num = random.randint(0, 12)
+print(str(num))
