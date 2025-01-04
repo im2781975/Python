@@ -79,7 +79,7 @@ print(heapq.nsmallest(4, num))
 heapq.heapify(num)
 heapq.heappop(num)
 print(num)
-
+"""				"""
 people = [{'firstname': 'John', 'lastname': 'Doe', 'age': 30},    
         {'firstname': 'Jane', 'lastname': 'Doe', 'age': 25},    
         {'firstname': 'Janie', 'lastname': 'Doe', 'age': 10},  
@@ -89,3 +89,15 @@ people = [{'firstname': 'John', 'lastname': 'Doe', 'age': 30},
 oldest = heapq.nlargest(2, people, key = lambda s : s['age'])
 youngest = heapq.nsmallest(2, people, key = lambda s : s['age'])
 print(oldest, youngest)
+"""				"""
+from operator import *
+print(add(a, b), sub(a, b), truediv(a, b), floordiv(a, b))
+"""            """
+import math
+a, b = 1, 2
+print(math.sinh(a), math.cosh(a), math.atan(math.pi), math.hypot(a, b), math.degree(a), math.radians(57.29577951308232))
+"""            """
+import cmath
+complex_num = cmath.sqrt(-1) 
+while complex_num: 
+    print(complex_num)  
