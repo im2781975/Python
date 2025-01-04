@@ -33,15 +33,7 @@ lst = [0]
 f'{fn(lst,2)} {fn(lst,3)}'
 f'{fn(lst,2)} {fn(lst,3)}'
 lst
-
-s = 'Hello'
-a, b, c = 1.12345, 2.34567, 34.5678 
-digits = 2
-'{0}! {1:.{n}f}, {2:.{n}f}, {3:.{n}f}'.format(s, a, b, c, n=digits)
-
-'{first} {last}'.format_map(data) 'Hodor Hodor!'
-'{first} {last}'.format(first='Hodor', last='Hodor!')
-
+ 
 from datetime import datetime 
 'North America: {dt:%m/%d/%Y}.  ISO: {dt:%Y-%m-%d}.'.format(dt=datetime.now()) '
 
