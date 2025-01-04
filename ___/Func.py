@@ -394,3 +394,9 @@ def double(num):
 num = [1, 2, 3, 4, 5]
 print(list(map(even, num)))
 print(list(map(double, num)))
+"""					"""
+def gen():    
+    yield 1 
+iterable = gen() 
+for a in iterable:   
+    print (a)
