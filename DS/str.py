@@ -1,9 +1,3 @@
-foo = 1 bar = 'bar' baz = 3.14
-print('{}, {} and {}'.format(foo, bar, baz))
-print('{0}, {1}, {2}, and {1}'.format(foo, bar, baz))
-print('{0}, {1}, {2}, and {3}'.format(foo, bar, baz))
-print("X value is: {x_val}. Y value is: {y_val}.".format(x_val=2, y_val=3))
-
 class AssignValue(object):    
     def __init__(self, value):        
         self.value = value 
@@ -28,15 +22,6 @@ delta = timedelta(days=13, hours=8,  minutes=20)
 gen = (once_upon_a_time + x * delta for x in xrange(5))  
 print '\n'.join(map('{:%Y-%m-%d %H:%M:%S}'.format, gen))
 
-'{:~<9s}, World'.format('Hello')
-'{:~>9s}, World'.format('Hello')
-'{:~^9s}'.format('Hello')
-'{:0=6d}'.format(-123)
-
-foo = 'bar'
-f'Foo is {foo}'
-f'{foo:^7s}'
-
 price = 478.23 
 f"{f'${price:0.2f}':*>20s}" '
 
@@ -48,16 +33,6 @@ lst = [0]
 f'{fn(lst,2)} {fn(lst,3)}'
 f'{fn(lst,2)} {fn(lst,3)}'
 lst
-
-'{0:.0f}'.format(42.12345)
-'{0:.1f}'.format(42.12345)
-'{0:.3f}'.format(42.12345)
-'{0:.5f}'.format(42.12345)
-'{0:.7f}'.format(42.12345)
-'{:.3f}'.format(42.12345)
-'{answer:.3f}'.format(answer=42.12345)
-'{0:.3e}'.format(42.12345)
-'{0:.0%}'.format(42.12345)
 
 s = 'Hello'
 a, b, c = 1.12345, 2.34567, 34.5678 
