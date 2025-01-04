@@ -316,3 +316,10 @@ print(a / b, a / c, d / b, b / a, d / e)
 print(a / (b * 1.0), 1.0 * a / b, a / b * 1.0, float(a) / b, a / float(b))
 print(3 * ('ab'), 3 * ('a', 'b'))
 print((5 + 2), (5 + 0.2), 2 + (2 + 2j), (0.5 + 0.5), 0.2 + (2 + 2j), (3 + 2j) + (6 + 2j))
+"""				"""
+foo, bar, baz = 1, 'baz', 3.1416
+print(str(foo) + " " + bar + " " + str(baz))
+print("4" + "5", [4] + [5])
+print("Aa", "Bb", "Cc", sep = ",")
+print("<a ", end=''); print("class = 'jidn'" if 1 else "", end=''); print("/>")
+print("paragraph1", end="\n\n"); print("paragraph2")
