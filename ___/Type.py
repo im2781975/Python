@@ -310,3 +310,9 @@ alist = ['wolf', 'sheep', 'duck']
 print(list(filter(lambda x : x.startswith('d'), alist)))
 from operator import methodcaller
 print(list(filter(methodcaller('startswith', 'd'), alist)))
+"""				"""
+a, b, c, d, e = 3, 2, 2.0, -3, 10
+print(a / b, a / c, d / b, b / a, d / e)
+print(a / (b * 1.0), 1.0 * a / b, a / b * 1.0, float(a) / b, a / float(b))
+print(3 * ('ab'), 3 * ('a', 'b'))
+print((5 + 2), (5 + 0.2), 2 + (2 + 2j), (0.5 + 0.5), 0.2 + (2 + 2j), (3 + 2j) + (6 + 2j))
