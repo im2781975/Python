@@ -137,3 +137,129 @@ for x in range(1,10):
 while(not question_queue.empty()):    
     item = question_queue.get()    
     print(str(item))
+"""				"""
+import itertools
+lst = [1, 2, 3, 4, 5]
+print(list(itertools.combinations(lst, 3)))
+"""            """
+def IsEven(x):
+    return x % 2 == 0
+lst = [0, 2, 4, 12, 18, 13, 14, 22, 23, 44]
+print(list(itertools.dropwhile(IsEven, lst)))
+print(list(itertools.takewhile(IsEven, lst)))
+def dropwhile(predicate, iterable):
+    iterable = iter(iterable)
+    for x in iterable:
+        if not predicate(x):
+            yield x
+            break
+        for x in iterable:
+            yield x
+            
+print(list(itertools.takewhile(IsEven, lst)) + list(itertools.dropwhile(IsEven, lst)))
+"""            """
+from itertools import zip_longest, islice
+a = [i for i in range(5)]
+b = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+for i in zip_longest(a, b):
+    x, y = i
+    print(x, y)
+for i in zip_longest(a, b, fillvalue='Hogwash!'):
+    x, y = i
+    print(x, y)
+def fetch_paged_results():
+    for i in range(50):
+        yield f"Result {i + 1}"
+limit = 20
+for data in islice(fetch_paged_results(), limit):
+    print(data, end = " ")
+"""            """
+print()
+def gen():
+    n = 0
+    while n < 20:
+        n += 1
+        yield n
+for part in itertools.islice(gen(), 3):    
+    print(part, end = " ")
+"""            """
+print()
+lst = [("a", 5, 6), ("b", 2, 4), ("a", 2, 5), ("c", 2, 6)]
+def testGroupBy(lst):    
+    groups = itertools.groupby(lst, key=lambda x: x[1])   
+    for key, group in groups:        
+        print(key, list(group))
+testGroupBy(lst)
+lst = [("a", 5, 6), ("b", 2, 4), ("a", 2, 5), ("c", 5, 6)] 
+testGroupBy(lst)
+print()
+"""            """
+lst = [("a", 5, 6), ("b", 2, 4), ("a", 2, 5), ("c", 2, 6)] 
+groups = itertools.groupby(lst, key=lambda x: x[1])
+for key, group in sorted(groups):
+    print(key, list(group))
+for key, group in sorted((key, list(group)) for key, group in groups):   
+    print(key, list(group))
+lst = [1, 2, 3]
+print(itertools.permutations(a), itertools.permutations(a, 2))
+for i in itertools.repeat('over-and-over', 3):
+    print(i, end = " ")
+print()
+"""            """
+import operator
+print(list(itertools.accumulate([1, 2, 3, 4, 5])))
+print(list(itertools.accumulate([1, 2, 3, 4, 5], func = operator.mul)))
+print(itertools.cycle('ABCD'))
+it = itertools.cycle('abc123')
+print([next(it) for i in range(1, 10)])
+"""            """
+from itertools import product
+for x, y in product(range(10), range(10)):
+    print (x, y, end = " ")
+print()
+for x in range(10):
+    for y in range(10):
+        print (x, y, end = " ")
+print()
+its = [range(10)] * 2
+for x, y in product(*its):
+    print(x, y, end = " ")
+print()
+lst = [1, 2, 3, 4]
+tis = ['a', 'b', 'c']
+print(product(lst, tis))
+for i in product(lst, tis):
+    print(i, end = " ")
+print()
+for num in itertools.count():
+    if num > 20:
+        break
+    print(num, end = " ")
+print()
+for num in itertools.count(start = 10, step = 4):
+    print(num)
+    if num > 20:
+        break
+print()
+"""            """
+from itertools import chain
+a = (x for x in ['1', '2', '3', '4'])
+b = (x for x in ['a', 'b', 'c'])
+print(' '.join(chain(a, b)))
+from functools import partial
+def func(a, b, c, x):
+    return 1000 * a + 100 * b + 10 * c + x
+res = partial(func, 1, 1, 1)
+print(res(2))
+import functools
+import locale
+res = sorted(['A', 'S', 'F', 'D'],key = functools.cmp_to_key(locale.strcoll))
+print(res)
+def fib(n):
+    if n < 2:
+        return 1
+    return fib(n - 1) + fib(n - 2)
+"""            """
+from functools import reduce
+def factorial(n):
+    return reduce(lambda a, b: (a * b), range(1, n + 1))
