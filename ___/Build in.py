@@ -264,11 +264,13 @@ from functools import reduce
 def factorial(n):
     return reduce(lambda a, b: (a * b), range(1, n + 1)
 """				"""
+import dis
 def fib(n):
     if n <= 2:
         return 1
     return fib(n - 1) + fib(n - 2)
 print(dir(fib.__code__))
+print(dis.dis(fib)
 import random
 import inspect
 print(inspect.getsource(random.randrange))
