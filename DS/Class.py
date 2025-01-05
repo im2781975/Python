@@ -123,3 +123,20 @@ ex1 = MyIterableClass()
 ex2 = MySequence() 
 for (item) in (ex1): pass
 for (item) in (ex2): pass
+
+class AssignValue(object):    
+    def __init__(self, value):        
+        self.value = value 
+my_value = AssignValue(6)
+print('My value is: {0.value}'.format(my_value))
+class Example(object):    
+    def __init__(self,a,b,c):        
+        self.a, self.b, self.c = a,b,c    
+    def __format__(self, format_spec):       
+    """ Implement special semantics for the 's' format specifier """        
+        if format_spec[-1] != 's':            
+            raise ValueError('{} format specifier not understood for this object', format_spec[:-1])
+            raw = "(" + ",".join([str(self.a), str(self.b), str(self.c)]) + ")"
+        return "{r:{f}}".format( r=raw, f=format_spec )
+inst = Example(1,2,3)
+print "{0:>20s}".format( inst )
