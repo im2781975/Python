@@ -470,39 +470,6 @@ class Card:
     def __repr__(self):        
         return "Card(%s, %d)" % (self.suit, self.pips)
         
-expression = '5 + 3 * a' 
-a = 5 
-result = eval(expression)
-result
-
-code = compile('a * b + c', '<string>', 'eval')
-a, b, c = 1, 2, 3 
-eval(code)
-
-variables = {'a': 6, 'b': 7}
-eval('a * b', globals=variables) 
-
-import dis 
-def fib(n):    
-    if n <= 2:
-        return 1    
-    return fib(n-1) + fib(n-2)
-dis.dis(fib)
-
-import random 
-import inspect
-print(inspect.getsource(random.randint))
-print(inspect.getdoc(random.randint))
-
-def fib(n):
-    if n <= 2: 
-        return 1 
-    return fib(n-1) + fib(n-2) dir(fib.__code__)
-def fib(n): 
-    if n <= 2: 
-        return 1 
-    return fib(n-1) + fib(n-2) dir(fib.__code__)
- 
 class Vehicle(object):   
     """A generic vehicle class."""  
     def __init__(self, position):       
