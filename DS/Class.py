@@ -140,3 +140,7 @@ class Example(object):
         return "{r:{f}}".format( r=raw, f=format_spec )
 inst = Example(1,2,3)
 print "{0:>20s}".format( inst )
+class Person(object):  
+    first = 'Zaphod'    
+    last = 'Beeblebrox' 
+'{p.first} {p.last}'.format(p=Person())
