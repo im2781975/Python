@@ -275,3 +275,6 @@ import random
 import inspect
 print(inspect.getsource(random.randrange))
 print(inspect.getdoc(random.randint))
+import sys
+print("Error", file = sys.stderr) 
+print(*objects, sep = ' ', end = '\n', file = sys.stdout, flush = False)
