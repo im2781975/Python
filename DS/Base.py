@@ -282,3 +282,20 @@ print b - a
 print b * 1.3 
 print a // 17 
 print a / 17 
+
+from datetime import datetime,timedelta   
+once_upon_a_time = datetime(2010, 7, 1, 12, 0, 0) 
+delta = timedelta(days=13, hours=8,  minutes=20)   
+gen = (once_upon_a_time + x * delta for x in xrange(5))  
+print '\n'.join(map('{:%Y-%m-%d %H:%M:%S}'.format, gen))
+from datetime import datetime 
+'North America: {dt:%m/%d/%Y}.  ISO: {dt:%Y-%m-%d}.'.format(dt=datetime.now()) '
+
+import unicodedata
+[unicodedata.name(char) for char in "ê"]
+[unicodedata.name(char) for char in "e"]
+unicodedata.normalize("NFKD", "ê") == unicodedata.normalize("NFKD", "e")
+
+import unicodedata
+def normalize_caseless(text):    return unicodedata.normalize("NFKD", text.casefold())
+def caseless_equal(left, right):    return normalize_caseless(left) == normalize_caseless(right)
