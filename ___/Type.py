@@ -323,3 +323,12 @@ print("4" + "5", [4] + [5])
 print("Aa", "Bb", "Cc", sep = ",")
 print("<a ", end=''); print("class = 'jidn'" if 1 else "", end=''); print("/>")
 print("paragraph1", end="\n\n"); print("paragraph2")
+"""				"""
+a = 5
+expr = "5 + 3 * a"
+print(eval(expr))
+a = b = c = 1
+code = compile('a * b + c', '<string>', 'eval')
+print(eval(code))
+dic = {'a' : 7, 'b' : 6}
+print(eval('a * b', dic))
