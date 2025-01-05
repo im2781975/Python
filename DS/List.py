@@ -409,3 +409,8 @@ copy = arr[:]
 arr.append('d') 
 print(arr)   
 print(copy) 
+
+my_list = ['zero', 'one', 'two'] 
+print("2nd element is: {0[2]}".format(my_list))
+number_list = [12,45,78]
+print map('the number is {}'.format, number_list)
