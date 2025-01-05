@@ -274,3 +274,7 @@ class MyClass(object):
 sorted([MyClass(4, 'first'), MyClass(1, 'second'), MyClass(4, 'third')]) 
 max([MyClass(4, 'first'), MyClass(1, 'second'), MyClass(4, 'third')]) 
 
+my_dict = {'key': 6, 'other_key': 7} 
+print("My other key is: {0[other_key]}".format(my_dict)) 
+person = {'first': 'Arthur', 'last': 'Dent'} 
+'{p[first]} {p[last]}'.format(p=person)
