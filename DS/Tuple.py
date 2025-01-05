@@ -40,4 +40,4 @@ rev = tuple(reversed(colors))
 colors = rev
 
 t = (12, 45, 22222, 103, 6)
-print '{0} {2} {1} {2} {3} {2} {4} {2}'.
+print '{0} {2} {1} {2} {3} {2} {4} {2}'.format(*t)   
