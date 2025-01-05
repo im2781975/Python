@@ -270,7 +270,7 @@ def fib(n):
         return 1
     return fib(n - 1) + fib(n - 2)
 print(dir(fib.__code__))
-print(dis.dis(fib)
+print(dis.dis(fib))
 import random
 import inspect
 print(inspect.getsource(random.randrange))
