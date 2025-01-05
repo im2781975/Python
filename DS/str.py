@@ -22,9 +22,6 @@ delta = timedelta(days=13, hours=8,  minutes=20)
 gen = (once_upon_a_time + x * delta for x in xrange(5))  
 print '\n'.join(map('{:%Y-%m-%d %H:%M:%S}'.format, gen))
 
-price = 478.23 
-f"{f'${price:0.2f}':*>20s}" '
-
 def fn(l, incr): 
     result = l[0] 
     l[0] += incr 
@@ -63,56 +60,6 @@ class Example(object):
         return "{r:{f}}".format( r=raw, f=format_spec )
 inst = Example(1,2,3)
 print "{0:>20s}".format( inst )
-
-translation_table = str.maketrans("aeiou", "12345") 
-my_string = "This is a string!" 
-translated = my_string.translate(translation_table)
-
-'this syntax is very useful'.translate(None, 'aeiou')
-
-i = 10 f = 1.5 s = "foo" l = ['a', 1, 2] d = {'a': 1, 2: 'foo'}
-"{} {} {} {} {}".format(i, f, s, l, d)
-str.format("{} {} {} {} {}", i, f, s, l, d)
-"{0} {1} {2} {3} {4}".format(i, f, s, l, d)
-"{0:d} {1:0.1f} {2} {3!r} {4!r}".format(i, f, s, l, d)
-"{i:d} {f:0.1f} {s} {l!r} {d!r}".format(i=i, f=f, s=s, l=l, d=d)
- f"{i} {f} {s} {l} {d}"
-f"{i:d} {f:0.1f} {s} {l!r} {d!r}"
-"%(i)d %(f)0.1f %(s)s %(l)r %(d)r" % dict(i=i, f=f, s=s, l=l, d=d)
-
-"I am from {}. I love cupcakes from {}!".format("Australia", "Australia")
-"I am from {0}. I love cupcakes from {0}!".format("Australia")
-
-"{'a': 5, 'b': 6}"
-"{{'{}': {}, '{}': {}}}".format("a", 5, "b", 6)
-f"{{'{'a'}': {5}, '{'b'}': {6}}"
-
-import string
-string.ascii_letters 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-string.ascii_lowercase 'abcdefghijklmnopqrstuvwxyz'
-string.ascii_uppercase 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-string.digits '0123456789'
-string.hexdigits '0123456789abcdefABCDEF'
-string.octaldigits '01234567'
-string.punctuation '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-string.whitespace ' \t\n\r\x0b\x0c'
-string.printable '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'
-
- "    a line with leading and trailing space     ".strip() 'a line with leading and trailing space'
- 
-">>> a Python prompt".strip('> ') 
-
-"     spacious string      ".rstrip() '     spacious string'
-
-"     spacious string      ".rstrip() 'spacious string      '
-
-reversed('hello')
-[char for char in reversed('hello')]
- 
-''.join(reversed('hello'))
-def reversed_string(main_string):    
-    return main_string[::-1]
-reversed_string('hello')
 
 "This is a sentence.".split()
 " This is    a sentence.  ".split()
