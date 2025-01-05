@@ -414,3 +414,15 @@ my_list = ['zero', 'one', 'two']
 print("2nd element is: {0[2]}".format(my_list))
 number_list = [12,45,78]
 print map('the number is {}'.format, number_list)
+def fn(l, incr): 
+    result = l[0] 
+    l[0] += incr 
+    return result
+lst = [0]
+f'{fn(lst,2)} {fn(lst,3)}'
+f'{fn(lst,2)} {fn(lst,3)}'
+lst
+data = ["a", "bbbbbbb", "ccc"] 
+m = max(map(len, data)) 
+for d in data:
+    print('{:>{}}'.format(d, m))
