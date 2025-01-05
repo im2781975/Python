@@ -143,3 +143,26 @@ ing = "Aslam"
 print("X£B".casefold(), ing.upper(), ing.lower(), ing.capitalize(), ing.title(), ing.swapcase())
 print(str.upper('Here are'))
 print(map(str.upper,["These","are","some","'strings'"]))
+price = 478.23 
+print(f"{f'${price : 0.2f}' :*>20s}")
+"""            """
+table = str.maketrans("aeiou", "12345")
+ing = "This is a string"
+print(ing.translate(table))
+print('This syntax is very useful'.translate(str.maketrans('', '', "aeiou")))
+"""            """
+i, f, s, lst, dct = 10, 1.5, "foo", [" a", 1, 2], {'a' : 1, 2 : "foo"}
+print("{} {} {} {} {}".format(i, f, s, lst, dct))
+print(str.format("{} {} {} {} {}", i, f, s, lst, dct))
+print("{0} {1} {2} {3} {4}".format(i, f, s, lst, dct))
+print("{0:d} {1:0.1f} {2} {3!r} {4!r}".format(i, f, s, lst, dct))
+print("{i:d} {f:0.1f} {s} {l!r} {d!r}".format(i = i, f = f, s = s, l = lst, d = dct))
+print(f"{i} {f} {s} {lst} {dct}")
+print(f"{i:d} {f:0.1f} {s} {lst!r} {dct!r}")
+print("%(i)d %(f)0.1f %(s)s %(l)r %(d)r" % dict(i = i, f = f, s = s, l = lst, d= dct))
+print("I am from {}. I love cupcakes from {}!".format("Australia", "Australia"))
+print("I am from {0}. I love cupcakes from {0}!".format("Australia"))
+print("{'a': 5, 'b': 6}")
+print("{{'{}': {}, '{}': {}}}".format("a", 5, "b", 6))
+print(f"{{'{'a'}': {5}, '{'b'}': {6}}} ")
+
