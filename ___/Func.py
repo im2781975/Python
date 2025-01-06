@@ -269,6 +269,108 @@ def example(*args):
 example(2, 6, 9)
 
 #scope
+def counter():
+    num = 0
+    def incr():
+        nonlocal num
+        num += 1
+        return num
+    return incr
+x = counter()
+for i in range(1, 12):
+    print(x(), end = " ")
+print()
+def read():
+    if True:
+        x = "Hi"
+    print(x)
+read()
+"""            """
+x = 'Hello'
+def changeLocal():
+    #global x
+    x = 'Bye'
+    print(x)
+changeLocal()
+print(x)
+del(x)
+"""            """
+dic, lst = {'a' : 1, 'b' : 2}, [1, 2, 3, 4, 5]
+del dic['a']
+del lst[1 : 3]
+print(dic, lst)
+"""            """
+foo = 1 
+def func():
+    foo = 7  
+    print(foo)  
+    print(globals()['foo']) 
+func()
+"""            """
+foo = 1
+def func():    
+    global foo   
+    foo = 2  
+func()
+print(foo)
+"""            """
+foo = 1
+def fun():
+    bar = 2
+    foo = 2
+    print(foo, globals().keys())
+    print(bar, locals().keys())
+    print(globals()['foo'])
+    print(locals()['foo'])
+fun()
+"""            """
+foo = 1
+def f1():    
+    bar = 1    
+    def f2():        
+        baz = 2     
+        print(locals().keys())
+        print('bar' in locals())
+        print('bar' in globals()) 
+    def f3():        
+        baz = 3        
+        print(bar)     
+        print(locals().keys())      
+        print('bar' in locals()) 
+        print('bar' in globals()) 
+    def f4():        
+        bar = 4   
+        baz = 4        
+        print(bar)       
+        print(locals().keys())      
+        print('bar' in locals()) 
+        print('bar' in globals())
+    return f2, f3, f4
+f2, f3, f4 = f1()
+f2()
+"""            """
+foo = 0
+def f1():    
+    foo = 1
+    def f2():       
+        foo = 2       
+        def f3():          
+            foo = 3
+            print(foo)          
+            foo = 30          
+        def f4():           
+            global foo      
+            print(foo) 
+            foo = 100
+"""            """
+def f1():       
+    def f2():        
+        foo = 2 
+        def f3():            
+            nonlocal foo
+            print(foo)  
+            foo = 20 
+"""				"""
 a = 15
 def display():
     a = 10
