@@ -294,8 +294,7 @@ ser.read(ser.inWaiting)
 
 from serial.tools import list_ports
 list_ports.comports() 
-
- import turtle 
+import turtle 
 ninja = turtle.Turtle()
 ninja.speed(10) 
 for i in range(180):   
@@ -310,8 +309,20 @@ for i in range(180):
     ninja.pendown()   
     ninja.right(2) 
 turtle.done()
-
 list_object=[1,1,2,3,5,8,'a','e','i','o','u'] 
 save(list_file,list_object) 
 new_list=load(list_file) 
 print(new_list)
+"""				"""
+import hashlib 
+m = hashlib.md5()
+m.update("Nobody inspects") 
+m.update(" the spammish repetition") 
+m.digest()
+m.hexdigest()
+m.digest_size
+m.block_size
+hashlib.md5("Nobody inspects the spammish repetition").hexdigest() 'bb649c83dd1ea5c9d9dec9a18df0ffe9'
+h = hashlib.new('ripemd160') 
+h.update("Nobody inspects the spammish repetition") 
+h.hexdigest()
