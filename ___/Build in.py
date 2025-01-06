@@ -590,3 +590,20 @@ print("About to calculate: {}!".format(num))
 t = Thread(target=calc_fact, args=[num]) 
 t.start()  
 t.join()  
+"""				"""
+import bisect
+def index_sorted(sorted_seq, value):   
+    i = bisect.bisect_left(sorted_seq, value)    
+    if i != len(sorted_seq) and sorted_seq[i] == value:        
+        return i    
+    raise ValueError
+lst = [i for i in range(1, 100000, 3)]
+print(index_sorted(alist, 97285)) 
+try:
+    print(index_sorted(alist, 4))  
+except ValueError as e:
+    print(e)
+%timeit index_sorted(alist, 97285)
+%timeit alist.index(97285)
+%timeit index_sorted(alist, 4)
+%timeit alist.index(4)
