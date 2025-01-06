@@ -882,3 +882,12 @@ class Deque:
         return self.items.pop(0) 
     def size(self): 
         return len(self.items)
+class Father(object):   
+    pass
+class Child(Father):   
+    pass
+
+class Car(object):   
+    def __init__(self):        
+        self.color = "red"        
+        self.wheels = [Wheel(), Wheel(), Wheel(), Wheel()]
