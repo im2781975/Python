@@ -144,3 +144,31 @@ class Person(object):
     first = 'Zaphod'    
     last = 'Beeblebrox' 
 '{p.first} {p.last}'.format(p=Person())
+
+root
+- A  
+    - AA 
+    - AB
+- B 
+    - BA
+    - BB    
+        - BBA
+root = get_root(tree)
+for node in get_children(root):    
+    print(get_name(node))    
+    for child in get_children(node):       
+        print(get_name(child))        
+        for grand_child in get_children(child):            
+            print(get_name(grand_child))
+def list_tree_names(node):    
+    for child in get_children(node):       
+        print(get_name(child))        
+        list_tree_names(node=child) 
+list_tree_names(node=get_root(tree))
+
+def list_tree_names(node, lst=[]):    
+    for child in get_children(node):        
+        lst.append(get_name(child))        
+        list_tree_names(node=child, lst=lst)    
+    return lst
+list_tree_names(node=get_root(tree))
