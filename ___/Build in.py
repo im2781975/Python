@@ -342,3 +342,92 @@ def multipleOrder(_items):
     return(multiple_item_bool)
 orders_df['item_duplicated_per_order'] = (orders_df .groupby(['order_id'])['item'] .transform(multipleOrder))
 print(orders_df)
+"""				"""
+import ply.lex as lex
+tokens = [ 'NUMBER', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'LPAREN', 'RPAREN', ]
+
+t_ignore = ' \t'
+t_PLUS    = r'\+'
+t_MINUS   = r'-'
+t_TIMES   = r'\*' 
+t_DIV     = r'/' 
+t_LPAREN  = r'\(' 
+t_RPAREN  = r'\)'
+def t_NUMBER( t ) :   
+    r'[0-9]+'    
+    t.value = int( t.value )    
+    return t
+def t_newline( t ):
+    r'\n+'  
+    t.lexer.lineno += len( t.value )
+def t_error( t ):
+    print("Invalid Token:",t.value[0]) 
+    t.lexer.skip( 1 )
+lexer = lex.lex()
+lexer.input(data)
+while True:        
+    tok = lexer.token()
+    if not tok: 
+        break      
+    print(tok)
+    
+import ply.lex as lex  
+class MyLexer(object):                    
+    def build(self, **kwargs):           
+        self.lexer = lex.lex(module=self, **kwargs)       
+    def test(self, data):           
+        self.lexer.input(data)          . 
+        for token in self.lexer.token():              
+            print(token)
+m = MyLexer() 
+m.build()          
+m.test("3 + 4")
+
+import ply.yacc as yacc
+from calclex import tokens
+def p_expression_plus(p):
+    p[0] = p[1] + p[3]
+def p_expression_minus(p):
+    p[0] = p[1] - p[3]
+def p_expression_term(p):
+    p[0] = p[1]
+def p_term_times(p):
+    p[0] = p[1] * p[3]
+def p_term_div(p): 
+    p[0] = p[1] / p[3]
+def p_term_factor(p): 
+    p[0] = p[1]
+def p_factor_num(p): 
+    p[0] = p[1]
+def p_factor_expr(p): 
+    p[0] = p[2]
+def p_error(p):
+    print("Syntax error in input!")
+parser = yacc.yacc()
+while True: 
+    try:      
+        s = raw_input('calc > ') 
+    except EOFError: 
+        break
+    if not s: continue   
+    result = parser.parse(s)
+    print(result)
+    
+def p_binary_operators(p):
+    if p[2] == '+':         
+        p[0] = p[1] + p[3]      
+    elif p[2] == '-':         
+        p[0] = p[1] - p[3]      
+    elif p[2] == '*':         
+        p[0] = p[1] * p[3]     
+    elif p[2] == '/':         
+        p[0] = p[1] / p[3]
+def p_binary_operators(p):
+    if p[2] == '+':          
+        p[0] = p[1] + p[3]      
+    elif p[2] == '-':          
+        p[0] = p[1] - p[3]      
+    elif p[2] == '*':         
+        p[0] = p[1] * p[3]     
+    elif p[2] == '/':          
+        p[0] = p[1] / p[3]
