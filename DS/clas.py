@@ -991,3 +991,18 @@ class IntegerContainer(object):
         return self.value != other.value
 IntegerContainer(5) > IntegerContainer(6)
 IntegerContainer(6) > IntegerContainer(5)
+
+class ListList:    
+    def __init__(self, value):        
+        self.value = value              
+        self.setofvalues = set(item for sublist in self.value for item in sublist) 
+    def __iter__(self):        print('Using __iter__.') 
+        return (item for sublist in self.value for item in sublist)
+    def __contains__(self, value):        
+        print('Using __contains__.')        
+        return value in self.setofvalues
+a = ListList([[1,1,1],[0,1,1],[1,5,1]])
+10 in a 
+5 in a 
+del ListList.__contains__ 
+5 in a 
