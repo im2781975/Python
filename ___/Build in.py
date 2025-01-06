@@ -278,3 +278,6 @@ print(inspect.getdoc(random.randint))
 import sys
 print("Error", file = sys.stderr) 
 print(*objects, sep = ' ', end = '\n', file = sys.stdout, flush = False)
+import sys
+char_count = sys.stdout.write('hello world ?\\n')
+byte_count = sys.stdout.buffer.write(b'hello world \\xf0\\x9f\\x90\\x8d\\n')
