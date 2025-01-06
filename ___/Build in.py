@@ -281,3 +281,6 @@ print(*objects, sep = ' ', end = '\n', file = sys.stdout, flush = False)
 import sys
 char_count = sys.stdout.write('hello world ?\\n')
 byte_count = sys.stdout.buffer.write(b'hello world \\xf0\\x9f\\x90\\x8d\\n')
+import codecs codecs.decode('1deadbeef4', 'hex')
+codecs.encode(b'\x1d\xea\xdb\xee\xf4', 'hex')
+codecs.encode(b'\x1d\xea\xdb\xee\xff', 'hex').decode('ascii')
