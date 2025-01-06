@@ -887,6 +887,52 @@ class Father(object):
 class Child(Father):   
     pass
 
+class Stack:   
+    def __init__(self):       
+        self.items = []
+    def isEmpty(self): 
+        return self.items == []
+    def push(self, item):        
+        self.items.append(item)
+    def pop(self):
+        return self.items.pop()
+    def peek(self): 
+        return self.items[-1]
+    def size(self): 
+        return len(self.items)
+    def fullStack(self):
+        return self.items
+stack = Stack() 
+print('Current stack:', stack.fullStack()). 
+print('Stack empty?:', stack.isEmpty()) 
+print('Pushing integer 1') stack.push(1) 
+print('Pushing string "Told you, I am generic stack!"') 
+stack.push('Told you, I am generic stack!') 
+print('Pushing integer 3')
+stack.push(3)
+print('Current stack:', stack.fullStack()) 
+print('Popped item:', stack.pop()) 
+print('Current stack:', stack.fullStack()) 
+print('Stack empty?:', stack.isEmpty())
+
+def checkParenth(str):    
+    stack = Stack()    
+    pushChars, popChars = "<({[", ">)}]"   
+    for c in str:        
+        if c in pushChars:           
+            stack.push(c)        
+        elif c in popChars:           
+            if stack.isEmpty():                
+                return False         
+            else:                
+                stackTop = stack.pop()                # Checks to see whether the opening bracket matches the closing one               
+                balancingBracket = pushChars[popChars.index(c)]               
+                if stackTop != balancingBracket:                    
+                    return False        
+                    
+        else:            
+            return False    
+    return not stack.isEmpty()
 class Car(object):   
     def __init__(self):        
         self.color = "red"        
