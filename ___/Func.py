@@ -5,6 +5,12 @@ def info(name, surname):
     print(f"{name} {surname} ")
 info("Molla", "ibrahim")
 """                 """
+def greet(name):
+    print("Hello {0}!".format(name))
+    print("Whats your name")
+    name = input()
+greet('molla')
+
 from statistics import *
 def meanMedianMode(lst):
     #return mean(lst), median(lst), mode(lst)
