@@ -809,3 +809,76 @@ def test(user, year):
     print("{0} will see: {1}".format(user.name, average_price))
     test(User(True, "John the Admin"), 2017) 
     test(User(False, "Guest"),         2017)
+"""				"""
+import unittest
+class SomeTest(unittest.TestCase): 
+    def setUp(self): 
+        super(SomeTest, self).setUp() 
+        self.mock_data = [1,2,3,4,5]
+    def test(self): 
+        self.assertEqual(len(self.mock_data), 5) 
+    def tearDown(self):
+        super(SomeTest, self).tearDown() 
+        self.mock_data = [] 
+if __name__ == '__main__': unittest.main()
+
+import unittest import some_module
+class SomeOtherTest(unittest.TestCase):
+    def setUp(self): 
+        super(SomeOtherTest, self).setUp()
+        my_patch = mock.patch.object(some_module, 'method')        
+        my_patch.start()
+    self.addCleanup(my_patch.stop)
+def division_function(dividend, divisor):   
+    return dividend / divisor
+class MyTestCase(unittest.TestCase):  
+    def test_using_context_manager(self):        
+        with self.assertRaises(ZeroDivisionError):            
+            x = division_function(1, 0)
+class MyTestCase(unittest.TestCase):    
+    def test_using_context_manager(self):        
+        with self.assertRaises(ZeroDivisionError) as ex:           
+            x = division_function(1, 0)        
+        self.assertEqual(ex.message, 'integer division or modulo by zero')
+        
+class WrongInputException(Exception):    
+    pass
+def convert2number(random_input):    
+    try:       
+        my_input = int(random_input)    
+    except ValueError:        
+        raise WrongInputException("Expected an integer!")   
+    return my_input
+
+import unittest
+class ExceptionTestCase(unittest.TestCase):    
+    def test_wrong_input_string(self):        
+        self.assertRaises(WrongInputException, convert2number, "not a number")    
+    def test_correct_input(self):        
+        try:            
+            result = convert2number("56")            
+            self.assertIsInstance(result, int)        
+        except WrongInputException:            
+            self.fail()
+            
+import unittest 
+class SimplisticTest(unittest.TestCase):    
+    def test_basic(self):        
+        self.assertTrue(1 + 1 == 2)
+        self.assertTrue(1 + 1 == 3)
+        
+class Deque:
+    def __init__(self): 
+        self.items = []
+    def isEmpty(self):
+        return self.items == [] 
+    def addFront(self, item):
+        self.items.append(item)
+    def addRear(self, item): 
+        self.items.insert(0,item) 
+    def removeFront(self): 
+        return self.items.pop()
+    def removeRear(self):
+        return self.items.pop(0) 
+    def size(self): 
+        return len(self.items)
