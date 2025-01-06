@@ -710,3 +710,102 @@ c = C (3003, 4004)
 c.show ('netherlands') 
 show2 = c.show 
 show2 ('copy')
+
+class Singleton(object):    
+    def __new__(cls):          
+        if not hasattr(cls, 'instance'):           
+            cls.instance = super(Singleton, cls).__new__(cls) 
+        return cls.instance
+s = Singleton() 
+print ("Object created", s) 
+s1 = Singleton() 
+print ("Object2 created", s1)
+
+from abc import ABCMeta, abstractmethod 
+class Music():    
+    __metaclass__ = ABCMeta    
+    @abstractmethod    
+    def do_play(self):        
+        pass 
+class Mp3(Music):    
+    def do_play(self):        
+        print ("Playing .mp3 music!")   
+class Ogg(Music):   
+    def do_play(self):        
+        print ("Playing .ogg music!")   
+class MusicFactory(object):    
+    def play_sound(self, object_type):        
+        return eval(object_type)().do_play()  
+if __name__ == "__main__":    
+    mf = MusicFactory()    
+    music = input("Which music you want to play Mp3 or Ogg")   
+    mf.play_sound(music)
+    
+from types import MethodType
+class Animal(object):      
+    def __init__(self, *args, **kwargs):        
+        self.name = kwargs.pop('name', None) or 'Animal'       
+        if kwargs.get('walk', None):            
+            self.walk = MethodType(kwargs.pop('walk'), self)   
+    def walk(self):        
+        """        Cause animal instance to walk               Walking functionality is a strategy, and is intended to        be implemented separately by different types of animals.        """        
+        message = '{} should implement a walk method'.format(           self.__class__.__name__)        
+        raise NotImplementedError(message)
+    def snake_walk(self):    
+        print('I am slithering side to side because I am a {}.'.format(self.name)) 
+    def four_legged_animal_walk(self):    
+        print('I am using all four of my legs to walk because I am a(n) {}.'.format(        self.name)) 
+    def two_legged_animal_walk(self):    
+        print('I am standing up on my two legs to walk because I am a {}.'.format(        self.name))
+generic_animal = Animal() 
+king_cobra = Animal(name='King Cobra', walk=snake_walk) 
+elephant = Animal(name='Elephant', walk=four_legged_animal_walk)
+kangaroo = Animal(name='Kangaroo', walk=two_legged_animal_walk)
+kangaroo.walk() 
+elephant.walk() 
+king_cobra.walk()
+generic_animal.walk()
+
+from datetime import date 
+from operator import attrgetter
+class Proxy: 
+    def __init__(self, current_user, reservation_service): 
+        self.current_user = current_user 
+        self.reservation_service = reservation_service
+    def highest_total_price_reservations(self, date_from, date_to, reservations_count): 
+        if self.current_user.can_see_reservations: 
+            return self.reservation_service.highest_total_price_reservations(                date_from,                date_to,                reservations_count ) 
+        else: 
+            return []
+            
+class Reservation: 
+    def __init__(self, date, total_price): 
+        self.date = date 
+        self.total_price = total_price
+class ReservationService: 
+    def highest_total_price_reservations(self, date_from, date_to, reservations_count): 
+        reservations = [            Reservation(date(2014, 5, 15), 100),            Reservation(date(2017, 5, 15), 10),            Reservation(date(2017, 1, 15), 50) ]
+        filtered_reservations = [r for r in reservations if (date_from <= r.date <= date_to)]        
+        sorted_reservations = sorted(filtered_reservations, key=attrgetter('total_price'), reverse=True) 
+        return sorted_reservations[0:reservations_count]
+class User:
+    def __init__(self, can_see_reservations, name): 
+        self.can_see_reservations = can_see_reservations 
+        self.name = name
+class StatsService: 
+    def __init__(self, reservation_service): 
+        self.reservation_service = reservation_service 
+    def year_top_100_reservations_average_total_price(self, year):        
+        reservations = self.reservation_service.highest_total_price_reservations(            date(year, 1, 1),            date(year, 12, 31), 1 ) 
+        if len(reservations) > 0:            
+            total = sum(r.total_price for r in reservations) 
+            return total / len(reservations)
+            else: 
+                return 0
+def test(user, year):    
+    reservations_service = Proxy(user, ReservationService())    
+    stats_service = StatsService(reservations_service)    
+    average_price = stats_service.year_top_100_reservations_average_total_price(year) 
+    print("{0} will see: {1}".format(user.name, average_price))
+    test(User(True, "John the Admin"), 2017) 
+    test(User(False, "Guest"),         2017)
