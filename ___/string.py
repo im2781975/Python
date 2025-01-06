@@ -257,6 +257,22 @@ ing = b'\xc2\xa9 abc'
 print(ing[0], type(ing))
 u = ing.decode('utf-8')
 print(u[0], type(u), u.encode('utf-8'))
+print("£13.55".encode('ascii', errors = 'replace'))
+print("£13.55".encode('ascii', errors = 'namereplace'))
+print("£13.55".encode('ascii', errors = 'ignore'))
+print("£13.55".encode('ascii', errors = 'xmlcharrefreplace'))
+print("£13.55".encode('ascii', errors = 'backslashreplace'))
+ing = "£13.55".encode('utf-8')
+print(ing.decode('ascii', errors = 'replace'))
+print(ing.decode('ascii', errors = 'ignore'))
+print(ing.decode('ascii', errors = 'backslashreplace'))
+print(type("f") == type(u"f"))
+print(type(b"f"))
+print("£13.55".encode('utf8'))
+print("£13.55".encode('utf16'))
+print(type(u"£13.55".encode('utf8')))
+print(u"£13.55".encode('utf8'))
+print(b'\xc2\xa313.55'.decode('utf8'))
 """            """
 import re
 pattern, ing = r"123", "123zzb"
