@@ -358,3 +358,37 @@ for match in re.finditer(pattern, text):
     sEnd = match.end()
     sGroup = match.group()
     print('Match "{}" found at: [{},{}]'.format(sGroup, sStart,sEnd))
+"""				"""
+print('python' == 'py' + 'thon')
+print('this is not a common string' == 'this is not' + ' a common string')
+print('this is not a common string' == 'this is not' + ' a common string')
+ing, b = u'Café', 'Lorem ipsum'
+print(isinstance(ing, str))
+ing = b'Cafe'          
+ing = 'Café'.encode()
+print(isinstance(ing, str))
+ing = b"abc"
+print(ing[0] == 97, ing[0 : 1] == b"a", ing[1] == 98, ing[1 : 2] == b"b")
+print(u"Hello, Here i am"[::-1])
+print("Hello, Here i am"[::-1])
+print("A", "B", "C", sep = "")
+print("A", "B", "C", sep = ",")
+print("A", "B", end = ".\n")
+print("Flush this", flush = True)
+"""            """
+ing = "Hello world!"
+print([ing for ing in 'aeiou'], ing)
+print(str[i] for i in [1, 2, 3, 4, 5])
+ing = ""
+for i in range(1, 22):
+    ing += str(i)
+    ing += ","
+print(ing)
+ing = bytearray(b'stack')
+print(id(ing))
+ing += b'overflow'
+print(id(ing), bytearray(b'StackOverflow'))
+rin = ing
+rin += b'rock'
+print(bytearray(b'StackOverflow rocks!'))
+print(id(rin) == id(ing))
