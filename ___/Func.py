@@ -406,3 +406,39 @@ def gen():
 iterable = gen() 
 for a in iterable:   
     print (a)
+"""				"""
+def yoda(prolouge, sentence):
+    sentence.reverse()
+    prolouge += "".join(sentence)
+    return prolouge
+focused = ["You must", "stay focused"] 
+saying = "Yoda said: " 
+print(yoda(saying, focused))
+"""            """
+def lstcheck(check, lst):
+    for item in lst:
+        if check == item:
+            return True
+    return False
+"""            """
+processFailed = False
+output = 42
+def Intensive(val):
+    if processFailed:
+        return None
+    return outout
+x = 5
+if Intensive(x) is not None: 
+    print(Intensive(x) / 2)
+else: 
+    print(x, "could not be processed")
+print(x)
+"""            """
+def get_very_long_dictionary():
+    return {"african swallow": 11.0, "european swallow": 10.0}  
+bird_speeds = get_very_long_dictionary() 
+if "european swallow" in bird_speeds:    
+    speed = bird_speeds["european swallow"]
+else:    
+    speed = input("What is the air-speed velocity of an unladen swallow?") 
+print(speed)
