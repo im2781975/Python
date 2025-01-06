@@ -118,3 +118,27 @@ o = OrderedDict()
 o['key1'] = "value1"
 o['key2'] = "value2"
 print(o)
+"""				"""
+from collections import OrderedDict as od
+dec = od([('first', 1), ('second', 2), ('third', 3)])
+print([k for k in dec])
+unique = {*range(4), 4, *(5, 6, 7)}
+print(unique)
+dec = {'first' : 1, 'second' : 2, 'third' : 3}
+print(dec)
+print([k for k in dec])
+def func(**kwargs):
+    print(kwargs.keys())
+func(a = 1, b = 2, c = 3, d = 4, e = 5)
+tail = {'y' : 7, 'z' : 5}
+combined = {'x' : 1, **tail}
+print(combined)
+dic = {'x' : 1, 'y' : 2}
+dec = {'y' : 3, 'z' : 4}
+print({**dic, **dec})
+dec = {'a' : 1, 'b' : 2, 'c' : 3, '!' : 4}
+Delete = [key for key in dec.keys() if key.isalpha()]
+for key in Delete:
+    del dec[key]
+for key,value in dec.items():
+    print(key, value)
