@@ -658,3 +658,55 @@ if p is not None:
     print(p) 
 else:    
     print("no get property!")
+
+from itertools import chain 
+class SolarSystem:   
+    planets = [list (chain (planet, (index + 1,))) for index, planet in enumerate ((      
+        ('Mercury', 'hot', 2240),        
+        ('Venus', 'sulphurous', 6052),       
+        ('Earth', 'fertile', 6378),        
+        ('Mars', 'reddish', 3397),        
+        ('Jupiter', 'stormy', 71492),        
+        ('Saturn', 'ringed', 60268),        
+        ('Uranus', 'cold', 25559),        
+        ('Neptune', 'very cold', 24766)    ))]       
+    lines = (        '{} is a {} planet',        'The radius of {} is {} km',        '{} is planet nr. {} counting from the sun'    )       
+    def __init__ (self):        
+        self.lineIndex = 0
+    def greet (self):       
+        self.planet = self.planets [int (Math.random () * len (self.planets))]       
+        document.getElementById ('greet') .innerHTML = 'Hello {}'.format (self.planet [0])     
+        self.explain()
+    def explain (self):       
+        document.getElementById ('explain').innerHTML = (            self.lines [self.lineIndex] .format (self.planet [0], self.planet [self.lineIndex + 1]) ) 
+        self.lineIndex = (self.lineIndex + 1) % 3        
+        solarSystem = SolarSystem ()
+
+class A: 
+    def __init__ (self, x):
+        self.x = x 
+    def show (self, label):
+        print ('A.show', label, self.x)
+class B: 
+    def __init__ (self, y):        
+        alert ('In B constructor') 
+        self.y = y 
+    def show (self, label): 
+        print ('B.show', label, self.y) 
+class C (A, B): 
+    def __init__ (self, x, y):       
+        alert ('In C constructor')      
+        A.__init__ (self, x)       
+        B.__init__ (self, y) 
+        self.show ('constructor') 
+    def show (self, label):        
+        B.show (self, label) 
+        print ('C.show', label, self.x, self.y)
+a = A (1001) 
+a.show ('america') 
+b = B (2002) 
+b.show ('russia') 
+c = C (3003, 4004) 
+c.show ('netherlands') 
+show2 = c.show 
+show2 ('copy')
