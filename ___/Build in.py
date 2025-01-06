@@ -431,3 +431,162 @@ def p_binary_operators(p):
         p[0] = p[1] * p[3]     
     elif p[2] == '/':          
         p[0] = p[1] / p[3]
+"""				"""
+import threading 
+def foo(): 
+    print ("Hello threading!")
+threading.Thread(target = foo)
+"""            """
+import time
+class Sleepy(Thread): 
+    def run(self): 
+        time.sleep(5) 
+        print("Hello form Thread")
+if __name__ == "__main__":   
+    t = Sleepy()    
+    t.start()   
+    t.join()
+    print("The main program continues to run in the foreground.")
+"""            """
+import requests
+from threading import Thread
+from queue import Queue
+q = Queue(maxsize = 20)
+def put_page_to_q(page_num):
+    response = requests.get(f'http://some-website.com/page_{page_num}.html')
+    q.put(response)
+def compile(q):
+    if not q.full():
+        raise ValueError("Queue is not full")
+    else:
+        print("Done compiling!")
+threads = []
+for page_num in range(20):
+    t = Thread(target=put_page_to_q, args=(page_num,))
+    t.start()
+    threads.append(t)
+for t in threads:
+    t.join()
+compile(q)
+"""            """
+import threading 
+import time
+def process(): 
+    time.sleep(2)
+start = time.time() 
+process() 
+print("One run took %.2fs" % (time.time() - start))
+start = time.time()
+threads = [threading.Thread(target=process) for _ in range(4)]
+for t in threads:    
+    t.start()
+for t in threads:   
+    t.join() 
+print("Four runs took %.2fs" % (time.time() - start))
+"""            """
+import threading 
+import time
+def somefunc(i): 
+    return i * i 
+def otherfunc(m, i):
+    return m + i
+def process():
+    for j in range(100):
+        result = 0
+    for i in range(100000):            
+        result = otherfunc(result, somefunc(i))
+start = time.time() 
+process() 
+print("One run took %.2fs" % (time.time() - start))
+start = time.time() 
+threads = [threading.Thread(target=process) for _ in range(4)]
+for t in threads:    
+    t.start() 
+for t in threads:   
+    t.join() 
+    print("Four runs took %.2fs" % (time.time() - start))
+"""            """
+import multiprocessing
+import time 
+def somefunc(i): 
+    return i * i 
+def otherfunc(m, i):
+    return m + i
+def process(): 
+    for j in range(100):        
+        result = 0 
+        for i in range(100000):            
+            result = otherfunc(result, somefunc(i))
+start = time.time() 
+process() 
+print("One run took %.2fs" % (time.time() - start))
+start = time.time()
+processes = [multiprocessing.Process(target=process)for _ in range(4)] 
+for p in processes:    
+    p.start() 
+for p in processes:    
+    p.join()
+print("Four runs took %.2fs" % (time.time() - start))
+"""            """
+import threading 
+import os 
+def process():  
+    print("Pid is %s, thread id is %s" % (os.getpid(), threading.current_thread().name))
+threads = [threading.Thread(target=process) for _ in range(4)] 
+for t in threads:  
+    t.start()
+for t in threads:   
+    t.join()
+"""            """
+import multiprocessing
+import os
+def process():    
+    print("Pid is %s" % (os.getpid(),))
+processes = [multiprocessing.Process(target=process) for _ in range(4)]
+for p in processes:   
+    p.start() 
+for p in processes:   
+    p.join()
+"""            """
+import threading
+obj = {}
+obj_lock = threading.Lock()
+def objify(key, val):   
+    print("Obj has %d values" % len(obj))    
+    with obj_lock:        
+        obj[key] = val    
+    print("Obj now has %d values" % len(obj))
+ts = [threading.Thread(target=objify, args=(str(n), n))] for n in range(4)] 
+for t in ts:   
+    t.start() 
+for t in ts:
+    t.join() 
+    print("Obj final result:")
+import pprint; pprint.pprint(obj)
+"""            """
+from threading import Thread
+import time
+def countdown(n):    
+    while n > 0:       
+        n -= 1
+def run_threads():
+    COUNT = 10000000 
+    t1 = Thread(target=countdown, args=(COUNT//2,))
+    t2 = Thread(target=countdown, args=(COUNT//2,))
+    start = time.time()
+    t1.start() ; t2.start()
+    t1.join() ;t2.join()
+    end = time.time()
+    print(f"Time taken: {end - start} seconds")
+run_threads()
+"""            """
+import math
+from threading import Thread
+def calc_fact(num):    
+    result = math.factorial(num)  
+    print(f"Factorial of {num} is: {result}")  
+num = 600000
+print("About to calculate: {}!".format(num))
+t = Thread(target=calc_fact, args=[num]) 
+t.start()  
+t.join()  
