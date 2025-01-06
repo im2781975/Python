@@ -66,3 +66,35 @@ def add(*put):
     put += (3, )
     return put
 print(add(1, 2, 4))
+"""				"""
+tup = ('a', 'b', 'c', 'd')
+tup = ()
+print(tuple('lupin'))
+print(tuple(range(3)))
+t = (1, 2)
+q = t
+t += q
+print(q, t)
+"""            """
+a = 1, 2, 3, 4
+_, x, y, _ = a
+print(x, y)
+first, *more, last = (1, 2, 3, 4, 5)
+print(first, last, *more)
+tup = (12, 45, 22222, 103, 6)
+print '{0} {2} {1} {2} {3} {2} {4} {2}'.format(*tup)   
+"""            """
+tup1 = ('a', 'b', 'c', 'd', 'e')
+tup2 = ('1', '2', '3')
+tup3 = tup1
+print(tup1 + tup2)
+print(tup1 > tup2, tup2 > tup1, tup1 ==tup3)
+print(len(tup1), max(tup1), min(tup1))
+lst = [1, 2, 3, 4, 5]
+print(tuple(lst))
+"""            """
+x = (1, 2, 3)
+print(x[0], x[1], x[2], x[-1], x[-2], x[-3], x[:-1], x[-1:], x[1 : 3])
+colors = "red", "green", "blue" 
+print(colors[::-1])
+print(tuple(reversed(colors)))
