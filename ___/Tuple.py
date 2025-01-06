@@ -58,3 +58,11 @@ n = 2
 for i in range(int(n)):
     tup = (tup, )
     print(tup)
+"""				"""
+person = ("Molla", "Fra", (1, 9, 2000))
+*_,(*_, Bdate) = person
+print(Bdate, *_)
+def add(*put):
+    put += (3, )
+    return put
+print(add(1, 2, 4))
