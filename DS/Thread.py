@@ -253,3 +253,12 @@ import pprint; pprint.pprint(obj)
 
 import multiprocessing 
 plain_num = 0 shared_num = multiprocessing.Value('d', 0) lock = multiprocessing.Lock()
+
+import math 
+from threading import Thread
+def calc_fact(num):    
+    math.factorial(num)
+num = 600000 
+t = Thread(target=calc_fact, daemon=True, args=[num]) 
+print("About to calculate: {}!".format(num)) t.start()
+t.join()
