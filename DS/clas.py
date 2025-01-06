@@ -1006,3 +1006,22 @@ a = ListList([[1,1,1],[0,1,1],[1,5,1]])
 5 in a 
 del ListList.__contains__ 
 5 in a 
+"""				"""
+a = 'global' 
+class Fred:    
+    a = 'class'  
+    b = (a for i in range(10)) 
+    c = [a for i in range(10)] 
+    d = a  
+    e = lambda: a     
+    f = lambda a=a: a  
+    @staticmethod 
+    def g():  
+        return a 
+print(Fred.a)
+print(next(Fred.b)) 
+print(Fred.c[0]) 
+print(Fred.d)
+print(Fred.e()) 
+print(Fred.f()) 
+print(Fred.g())
