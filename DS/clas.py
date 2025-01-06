@@ -626,3 +626,35 @@ class PluginB(Base):
         print("Plugin B.")
 PluginA().test()
 PluginB().test()
+
+class MyClass:    
+    def __bool__(self):        
+        return False
+my_instance = MyClass() 
+print(bool(MyClass))      
+print(bool(my_instance)) 
+
+class A(object):    
+    @property    
+    def get(self):        
+        raise IOError
+    class B(object):   
+    @property    
+    def get(self):        
+        return 'get in b' 
+a = A() 
+b = B()
+
+print 'a hasattr get: ', hasattr(a, 'get')
+print 'b hasattr get', hasattr(b, 'get')
+
+try:   
+    a.get 
+except AttributeError:    
+    print("no get property!")
+
+p = getattr(a, "get", None) 
+if p is not None:   
+    print(p) 
+else:    
+    print("no get property!")
