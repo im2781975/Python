@@ -442,3 +442,10 @@ if "european swallow" in bird_speeds:
 else:    
     speed = input("What is the air-speed velocity of an unladen swallow?") 
 print(speed)
+"""				"""
+def foo(name) :    
+    print(str(name).lower())
+def bar(listing) :    
+    lst = list(listing)   
+    lst.extend((1, 2, 3))    
+    return ", ".join(l)
