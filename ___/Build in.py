@@ -284,3 +284,34 @@ byte_count = sys.stdout.buffer.write(b'hello world \\xf0\\x9f\\x90\\x8d\\n')
 import codecs codecs.decode('1deadbeef4', 'hex')
 codecs.encode(b'\x1d\xea\xdb\xee\xf4', 'hex')
 codecs.encode(b'\x1d\xea\xdb\xee\xff', 'hex').decode('ascii')
+import serial
+ser = serial.Serial('/dev/ttyUSB0', 9600)
+data = ser.read()
+data = ser.read(size=5)
+data = ser.readline()
+data = ser.read(ser.inWaiting())
+ser.read(ser.inWaiting)
+
+from serial.tools import list_ports
+list_ports.comports() 
+
+ import turtle 
+ninja = turtle.Turtle()
+ninja.speed(10) 
+for i in range(180):   
+    ninja.forward(100)   
+    ninja.right(30)    
+    ninja.forward(20)   
+    ninja.left(60)    
+    ninja.forward(50)    
+    ninja.right(30)    
+    ninja.penup()    
+    ninja.setposition(0, 0)   
+    ninja.pendown()   
+    ninja.right(2) 
+turtle.done()
+
+list_object=[1,1,2,3,5,8,'a','e','i','o','u'] 
+save(list_file,list_object) 
+new_list=load(list_file) 
+print(new_list)
