@@ -142,3 +142,43 @@ for key in Delete:
     del dec[key]
 for key,value in dec.items():
     print(key, value)
+"""				"""
+def getkey(dic, val):
+    found = []
+    for key in dic:
+        if dic[key] == val:
+            found.append(key)
+    return found
+def getkeyComp(dic, val):
+    return [key for key in dic if dic[key] == val]
+def getOneKey(dic, val):
+    try:
+        return next(key for key in dic if dic[key] == val)
+    except StopIteration:
+        return "Value not found"
+dic = {'a': 10, 'b': 20, 'c': 10}
+print(getkey(dic, 10))  
+print(getkeyComp(dic, 10))  
+print(getkeyComp(dic, 20))  
+print(getkeyComp(dic, 25))  
+print(getOneKey(dic, 10))  
+print(getOneKey(dic, 20))  
+print(getOneKey(dic, 25))  
+def outerIdx(seq, value):
+    try:
+        return next(index for index, inner in enumerate(seq) for item in inner if item == value)
+    except StopIteration:
+        return "Value not found"
+lstTup = [(4, 5, 6), (3, 1, 'a'), (7, 0, 4.3)]
+print(outerIdx(lstTup, 'a'))  
+print(outerIdx(lstTup, 4.3))  
+print(outerIdx(lstTup, 99))  
+def innerIdx(seq, value):
+    try:
+        return next((oindex, iindex) for oindex, inner in enumerate(seq) for iindex, item in enumerate(inner) if item == value)
+    except StopIteration:
+        return "Value not found"
+print(innerIdx(lstTup, 'a'))  
+print(innerIdx(lstTup, 7))    
+print(innerIdx(lstTup, 99))   
+"""				"""
