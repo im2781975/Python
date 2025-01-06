@@ -551,3 +551,76 @@ def bar(listing) :
     lst = list(listing)   
     lst.extend((1, 2, 3))    
     return ", ".join(l)
+def fact(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * fact(n - 1)
+def fact(n):
+    product = 1
+    while n > 1:
+        product *= n
+        n -= 1
+    return product
+"""            """
+def fib(n):
+    if n == 0 or n == 1:
+        return n
+    return fib(n - 1) + fib(n - 2)
+def fib(n):
+    a, b = 0, 1
+    while n > 0:
+        a, b = b, a + b
+        n -= 1
+    return a
+def fib(n):
+    if n <= 1:
+        return (n, 0)
+    else:
+        (a, b) = fib(n - 1)
+        return (a + b, a)
+"""            """
+n = 0
+for i in range(1, n + 1):
+    n += i
+    
+def recur():
+    if n == 1:
+        return n + recur(n - 1)
+"""            """
+def cursing(depth): 
+    try:    
+        cursing(depth + 1) # actually, re-cursing  
+    except RuntimeError as RE:   
+        print('I recursed {} times!'.format(depth)) 
+cursing(0)
+def countDown(n):
+    if n == 0:
+        print("BlastOff")
+    else:
+        print(n, end = " ")
+        countDown(n - 1)
+def findMax(seq, maxi):
+    if not seq:
+        return maxi
+    if maxi < seq[0]:
+        return findMax(seq[1:], seq[0])
+    else:
+        return findMax(seq[1:], maxi)
+"""            """
+def tail_call_optimized(func):
+    def wrapper(*args, **kwargs):
+        return func(*args, **kwargs)
+    return wrapper
+@tail_call_optimized
+def factorial(n, acc = 1):
+    if n == 0:
+        return acc
+    return factorial(n - 1, n * acc)
+print(factorial(10))  
+@tail_call_optimized
+def fib(i, current = 0, next = 1):  
+    if i == 0:    
+        return current 
+    else:    
+        return fib(i - 1, next, current + next)
+print(fib(10))  
