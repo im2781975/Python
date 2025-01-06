@@ -150,3 +150,110 @@ for i in range(0, 5):
         lst.remove(i)
 lst.pop(2)
 print(lst.pop())
+"""				"""
+import operator, functools
+lst = [1, 2, 3, 4]
+print(lst, *lst)
+print(functools.reduce(operator.truediv, lst))
+import itertools
+print(list(itertools.zip_longest([1, 2, 3], [1, 2], [1, 2, 3, 4])))
+lst = [7, 'x', (1, 2), [5, 6], 5, 8.0, 'y', 1.2, [7, 8], 'z'] 
+print(sorted(lst, key = str))
+ing = 'Hello world'
+vowel = []
+for ing in 'aeiou':
+    vowel.append(ing)
+print(ing)
+lst =[[]] * 4
+lst[0].append(23)
+def add(lst):
+    lst += [3]
+    return lst
+print(add([1, 2, 3]))
+lst, val = [], [[]]
+lst = val + val + val
+val.append(1)
+print(lst)
+lst = [[]] * 3
+print([id(inner) for inner in lst])
+lst = [[] for _ in range(3)]
+print([id(inner) for inner in lst])
+lst = []
+lst.append([])
+lst.append([])
+lst.append([])
+for k in lst:
+    print(id(k))
+for i, val in enumerate(lst):
+    print((i, val), end = ' ')
+def func(lst = []):
+    lst.append(1)
+    print(lst)
+func([2])
+func([3])
+def func(lst = None):
+    if not lst:
+        lst = []
+        lst.append(1)
+        print(lst)
+func()
+x = []
+func(lst = x)
+func(lst = "")
+func(lst = 0)
+def func(lst = None):   
+    if lst is None:        
+        lst = []    
+        lst.append(1)   
+        print(lst) 
+func()
+lst = [0, 1, 2]
+for idx, val in enumerate(lst):
+    lst.pop(idx)
+    print(lst)
+lst = [1, 2, 3, 4, 5, 6, 7]
+for idx, item in reversed(list(enumerate(lst))):
+    if item % 2 == 0:
+        lst.pop(idx)
+print(lst)
+lst = [0, 1, 2]
+for idx, val in enumerate(lst):
+    if idx == 20:
+        break
+    lst.insert(idx, 'a')
+print(lst)
+lst = [1, 2, 3, 4, 5, 6, 7]
+for item in lst:    
+    if item % 2 == 0:        
+        item = 'even' 
+print(lst)
+lst = [1, 2, 3, 4, 5, 6, 7]
+for index, item in enumerate(lst):  
+    if item % 2 == 0:        
+        lst[index] = 'even' 
+print(lst)
+lst = [0, 1, 2]
+while lst:    
+    print(lst[0])   
+    lst.pop(0) 
+print(lst)
+lst, x = [0, 1, 2], 1
+while len(lst) > x:    
+    print(lst[0])   
+    lst.pop(0) 
+print(lst)
+lst ,i = [1, 2, 3, 4, 5], 0
+while i < len(lst):   
+    if lst[i] % 2 == 0:       
+        lst.pop(i)   
+    else:
+         i += 1
+print(lst)
+lst, tmp = [1,2,3,4,5], []
+for item in lst:   
+    if item % 2 != 0:       
+        tmp.append(item)
+lst = tmp 
+print(lst)
+lst = [1, 2, 3, 4, 5]
+print([item for item in lst if item % 2 != 0])
