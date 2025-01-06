@@ -21,3 +21,27 @@ for a in st:
 lst = list(st)
 tsl = [a * 2 for a in st if a > 2]  
 print(tsl)
+"""				"""
+A, B = {1, 2, 3, 4, 5}, {3, 4, 5, 6}
+print(A.intersection(B), A.union(B)) #(A & B,A | B)
+print(A.difference(B), A.symmetric_difference(B))#(A - B, A ^ B)
+print(A.issuperset(B), A.issubset(B)) #(A >= B, A <= B)
+print(A.isdisjoint(B))
+A.update(B), print(A) # A |= B
+A.intersection_update(B), print(A) # A &= B
+A.difference_update(B), print(A) # A -= B
+print(len(A), len(B))
+print(len(A & B) == 0, (A & B) == set())
+#Existance
+print(2 in {1, 2, 3}, 4 not in {1, 2, 3})
+"""            """
+A = {1, 2, 3, 4, 5, 6}
+A.add(7), A.discard(5), print(A)
+if 3 in A:
+    A.remove(3)
+"""            """
+A = [1, 2, 3, 1, 4, 5]
+print(set(A), list(set(A)))
+from collections import Counter
+cnt = Counter(['A', 'B', 'C', 'B'])
+print(cnt)
