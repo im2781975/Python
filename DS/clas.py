@@ -1025,3 +1025,44 @@ print(Fred.d)
 print(Fred.e()) 
 print(Fred.f()) 
 print(Fred.g())
+
+class SwitchBase:    
+    def switch(self, case):       
+        m = getattr(self, 'case_{}'.format(case), None)        
+        if not m:            
+            return self.default        
+        return m
+    __call__ = switch
+    
+class CustomSwitcher:    
+    def case_1(self):        
+        return 'one'    
+    def case_2(self):        
+        return 'two'    
+    def case_42(self):        
+        return 'the answer of life, the universe and everything!'    
+    def default(self):       
+        raise Exception('Not a case!')
+switch = CustomSwitcher()
+print(switch(1))
+print(switch(2))
+
+class Switch:   
+    def __init__(self, value):       
+        self._val = value    
+    def __enter__(self):      
+        return self    
+    def __exit__(self, type, value, traceback):       
+        return False # Allows traceback to occur    
+    def __call__(self, cond, *mconds):       
+        return self._val in (cond,)+mconds
+def run_switch(value):   
+    with Switch(value) as case:       
+        if case(1):           
+            return 'one'        
+        if case(2):           
+            return 'two'       
+        if case(3):           
+            return 'the answer to the question about life, the universe and everything'   
+         raise Exception('Not a case!')
+run_switch(1)
