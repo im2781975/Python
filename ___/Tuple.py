@@ -98,3 +98,9 @@ print(x[0], x[1], x[2], x[-1], x[-2], x[-3], x[:-1], x[-1:], x[1 : 3])
 colors = "red", "green", "blue" 
 print(colors[::-1])
 print(tuple(reversed(colors)))
+"""				"""
+tup = ('bear', 'weasel', 'bear', 'frog')
+print(tup.count('bear'), tup.count('fox'))
+import heapq
+heapq.nlargest(5, range(10))
+heapq.nsmallest(5, range(10))
