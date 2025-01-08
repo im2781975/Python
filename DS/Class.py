@@ -614,3 +614,17 @@ class Bar(object):
     def __ne__(self, other):        return self.other_item != other.other_item   
 c = Bar(5) 
 a == c    
+
+import datetime
+class Person(object):   
+    def __init__(self, name, birthday, height):        
+        self.name = name        
+        self.birthday = birthday
+        self.height = height   
+    def __repr__(self):        return self.name
+l = [Person("John Cena", datetime.date(1992, 9, 12), 175),     
+Person("Chuck Norris", datetime.date(1990, 8, 28), 180),     
+Person("Jon Skeet", datetime.date(1991, 7, 6), 185)]
+l.sort(key=lambda item: item.name)
+l.sort(key=lambda item: item.birthday)
+l.sort(key=lambda item: item.height)
