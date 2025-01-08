@@ -598,3 +598,19 @@ print b - a
 print b * 1.3 
 print a // 17 
 print a / 17 
+
+class Foo(object):    
+    def __init__(self, item):        self.my_item = item
+    def __eq__(self, other):        return self.my_item == other.my_item   
+a = Foo(5)
+b = Foo(5) 
+a == b     
+a != b     
+a is b
+
+class Bar(object):    
+    def __init__(self, item):        self.other_item = item 
+    def __eq__(self, other):        return self.other_item == other.other_item    
+    def __ne__(self, other):        return self.other_item != other.other_item   
+c = Bar(5) 
+a == c    
