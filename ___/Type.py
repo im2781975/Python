@@ -462,3 +462,126 @@ print("alpha" < "beta")
 print('12' != '1')
 print('12' == 12)
 
+print("Geeks : %2d, Portal : %5.2f" % (1, 05.333)) 
+print("Total students : %3d, Boys : %2d" % (240, 120))   
+print("%7.3o" % (25)) 
+print("%10.3E" % (356.08977))   # print exp
+print('I love {} for "{}!"'.format('Geeks', 'Geeks'))
+print('{0} and {1}'.format('Geeks', 'Portal'))
+print('{1} and {0}'.format('Geeks', 'Portal'))
+print(f"I love {'Geeks'} for \"{'Geeks'}!\"")
+print(f"{'Geeks'} and {'Portal'}")
+print('Number one portal is {0}, {1}, and {other}.' .format('Geeks', 'For', other ='Geeks'))
+print("Geeks :{0:2d}, Portal :{1:8.2f}". format(12, 00.546))
+print("Second argument: {1:3d}, first one: {0:7.2f}". format(47.42, 11))
+print("Geeks: {a:5d},  Portal: {p:8.2f}". format(a = 453, p = 59.058))
+tab = {'geeks': 4127, 'for': 4098, 'geek': 8637678}
+print('Geeks: {0[geeks]:d}; For: {0[for]:d}; ' 'Geeks: {0[geek]:d}'.format(tab))
+data = dict(fun ="GeeksForGeeks", adj ="Portal")
+print("I love {fun} computer {adj}".format(**data))
+cstr = "I love geeksforgeeks"
+print("Center aligned string with fillchr: ")
+print(cstr.center(40, '#'))
+print("The left aligned string is : ")
+print(cstr.ljust(40, '-'))
+print("The right aligned string is : ")
+print(cstr.rjust(40, '-'))
+"""            """
+name, age = "Alice", 30
+print("Name: {}, Age: {}".format(name, age))
+print(f"Name: {name}, Age: {age}")
+print("Name: %s, Age: %d" % (name, age))
+
+value = 3.14159
+print(f"{value:.2f}" ,"{:.2f}".format(value))
+name = "Alice"
+print("Hello, %s!" % name)
+print('G','F','G', sep='')
+print('09','12','2016', sep='-') 
+print('G','F', sep='', end='') 
+print('09','12','2016', sep='-', end='\n') 
+print('prtk','agarwal', sep='', end='@') 
+print('apples', 'oranges', 'bananas', sep=', ')
+print('one', 'two', 'three', sep=';') 
+print('????', '????', '????', sep='????') 
+
+print(input("Enter your value: "))
+print(input('What is your name?\n'))
+num = input ("Enter number :")
+print(num)
+name1 = input("Enter name : ")
+print(name1)
+print ("type of number", type(num))
+print ("type of name", type(name1))
+num = int(input("Enter a number: "))
+print(num, " ", type(num))
+floatNum = float(input("Enter a decimal number: "))
+print(floatNum, " ", type(floatNum))
+num = input("Enter a number: ")
+num = int(num)
+user_input = input("Enter something: ")
+print(type(user_input))
+user_input = input("Enter something: ")
+print("You entered:", user_input)
+import datetime
+time_str = input("Enter a time (HH:MM:SS): ")
+time_obj = datetime.datetime.strptime(time_str, "%H:%M:%S")
+x, y = input("Enter two values: ").split()
+print("Number of boys: ", x)
+print("Number of girls: ", y)
+
+x, y, z = input("Enter three values: ").split()
+print("Total number of students: ", x)
+print("Number of boys is : ", y)
+print("Number of girls is : ", z)
+
+a, b = input("Enter two values: ").split()
+print("First number is {} and second number is {}".format(a, b))
+x = list(map(int, input("Enter multiple values: ").split()))
+print("List of students: ", x)
+a, b, c = map(int, input("Enter three integers separated by spaces: ").split())
+print("Sum:", a + b + c)
+x, y = map(float, input("Enter two floats separated by a space: ").split())
+print("Product:", x * y)
+name, age = input("Enter your name and age separated by a space: ").split()
+print("Hello,", name + "! You are", age, "years old.")
+
+x, y, z = [int(x) for x in input("Enter three values: ").split()]
+print("First Number is: ", x)
+print("Second Number is: ", y)
+print("Third Number is: ", z)
+x, y = [int(x) for x in input("Enter two values: ").split()]
+print("First number is {} and second number is {}".format(x, y))
+print([int(x) for x in input("Enter multiple values: ").split()])
+print([int(x) for x in input("Enter multiple value: ").split(",")])
+
+name, age = "John", 30
+print("Name: ", name)
+print("Age: ", age)
+print("Hello, my name is", name, "and I am", age, "years old 
+a, b = 10, 1000
+print('The value of a is {} and b is {}'.format(a,b))
+n = input('Enter the Number: ')
+print(type(n))
+
+import time
+count_seconds = 3
+for i in reversed(range(count_seconds + 1)):
+    if i > 0:
+        print(i, end=' ', flush = True)
+        time.sleep(1)
+    else:
+        print('Start')
+print(10, 20, sep=' - ', 30)
+a = [1, 2, 3, 4]
+for i in range(4):
+    print(a[i], end =" ") 
+l = [1, 2, 3, 4, 5, 6]
+print(*l)
+
+import sys
+sys.stdout.write("GeeksforGeeks ")
+sys.stdout.write("is best website for coding!")
+
+name, age = "Alice", 30
+print("My name is", name, "and I am", age, "years old.", end=" ")
