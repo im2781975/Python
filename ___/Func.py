@@ -1142,3 +1142,14 @@ cumprod_with_initial = reduce(multiply, asequence, 5)
 print("Cumulative product with initial value 5:", cumprod_with_initial)
 cumprod_without_initial = reduce(multiply, asequence)
 print("Cumulative product without initial value:", cumprod_without_initial)
+
+myvar = None  
+if myvar is not None: print("Not None")
+if myvar is None: print("None")
+sentinel = object()
+def myfunc(var = sentinel):
+    if var is sentinel: print("Yes")  
+    else: print("No") 
+myfunc()        
+myfunc(42)      
+myfunc(None)    
