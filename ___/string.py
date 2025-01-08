@@ -392,3 +392,11 @@ rin = ing
 rin += b'rock'
 print(bytearray(b'StackOverflow rocks!'))
 print(id(rin) == id(ing))
+"""					"""
+ing = 'thisisashorttext' 
+print(ing.count('t'), ing.count('th'), ing.count('is'), ing.count('text'))
+print(Counter(ing))
+print(sorted( [" foo ", " bAR", "BaZ "], key = lambda s: s.strip().upper())) 
+print(sorted( [" foo ", " bAR", "BaZ "], key = lambda s: s.strip()))
+print(sorted(map(lambda s: s.strip().upper(), [" foo ", " bAR", "BaZ "])))
+print(sorted(map(lambda s: s.strip(), [" foo", "bAR", "BaZ"])))
