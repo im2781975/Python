@@ -389,3 +389,76 @@ code = compile('a * b + c', '<string>', 'eval')
 print(eval(code))
 dic = {'a' : 7, 'b' : 6}
 print(eval('a * b', dic))
+
+import random as rn
+print(rn.randint(1, 10))
+print(rn.randrange(1, 10))
+print(round(1.3), round(0.5), round(1.5), round(1.3), round(1.33, 1), round(0.5) , round(1.5), round(2.675, 2))
+def sqrt(num):    
+    print("I don't know what's the square root of {}.".format(num))
+sqrt(4)
+from math import *
+x, y = 1.55, -1.55
+print(pi, sin(1), sqrt(2), ceil(2.7))   
+print(round(x), round(y), round(x + 1, round(y + 1)), floor(x), ceil(x), trunc(x))
+import math
+print(math.hypot(2, 4), math.radians(45), math.degrees(math.asin(1)), math.sin(math.pi / 2))
+print(math.sin(math.radians(90)), math.asin(1), math.asin(1) / math.pi, math.cos(math.pi / 2))
+import math
+print(math.acos(1), math.tan(math.pi/2), math.atan(math.inf), math.atan(float('inf')))
+print(math.atan2(1, 2), math.atan2(-1, -2), math.atan2(1, 0), math.sinh(math.pi), math.asinh(1))
+print(math.cosh(math.pi), math.acosh(1), math.tanh(math.pi), math.atanh(0.5), math.log(math.e))
+print(math.log(1), math.log(100), math.log(1 + 1e-20), math.log1p(1e-20), math.log10(10))
+print(math.log(100, 10), math.log(27, 3), math.log(1, 10), math.copysign(-2, 3)   )
+print(math.copysign(3, -3), math.copysign(4, 14.2), math.copysign(1, -0.0), math.floor(-1.7))
+print(abs(1 + 1j), complex(1), complex(imag = 1), complex(1, 1), complex(1 + 1j), abs(1 + 1j))
+import cmath
+print(cmath.sqrt(-1), cmath.polar(1 + 1j), cmath.phase(1 + 1j), cmath.rect(math.sqrt(2), math.atan(1)))
+print(cmath.phase(complex(-1.0, 0.0)), cmath.phase(complex(-1.0, -0.0)), cmath.log(1+1j), cmath.exp(1j * cmath.pi))
+print(type(cmath.pi), cmath.isinf(complex(float('inf'), 0.0)), cmath.isnan(complex(0.0, float('nan'))), cmath.isinf(complex(0.0, math.inf)), cmath.isnan(complex(math.nan, 0.0)))
+import cmath
+z = cmath.rect(*cmath.polar(1 + 1j))  
+x = 2 + 3j
+print(cmath.isclose(z, 1 + 1j), cmath.phase(z), cmath.polar(z), cmath.rect(2, cmath.pi/2), cmath.exp(z), cmath.log(z))
+print(cmath.log10(-100), cmath.sqrt(z), cmath.sin(z), cmath.cos(z), cmath.tan(z), cmath.asin(z), cmath.acos(z), cmath.atan(z))
+print(cmath.sin(z)**2 + cmath.cos(z)**2,  cmath.sinh(z), cmath.cosh(z), cmath.tanh(z), cmath.asinh(z), cmath.acosh(z), cmath.atanh(z))
+print(cmath.cosh(z)**2 - cmath.sin(z)**2,  cmath.cosh((0+1j)*z) - cmath.cos(z))
+x = 2 + 3j
+print(abs(x))
+x.conjugate()
+print(x)
+
+from operator import *
+print(add(1, 1), mul(2, 2), mul('a', 10)
+,mul([3], 3))
+#Bitwise operator
+a, b = 10, -20
+print(~a, ~b) #~n -> -|n+1|, ~-n -> |n-1|
+c, d = 0, 1
+print(c ^ d, c & d, bin(c | d), d << 5, bin(100 >> 2))
+#inplace operation
+a = 0b001; a &= 0b010; a |= 0b010; a <<= 2; a >>= 2; a ^= 0b011
+print(a)
+#Boolean
+def or_(a, b):    
+    if a: return a    
+    else: return b
+def and_(a, b):    
+    if not a: return a    
+    else: return b
+print(or_(10, 15), and_(10, 15))
+def T(): return True
+def F(): return False
+print(T() and F())
+print(T() or F())
+#compare
+x = 3.141
+if 3.14 < x < 3.142: print("x is near pi")
+else: print("Outer")
+#comparizon operator
+if 1 > -1 < 2 > 0.5 < 100 != 24: print("Yes")
+else: print("No")
+print("alpha" < "beta")
+print('12' != '1')
+print('12' == 12)
+
