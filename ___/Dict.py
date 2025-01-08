@@ -182,3 +182,264 @@ print(innerIdx(lstTup, 'a'))
 print(innerIdx(lstTup, 7))    
 print(innerIdx(lstTup, 99))   
 """				"""
+print()
+from collections import Counter
+cnt = Counter(["a", "b", "c", "d", "a", "b", "a", "c", "d"])
+print(cnt["a"])
+dec = {'a': 5, 'b': 3, 'c': 5, 'd': 2, 'e':2, 'q': 5}
+print(Counter(dec.values()).most_common())
+print(Counter(dec.values()).most_common(1))
+import typing
+Point = typing.NamedTuple('Point', [('x', int), ('y', int)])
+p1 = Point(3, 4)
+print(f"Point coordinates: ({p1.x}, {p1.y})")
+x, y = p1
+print(f"x: {x}, y: {y}")
+print(p1)
+T = typing.TypeVar("T") 
+def get_first_element(elements: typing.List[T]) -> T:
+    if elements:
+        return elements[0]
+    raise ValueError("List is empty")
+lst = [1, 2, 3]
+strlst = ["apple", "banana", "cherry"]
+print(get_first_element(lst)) 
+print(get_first_element(strlst))
+
+from operator import truediv, floordiv
+assert truediv(10, 8) == 1.25
+assert floordiv(10, 8) == 1
+
+from datetime import datetime,timedelta   
+once = datetime(2010, 7, 1, 12, 0, 0) 
+delta = timedelta(days = 13, hours = 8,  minutes = 20)   
+gen = (once + x * delta for x in range(5))
+print('\n'.join(map(lambda d: d.strftime('%Y-%m-%d %H:%M:%S'), gen)))
+print('North America: {dt:%m/%d/%Y}.  ISO: {dt:%Y-%m-%d}.'.format(dt=datetime.now()))
+
+import unicodedata
+print([unicodedata.name(char) for char in "ê"])  
+print([unicodedata.name(char) for char in "e"])  
+print(unicodedata.normalize("NFKD", "ê")  == unicodedata.normalize("NFKD", "e"))
+def normalize_caseless(text):    
+    return unicodedata.normalize("NFKD", text.casefold())
+def caseless_equal(left, right):    
+    return normalize_caseless(left) == normalize_caseless(right)
+"""            """
+print(sorted((7, 2, 1, 5)), sorted(['c', 'A', 'b']), sorted({11, 8, 1}), sorted({'11': 5, '3': 2, '10': 15}), sorted('bdca'), min(7,2,1,5), max(7,2,1,5), max([2, 7, 5]), sorted([2, 7, 5])[-1])
+dic = {1 : []}
+dec = dic.copy()
+print(dic is dec, dic[1] is dec[1])
+dic = {()}
+dec = dic.copy(); dec.add(2)
+print(dic is dec)
+dic = {'a' : 1, 'b' : 2, 'c' : 3}
+print(dic.keys(), dic.values(), dic.items())
+for key in dic:
+    print(key, end = " ")
+for key in dic:
+    print(key, dic[key], end = " ")
+for key in dic.keys():
+    print(key, end = " ")
+for val in dic.values():
+    print(key, ":", val, end = " ")
+for key, val in dic.items():
+    print(key, ":", val, end = " ")
+print([key for key in dic])
+from collections import defaultdict
+dic = defaultdict(int)  
+print("Initial access to 'key' (default int):", dic['key'])  
+dic['key'] = 5
+print("After setting 'key' to 5:", dic['key']) 
+dic = defaultdict(lambda: 'empty')  
+print("Initial access to 'key' (default lambda):", dic['key'])  
+dic['key'] = 'full'  # Set value for 'key' to 'full'
+print("After setting 'key' to 'full':", dic['key']) 
+dic = {}  
+dic.setdefault('Another_key', []).append("This worked!")  
+print("After setdefault and append:", dic)
+
+dic = dict()                  
+dic = dict(key = 'value')         
+dic = dict([('key', 'value')])
+otherdict = {'existing_key': 'existing_value'}
+dic = dict(**otherdict)  
+dic['newkey'] = 42
+dic['new_list'] = [1, 2, 3] 
+dic['new_dict'] = {'nested_dict' : 1}
+del dic['newkey']
+print("After deleting 'newkey':", dic)
+
+mydict = {}
+print("Initial dictionary:", mydict)
+print("Get 'foo' with default value 'bar':", mydict.get("foo", "bar"))
+print("Dictionary after using get():", mydict)
+print("Set default for 'foo' with value 'bar':", mydict.setdefault("foo", "bar"))
+print("Dictionary after using setdefault():", mydict)
+key = 'baz'
+default_value = 'default'
+try:
+    value = mydict[key]
+except KeyError:
+    value = default_value
+print(f"Value for key '{key}' using try-except:", value)
+key = 'foo'
+if key in mydict:
+    value = mydict[key]
+else:
+    value = default_value
+print(f"Value for key '{key}' using if-else:", value)
+
+fish = {'name': "Nemo", 'hands': "fins", 'special': "gills"} 
+dog = {'name': "Clifford", 'hands': "paws", 'color': "red"}
+fishdog = {**fish, **dog}
+print(fishdog)
+from collections import ChainMap 
+print(dict(ChainMap(fish, dog)))
+from itertools import chain 
+print(dict(chain(fish.items(), dog.items())))
+fish.update(dog) 
+print(fish)
+dic = {"Hello": 1234, "World": 5678}
+print(dic["Hello"], dic.get("whatever"), dic.get("whatever", "nuh - nuh"))
+
+stock = {'eggs': 5, 'milk': 2}
+dic = {}
+dic['eggs'], dic['milk'] = 5, 2
+print(stock, dic)
+dec = {'a': [1, 2, 3], 'b': ['one', 'two', 'three']}
+dec['a'].append(4) 
+dec['b'].append('four')
+print(dec)
+
+iterable = [('eggs', 5), ('milk', 2)] 
+dic = dict(iterable)
+dic = dict(eggs = 5, milk = 2)
+dic = dict.fromkeys(("milk", "eggs"))
+dic = dict.fromkeys(("milk", "eggs"), (2, 5))
+from collections import OrderedDict
+dic = OrderedDict() 
+dic ['first'], dic ['second'], dic ['third'], dic ['last'] = 1, 2, 3, 4
+for key in dic :   
+    print(key, dic[key], end = " ")
+    
+def parrot(voltage, state, action): 
+    print("This parrot wouldn't", action, end = ' ')
+    print("if you put", voltage, "volts through it.", end = ' ') 
+    print("E's", state, "!")
+dic = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
+print(parrot(**dic))
+dic = dict(a = 1, b = 2, c = 3)     
+dic = dict([('d', 4), ('e', 5), ('f', 6)])  
+dic = dict([('a', 1)], b = 2, c = 3)
+dic = dict({'a' : 1, 'b' : 2}, c = 3)  
+
+car = {}
+car["wheels"] = 4
+car["color"] = "Red"
+car["model"] = "Corvette"
+print("Little " + car["color"] + " " + car["model"] + "!")
+car = {"wheels": 4, "color": "Red", "model": "Corvette"}
+for key in car:  
+    print(key + ": " + str(car[key]), end = " ")
+import itertools
+options = {
+    "x": ["a", "b"],
+    "y": [10, 20, 30]
+}
+keys = options.keys()
+values = (options[key] for key in keys)
+combinations = [dict(zip(keys, combination)) for combination in itertools.product(*values)]
+print(combinations)
+
+print({x: x * x for x in (1, 2, 3, 4)})
+print(dict((x, x * x) for x in (1, 2, 3, 4)))
+print({name: len(name) for name in ('Stack', 'Overflow', 'Exchange') if len(name) > 6})
+print(dict((name, len(name)) for name in ('Stack', 'Overflow', 'Exchange') if len(name) > 6))
+dic = {'x': 1, 'y': 2} 
+print({key: value for key, value in dic.items() if key == 'x'})
+
+dic = {1: 'a', 2: 'b', 3: 'c'}
+print({v: k for k, v in dic.items()})
+print(dict((v, k) for k, v in dic.items()))
+print(dict(zip(dic.values(), dic.keys())))
+print(dict(map(reversed, dic.items())))
+
+dic = {'w': 1, 'x': 1} 
+dec = {'x': 2, 'y': 2, 'z': 2}
+print({k : v for d in [dic, dec] for k, v in d.items()})
+print({**dic, **dec})
+
+from itertools import groupby
+from operator import itemgetter
+things = [("animal", "bear"), ("animal", "duck"), ("plant", "cactus"), ("vehicle", "harley"),    ("vehicle", "speed boat"), ("vehicle", "school bus")]
+things = [["animal", "bear"],["animal", "duck"], ["vehicle", "harley"], ["plant", "cactus"], ["vehicle", "speed boat"],["vehicle", "school bus"]]
+dic = {} 
+f = lambda x: x[0]
+for key, group in groupby(sorted(things, key = f), f):
+    dic[key] = [item[1] for item in group]
+print(dic, end = " ")
+lst = groupby(['goat', 'dog', 'cow', 1, 1, 2, 3, 11, 10, ('persons', 'man', 'woman')])
+dic = {} 
+for key, val in lst:
+    dic[key] = list(val)
+print(dic, end = " ")
+lst = ['goat', 'dog', 'donkey', 'mulato', 'cow', 'cat', ('persons', 'man', 'woman'),'wombat', 'mongoose', 'malloo', 'camel']
+c = groupby(lst, key = lambda x: x[0])
+dic = {}
+for key, val in c:    
+    dic[key] = list(val) 
+print(dic)
+
+lst = ['goat', 'dog', 'donkey', 'mulato', 'cow', 'cat', ('persons', 'man', 'woman'), 'wombat', 'mongoose', 'malloo', 'camel'] 
+sorted_list = sorted(lst, key = lambda x: x[0]) 
+print(sorted_list) 
+c = groupby(sorted_list, key=lambda x : x[0])
+dic = {}
+for key, val in c:   
+    dic[key] = list(val)
+print(dic, end = " ")
+
+import collections
+lst = [('NC', 'Raleigh'), ('VA', 'Richmond'), ('WA', 'Seattle'), ('NC', 'Asheville')] 
+clt = collections.defaultdict(list) 
+for key, val in lst: 
+    clt[key].append(val)
+print(clt, end = " ")
+
+dic = {'apple': 1, 'banana': 2} 
+dec = {'coconut': 1, 'date': 1, 'apple': 3}
+combined_dict = collections.ChainMap(dic, dec) 
+reversedict = collections.ChainMap(dec, dic)
+for key, val in combined_dict.items():    
+    print(key, val, end = " ")
+for key, val in reversedict.items():
+    print(key, val, end = " ")
+    
+adict = {'a': 1, 'b': 5, 'c': 1}
+print({
+    key: dict(items) for key, items in groupby(sorted(adict.items(), key=itemgetter(1)), itemgetter(1))})
+print({
+    key: dict(items) for key, items in groupby(sorted(adict.items(), key=lambda x: x[1]), lambda x: x[1])})
+alist_of_tuples = [(5,2), (1,3), (2,2)] 
+print(sorted(alist_of_tuples, key = itemgetter(1,0)))
+
+dic = {'a': 3, 'b': 5, 'c': 1}
+print(min(dic), max(dic), sorted(dic), min(dic.items()), max(dic.items()), sorted(dic.items()))
+
+from collections import OrderedDict
+from operator import itemgetter
+dic = {'a': 1, 'b': 5, 'c': 1}
+res1 = OrderedDict(sorted(dic.items()))
+print("OrderedDict by keys:", res1)
+print("Value of 'a':", res1['a'])
+min_pair = min(dic.items(), key = lambda x: x[1])
+print("Minimum by value:", min_pair)
+max_pair = max(dic.items(), key = itemgetter(1))
+print("Maximum by value:", max_pair)
+desc = sorted(dic.items(), key = itemgetter(1), reverse = True)
+print("Sorted by values (descending):", desc)
+dic = {'key': 6, 'other_key': 7} 
+print("My other key is: {0[other_key]}".format(dic))
+person = {'first': 'Arthur', 'last': 'Dent'} 
+print('{p[first]} {p[last]}'.format(p = person))
