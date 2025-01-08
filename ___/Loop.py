@@ -523,3 +523,161 @@ while True:
         break
 print("Done")
 """						"""
+ing = "Geeks"
+for i in ing:
+    print(i, end = " ")
+l1 = ["eat", "sleep", "repeat"]
+for count, ele in enumerate(l1):
+    print (count, ele)
+"""            """
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(i, j)
+lst = ["geeks", "for", "geeks"]
+for i in lst:
+    print(i, end = " ")
+print([x for x in range(11)])
+
+d = dict()
+d['xyz'] = 123
+d['abc'] = 345
+for i in d:
+    print("% s % d" % (i, d[i]))
+tup = ((1, 2), (3, 4), (5, 6))
+for a, b in tup:
+    print(a, b)
+
+fruits = ["apple", "banana", "cherry"]
+colors = ["red", "yellow", "green"]
+for fruit, color in zip(fruits, colors):
+    print(fruit, "is", color)
+
+for letter in 'geeksforgeeks':
+    if letter == 'e' or letter == 's':
+        continue
+    print('Current Letter :', letter)
+for letter in 'geeksforgeeks':
+    if letter == 'e' or letter == 's':
+        break
+print('Current Letter :', letter)
+for letter in 'geeksforgeeks':
+    pass
+print('Last Letter :', letter)
+for i in range(1, 4):
+    print(i)
+else:  
+    print("No Break\n")
+    
+clothes = ["shirt", "sock", "pants", "sock", "towel"]
+paired_socks = []
+for item in clothes:
+    if item == "sock":
+        continue
+    else:
+        print(f"Washing {item}")
+paired_socks.append("socks")
+print(f"Washing {paired_socks}")
+for day in range(1, 8):
+    distance = 3 + (day - 1) * 0.5
+    print(f"Day {day}: Run {distance:.1f} miles")
+    
+fruits = ['apple', 'banana', 'cherry']
+for fruit in fruits:
+    print(fruit)
+for char in 'Python':
+    print(char)
+for index, num in enumerate([10, 20, 30]):
+    print(f'Index {index}: {num}')
+    
+person = {'name': 'John', 'age': 30}
+for key, value in person.items():
+    print(f'{key}: {value}')
+
+numbers = [1, 2, 3, 4, 5]
+total = 0
+for num in numbers:
+    total += num
+print(f'Total sum: {total}')
+
+count = 0
+while (count < 3): 
+    count = count + 1
+    print("Hello Geek")
+    
+age = 28
+while age > 19: 
+    print('Infinite Loop')
+    break
+
+i = 0
+a = 'geeksforgeeks'
+while i < len(a): 
+    if a[i] == 'e' or a[i] == 's': 
+        i += 1
+        continue
+    print('Current Letter :', a[i])
+    i += 1
+
+i = 0
+a = 'geeksforgeeks'
+while i < len(a): 
+    if a[i] == 'e' or a[i] == 's': 
+        i += 1
+        break
+    print('Current Letter :', a[i]) 
+    i += 1
+
+a = 'geeksforgeeks'
+i = 0
+while i < len(a): 
+    i += 1
+    pass
+print('Value of i :', i) 
+
+i = 0
+while i < 4: 
+    i += 1
+    print(i) 
+else:  
+    print("No Break\n") 
+  
+i = 0
+while i < 4: 
+    i += 1
+    print(i) 
+    break
+else: 
+    print("No Break") 
+    
+a = int(input('Enter a number (-1 to quit): ')) 
+while a != -1: 
+    a = int(input('Enter a number (-1 to quit): '))
+    
+count = 0
+while True: 
+    count += 1
+    print(f"Count is {count}") 
+    if count == 10:
+        break
+a = [1, 2, 3, 4] 
+while a: 
+    print(a.pop())
+
+count = 0
+while (count < 5): 
+    count += 1
+    print("Hello Geek") 
+
+initial_height = 10 
+bounce_factor = 0.5 
+height = initial_height 
+while height > 0.1:   
+    print("The ball is at a height of", height, "meters.") 
+    height *= bounce_factor   
+print("The ball has stopped bouncing.")
+
+countdown = 10
+while countdown > 0: 
+    print(countdown) 
+    countdown -= 1
+print("Blast off!") 
