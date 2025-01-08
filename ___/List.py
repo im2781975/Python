@@ -257,3 +257,43 @@ lst = tmp
 print(lst)
 lst = [1, 2, 3, 4, 5]
 print([item for item in lst if item % 2 != 0])
+"""				"""
+lst = [1, 2, 3, 4, 1, 2, 1, 3, 4]
+print(lst.count(1))
+import copy
+lst = [[1, 2]]; tis = copy.copy(lst); tst = copy.deepcopy(lst)
+print(lst is tis, lst[0] is tis[0])
+print(lst is tst, lst[0] is tst[0])
+lst = [1, 2, 3]
+tis = lst[:]
+print(tis, lst is tis)
+head, *tail = [1, 2, 3, 4, 5] ; print(head, *tail)
+lst = [1, 2, 3, 4, 5]
+head, tail = lst[0], lst[1:] ;print(head, tail)
+a, _ = 1, 2; print(a, _)
+a, *_ = [1, 2, 3, 4, 5]; print(a, *_)
+a, *_, b = [1, 2, 3, 4, 5]; print(a, b, *_)
+a, _, b, _, c, *_ = [1, 2, 3, 4, 5, 6]; print(a, b, c)
+listtuples = [(0, 10), (1, 15), (2, 8)]
+print(min(listtuples))
+print(min(listtuples, key = lambda x: x[0]))
+print(min(listtuples, key = lambda x: x[1]))
+print(sorted(listtuples, key = lambda x: x[0])) 
+print(sorted(listtuples, key = lambda x: x[1]))
+
+names = ['Fred', 'Wilma', 'Barney']
+map_result = map(len, names)  
+print("Using map:", list(map_result))  
+from itertools import imap  
+list_comprehension_result = [len(item) for item in names]
+print("Using list comprehension:", list_comprehension_result)  
+generator_expression_result = (len(item) for item in names)
+print("Using generator expression:", list(generator_expression_result))  
+
+import operator  
+print(max(listtuples, key = operator.itemgetter(0)))
+print(max(listtuples, key = operator.itemgetter(1)))
+print(sorted(listtuples, key = operator.itemgetter(0), reverse = True))
+print(sorted(listtuples, key = operator.itemgetter(1), reverse = True)) 
+print(max([], default = 42))
+print(max([], default = 0))
