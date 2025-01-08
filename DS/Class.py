@@ -628,3 +628,9 @@ Person("Jon Skeet", datetime.date(1991, 7, 6), 185)]
 l.sort(key=lambda item: item.name)
 l.sort(key=lambda item: item.birthday)
 l.sort(key=lambda item: item.height)
+persons = [Person("John Cena", datetime.date(1992, 9, 12), 175),           
+Person("Chuck Norris", datetime.date(1990, 8, 28), 180),         
+Person("Jon Skeet", datetime.date(1991, 7, 6), 185)]
+person.sort(key=attrgetter('name'))
+by_birthday = attrgetter('birthday') 
+person.sort(key=by_birthday) 
