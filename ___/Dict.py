@@ -443,3 +443,13 @@ dic = {'key': 6, 'other_key': 7}
 print("My other key is: {0[other_key]}".format(dic))
 person = {'first': 'Arthur', 'last': 'Dent'} 
 print('{p[first]} {p[last]}'.format(p = person))
+
+key = ['a', 'b', 'c', 'd', 'e']
+value = [1, 2, 3, 4, 5]
+print({k : v for (k, v) in zip(key, value)})
+dic = dict.fromkeys(range(5), True)
+print(dic)
+print({x : x**2 for x in [1, 2, 3, 4, 5]})
+print({x : x**3 for x in range(10) if x**3 % 4 == 0})
+l="GFG"
+print({ x: {y: x + y for y in l} for x in l })
