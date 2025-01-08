@@ -297,3 +297,295 @@ print(sorted(listtuples, key = operator.itemgetter(0), reverse = True))
 print(sorted(listtuples, key = operator.itemgetter(1), reverse = True)) 
 print(max([], default = 42))
 print(max([], default = 0))
+
+collection = [('a', 'b', 'c'), ('x', 'y', 'z'), ('1', '2', '3')]
+for item in collection:
+    i1, i2, i3 = item[0], item[1], item[2]
+    print(i1, i2, i3)
+for item in collection:
+    i1, i2, i3 = item
+    print(i1, i2, i3)
+for i1, i2, i3 in collection:
+    print(i1, i2, i3)
+    
+lst = ['alpha', 'bravo', 'charlie', 'delta', 'echo']
+for i in lst:    
+    print (i[:1], end = " ")
+for idx, i in enumerate(lst):    
+    print("%s has an index of %d" % (i, idx))
+for i in range(2, 4):   
+    print("lst at %d contains %s" % (i, lst[i]))
+for s in lst[1::2]:    
+    print(s)
+    for i in range(1, len(lst), 2):
+        print(lst[i])
+
+lst = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print (lst[1], lst[0][0], lst[0][1])
+a, b = [1, 2, 3, 7, 4, 5], [8, 9]
+a.append(7); a.append(b); a.extend(b)
+a.insert(0, 0); a.insert(2, 5); a.extend(range(3))
+print(a.index(7), a.index(7, 8), a.pop(8), a.count(7))
+a.pop(); a.reverse(); 
+# a.sort(); a.sort(reverse = True)
+ing = "Hello"; a.append(ing)
+print(a, a + b)
+
+import datetime
+lst = [{'name' : 'John Cena', 'birthday' : datetime.date(1992, 9, 12), 'height' :  175},
+    {'name' : 'Chuck Norris', 'birthday' : 
+    datetime.date(1990, 8, 28), 'height' : 180},
+    {'name' : 'Jon Skeet', 'birthday': datetime.date(1991, 7, 6), 'height': 185}]
+lst.sort(key = lambda item: item['name'])
+lst.sort(key = lambda item: item['birthday'])
+lst.sort(key = lambda item: item['height'])
+import datetime
+lst = [{'name':'John Cena', 'birthday': datetime.date(1992, 9, 12),'size': {'height': 175, 'weight': 100}}, 
+    {'name': 'Chuck Norris', 'birthday': datetime.date(1990, 8, 28),'size' : {'height': 180, 'weight': 90}}, 
+    {'name': 'Jon Skeet', 'birthday': datetime.date(1991, 7, 6), 'size': {'height': 185, 'weight': 110}}] 
+lst.sort(key = lambda item: item['size']['height'])
+print(lst)
+
+from operator import itemgetter,attrgetter 
+people = [{'name':'chandan','age':20,'salary':2000}, {'name':'chetan','age':18,'salary':5000}, {'name':'guru','age':30,'salary':3000}]
+by_age = itemgetter('age') 
+by_salary = itemgetter('salary') 
+people.sort(key = by_age)
+people.sort(key = by_salary)
+print(people)
+
+lsttup = [(1,2), (3,4), (5,0)] 
+lsttup.sort(key = itemgetter(1)) 
+print(lsttup)
+
+lst = ["blah"] * 3; lst.clear()
+lst = [1, 3, 5] * 5
+tis = list(range(10)) 
+del tis[::2]; del tis[-1]; del tis[:]
+print(lst, tis)
+
+lst = [1, 2, 3, 4]
+print(lst[-1], lst[-2], lst[-3], lst[len(lst)-1], lst[1:], lst[:3], lst[::2])
+print(lst[::-1], lst[-1:0:-1], lst[5:8], lst[1:10], lst[::-1], lst[3:1:-1])
+print(list(reversed(lst))[0:2])
+
+data = 'chandan purohit 22 2000'
+name, age, salary = slice(0,19), slice(19, 21), slice(22, None)
+print(data[name], data[age], data[salary]) 
+
+lst = []
+if not lst: print("list is empty")
+lst = ['foo', 'bar', 'baz']
+for item in lst:    
+    print(item)
+for (index, item) in enumerate(lst):    
+    print('The item in position {} is: {}'.format(index, item))
+for i in range(0, len(lst)):    
+    print(lst[i], end = " ")
+for item in lst:    
+    if item == 'foo':        
+        del lst[0]    
+    print(item, end = " ")
+lst = ['test', 'twest', 'tweast', 'treast']
+print('test' in lst, 'toast' in lst)
+slst = set(lst);print('test' in slst)
+lst, tis = ['a1', 'a2', 'a3'], ['b1', 'b2', 'b3', 'b4']
+for a, b in zip(lst, tis):  
+    print(a, b, end = " ")
+print(len(list(zip(lst, tis))))
+alist = [123, 'xyz', 'zara', 'abc'] 
+alist.insert(3, [2009])
+print("Final List :", alist)
+import itertools
+alist, blist, clist = ['a1', 'a2', 'a3'],  ['b1'], ['c1', 'c2', 'c3', 'c4'] 
+for a, b, c in itertools.zip_longest(alist, blist, clist):
+    print(a, b, c, end = " ")
+print(len(['one', [2, 3], 'four']))
+names = ["aixk", "duke", "edik", "tofp", "duke"] 
+print(list(set(names)))
+import collections
+collections.OrderedDict.fromkeys(names).keys()
+lst = [[[1, 2], [3, 4]], [[5, 6, 7], [8, 9, 10], [12, 13, 14]]]
+print(lst[0][0][1], lst[1][1][2])
+lst[0][0].append(11)
+print(lst[0][0][2])
+for row in lst:
+    for col in row:       
+        print(col, end = " ")
+print([col for row in lst for col in row])
+lst[1].insert(2, 15)
+for row in range(len(lst)): 
+    for col in range(len(lst[row])):       
+        print(lst[row][col], end = " ")
+print(lst[1][1:], lst)
+lst = [None] * 10
+lst = ['test'] * 10
+lst=[{1}] * 10
+print(lst)
+lst[0].add(2)
+print(lst)
+print([{1} for _ in range(10)])
+
+squares = [x * x for x in (1, 2, 3, 4)]
+for x in (1, 2, 3, 4): squares.append(x * x)
+print(squares)
+print([s.upper() for s in "Hello World"])
+print([w.strip(',') for w in ['these,', 'words,,', 'mostly', 'have,commas,']])
+ing = "Beautiful is better than ugly"
+print(["".join(sorted(word, key = lambda x: x.lower())) for word in ing.split()])
+print([x if x in 'aeiou' else '*' for x in 'apple'])
+def foo(i):    
+    return i, i + 0.5
+def generate_strings():
+    for i in range(3):    
+        for x in foo(i):   
+            yield str(x)
+print([ str(x) for i in range(3) for x in foo(i) ])
+print(list(generate_strings()))
+print([sorted(x) for x in [[2, 1], [4, 3], [0, 1]]])
+[print(x) for x in (1, 2, 3)]
+from random import randrange 
+print([randrange(1, 7) for _ in range(10)])
+print([x for x in range(10) if x % 2 == 0])
+"""            """
+even_numbers = []
+for x in range(10):   
+    if x % 2 == 0:        
+        even_numbers.append(x)
+print(even_numbers)
+print([x if x % 2 == 0 else None for x in range(10)])
+
+data = [[1, 2], [3, 4], [5, 6]] 
+print([element for lst in data for element in lst])
+data = [[1, 2], [3, 4], [5, 6]] 
+def func():
+    output=[]
+    for lst in data:         
+        for element in lst:    
+            output.append(element)      
+    return output
+data = [[1], [2, 3], [4, 5]] 
+print([element for lst in data if len(lst) == 2 for element in lst if element != 5])
+print([x**2 for x in range(10)])
+for i in [x**2 for x in range(10)]:   
+    print(i, end = " ")
+print({x for x in range(5)})
+print({x for x in range(1, 11) if x % 2 == 0})
+ing = "When in the Course of human events it becomes necessary for one people..." 
+print({ch.lower() for ch in ing if ch.isalpha()})
+from functools import reduce
+print(filter(lambda x: x % 2 == 0, range(10)))
+print(map(lambda x: 2*x, range(10)))
+print(reduce(lambda x,y: x+y, range(10)))
+print([x for x in range(10) if x % 2 == 0])
+print([2*x for x in range(10)])
+
+print([x + y for x, y in [(1, 2), (3, 4), (5, 6)]])
+print([x + y for x, y in zip([1, 3, 5], [2, 4, 6])])
+for x, y in [(1,2), (3,4), (5,6)]:    
+    print(x + y)
+print([(x, y) for x, y in [(1, 2), (3, 4), (5, 6)]])
+print(sum(1 for x in range(1000) if x % 2 == 0 and '9' in str(x)))
+items = ["1", "2", "3", "4"] 
+print([int(item) for item in items])
+print(map(float, items))
+print([x + y for x in [1, 2, 3] for y in [3, 4, 5]])
+print([[x + y for x in [1, 2, 3]] for y in [3, 4, 5]])
+lst = [] 
+for y in [3, 4, 5]:    
+    temp = []   
+    for x in [1, 2, 3]:      
+        temp.append(x + y)    
+    lst.append(temp)
+print(lst)
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print([[row[i] for row in matrix] for i in range(len(matrix))])
+print([[[i + j + k for k in 'cd'] for j in 'ab'] for i in '12'])
+
+list_1 = [1, 2, 3 , 4] 
+list_2 = ['a', 'b', 'c', 'd'] 
+list_3 = ['6', '7', '8', '9']
+print([(i, j) for i, j in zip(list_1, list_2)])
+print([(i, j, k) for i, j, k in zip(list_1, list_2, list_3)])
+lst = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+print(lst[::2], lst[::3], lst[2 : 4], lst[2:], lst[:4])
+
+a = [1, 2, 3, 4, 5]
+b = a[::-1]
+a.reverse()
+if a == b:   
+    print(True) 
+print(b)
+def shift(lst, pos):
+    pos %= len(lst)
+    pos *= -1
+    shifted = lst[pos:] + lst[:pos]
+    return shifted
+lst = [1, 2, 3, 4, 5]
+shift(lst, -7)
+shift(lst, 5)
+shift(lst, 3)
+lst = [3, -4, -2, 5, 1, 7]
+print(sorted(lst, key = lambda x: abs(x)))
+print(list(filter(lambda x: x > 0, lst)))
+print(list(map(lambda x: abs(x), lst)))
+def append(val, to = []):
+    to.append(val) 
+    return to
+append(1)
+append(3, [])
+def append(elem, to = None):
+    if to is None:      
+        to = []
+    to.append(elem)    
+    return to
+def foo(x):
+    x[0] = 9
+    print(x)
+y = [4, 5, 6] 
+foo(y)    
+print(y)
+def foo(x): 
+    x[0] = 9          
+    x = [1, 2, 3]  
+    x[2] = 8     
+y = [4, 5, 6]  
+foo(y)          
+x = [3, 1, 9]
+y = x 
+x.append(5); x.sort()      
+x = x + [4]   
+x += [6]       
+x = sorted(x); print(x)
+ing = "abcdef"
+print(ing[-1], ing[:], ing[::], ing[3:], ing[:4], ing[2:4], ing[::2], ing[1:4:2], ing[5:None:-1], ing[::-1], ing[5:0:-1])
+lst = [1, 2, 3, 4, 5, 7, 8, 9]
+lst[1:3] = [6]; lst[4 : 6] = [0, 1]
+print(lst)
+lst[:] = [4, 5, 6]
+print(lst) 
+lst[:] = [4, 5, 6]
+print(lst) 
+lst[-2:] = [4, 5, 6] 
+print(lst) 
+lst = ['a', 'b', 'c'] 
+tis = lst[:]
+lst.append('d') 
+print(lst, tis)   
+
+lst = ['zero', 'one', 'two'] 
+print("2nd element is: {0[2]}".format(lst))
+lst = [12,45,78]
+print(map('the number is {}'.format, lst))
+def func(lst, incr): 
+    result = lst[0] 
+    lst[0] += incr 
+    return result
+lst = [0]
+print(f'{func(lst, 2)} {func(lst, 3)}')
+print(f'{func(lst, 2)} {func(lst, 3)}')
+data = ["a", "bbbbbbb", "ccc"] 
+maxi = max(map(len, data)) 
+for i in data:
+    print('{:>{}}'.format(i, maxi))
+    
