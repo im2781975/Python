@@ -585,3 +585,42 @@ sys.stdout.write("is best website for coding!")
 
 name, age = "Alice", 30
 print("My name is", name, "and I am", age, "years old.", end=" ")
+
+def divide(x, y):
+    try:
+        result = x // y
+        print("Yeah ! Your answer is :", result)
+    except ZeroDivisionError:
+        print("Sorry ! You are dividing by zero ")
+divide(3, 2)
+def divide(x, y):
+    try:
+        result = x // y
+        print("Yeah ! Your answer is :", result)
+    except ZeroDivisionError:
+        print("Sorry ! You are dividing by zero ")
+divide(3, 0)
+def divide(x, y):
+    try:
+        result = x // y
+        print("Yeah ! Your answer is :", result)
+    except Exception as e:
+        print("The error is: ",e)
+divide(3, "GFG") 
+divide(3,0) 
+def AbyB(a , b):
+    try:
+        c = ((a+b) // (a-b))
+    except ZeroDivisionError:
+        print ("a/b result in 0")
+    else:
+        print (c)
+AbyB(2.0, 3.0)
+AbyB(3.0, 3.0)
+try: 
+    k = 5//0 
+    print(k) 
+except ZeroDivisionError:    
+    print("Can't divide by zero") 
+finally:
+    print('This is always executed')
