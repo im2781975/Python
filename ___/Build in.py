@@ -611,3 +611,31 @@ except ValueError as e:
 import numpy as np
 a = np.array([0, 3, 4, 3, 5, 4, 7])
 print(np.sum(a == 3))
+def add(x, y):
+    return (x+y)
+def subtract(x, y):
+    return (x-y)
+import calc
+print(calc.add(10, 2))
+from math import *
+print(sqrt(16))
+print(factorial(6))
+import sys
+print(sys.path)
+import math as mt
+print(mt.sqrt(16))
+print(mt.factorial(6))
+import math
+print(math.sqrt(25), math.pi, math.degrees(2), math.radians(60), math.sin(2), math.cos(0.5), math.tan(0.23), math.factorial(4))
+import random
+print(random.randint(0, 5))  
+print(random.random())  
+print(random.random() * 100)  
+ 
+List = [1, 4, True, 800, "python", 27, "hello"]
+print(random.choice(List)) 
+import datetime
+from datetime import date
+import time
+print(time.time())  
+print(date.fromtimestamp(454554))
