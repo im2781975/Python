@@ -183,7 +183,7 @@ class D(B, C):
         print("Class D")
 d = D()
 d.disp(); print(D.mro())
-"""				Diamond Inheritance				"""
+"""			Diamond Inheritance			"""
 class A:
     def disp(self):
         print("Class A")
