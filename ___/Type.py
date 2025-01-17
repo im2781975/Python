@@ -624,3 +624,5 @@ except ZeroDivisionError:
     print("Can't divide by zero") 
 finally:
     print('This is always executed')
+print(help("modules"))
+print(help("random"))
