@@ -626,3 +626,7 @@ finally:
     print('This is always executed')
 print(help("modules"))
 print(help("random"))
+
+print(len("jenny"))
+lst = ["jenny", 7]; print(len(lst))
+dic = {1 : "A", 2 : "B", 3 : " C"}; print(len(dic))
