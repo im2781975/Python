@@ -127,6 +127,8 @@ except:
     print("Error heppend")
 finally:
     print("Done")
+print(int.__add__(1, 2))
+print(str.__add__("1", "2"))
 #conversion
 x, y = 10, 20.5
 print(type(x), type(y))
