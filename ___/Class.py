@@ -199,3 +199,175 @@ class D(B, C):
     pass
 d = D()
 d.disp()
+
+"""        ABSTRACTION            """
+from abc import ABC, abstractmethod
+class vehicle(ABC):
+    def __init__(self, n):
+        self.type = n
+    @abstractmethod
+    def start(self):
+        pass
+    def disp(self):
+        print("calling from vehicle")
+class bike(vehicle):
+    def __init__(self, n, color):
+        super().__init__(n)
+        self.color = color
+    def start(self):
+        print("Bike start")
+    def disp(self):
+        print("")
+class scooty(vehicle):
+    def __init__(self, n):
+        super().__init__(n)
+    def start(self):
+        print("Scooty start")
+class car(vehicle):
+    def __init__(self, n, gear):
+        super().__init__(n)
+        self.gear = 6
+    def start(self):
+        print("Car start")
+bk = bike(2, "black")
+bk.start()
+"""          Access Modifier          """
+class student:
+    def __init__(self, name, roll, age):
+        self.name = name
+        self._roll = roll
+        self.__age = age
+    def __display(self):
+        print(f"{self.name}\n{self._roll}\n{self.__age}")
+    def dispData(self):
+        self.__display()
+class branch(student):
+    pass
+def showData():
+    std = branch("Hasan", 21, 22)
+    print(std.name, std._roll)
+showData()
+std = student("Molla", 34, 23)
+print(std.dispData())
+std._student__display()
+print(dir(std))
+"""            Encapsulation            """
+class student:
+    def __init__(self, name, roll, age):
+        self.name = name
+        self._roll = roll
+        self.__age = age
+    def getAge(self):
+        return self.__age
+    def setAge(self, age):
+        if age > 35:
+            print("should be less than 35")
+        else:
+            self.__age = age
+    def __display(self):
+        print(f"{self.name}\n{self._roll}\n{self.__age}")
+    def dispData(self):
+        self.__display()
+class branch(student):
+    def show(self):
+        print(f"Roll is: {self._roll} ")
+std = student("Molla", 34, 23)
+print(std.dispData())
+std._student__display()
+print(dir(std))
+print(std.getAge())
+std.setAge(34)
+print(std.getAge())
+"""            DUCK TYPING            """
+class Duck:
+    def swim(self):
+        print("Duck swim")
+    def speak(self):
+        print("Duck speak")
+class Dog:
+    def swim(self):
+        print("Dog swim")
+    def speak(self):
+        print("Duck speak")
+def display(obj):
+        obj.swim()
+        obj.speak()
+class demo:
+    def disp(self, obj):
+        obj.swim()
+        obj.speak()
+d = Duck()
+dog = Dog()
+display(dog)
+dm = demo()
+dm.disp(d)
+"""            OVERRIDING            """
+class complexNum:
+    def __init__(self, real, img):
+        self.real = real
+        self.img = img
+    def __add__(self, other):
+        return f"{self.real + other.real} + {self.img + other.img}i" 
+a, b = complexNum(1, 2), complexNum(4, 5)
+print(a + b)
+class person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def __gt__(self, other):
+        if self.age > other.age:
+            return True
+        else:
+            return False
+x = person("Aa", 22)
+y = person("Bb", 23)
+if x > y:
+    print(f"{x.name} pay the bill")
+else:
+    print(f"{y.name} pay the bill")
+    
+class father:
+    def sleep(self):
+        print("sleep")
+    def eat(self):
+        print("eat")
+class son(father):
+    def sleep(self):
+        print("sleeping")
+        super().sleep()
+r = son()
+r.sleep()
+class author:
+    def __init__(self, name, bookName, pages):
+        self.name = name
+        self.bookName = bookName
+        self.pages = pages
+    def __len__(self):
+        return self.pages
+    def __str__(self):
+        return f"{self.name} wrote {self.bookName} "
+    def __call__(self, *args, **kwargs):
+        print("Hi")
+    def __del__(self):
+        print("Has been deleted")
+d = author("Aa", "Bb", 200)
+print(len(d), d)
+d()
+del d
+class Bank:
+    def __init__(self, name, balance = 9):
+        self.holder = name
+        self.balance = balance
+    def deposite(self, amount):
+        self.balance += amount
+        print(f"Deposited amount is {self.amount} ")
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Insufficient balance")
+        else:
+            self.balance -= amount
+    def __str__(self):
+        return f"{self.holder} \n{self.balance} "
+obj = Bank("Aa", 7000)
+obj.deposite(500)
+print(obj)
