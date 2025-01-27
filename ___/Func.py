@@ -1191,3 +1191,39 @@ add_logger(3, 3)
 add_logger(4, 5) 
 sub_logger(10, 5) 
 sub_logger(20, 10) 
+
+def add(x, y):
+    return x + y
+addition = add
+print(add, "\n", addition)
+print(addition(8, 9))
+"""                                    """
+def greet():
+    print("Hi")
+def disp(other):
+    print("Displayed")
+    other()
+disp(greet)
+def louder(name):
+    print(f"Hi {name.upper()} ")
+def softer(name):
+    print(f"Hi {name.lower()} ")
+def hello(other, name1):
+    print("display func")
+    other(name1)
+hello(louder, "molla")
+hello(softer, "MOLLA")
+"""                                    """
+def hello(name):
+    print("Executed")
+    def greet():
+        print("Aa")
+    def welcome():
+        print("Bb")
+    if name == "molla":
+        return greet
+    else:
+        return welcome
+#hello("molla")
+x = hello("molla")
+x()
