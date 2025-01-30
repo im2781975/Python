@@ -3,6 +3,10 @@ set1 = {10, 56, 89, 90, True, 'Molla', 1}
 set1.add(99)
 set1.remove(90)
 set1.discard(68) #if not present it will return no error
+for i in range(1, 6):
+    set1.add(i)
+for i in range(1, 5):
+    set1.remove(i)
 print(set1, len(set1))
 print(set1.pop())
 set1.add((13, 14, 15))
@@ -59,3 +63,21 @@ set2.clear()
 #del set2
 #it will remove whole set
 print(set2)
+st = set(); print(st)
+st = set("Molla vai"); print(st)
+ing = "Here i am"
+st = set(ing); print(st)
+st = set(["Mah", "Abd"]); print(st)
+print("Abd" in st)
+tup = ("Mah", "Abd"); print(set(tup))
+dic = {"Abdullah" : 1, "Al" : 2, "Arifin" : 3}; print(set(dic))
+tes = set([1, 2, 4, 4, 3, 3, 3, 6, 5]); print(tes)
+tes = set([1, 2, 'Geeks', 4, 'For', 6, 'Geeks']); print(tes)
+tes = {1, 2, 3}; print(tes)
+st = set([4, 5, (6, 7)]); st.update([10, 11])
+print(st)
+#Frozen set
+ing = ('G', 'e', 'e', 'k', 's', 'F', 'o', 'r')
+fset = frozenset(ing); print(fset)
+print(frozenset())
+lst = [1, 2, 3, 3, 4, 5, 5, 6, 2]; print(set(lst))
