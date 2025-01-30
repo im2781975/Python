@@ -66,7 +66,7 @@ num = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 E = map(lambda x : x * x, num)
 print(list(E))
 num = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-print(f"num[len(num) - 1]: {num[len(num) - 1}")
+print(f"num[len(num) - 1]: {num[len(num) - 1]} ")
 print(num[3], num[-3])
 #start : end
 print(f"num[:] {num[:]}\nnum[2:] {num[2:6]}\nnum[1:] {num[1:]}\nnum[:7] {num[:7]} ")
@@ -257,6 +257,13 @@ lst = tmp
 print(lst)
 lst = [1, 2, 3, 4, 5]
 print([item for item in lst if item % 2 != 0])
+print([x * 2 for x in lst])
+print([x ** 2 for x in lst])
+print([x for x in [1, 2, 3]])
+print([i for i in range(11) if i % 2 == 0])
+print([[j for j in range(3)] for i in range(3)])
+print([character for character in 'Geeks 4 Geeks!'])
+
 """				"""
 lst = [1, 2, 3, 4, 1, 2, 1, 3, 4]
 print(lst.count(1))
@@ -372,7 +379,10 @@ print(list(reversed(lst))[0:2])
 data = 'chandan purohit 22 2000'
 name, age, salary = slice(0,19), slice(19, 21), slice(22, None)
 print(data[name], data[age], data[salary]) 
-
+lst = []
+for ch in 'Geeks 4 Geeks!': 
+    lst.append(ch)
+print(lst)
 lst = []
 if not lst: print("list is empty")
 lst = ['foo', 'bar', 'baz']
@@ -588,4 +598,56 @@ data = ["a", "bbbbbbb", "ccc"]
 maxi = max(map(len, data)) 
 for i in data:
     print('{:>{}}'.format(i, maxi))
-    
+
+import time
+def for_loop(n): 
+    result = [] 
+    for i in range(n): 
+        result.append(i**2) 
+    return result
+def list_comprehension(n): 
+    return [i**2 for i in range(n)] 
+begin = time.time() 
+for_loop(10 ** 6) 
+end = time.time() 
+print('Time taken for_loop:', round(end - begin, 2)) 
+begin = time.time() 
+list_comprehension(10 ** 6) 
+end = time.time() 
+print('Time taken for list_comprehension:', round(end - begin, 2))
+
+matrix = [] 
+for i in range(3): 
+    matrix.append([]) 
+    for j in range(5): 
+        matrix[i].append(j) 
+print(matrix)
+print([[j for j in range(5)] for i in range(3)])
+numbers = [] 
+for i in range(1, 6): 
+    numbers.append(i*10) 
+print(numbers)
+print([i * 10 for i in range(1, 6)])
+print(list(map(lambda i: i * 10, [i for i in range(1, 6)])))
+print(["Even number" if i % 2 == 0  else "Odd number" for i in range(8)])
+print([num for num in range(100) if num % 5 == 0 if num % 10 == 0])
+print([n**2 for n in range(1, 11)])
+matrix = [[10, 20, 30], [40, 50, 60],  [70, 80, 90]]
+print([[i[j] for i in matrix] for j in range(len(matrix[0]))])
+ing = 'Geeks4Geeks'
+print(list(map(lambda i: chr(ord(i) ^ 32), ing)))
+print([ing[::-1] for ing in ('Geeks', 'for', 'Geeks')])
+names, ages = ["G", "G", "g"], [25, 30, 35] 
+print([(name, age) for name, age in zip(names, ages)])
+
+def digitSum(n): 
+    dsum = 0
+    for ele in str(n): 
+        dsum += int(ele) 
+    return dsum 
+lst = [367, 111, 562, 945, 6726, 873] 
+print([digitSum(i) for i in lst if i & 1])
+print([l ** 3 for l in lst])
+words = ["apple", "banana", "cherry", "orange"] 
+print([len(word) for word in words])
+
