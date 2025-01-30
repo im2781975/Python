@@ -1227,3 +1227,35 @@ def hello(name):
 #hello("molla")
 x = hello("molla")
 x()
+"""							"""
+def divide(x, y):
+    try:
+        print(x // y)
+    except ZeroDivisionError:
+        print("Sorry ! You are dividing by zero ")
+divide(9, 7)
+divide(9, 0)
+def divide(x, y):
+    try:
+        print(x // y)
+    except Exception as e:
+        print("The error is: ", e)
+divide(3, "GFG") 
+divide(3, 0) 
+def AdivB(a, b):
+    try:
+        c = (a + b) // (a - b)
+    except ZeroDivisionError:
+        print ("a/b result in 0")
+    else:
+        print (c)
+AdivB(2, 3)
+AdivB(3.0, 3.0)
+
+try: 
+    k = 5 // 0
+    print(k) 
+except ZeroDivisionError:    
+    print("Can't divide by zero")
+finally:
+    print('This is always executed')
