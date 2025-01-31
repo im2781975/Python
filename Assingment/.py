@@ -19,3 +19,19 @@ cnt, balanced = split(ing)
 print(cnt)
 for rin in balanced:
     print(rin, end = " ")
+# from a sequence of positive integers have to remove some of the elements so that it will be a good sequence.
+# sequence b is a good sequence when each element of x in b, occurs exactly x times in b.
+# Find the minimum number of elements that needs to be removed so that it will be a good sequence.
+from collections import defaultdict
+n = int(input())
+a = list(map(int, input().split()))
+mp = defaultdict(int)
+for num in a:
+    mp[num] += 1
+ans = 0
+for num, count in mp.items():
+    if count < num:
+        ans += count
+    else:
+        ans += count - num
+print(ans)
