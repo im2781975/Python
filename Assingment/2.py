@@ -17,7 +17,7 @@ riyad = cricketer('Riyad', 39, 72, 92)
 youngest = min([sakib, mushi, riyad])
 elder = max([sakib, mushi, riyad])
 print(f"Younger player {youngest.name}\nElder player {elder.name} ")
-"""								"""
+"""					"""
 class bank:
     def __init__(self, balance):
         self.balance = balance
@@ -38,7 +38,7 @@ class bank:
 x = bank(15000)
 x.withdraw(1200)
 x.deposite(2700)
-"""								"""
+"""			"""
 class shop:
     def __init__(self, buyer):
         self.buyer = buyer
