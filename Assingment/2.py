@@ -167,3 +167,40 @@ x.add('C'); x.add('D'); x.show()
 y = shop('abcd')
 y.add('E'); y.add('F'); y.show()
 print(y.cart, y.creditCard)
+"""					"""
+class Engine:
+    def __init__(self, Type) -> None:
+        self.Type = Type
+    def start(self) -> None:
+        return f"Engine started"
+class Driver:
+    def __init__(self, name, address):
+        self.name = name
+        self.address = address
+class car:
+    def __init__(self, Type, name, address) -> None:
+        self.engine = Engine(Type)
+        self.driver = Driver(name, address)
+    def start(self):
+        return f"{self.engine.start()}"
+car = car("V8", "Mollavai", " 123 via street")
+print(car.start())
+"""                    """
+class CPU:
+    def __init__(self, core)->None:
+        self.core = core
+class Ram:
+    def __init__(self, size)->None:
+        self.size = size
+class HardDrive:
+    def __init__(self, cap)->None:
+        self.cap = cap
+class computer:
+    def __init__(self, core, size, cap)->None:
+        self.cpu = CPU(core)
+        self.ram = Ram(size)
+        self.drive = HardDrive(cap)
+    def show(self):
+        return f"core {self.cpu.core}\nram size: {self.ram.size}\ndrive capacity: {self.drive.cap} "
+mac = computer(8, 16, 512)
+print(mac.show())
