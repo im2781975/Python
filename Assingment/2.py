@@ -119,3 +119,51 @@ x.show
 x.buy("abc", 2)
 x.show
 x.show_profit()
+"""        AbstractBaseClass        """
+from abc import ABC, abstractmethod
+class animal(ABC):
+    @abstractmethod
+    def eat(self):
+        print("Eating")
+    @abstractmethod
+    def move(self):
+        print("Moving")
+class monkey(animal):
+    def __init__(self, name):
+        self.category = "king"
+        self.name = name
+        super().__init__()
+    def eat(self):
+        print("eat")
+    def move(self):
+        print("Hang")
+x = monkey("mn")
+x.eat(); x.move()
+"""                    """
+class phone:
+    menufactured = 'china'
+    def __init__(self, owner, price, brand):
+        self.owner = owner
+        self.price = price
+        self.brand = brand
+    def send(self, phone, txt):
+        print(f"send from {phone} encrypted {txt} ")
+x = phone('A', 1200, 'B')
+print(x.owner, x.brand, x.price)
+x.send('xphone','Dj')
+"""                    """
+class shop:
+    cart = []
+    def __init__(self, user):
+        self.user = user
+        self.creditCard = []
+    def add(self, item):
+        self.cart.append(item)
+        self.creditCard.append(item)
+    def show(self):
+        print(f"items included in shop cart is {self.cart}, User cart is {self.creditCard}")
+x = shop('xyz')
+x.add('C'); x.add('D'); x.show()
+y = shop('abcd')
+y.add('E'); y.add('F'); y.show()
+print(y.cart, y.creditCard)
