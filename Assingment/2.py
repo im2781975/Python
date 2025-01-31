@@ -38,6 +38,25 @@ class bank:
 x = bank(15000)
 x.withdraw(1200)
 x.deposite(2700)
+
+class bank:
+    def __init__(self, name, initial):
+        self.name = name
+        self._branch = 'Banani'
+        self.__balance = initial
+    def deposite(self, amount):
+        self.__balance += amount
+    def withdraw(self, amount):
+        if amount < self.__balance:
+            self.__balance -= amount
+            return amount
+        else:
+            return f"Insufficient Balance "
+    def get(self):
+        return self.__balance
+xyz = bank('abc', 5000)
+xyz.deposite(1000); xyz.withdraw(500)
+print(xyz.get(), dir(xyz))
 """			"""
 class shop:
     def __init__(self, buyer):
