@@ -17,3 +17,24 @@ riyad = cricketer('Riyad', 39, 72, 92)
 youngest = min([sakib, mushi, riyad])
 elder = max([sakib, mushi, riyad])
 print(f"Younger player {youngest.name}\nElder player {elder.name} ")
+"""								"""
+class bank:
+    def __init__(self, balance):
+        self.balance = balance
+        self.mini = 100
+        self.maxi = 1000000
+    def get(self):
+        return self.balance
+    def deposite(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"New balance is: {self.get()} ")
+    def withdraw(self, amount):
+        if amount > self.mini and amount < self.maxi and amount < self.balance:
+            self.balance -= amount
+            print(f"Withdrawal amount is {amount} & Remaining Balance is {self.balance} ")
+        else:
+            print("Enter amount correctly")
+x = bank(15000)
+x.withdraw(1200)
+x.deposite(2700)
