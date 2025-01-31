@@ -60,3 +60,43 @@ x.add('A', 12, 15)
 x.add('B', 22, 5)
 x.add('C', 9, 29)
 x.checkout(400)
+"""					"""
+class product:
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+class store:
+    def __init__(self):
+        self.__itemprice = {}
+        self.__itemquantity = {}
+        self.__profit = 0
+    def add(self, name, price, quantity):
+        item = product(name, price, quantity)
+        self.__itemprice[item.name] = item.price
+        self.__itemquantity[item.name] = item.quantity
+    def buy(self, name, quantity):
+        if name in self.__itemprice:
+            if self.__itemquantity[name] >= quantity:
+                self.__profit += ((5 * self.__itemprice[name]) / 100)* quantity
+                self.__itemquantity[name] -= quantity
+            else:
+                print("unavailable")
+        else:
+            print("Not Found")
+    @property
+    def show(self):
+        print(self.__itemprice)
+        print(self.__itemquantity)
+    def show_profit(self):
+        print(self.__profit)
+class shop(store):
+    def __init__(self, name):
+        self.shop_name = name
+        super().__init__()
+x = shop("xyz")
+x.add("abc", 400, 15); x.add("bcd", 200, 20)
+x.show
+x.buy("abc", 2)
+x.show
+x.show_profit()
