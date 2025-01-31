@@ -38,3 +38,25 @@ class bank:
 x = bank(15000)
 x.withdraw(1200)
 x.deposite(2700)
+"""								"""
+class shop:
+    def __init__(self, buyer):
+        self.buyer = buyer
+        self.cart = []
+    def add(self, item, price, quantity):
+        product = {'item' : item, 'price' : price, 'quantity' : quantity}
+        self.cart.append(product)
+    def checkout(self, amount):
+        total = 0
+        for item in self.cart:
+            print(item)
+            total += item['price'] * item['quantity']
+        if total > amount:
+            print(f"please provide {total - amount} ")
+        else:
+            print(f"Here is your remaining {amount - total} ")
+x = shop('vai')
+x.add('A', 12, 15)
+x.add('B', 22, 5)
+x.add('C', 9, 29)
+x.checkout(400)
