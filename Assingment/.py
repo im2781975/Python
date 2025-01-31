@@ -46,3 +46,12 @@ num = int(input(""))
 ing = input("")
 lst = list(map(int, ing.split()))
 print(maxi(num, lst))
+#Freq array
+n, m = map(int, input().split())
+num = list(map(int, input().split()))
+freq= [0] * (m + 1)
+
+for i in num:
+    freq[i] += 1
+for val in freq[1:]:
+    print(val)
