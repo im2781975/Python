@@ -35,3 +35,14 @@ for num, count in mp.items():
     else:
         ans += count - num
 print(ans)
+#Minimize a number
+def maxi(N, x):
+    cnt = 0
+    while all(num % 2 == 0 for num in x):
+        x = [num // 2 for num in x]
+        cnt += 1
+    return cnt
+num = int(input(""))
+ing = input("")
+lst = list(map(int, ing.split()))
+print(maxi(num, lst))
