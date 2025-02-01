@@ -204,3 +204,282 @@ class computer:
         return f"core {self.cpu.core}\nram size: {self.ram.size}\ndrive capacity: {self.drive.cap} "
 mac = computer(8, 16, 512)
 print(mac.show())
+"""            Decorator            """
+class user:
+    def __init__(self, name, age, money):
+        self._name = name
+        self._age = age
+        self.__money = money
+    def getAge(self):
+        return self._age
+    #decorator can modify a function in attribute
+    # getter without any setter is read only attribute
+    @property
+    def getName(self):
+        return self._name
+    @property
+    def salary(self):
+        return self.__money
+    @salary.setter
+    def salary(self, val):
+        if val < 0:
+            return f"can't negetive"
+        self.__money += val
+a = user('x', 12, 1223)
+print(a._age, a.getAge())#used as attribute & method
+print(a._name)#used as attribute
+a.salary = 200; print(a.salary)
+"""                """
+class vehicle:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+    def __repr__(self):
+        return f"vehicle brand: {self.name}\nprice: {self.price} "
+class bus(vehicle):
+    def __init__(self, name, price, seat):
+        self.seat = seat
+        super().__init__(name, price)
+class AcBus(bus):
+    def __init__(self, name, price, seat, temp):
+        self.temp = temp
+        super().__init__(name, price, seat)
+    def __repr__(self):
+        print(f"Bus brand: {self.name}\nprice: {self.price}\nit has: {self.seat} seats & holds {self.temp}°c")
+        return super().__repr__()
+class Truck(vehicle):
+    def __init__(self, name, price, weight):
+        self.weight = weight
+        super().__init__(name, price)
+class pickup(Truck):
+    def __init__(self, name, price, weight):
+        super().__init__(name, price, weight)
+    def __repr__(self):
+        return f"truck brand: {self.name}\ntruck price: {self.price}\ntruck weight: {self.weight} "
+x = AcBus('abc', 500000, 22, 16)
+y = pickup('xyz', 700000, 200)
+print(x); print(y)
+print(issubclass(vehicle, Truck))
+print(isinstance(vehicle, Truck))
+print(isinstance(vehicle, AcBus))
+"""            Polymarphizm        """
+class animal:
+    def __init__(self, name):
+        self.name = name
+    def sound(self):
+        print("Aa")
+class cat(animal):
+    def __init__(self, name):
+        super().__init__(name)
+    def sound(self):
+        print("Bb")
+class dog(animal):
+    def __init__(self, name):
+        super().__init__(name)
+    def sound(self):
+        print("Cc")
+class goat(animal):
+    def __init__(self, name):
+        super().__init__(name)
+    def sound(self):
+        print("Dd")
+c = cat("c")
+d = dog("d")
+g = goat("g")
+anim = [c, d, g]
+for i in anim:
+    i.sound()
+"""                    """
+from math import pi
+class shape:
+    def __init__(self, name):
+        self.name = name
+class rect(shape):
+    def __init__(self, name, length, width):
+        self.length = length
+        self.width = width
+        super().__init__(name)
+    def area(self):
+        return self.length * self.width
+    def __repr__(self):
+        return f"area of {self.name} with length {self.length} & {self.width} is: {self.area()} "
+class circle(shape):
+    def __init__(self, name, radius):
+        self.radius = radius
+        super().__init__(name)
+    def area(self):
+        return pi * self.radius * self.radius
+    def __repr__(self):
+        return f"area of {self.name} with radius {self.radius} is: {self.area()} "
+x = circle('circle', 22)
+y = rect('rectangle', 12, 23)
+print(x, x.area())
+print(y, y.area())
+"""                    """
+class student:
+    def __init__(self, name, lev, id):
+        self.name = name
+        self.lev = lev; self.id = id
+    def __repr__(self):
+        return f"student name: {self.name}\nclass: {self.lev}\nid: {self.id}\n"
+class teacher:
+    def __init__(self, name, sub, id):
+        self.name = name
+        self.sub = sub; self.id = id
+    def __repr__(self):
+        return f"Teacher name: {self.name}\nsubject: {self.sub}\nid: {self.id}\n"
+class school:
+    def __init__(self, name):
+        self.name = name
+        self.teachers = []
+        self.students = []
+    def addTeacher(self, name, sub):
+        id = len(self.teachers) + 101
+        teach = teacher(name, sub, id)
+        self.teachers.append(teach)
+    def enroll(self, name, fee):
+        if fee < 6500:
+            return f"please provide more"
+        else:
+            id = len(self.students) + 1
+            std = student(name, 'D', id)
+            self.students.append(std)
+            return f"enrolled name: {std.name}\nreturned money: {fee - 6500}\nid: {std.id} "
+    def __repr__(self):
+        output = f"School Name: {self.name}\n\nTeachers:\n"
+        for teacher in self.teachers:
+            output += f"{teacher}\n"
+        output += "Students:\n"
+        for student in self.students:
+            output += f"{student}\n"
+        return output
+a = school('XYZ School')
+print(a.enroll('Bob', 5200))  
+print(a.enroll('Charlie', 6700))  
+a.addTeacher('David', 'English')
+a.addTeacher('Fiona', 'Mathematics')
+print(a)
+"""                    """
+class instructor:
+    def __init__(self):
+        print("constructor")
+a = instructor(); a.name = "molla"
+b = instructor(); b.name = "vai"
+print(a.name, b.name)
+"""             OVERRIDE           """
+class person:
+    def __init__(self, name, age, height, weight):
+        self.name = name; self.age = age
+        self.height = height; self.weight = weight
+    def eat(self):
+        print("Eating")
+    def exercise(self):
+        raise NotImplementedError
+class cricketer(person):
+    def __init__(self, name, age, height, weight, team):
+        self.team = team
+        super().__init__(name, age, height, weight)
+    def eat(self):
+        print("Eat rice")
+    def exercise(self):
+        print("Go To Gym")
+    def __add__(self, other):
+        return self.age + other.age
+    def __mul__(self, other):
+        return self.age * other.age
+    def __len__(self):
+        return self.height
+    def __gt__(self, other):
+        return self.height > other.height
+sakib = cricketer('A', 35, 79,79,'BD')
+sakib.eat(); sakib.exercise()
+Mushi = cricketer('B', 35, 78,78,'BD')
+print(sakib + Mushi, sakib * Mushi, len(sakib), sakib < Mushi)
+"""                    """
+class family:
+    def __init__(self, address):
+        self.address = address
+class school:
+    def __init__(self, id, level):
+        self.id = id
+        self.level = level
+class sport:
+    def __init__(self, game):
+        self.game = game
+class student(family, school, sport):
+    def __init__(self, address, id, level, game):
+        family.__init__(self, address)
+        school.__init__(self, id, level)
+        sport.__init__(self, game)
+    def show(self):
+        return (f"address :{self.address}\nid: {self.id}\nlevel: {self.level}\nGame liked: {self.game} ")
+std = student("123 Main St", "A123", "High School", "Basketball")
+print(std.show())
+"""           Methode         """
+class shop:
+    cart = []
+    origin = 'china'
+    def __init__(self, name, location):
+        self.name = 'E-BAZAR'
+        self.location = 'BGD'
+    def purches(self, item, price, amount):
+        print(f"Buying: {item} which price: {price} remaining amount: {amount - price} ")
+    #class method can access without useof instance
+    #static mathod can't change or print class info
+    @staticmethod
+    def mult(a, b):
+        print(a * b)
+    @classmethod
+    def show(self, item):
+        print(item)
+shop.purches('a', 4, 2, 2)
+a = shop('DARAZ', 'Banani')
+a.purches('xyz', 1200, 2000)
+a.show('Lungi'); shop.show('Lungi')
+shop.mult(8, 4); a.mult(8, 2)
+"""                    """
+class calculator:
+    def add(self, a, b):
+        return a + b
+    def deduct(self, a, b):
+        if a > b:
+            return a - b
+        else:
+            return b - a
+    def mult(self, a, b):
+        return a * b
+    def subtract(self, a, b):
+        if b != 0:
+            return a / b
+        else:
+            raise ZeroDivisionError("Can't Divide by zero")
+x = calculator()
+print(x.add(6, 9), x.subtract(6, 0))
+"""                    """
+class Device:
+    def __init__(self, brand, price, color, origin):
+        self.brand = brand; self.price = price
+        self.color = color; self.origin = origin
+    def run(self):
+        return f"running: {self.brand}\nwhich color: {self.color}\norigin from: {self.origin}"
+class phone(Device):
+    def __init__(self, brand, price, color, origin, duality):
+        self.duality = duality
+        super().__init__(brand, price, color, origin)
+    def call(self, num, sms):
+        return f"sending from {num}\nEncrypted txt is {sms}"
+    def __repr__(self) -> str:
+        return f"Brand: {self.brand}\nColor: {self.color}\nOrigin: {self.origin}\nIsDuality: {self.duality}\n"
+x = phone('iphone', 12000, 'silver', 'chine', True); print(x)
+print(x.call("915653960", "Reached home")); print(x.run())
+
+class phone:
+    brand = 'Iphone'; price = 2200; color = 'silver'
+    feature = ['Camera', 'Speaker', 'Duality']
+    def call(self):
+        print("Calling")
+    def send(self, cellNo, txt):
+        return f"sending from {cellNo}\nEncrypted txt is: {txt}"
+x = phone(); x.call()
+print(x.brand, x.price, x.color, x.feature)
+print(x.send("915653960", "am I"))
