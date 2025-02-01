@@ -63,3 +63,52 @@ try:
     raise Networkerror("Error")
 except Networkerror as e:
     print(e.args)
+"""						"""
+class student:
+    depart = 'CSE'
+    def __init__(self, roll):
+        self.roll = roll
+a = student(103)
+b = student(104)
+print(a.depart, b.depart, a.roll, b.roll, student.depart)
+"""                    """
+class operation:
+    def __init__(self, value):
+        self.value = value
+    def __and__(self, other):
+        print("And operator ")
+        if isinstance(other, operation):
+            return self.value & other.value
+        else:
+            raise ValueError("Must be a object of class operation")
+    def __or__(self, other):
+        print("OR operator ")
+        if isinstance(other, operation):
+            return self.value | other.value
+        else:
+            raise ValueError("Must be a object of class operation")
+    def __xor__(self, other):
+        print("XOR operator ")
+        if isinstance(other, operation):
+            return self.value ^ other.value
+        else:
+            raise ValueError("Must be a object of class operation")
+    def __lshift__(self, other):
+        print("left shift operator ")
+        if isinstance(other, operation):
+            return self.value << other.value
+        else:
+            raise ValueError("Must be a object of class operation")
+    def __rshift__(self, other):
+        print("right shift operator ")
+        if isinstance(other, operation):
+            return self.value >> other.value
+        else:
+            raise ValueError("Must be a object of class operation")
+    def __invert__(self):
+        print("Invert operator overloaded")
+        return ~self.value
+if __name__ == "__main__":
+    a, b = operation(10), operation(20)
+    print(a & b, a | b, a ^ b, a << b, a >> b, ~a)
+"""                    """
