@@ -483,3 +483,48 @@ class phone:
 x = phone(); x.call()
 print(x.brand, x.price, x.color, x.feature)
 print(x.send("915653960", "am I"))
+"""            Represent            """
+class Represent:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __repr__(self):       
+        return "Represent(x = {}, y = \" {} \")".format(self.x, self.y)
+    def __str__(self):        
+        return "Representing x as {} and y as {}".format(self.x, self.y)
+r = Represent(1, "Goto")
+print(r, r.__repr__, r.__repr__())
+print(r.__repr__() == eval(r.__repr__()))
+"""                    """
+class car:
+    def __init__(self, **kwargs):
+        self.speed = kwargs['s']
+        self.color = kwargs['c']
+    def __repr__(self):
+        return f"speed is: {self.speed} color is: {self.color}\n"
+audi = car(s = 200, c = "Grey")
+bmw = car(s = 150, c = "Golden")
+print(audi.color, bmw.speed)
+print(audi, bmw)
+"""                    """
+class circle:
+    def __init__(self, radius):
+        self.radius = radius
+    def calculateArea(self):
+        return 3.1416 * self.radius * self.radius
+x = circle(7); print(x.calculateArea())
+"""                    """
+class Test:
+    def __init__(self):
+        self.ing = "mollavai"
+        self.x = 50
+def fun():
+    return Test()
+t = fun()
+print(t.ing, t.x)
+"""            ENUM            """
+from enum import Enum
+class color(Enum):
+    red = 1; green = 2; blue = 3
+print(color.red, color(2), color['red'])
+print([c for c in color])
