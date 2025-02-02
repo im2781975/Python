@@ -196,3 +196,15 @@ except Exception as err:
     print(err)
 r = child()
 print(r.func)
+"""						"""
+class dog:
+    animal = 'dog'
+    def __init__(self, breed):
+        self.breed = breed
+    def setcolor(self, color):
+        self.color = color
+    def getcolor(self):
+        return self.color
+dg = dog("pug")
+dg.setcolor("brown")
+print(dg.getcolor())
