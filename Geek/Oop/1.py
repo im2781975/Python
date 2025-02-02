@@ -112,3 +112,13 @@ if __name__ == "__main__":
     a, b = operation(10), operation(20)
     print(a & b, a | b, a ^ b, a << b, a >> b, ~a)
 """                    """
+class person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+people = [ 
+    person('Alice', 25), person('Bob', 30), person('Charlie', 22) ]
+filtered = list(filter(lambda person: person.age > 25, people))
+for person in filtered:
+    print(person.name, person.age)
+    
