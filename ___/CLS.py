@@ -788,3 +788,73 @@ s = square(2)
 print(r.area(), r.perimeter(), s.area(), s.perimeter())
 print(issubclass(square, rectangle))
 print(isinstance(r, rectangle), isinstance(r, square), isinstance(s, rectangle), isinstance(s, square))
+"""					"""
+class delta(object):   
+    def __init__(self, num):        
+        self.num = num   
+    def __add__(self, other):        
+        return delta(self.num + other.num)
+def get(self):    
+    return self.num
+x = delta(56); delta.get = get
+print(x.get, x.get())
+"""                """
+class person(object):
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.full_name = first_name + " " + last_name
+    def greet(self):
+        print("Hello, my name is " + self.full_name + ".")
+    def is_adult(self):
+        return self.age >= 18
+    def birthday(self):
+        self.age += 1
+        print(f"Happy Birthday, {self.first_name}! You are now {self.age} years old.")
+    def update_last_name(self, new_last_name):
+        self.last_name = new_last_name
+        self.full_name = self.first_name + " " + self.last_name
+        print(f"Your name has been updated to {self.full_name}.")
+x = person("John", "Doe", 25)
+y = person("Alice", "Smith", 16)
+x.greet(); y.greet()  
+print(f"Is {x.first_name} an adult? {x.is_adult()}")  
+print(y.birthday())
+x.update_last_name("Johnson"); x.greet()
+"""                    """
+class person(object):
+    def __init__(self, fname, age, lname=None):
+        if lname is None:
+            parts = fname.split(" ", 1)
+            if len(parts) == 2:
+                self.first_name, self.last_name = parts
+            else:
+                self.first_name = parts[0]
+                self.last_name = ' '
+        else:
+            self.first_name = fname
+            self.last_name = lname
+        self.full_name = self.first_name + " " + self.last_name if self.last_name else self.first_name
+        self.age = age
+    def greet(self):
+        print("Hello, my name is " + self.full_name + ".")
+x = person("John Doe", 25); x.greet()
+"""            """
+class person(object):
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.full_name = first_name + " " + last_name
+    @classmethod
+    def from_full_name(cls, name, age):
+        if " " not in name:
+            raise ValueError("Full name must include both first and last names.")
+        first_name, last_name = name.split(" ", 1)  
+        return cls(first_name, last_name, age)
+    def greet(self):
+        print("Hello, my name is " + self.full_name + ".")
+bob = person("Bob", "Bobberson", 42)
+alice = person.from_full_name("Alice Henderson", 31)
+bob.greet(); alice.greet()  
