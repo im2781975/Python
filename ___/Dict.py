@@ -453,3 +453,10 @@ print({x : x**2 for x in [1, 2, 3, 4, 5]})
 print({x : x**3 for x in range(10) if x**3 % 4 == 0})
 l="GFG"
 print({ x: {y: x + y for y in l} for x in l })
+
+print("\nDictionary Iteration")   
+d = dict() 
+d['xyz'] = 123
+d['abc'] = 345
+for i in d :
+    print("%s  %d" %(i, d[i]))
