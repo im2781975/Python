@@ -208,3 +208,238 @@ class dog:
 dg = dog("pug")
 dg.setcolor("brown")
 print(dg.getcolor())
+"""            Decorator            """
+def decorator(func):
+    def wrapper():
+        print("Before function execution")
+        func()
+        print("After function execution")
+    return wrapper
+@decorator
+def hello_decorator():
+    print("Gfg")
+hello_decorator()
+"""                    """
+def hello_decorator(func):
+    def inner():
+        print("before function execution")
+        func()
+        print("after function execution")
+    return inner
+def used():
+    print("inside the function !!")
+used = hello_decorator(used)
+used()
+"""                    """
+import time
+import math
+def calculateTime(func):
+    def inner(*args, **kwargs):
+        begin = time.time()
+        func(*args, **kwargs)
+        end = time.time()
+        print("Total time taken in :", func.__name__, end - begin)
+    return inner
+@calculateTime
+def factorial(num):
+    time.sleep(2)
+    print(math.factorial(num))
+factorial(10)
+"""                    """
+def decorator(func):
+    def inner(*args, **kwargs):
+        print("before Execution")
+        val = func(*args, **kwargs)
+        print("after Execution")
+        return val
+    return inner
+@decorator
+def sumof(a, b):
+    print("Inside the function")
+    return a + b
+a, b = 1, 2
+print("Sum =", sumof(a, b))
+"""                    """
+def decor1(func): 
+    def inner(): 
+        x = func() 
+        return x * x 
+    return inner 
+def decor(func): 
+    def inner(): 
+        x = func() 
+        return 2 * x 
+    return inner 
+@decor1
+@decor
+def num(): 
+    return 10
+@decor
+@decor1
+def num2():
+    return 10
+print(num()); print(num2())
+"""                    """
+def decorator(func):
+    def wrapper():
+        print("Something before the function.")
+        func()
+        print("Something after the function.")
+    return wrapper
+@decorator
+def greet():
+    print("Hello!")
+greet()
+"""                    """
+def prin(func):    
+    def inner(*args, **kwargs):        
+        print(args)      
+        print(kwargs)
+        return func(*args, **kwargs)   
+    return inner
+@prin
+def multiply(a, b):   
+    return a * b
+print(multiply(3, 5))
+"""                    """
+class Decorator(object):    
+    def __init__(self, func):        
+        self.func = func    
+    def __call__(self, *args, **kwargs):
+        print('Before call')
+        res = self.func(*args, **kwargs)
+        print('After call.')       
+        return res
+@Decorator 
+def test():    
+    print('Inside the function.') 
+test()
+"""                    """
+from types import MethodType 
+class Decorator(object):  
+    def __init__(self, func):
+        self.func = func
+    def __call__(self, *args, **kwargs): 
+        print('Inside the decorator.')
+        return self.func(*args, **kwargs)
+    def __get__(self, instance, cls): 
+        return self if instance is None else MethodType(self, instance)
+class Test(object): 
+    @Decorator
+    def __init__(self): 
+        pass
+a = Test()
+"""                    """
+from types import MethodType 
+class CountCallsDecorator(object): 
+    def __init__(self, func):
+        self.func = func 
+        self.ncalls = 0  
+    def __call__(self, *args, **kwargs): 
+        self.ncalls += 1  
+        # Increment call count
+        return self.func(*args, **kwargs)
+    def __get__(self, instance, cls): 
+        return self if instance is None else MethodType(self, instance)
+class Test(object):
+    def __init__(self): 
+        pass 
+    @CountCallsDecorator
+    def do_something(self): 
+        return 'something was done' 
+a = Test() 
+print(a.do_something())  
+print(f"Calls from 'a': {Test.do_something.ncalls}")  
+a.do_something()
+print(f"Calls from 'a' after second call: {Test.do_something.ncalls}")
+
+b = Test() 
+print(b.do_something())  
+print(f"Total calls from 'a' and 'b': {Test.do_something.ncalls}")
+"""                    """
+def decoratorfactory(message):  
+    def decorator(func):       
+        def wrapped_func(*args, **kwargs):            
+            print('The decorator wants to tell you: {}'.format(message))  
+            return func(*args, **kwargs)
+        return wrapped_func  
+    return decorator
+@decoratorfactory('Hello World') 
+def test():   
+    print("Inside the test function.")
+test()
+"""                    """
+def decoratorfactory(*decorator_args, **decorator_kwargs):    
+    class Decorator(object):        
+        def __init__(self, func):           
+            self.func = func        
+        def __call__(self, *args, **kwargs):            
+            print('Inside the decorator with arguments {}'.format(decorator_args))           
+            return self.func(*args, **kwargs)           
+    return Decorator
+@decoratorfactory(10) 
+def test():   
+    pass 
+test()
+"""                    """
+from functools import wraps
+def decorator(func):    
+    @wraps(func)  
+    def wrapped_func(*args, **kwargs):        
+        return func(*args, **kwargs)    
+    return wrapped_func 
+@decorator 
+def test():   
+    """This is the docstring of the test function."""
+    pass 
+print(test.__name__)  
+print(test.__doc__)   
+"""                    """
+from functools import wraps
+class Decorator(object):    
+    def __init__(self, func):
+        self.func = func
+        wraps(func)(self)  
+    def __call__(self, *args, **kwargs): 
+        return self.func(*args, **kwargs)
+@Decorator 
+def test():   
+    """Docstring of test."""
+    print("Inside the test function.")
+print(test.__doc__); print(test.__name__) ; test()
+"""   Decorator     """
+import time 
+def timer(func):    
+    def inner(*args, **kwargs):
+        t1 = time.time()        
+        f = func(*args, **kwargs) 
+        t2 = time.time()       
+        print('Runtime took {0} seconds'.format(t2 - t1))  
+        return f    
+    return inner
+@timer 
+def example_function():   
+    time.sleep(1)  
+example_function()
+"""					"""
+def shout(txt):
+    return txt.upper()
+print(shout("hello"))
+func = shout
+print(func("hello"))
+"""                    """
+def shout(text): 
+    return text.upper() 
+def whisper(text): 
+    return text.lower() 
+def greet(func): 
+    greeting = func(" I was at some place other than my body ") 
+    print (greeting) 
+greet(shout); greet(whisper) 
+"""                    """
+def adder(x):
+    def add(y):
+        return x + y
+    return add
+tmp = adder(15)
+print(tmp(10))
