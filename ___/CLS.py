@@ -858,3 +858,85 @@ class person(object):
 bob = person("Bob", "Bobberson", 42)
 alice = person.from_full_name("Alice Henderson", 31)
 bob.greet(); alice.greet()  
+"""						"""
+class Foo(object):
+    def foo_method(self):
+        print("Foo Method")
+class Bar(object):
+    def bar_method(self):
+        print("Bar Method")
+class FooBar(Foo, Bar):
+    def foo_method(self):
+        super().foo_method()
+        print("FooBar's Override of foo_method")
+    def bar_method(self):
+        super().bar_method()
+        print("FooBar's Extension of bar_method")
+foobar = FooBar()
+foobar.foo_method(); foobar.bar_method()   
+print(FooBar.__mro__)
+"""                    """
+class Foo(object):        
+    def __init__(self):            
+        print("foo init")    
+class Bar(object):        
+    def __init__(self):            
+        print("bar init")    
+class FooBar(Foo, Bar):        
+    def __init__(self):            
+        print("foobar init")          
+        super(FooBar, self).__init__()
+a = FooBar()
+print(isinstance(a, FooBar), isinstance(a, Foo)
+print(isinstance(a, Bar), FooBar.__mro__))
+"""                    """
+class MyClass(object):    
+    def __init__(self):       
+        self.ing = ""  
+    @property    
+    def string(self):        
+        return self.ing
+    @string.setter    
+    def string(self, val):        
+        assert isinstance(val, str), "Give me a string, not a %r!" % type(val)        
+        self.ing = val 
+    @string.deleter    
+    def string(self):        
+        self.ing = None
+mc = MyClass() 
+mc.string = "String!" 
+print(mc.string); del mc.string
+"""                    """
+class Character(object):    
+    def __init__(self, name, max_hp):
+        self._name = name        
+        self._hp = max_hp        
+        self._max_hp = max_hp
+    @property    
+    def hp(self):        
+        return self._hp
+    @hp.setter
+    def hp(self, value): 
+        self._hp = value
+    @property 
+    def name(self):
+        return self._name  
+    def take_damage(self, damage): 
+        self.hp -= damage  
+        self.hp = 0 if self.hp < 0 else self.hp  
+    @property 
+    def is_alive(self): 
+        return self.hp != 0  
+    @property 
+    def is_wounded(self): 
+        return self.hp < self._max_hp if self.hp > 0 else False  
+    @property 
+    def is_dead(self): 
+        return not self.is_alive  
+bilbo = Character('Bilbo Baggins', 100) 
+print(bilbo.hp)  
+bilbo.hp = 200  
+print(bilbo.hp, bilbo.is_alive, bilbo.is_wounded, bilbo.is_dead)  
+bilbo.take_damage(50)  
+print(bilbo.hp, bilbo.is_alive)  
+print(bilbo.is_wounded, bilbo.is_dead)
