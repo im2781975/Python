@@ -400,3 +400,9 @@ print(sorted( [" foo ", " bAR", "BaZ "], key = lambda s: s.strip().upper()))
 print(sorted( [" foo ", " bAR", "BaZ "], key = lambda s: s.strip()))
 print(sorted(map(lambda s: s.strip().upper(), [" foo ", " bAR", "BaZ "])))
 print(sorted(map(lambda s: s.strip(), [" foo", "bAR", "BaZ"])))
+
+string = "GFG"
+ch_iterator = iter(string)
+print(next(ch_iterator))
+print(next(ch_iterator))
+print(next(ch_iterator))
