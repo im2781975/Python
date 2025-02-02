@@ -731,4 +731,60 @@ class Bike(Vehicle):
 vehicles = [Car(), Bike()]
 for vehicle in vehicles:
     print(vehicle.move())
-    
+class person(object): 
+    species = "Homo Sapiens"            
+    def __init__(self, name):      
+        self.name = name            
+    def __str__(self):                 
+        return self.name 
+    def rename(self, renamed):
+        self.name = renamed 
+        print("Now my name is {}".format(self.name))
+Aa = person("Aa")
+Bb = person("Bb")
+print(Aa.species, Bb.species)
+print(Bb.__str__(), Bb)
+Bb.rename("Cc");
+"""                    """
+import inspect
+class A(object):    
+    def func(self, x):      
+        return 2 * x 
+a = A()
+print(inspect.isfunction(A.func))
+print(inspect.ismethod(A.func))
+print(A.func(a, 7))
+print(a.func(20))
+"""            """
+class delta(object):    
+    multiplier = 2    
+    @classmethod    
+    def func(cls, x):       
+        return cls.multiplier * x  
+    @staticmethod    
+    def gun(name):       
+        print("Hello, %s" % name)
+print(delta.func, delta.func(12))
+print(delta.gun, delta.gun("world"))
+d = delta()
+d.multiplier = 1337 
+print(delta.multiplier, d.multiplier)
+print(d.func, d.func(10))
+"""                    """
+class rectangle():    
+    def __init__(self, weidth, hight): 
+        self.weidth = weidth 
+        self.hight = hight
+    def area(self):       
+        return self.weidth * self.hight  
+    def perimeter(self):        
+        return 2 * (self.weidth + self.hight)
+class square(rectangle):   
+    def __init__(self, side):  
+        super(square, self).__init__(side, side)       
+        self.side = side
+r = rectangle(4, 9)
+s = square(2)
+print(r.area(), r.perimeter(), s.area(), s.perimeter())
+print(issubclass(square, rectangle))
+print(isinstance(r, rectangle), isinstance(r, square), isinstance(s, rectangle), isinstance(s, square))
