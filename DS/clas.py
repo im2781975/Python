@@ -1,39 +1,4 @@
-class A(object):   
-    def __init__(self, num):        
-        self.num = num   
-    def __add__(self, other):        
-        return A(self.num + other.num)
-def get_num(self):    
-    return self.num
-foo = A(42)
-A.get_num = get_num
-bar = A(6);
-foo.get_num()
-bar.get_num()
-class Person(object):
-    def __init__(self, first_name, last_name, age):        
-        self.first_name = first_name        
-        self.last_name = last_name        
-        self.age = age        
-        self.full_name =  first_name + " " + last_name      
-    def greet(self):       
-        print("Hello, my name is " + self.full_name + ".")
-        
-class Person(object):    
-    def __init__(self, first_name, age, last_name=None):    if last_name is None:        
-            self.first_name, 
-            self.last_name = first_name.split(" ", 2)        
-        else:            
-            self.first_name = first_name            
-            self.last_name = last_name              
-            self.full_name = self.first_name + " " + self.last_name        
-            self.age = age    
-    def greet(self):       
-        print("Hello, my name is " + self.full_name + ".")
-        
-class Person(object):    
-    def __init__(self, first_name, last_name, age):        
-        self.first_name = first_name       
+      self.first_name = first_name       
         self.last_name = last_name        
         self.age = age        
         self.full_name = first_name + " " + last_name  
