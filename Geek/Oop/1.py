@@ -458,3 +458,259 @@ def adder(x):
     return add
 tmp = adder(15)
 print(tmp(10))
+"""            Encapsulation            """
+class base:
+    def __init__(self):
+        self._a = 2
+class derived(base):
+    def __init__(self):
+        base.__init__(self)
+        print(self._a)
+        self._a = 3
+        print(self._a)
+x = base(); print(x._a)
+y = derived(); print(y._a)
+"""                    """
+class Base: 
+    def __init__(self): 
+        self.a = "Here i am"
+        self.__c = "where are you"
+class Derived(Base): 
+    def __init__(self):
+        Base.__init__(self) 
+        print("Calling private member of base class: ") 
+        print(self.__c) 
+obj = Base() 
+print(obj.a)
+"""            Inheritance            """
+class person:
+    def __init__(self, name, id):
+        self.name = name
+        self.id = id
+    def disp(self):
+        print(self.name, self.id)
+class emp(person):
+    def printf(self):
+        print("Employe class")
+info = emp("Hasan", 108)
+info.disp(); info.printf()
+"""                    """
+class Person(object):
+    def __init__(self, name):
+        self.name = name
+    def getName(self):
+        return self.name
+    def isEmployee(self):
+        return False
+class Employee(Person):
+    def isEmployee(self):
+        return True
+emp = Person("Molla")  
+print(emp.getName(), emp.isEmployee())
+emp = Employee("Vai")  
+print(emp.getName(), emp.isEmployee())
+"""                    """
+class Person(object):
+    def __init__(self, name, id):
+        self.name = name
+        self.id = id
+    def display(self):
+        print(self.name)
+        print(self.id)
+class Employee(Person):
+    def __init__(self, name, id, salary, post):
+        self.salary = salary
+        self.post = post
+        Person.__init__(self, name, id)
+a = Employee('Rahul', 886012, 200000, "Intern")
+a.display()
+"""                    """
+class Person():
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def display(self):
+        print(self.name, self.age)
+class Student(Person):
+    def __init__(self, name, age):
+        super().__init__("Rahul", age)
+        self.sName = name
+        self.sAge = age
+    def displayInfo(self):
+        print(self.sName, self.sAge)
+obj = Student("Mayank", 23)
+obj.display(); obj.displayInfo()
+"""                    """
+class Base1(object):
+    def __init__(self):
+        self.x = "Molla"
+        print("Base1")
+class Base2(object):
+    def __init__(self):
+        self.y = "vai"
+        print("Base2")
+class Derived(Base1, Base2):
+    def __init__(self):
+        Base1.__init__(self)
+        Base2.__init__(self)
+        print("Derived")
+    def disp(self):
+        print(self.x, self.y)
+ob = Derived()
+ob.disp()
+"""                    """
+class Base(object):
+    def __init__(self, name):
+        self.name = name
+    def getName(self):
+        return self.name
+class Child(Base):
+    def __init__(self, name, age):
+        Base.__init__(self, name)
+        self.age = age
+    def getAge(self):
+        return self.age
+class GrandChild(Child):
+    def __init__(self, name, age, address):
+        Child.__init__(self, name, age)
+        self.address = address
+    def getAddress(self):
+        return self.address
+g = GrandChild("Geek1", 23, "Noida")
+print(g.getName(), g.getAge(), g.getAddress())
+"""            Inheritance            """
+class C(object):
+    def __init__(self):
+        self.c = 21
+        self.__d = 42
+class D(C):
+    def __init__(self):
+        self.e = 84
+        C.__init__(self)
+        #super().__init__()
+obj = D(); print(obj.c, obj._C__d)
+"""            Iterator            """
+class Test:
+    def __init__(self, limit):
+        self.limit = limit
+    def __iter__(self):
+        self.x = 10
+        return self
+    def __next__(self):
+        x = self.x
+        if x > self.limit:
+            raise StopIteration
+        self.x = x + 1;
+        return x
+for i in Test(15):
+    print(i, end = " ")
+for i in Test(5):
+    print(i, end = " ")
+"""            Polymarphizm"""
+class India():
+    def capital(self):
+        print("New Delhi.")
+    def language(self):
+        print("Hindi.")
+    def type(self):
+        print("India is a developing country.")
+class USA():
+    def capital(self):
+        print("Washington, D.C.")
+    def language(self):
+        print("English.")
+    def type(self):
+        print("USA is a developed country.")
+obj_ind = India()
+obj_usa = USA()
+for country in (obj_ind, obj_usa):
+    country.capital()
+    country.language()
+    country.type()
+def func(obj):
+    obj.capital()
+    obj.language()
+    obj.type()
+obj_ind = India()
+obj_usa = USA()
+func(obj_ind)
+func(obj_usa)
+"""                    """
+class Bird:
+    def intro(self):
+        print("There are many types of birds.")
+    def flight(self):
+        print("Most of the birds can fly but some cannot.")
+class sparrow(Bird):
+    def flight(self):
+        print("Sparrows can fly.")
+class ostrich(Bird):
+    def flight(self):
+        print("Ostriches cannot fly.")
+bird = Bird()
+spr = sparrow()
+ost = ostrich()
+bird.intro(); bird.flight()
+spr.intro(); spr.flight()
+ost.intro(); ost.flight()
+"""                    """
+class Animal:
+    def speak(self):
+        raise NotImplementedError("Subclass must implement this method")
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
+animals = [Dog(), Cat()]
+for animal in animals:
+    print(animal.speak())
+"""                    """
+class Animal:
+    def sound(self):
+        return "Some sound"
+class Dog(Animal):
+    def sound(self):
+        return "Bark"
+dog = Dog()
+print(dog.sound())
+"""                    """
+class Shape:
+    def draw(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+class Circle(Shape):
+    def draw(self):
+        return "Drawing a circle"
+class Square(Shape):
+    def draw(self):
+        return "Drawing a square"
+shapes = [Circle(), Square()]
+for shape in shapes:
+    print(shape.draw())
+"""                    """
+def make_sound(animal):
+    return animal.sound()
+class Dog:
+    def sound(self):
+        return "Bark"
+class Cat:
+    def sound(self):
+        return "Meow"
+animals = [Dog(), Cat()]
+for animal in animals:
+    print(make_sound(animal))
+"""                    """
+class Vehicle:
+    def move(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+class Car(Vehicle):
+    def move(self):
+        return "Car is moving"
+class Bike(Vehicle):
+    def move(self):
+        return "Bike is moving"
+vehicles = [Car(), Bike()]
+for vehicle in vehicles:
+    print(vehicle.move())
+    
