@@ -121,4 +121,78 @@ people = [
 filtered = list(filter(lambda person: person.age > 25, people))
 for person in filtered:
     print(person.name, person.age)
-    
+
+"""            Abstract            """
+from abc import ABC, abstractmethod
+class polygon(ABC):
+    @abstractmethod
+    def sides(self):
+        pass
+class triangle(polygon):
+    def sides(self):
+        print("3 sides")
+class pentagon(polygon):
+    def sides(self):
+        print("5 sides")
+class hexagon(polygon):
+    def sides(self):
+        print("6 sides")
+class quadrilateral(polygon):
+    def sides(self):
+        print("4 sides")
+t = triangle(); t.sides();
+p = pentagon(); p.sides();
+h = hexagon(); h.sides();
+q = quadrilateral(); q.sides();
+"""                        """
+class animal(ABC):
+    #@abstractmethod
+    def move(self):
+        pass
+class human(animal):
+    def move(self):
+        print("walk & run")
+class snake(animal):
+    def move(self):
+        print("crawl")
+class dog(animal):
+    def move(self):
+        print("bark")
+class lion(animal):
+    def move(self):
+        print("roar")
+h = human(); h.move();
+s = snake(); s.move();
+d = dog(); d.move();
+l = lion(); l.move();
+print(issubclass(lion, animal))
+print(isinstance(lion(), animal))
+"""                    """
+from abc import ABC
+class B(ABC):
+    def D(self):
+        print("Abstract Base Class")
+
+class C(B):
+    def D(self):
+        super().D()
+        print("subclass ")
+r = C(); r.D()
+"""                    """
+import abc
+from abc import ABC, abstractmethod
+class parent(ABC):
+    @abc.abstractproperty
+    def func(self):
+        return "parent class"
+class child(parent):
+    @property
+    def func(self):
+        return "child class"
+try:
+    r = parent()
+    print(r.func)
+except Exception as err:
+    print(err)
+r = child()
+print(r.func)
