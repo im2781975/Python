@@ -245,6 +245,24 @@ def used():
     print("inside the function !!")
 used = hello_decorator(used)
 used()
+"""						"""
+def singleton(func):
+    instance = [None]    
+    def wrapper(*args, **kwargs):        
+        if instance[0] is None:            
+            instance[0] = func(*args, **kwargs)        
+        return instance[0]    
+    return wrapper
+@singleton 
+class delta:   
+    x = 2    
+    def __init__(self):       
+        print("Created!") 
+obj = delta()
+obj = delta() 
+print(obj.x)                
+obj.x = 3 
+print(delta().x)
 """                    """
 import time
 import math
