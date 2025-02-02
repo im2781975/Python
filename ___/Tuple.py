@@ -104,3 +104,19 @@ print(tup.count('bear'), tup.count('fox'))
 import heapq
 heapq.nlargest(5, range(10))
 heapq.nsmallest(5, range(10))
+
+tup = ('a', 'b', 'c', 'd', 'e')
+tup_iter = iter(tup)
+for index, item in enumerate(tup_iter):
+    print(item, end = " ")
+    if index == 2:
+        break
+print(next(tup_iter))
+print(next(tup_iter))
+iterable = (1, 2, 3, 4)
+obj = iter(iterable)
+for item in iterable:
+    print(item, end=" ")
+print("\nIterating on an iterator:")
+for item in obj:
+    print(item, end=" ")
