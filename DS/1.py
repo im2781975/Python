@@ -167,4 +167,54 @@ class C(A):
 class D(B, C):
     pass
 d = D(); d.disp(); d.show()
-
+"""        ABSTRACTION            """
+from abc import ABC, abstractmethod
+class vehicle(ABC):
+    def __init__(self, n):
+        self.type = n
+    @abstractmethod
+    def start(self):
+        pass
+    def disp(self):
+        print("calling from vehicle")
+class bike(vehicle):
+    def __init__(self, n, color):
+        super().__init__(n)
+        self.color = color
+    def start(self):
+        print("Bike start")
+    def disp(self):
+        print("")
+class scooty(vehicle):
+    def __init__(self, n):
+        super().__init__(n)
+    def start(self):
+        print("Scooty start")
+class car(vehicle):
+    def __init__(self, n, gear):
+        super().__init__(n)
+        self.gear = 6
+    def start(self):
+        print("Car start")
+bk = bike(2, "black")
+bk.start()
+"""          Access Modifier          """
+class student:
+    def __init__(self, name, roll, age):
+        self.name = name
+        self._roll = roll
+        self.__age = age
+    def __display(self):
+        print(f"{self.name}\n{self._roll}\n{self.__age}")
+    def dispData(self):
+        self.__display()
+class branch(student):
+    pass
+def showData():
+    std = branch("Hasan", 21, 22)
+    print(std.name, std._roll)
+showData()
+std = student("Molla", 34, 23)
+print(std.dispData())
+std._student__display()
+print(dir(std))
