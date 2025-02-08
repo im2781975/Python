@@ -34,6 +34,28 @@ l[4] = 1000; l[2, 6, 1] = 100
 del(l[4, 2, 5])
 print(l[::1])
 """				"""
+import operator
+class integral(object):   
+    def __init__(self, val):        
+        self.val = int(val)
+    def __repr__(self):        
+        return '{cls}( {val} )'.format(cls = self.__class__.__name__, val = self.val)
+    def __pow__(self, other, module = None):        
+        if module is None:           
+            return self.__class__(self.val ** other)       
+        else:  
+            return self.__class__(pow(self.val, other, module)) 
+    def __float__(self):      
+        return float(self.val)       
+    def __complex__(self):        
+        return complex(self.val, 0)
+x = integral(5)
+print(x, x ** 5, x.__pow__(3, 7), float(x), complex(x))
+print(integral(5) ** 8, pow(integral(2), 0.5))
+print(operator.pow(integral(2), 3), operator.__pow__(integral(3), 3))
+print(pow(integral(2), 3, 4), integral(2).__pow__(3, 4))
+
+"""				"""
 class Instructor:
     print("Empty class")
     def __init__(self):
