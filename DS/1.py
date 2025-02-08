@@ -1,3 +1,39 @@
+class lst:
+    def __init__(self, val):
+        self.val = val
+    def __repr__(self):
+        return repr(self.val)
+    def __getitem__(self, item):
+        if isinstance(item, (int, slice)):
+            return self.__class__(self.val[item])        
+        return [self.val[i] for i in item] 
+    def __setitem__(self, item, value):  
+        if isinstance(item, int):        
+            self.val[item] = value
+        elif isinstance(item, slice):    
+            raise ValueError('Cannot interpret slice with multiindexing')        
+        else:           
+            for i in item:                
+                if isinstance(i, slice):   
+                    raise ValueError('Cannot interpret slice with multiindexing')
+                self.val[i] = value   
+    def __delitem__(self, item):        
+        if isinstance(item, int):     
+            del self.val[item]        
+        elif isinstance(item, slice):     
+            del self.val[item]        
+        else:           
+            if any(isinstance(elem, slice) for elem in item):        
+                raise ValueError('Cannot interpret slice with multiindexing')       
+            item = sorted(item, reverse = True)            
+            for elem in item:           
+                del self.val[elem]
+l = lst([1, 2, 3, 4, 5, 6, 7, 8])
+print(l[4], l[1], l[5:], l[::2])
+l[4] = 1000; l[2, 6, 1] = 100
+del(l[4, 2, 5])
+print(l[::1])
+"""				"""
 class Instructor:
     print("Empty class")
     def __init__(self):
