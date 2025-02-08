@@ -218,3 +218,108 @@ std = student("Molla", 34, 23)
 print(std.dispData())
 std._student__display()
 print(dir(std))
+"""            ENCAPSULATION            """
+class student:
+    def __init__(self, name, roll, age):
+        self.name = name
+        self._roll = roll; self.__age = age
+    def getage(self):
+        return self._age
+    def setage(self, age):
+        if self.__age > 35:
+            print("should be less than 35")
+        else:
+            self.__age = age
+    def __disp(self):
+        print(f"name: {self.name}, roll: {self._roll}, age: {self.__age} ")
+    def show(self):
+        self.__disp()
+class branch(student):
+    def showData(self):
+        print(f"name: {self.name}, roll: {self._roll}, age: {self.__age} ")
+std = student("Aa", 29, 35)
+std.setage(49)
+print(std.show()); std._student__disp()
+print(dir(std))
+"""            DUCK TYPING            """
+class duck:
+    def swim(self):
+        print("duck swim")
+    def speak(self):
+        print("duck speak")
+class dog:
+    def swim(self):
+        print("dog swim")
+    def speak(self):
+        print("dog speak")
+def disp(obj):
+    obj.swim(); obj.speak()
+class demo:
+    def disp(self, obj):
+        obj.swim(); obj.speak()
+d = duck(); disp(d)
+dm = demo(); dm.disp(d)
+"""            OVERRIDING            """
+class complexNum:
+    def __init__(self, real, img):
+        self.real = real
+        self.img = img
+    def __add__(self, other):
+        return f"{self.real + other.real} + {self.img + other.img}i" 
+a, b = complexNum(1, 2), complexNum(4, 5)
+print(a + b)
+"""            """
+class person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def __gt__(self, other):
+        self.age > other.age
+x = person("Aa", 22)
+y = person("Bb", 23)
+if x > y:
+    print(f"{x.name} pay the bill")
+else:
+    print(f"{y.name} pay the bill")
+"""            """
+class father:
+    def sleep(self):
+        print("sleep")
+class son(father):
+    def sleep(self):
+        print("sleeping")
+        super().sleep()
+s = son(); s.sleep()
+"""                """
+class author:
+    def __init__(self, name, bookname, pages):
+        self.name = name
+        self.bookname = bookname; self.pages = pages
+    def __len__(self):
+        return self.pages
+    def __str__(self):
+        return f"{self.name} wrote {self.bookname} which has {self.pages}"
+    def __call__(self, *args, **kwargs):
+        print("Hi")
+    def __del__(self):
+        print("Has been deleted")
+inf = author("Aa", "Bb", 124)
+print(len(inf), str(inf), inf)
+inf(7, 9); del inf
+"""                """
+class Bank:
+    def __init__(self, name, balance = 9):
+        self.holder = name
+        self.balance = balance
+    def deposite(self, amount):
+        self.balance += amount
+        print(f"Deposited amount is {self.amount} ")
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Insufficient balance")
+        else:
+            self.balance -= amount
+    def __str__(self):
+        return f"Holder name: {self.holder}\nBalanced: {self.balance}"
+UCB = Bank("Aa", 9000)
+print(UCB, str(UCB), Bank.mro())
