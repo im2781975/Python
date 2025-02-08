@@ -54,7 +54,38 @@ print(x, x ** 5, x.__pow__(3, 7), float(x), complex(x))
 print(integral(5) ** 8, pow(integral(2), 0.5))
 print(operator.pow(integral(2), 3), operator.__pow__(integral(3), 3))
 print(pow(integral(2), 3, 4), integral(2).__pow__(3, 4))
-
+"""				"""
+class sparselist(object):   
+    def __init__(self, size):       
+        self.size = size        
+        self.data = {}      
+    def __getitem__(self, index):    
+        if isinstance(index, slice): 
+            return [self[i] for i in range(*index.indices(self.size))]  
+        if index < 0:            
+            index += self.size        
+        if index >= self.size:           
+            raise IndexError(index)
+        return self.data.get(index, 0.0)
+    def __setitem__(self, index, value):  
+        self.data[index] = value
+    def __delitem__(self, index):        
+        if index in self.data:            
+            del self.data[index]
+    def __contains__(self, value):        
+        return value == 0.0 or value in self.data.values()
+    def __len__(self):        
+        return self.size
+    def __iter__(self):        
+        return (self[i] for i in range(self.size))
+sp= sparselist(10)
+sp[2], sp[5] = 3.5, 7.2
+print(sp[1::]); del sp[2]
+print(sp[::1])
+print(3.5 in sp, 7.2 in sp, 0.0 in sp) 
+print(len(sp), list(sp))
+l = sparselist(10 ** 6) 
+print(sparselist(10 ** 6))
 """				"""
 class Instructor:
     print("Empty class")
