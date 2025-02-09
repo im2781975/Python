@@ -1031,3 +1031,40 @@ try:
     print(D.x)
 except AttributeError as e:
     print(e) 
+"""					"""
+class Country(object):
+    def __init__(self):
+        self.cities = [] 
+    def addCity(self, city):
+        self.cities.append(city)
+class City(object):
+    def __init__(self, numPeople):
+        self.people = []  
+        self.numPeople = numPeople
+        self.country = None  
+    def addPerson(self, person):
+        self.people.append(person)  
+    def join_country(self, country):
+        self.country = country 
+        country.addCity(self)  
+        for i in range(self.numPeople):
+            Person(i).join_city(self)
+        return self  
+class Person(object):
+    def __init__(self, ID):
+        self.ID = ID  
+        self.city = None  
+    def join_city(self, city):
+        self.city = city  
+        city.addPerson(self)  
+    def people_in_my_country(self):
+        if self.city and self.city.country:
+            return sum(len(c.people) for c in self.city.country.cities)
+        return 0  
+US = Country()
+NYC = City(10).join_country(US)  
+SF = City(5).join_country(US) 
+if US.cities and US.cities[0].people:
+    print(US.cities[0].people[0].people_in_my_country())  
+print(dir(list))
+print([m for m in dir(list) if not m.startswith('__')])
