@@ -125,6 +125,44 @@ print(A(11) + 7, 7 + A(11))
 b = B(88)
 print(b.val)
 b += 1; print(b.val)
+"""				"""
+import math
+class Vector:    
+    def __init__(self, x, y):
+        self.x = x; self.y = y
+    def __neg__(self):  
+        return Vector(-self.x, -self.y)
+    def __add__(self, other):        
+        if not isinstance(other, Vector):
+            raise TypeError("Can only add another Vector")
+        return Vector(self.x + other.x, self.y + other.y)
+    def __sub__(self, other):        
+        if not isinstance(other, Vector):
+            raise TypeError("Can only subtract another Vector")
+        return self + (-other)
+    def __eq__(self, other):        
+        if not isinstance(other, Vector):
+            return False
+        return self.x == other.x and self.y == other.y
+    def __abs__(self):        
+        return math.hypot(self.x, self.y)
+    def __mul__(self, scalar):  
+        if not isinstance(scalar, (int, float)):
+            raise TypeError("Multiplication requires a scalar (int or float)")
+        return Vector(self.x * scalar, self.y * scalar)
+    def __truediv__(self, scalar):
+        if not isinstance(scalar, (int, float)):
+            raise TypeError("Division requires a scalar (int or float)")
+        if scalar == 0:
+            raise ZeroDivisionError("Cannot divide by zero")
+        return Vector(self.x / scalar, self.y / scalar)
+    def __str__(self):    
+        return f'<{self.x}, {self.y}>'
+    def __repr__(self):        
+        return f'Vector({self.x}, {self.y})'
+v = Vector(3, 4); u = Vector(1, 2)
+print(v + u, v - u, v == u, abs(v))  
+print(v * 2, v / 2, u + v == v + u)
 """						"""
 class lst:
     def __init__(self, val):
