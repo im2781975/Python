@@ -1208,3 +1208,254 @@ print(str(four_of_clubs), repr(four_of_clubs))
 print(four_of_clubs.__str__())   
 print(four_of_clubs.__repr__())
 """                """
+class Vehicle(object):  
+    def __init__(self, position):       
+        self.position = position   
+    def travel(self, destination):       
+        route = self.calculate_route(self.position, destination)       
+        self.move_along(route)
+    def calculate_route(self, start, end):
+        return f"Route from {start} to {end}"
+    def move_along(self, route):
+        """Placeholder movement method."""
+        print(f"Traveling: {route}")
+class Car(Vehicle):   
+    def __init__(self, position):
+        super().__init__(position)  
+class Boat(Vehicle):   
+    def __init__(self, position):
+        super().__init__(position)  
+class Plane(Vehicle):   
+    def __init__(self, position):
+        super().__init__(position)  
+class Radio:
+    def __init__(self):
+        self.station = None
+    def set_station(self, station):
+        self.station = station
+        print(f"Tuned into {station}")
+    def play_song(self):
+        print(f"Playing music on station {self.station}")
+class RadioUserMixin:
+    def __init__(self):     
+        super().__init__()  # Ensure proper multiple inheritance initialization
+        self.radio = Radio()
+
+    def play_song_on_station(self, station):       
+        self.radio.set_station(station)
+        self.radio.play_song()
+class CarWithRadio(Car, RadioUserMixin):   
+    def __init__(self, position):
+        Car.__init__(self, position)  
+        RadioUserMixin.__init__(self) 
+class Clock(RadioUserMixin):  
+    def __init__(self):
+        super().__init__()
+car = CarWithRadio("New York")
+car.travel("Los Angeles")
+car.play_song_on_station("Rock FM")
+clock = Clock()
+clock.play_song_on_station("Jazz FM")
+"""                """
+class Mixin1(object):   
+    def test(self):        
+        print("Mixin1")  
+class Mixin2(object):    
+    def test(self):        
+        print("Mixin2")  
+class BaseClass(object):    
+    def test(self):       
+        print("Base")
+class MyClass(BaseClass, Mixin1, Mixin2):
+    pass
+x = MyClass() 
+x.test()
+"""                """
+class Book:    
+    def __init__(self, title, author):    
+        self.title = title        
+        self.author = author
+book1 = Book(title="Right Ho, Jeeves", author="P.G. Wodehouse")
+print(book1.title)
+class P:    
+    def __init__(self, title, author):     
+        self.title = title       
+        self.set_author(author) 
+    def get_author(self):       
+        return self.author   
+    def set_author(self, author):       
+        if not author: 
+            self.author = "Unknown"
+        else:
+            self.author = author
+book = P(title="Ancient Manuscript", author="Some Guy")
+print(book.get_author())
+book.author = "" 
+book.set_author(book.author); print(book.get_author())  
+"""                    """
+class Book:    
+    def __init__(self, title, author):  
+        self.title = title        
+        self.author = author  
+    @property    
+    def author(self):        
+        return self.__author  
+    @author.setter    
+    def author(self, author):       
+        if not author:            
+            self.__author = "Unknown"
+        else:            
+            self.__author = author 
+book = Book(title="Ancient Manuscript", author="Some Guy") 
+book.author = " "
+print(book.author)
+"""                """
+class MontyPython:    
+    def joke(self):        
+        raise NotImplementedError("Subclasses should implement this method.")   
+    def punchline(self):        
+        raise NotImplementedError("Subclasses should implement this method.")
+class ArgumentClinic(MontyPython):    
+    def joke(self):        
+        return "Hahahahahah"
+    def punchline(self): 
+        return "It's just a flesh wound!"
+sketch = ArgumentClinic()
+print(sketch.joke(), sketch.punchline())
+"""        ABS        """
+from abc import ABCMeta, abstractmethod
+class MontyPython(metaclass = ABCMeta):
+    @abstractmethod    
+    def joke(self):
+        pass
+    @abstractmethod
+    def punchline(self):
+        pass
+class ArgumentClinic(MontyPython):    
+    def joke(self):        
+        return "Hahahahahah" 
+    def punchline(self):        
+        return "Send in the constable!" 
+sketch = ArgumentClinic()
+print(sketch.joke()) 
+print(sketch.punchline())  
+"""                """
+class Mixin1(object):   
+    def test(self):        
+        print("Mixin1")  
+class Mixin2(object):    
+    def test(self):        
+        print("Mixin2") 
+class MyClass(Mixin1, Mixin2):    
+    pass
+obj = MyClass()
+obj.test()  
+class MyClass(Mixin2, Mixin1):    
+    pass
+obj2 = MyClass()
+obj2.test()  
+"""                    """
+class Base(object):    
+    def test(self):        
+        print("Base.")
+class PluginA(object):    
+    def test(self):        
+        super().test() 
+        print("Plugin A.")
+class PluginB(object):    
+    def test(self):        
+        super().test()  
+        print("Plugin B.")
+class PluginSystemA(PluginA, Base): 
+    pass
+class PluginSystemB(PluginB, Base):  
+    pass
+PluginSystemA().test()
+PluginSystemB().test() 
+"""                """
+class Base:    
+    plugins = []   
+    def __init_subclass__(cls, **kwargs): 
+        super().__init_subclass__(**kwargs)        
+        cls.plugins.append(cls)       
+    def test(self):       
+        print("Base.") 
+class PluginA(Base):    
+    def test(self):       
+        super().test()       
+        print("Plugin A.") 
+class PluginB(Base):    
+    def test(self):        
+        super().test()        
+        print("Plugin B.")
+PluginA().test()
+PluginB().test()
+class MyClass:    
+    def __bool__(self):        
+        return False
+my_instance = MyClass() 
+print(bool(MyClass))      
+print(bool(my_instance)) 
+"""                    
+class A(object):    
+    @property    
+    def get(self):        
+        raise IOError("get method in A is not accessible")  
+
+class B(object):   
+    @property    
+    def get(self):        
+        return 'get in B'  
+
+a = A() 
+b = B()
+print('a hasattr get: ', hasattr(a, 'get'))  
+print('b hasattr get:', hasattr(b, 'get'))
+try:   
+    a.get 
+except IOError:    
+    print("no get property in A!")  
+try:
+    p = getattr(a, "get", None) 
+    if p is not None:
+        print(p)
+    else:
+        print("no get property in A!") 
+except IOError:
+    print("no get property in A!")
+print("b.get:", b.get)
+                """
+import random
+from itertools import chain
+class SolarSystem:
+    planets = [
+        list(chain(planet, (index + 1,)))
+        for index, planet in enumerate((
+            ('Mercury', 'hot', 2240),
+            ('Venus', 'sulphurous', 6052),
+            ('Earth', 'fertile', 6378),
+            ('Mars', 'reddish', 3397),
+            ('Jupiter', 'stormy', 71492),
+            ('Saturn', 'ringed', 60268),
+            ('Uranus', 'cold', 25559),
+            ('Neptune', 'very cold', 24766)
+        ))
+    ]
+    lines = (
+        '{} is a {} planet',
+        'The radius of {} is {} km',
+        '{} is planet nr. {} counting from the sun'
+    )
+    def __init__(self):
+        self.lineIndex = 0
+    def greet(self):
+        self.planet = self.planets[int(random.random() * len(self.planets))]
+        print(f'Hello {self.planet[0]}')
+        self.explain()
+    def explain(self):
+        print(self.lines[self.lineIndex].format(self.planet[0], self.planet[self.lineIndex + 1]))
+        self.lineIndex = (self.lineIndex + 1) % 3
+solarSystem = SolarSystem()
+solarSystem.greet()
+solarSystem.greet()
+"""                    """
