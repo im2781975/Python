@@ -103,6 +103,28 @@ print("Length (digit count):", len(CustomNumber(98765)))
 print("Reversed digits:", ''.join(reversed(CustomNumber(54321))))  
 print("Floor value:", math.floor(num)) 
 print("Ceiling value:", math.ceil(num))
+"""					"""
+class A:    
+    def __init__(self, a):        
+        self.a = a    
+    def __add__(self, other):        
+        return self.a + other  
+    def __radd__(self, other): 
+        print("radd")
+        return other + self.a
+class B:
+    def __init__(self, val):
+        self.val = val
+    def __iadd__(self, other):        
+        self.val += other        
+        print("iadd")
+        return self  
+obj = A(10)
+print(obj + 5, 5 + obj)
+print(A(11) + 7, 7 + A(11))
+b = B(88)
+print(b.val)
+b += 1; print(b.val)
 """						"""
 class lst:
     def __init__(self, val):
