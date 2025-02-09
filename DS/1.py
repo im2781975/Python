@@ -412,3 +412,219 @@ class Bank:
         return f"Holder name: {self.holder}\nBalanced: {self.balance}"
 UCB = Bank("Aa", 9000)
 print(UCB, str(UCB), Bank.mro())
+"""					"""
+class total(object):  
+    def __init__(self, first):        
+        self.first = first  
+    def __call__(self, second):       
+        return self.first + second
+x = total(2)
+print(x(1))
+"""                """
+class MyIterable:
+    def __init__(self, limit):
+        self.current = 0
+        self.limit = limit  
+    def __iter__(self):
+        return self  
+    def __next__(self):
+        if self.current >= self.limit:
+            raise StopIteration
+        self.current += 1
+        return self.current - 1
+it = MyIterable(5)
+for i in it:
+    print(i)
+"""                """
+class MySequence:
+    def __init__(self, data):
+        self.data = data
+    def __getitem__(self, index):
+        if index < 0 or index >= len(self.data): 
+            raise IndexError("Index out of range")
+        return self.data[index] 
+seq = MySequence([10, 20, 30, 40, 50])
+print(seq[2], seq[4], list(seq))
+"""            """
+class AssignValue(object):    
+    def __init__(self, value):        
+        self.value = value 
+x = AssignValue(6)
+print('My value is: {0.value}'.format(x))
+"""                """
+class Example(object):    
+    def __init__(self, a, b, c):        
+        self.a = a; self.b = b
+        self.c = c  
+    def __format__(self, format_spec):
+        raw = f"({self.a}, {self.b}, {self.c})"
+        if format_spec and format_spec[-1] != 's':  
+            raise ValueError(f"'{format_spec}' format specifier not understood for this object")
+        return f"{raw:{format_spec}}"
+ex = Example(1, 2, 3)
+print(f"{ex:s}, {ex}", "{0:>20s}".format(ex))
+"""                """
+class Person(object):  
+    first = 'Zaphod'    
+    last = 'Beeblebrox' 
+print('{p.first} {p.last}'.format(p = Person()))
+class Cash(object):   
+    def __init__(self, value):       
+        self.value = value    
+    @property    
+    def formatted(self):        
+        return '${:.2f}'.format(self.value)
+    @formatted.setter    
+    def formatted(self, new):        
+        self.value = float(new[1:])
+wallet = Cash(2.50) 
+print(wallet.formatted, wallet.value)
+wallet.formatted = '$123.45'
+print(wallet.formatted, wallet.value)
+"""                """
+class Foo(object):    
+    def __init__(self):        
+        self.__bar = None    
+    @property  
+    def bar(self):        
+        if self.__bar is None:           
+            self.__bar = self.some_expensive_lookup_operation()        
+        return self.__bar
+    def some_expensive_lookup_operation(self):
+        print("Performing expensive lookup")
+        return "Expensive Data"
+foo = Foo()
+print(foo.bar, foo.bar)
+"""                """
+class BaseClass(object):
+    def __init__(self):
+        self._foo = None 
+    @property 
+    def foo(self): 
+        return self.calculated_value() 
+    @foo.setter 
+    def foo(self, value):        
+        self.do_with_value(value)
+    def calculated_value(self):
+        return "BaseClass Value"
+    def do_with_value(self, value):
+        print(f"BaseClass processing: {value}")
+        self._foo = value
+class DerivedClass(BaseClass): 
+    @property
+    def foo(self): 
+        return super().foo  
+    @foo.setter 
+    def foo(self, value):        
+        self.do_different_with_value(value)
+    def do_different_with_value(self, value):
+        print(f"DerivedClass processing: {value}")
+        self._foo = value 
+obj = DerivedClass()
+obj.foo = 42 ; print(obj.foo)
+"""                """
+class A:
+    p = 1234  
+    def __init__(self):
+        self._x = None; self._y = None
+        self._t = None; self._u = None
+    @property
+    def x(self):
+        return self._x
+    @x.setter
+    def x(self, value):
+        self._x = value
+    @property
+    def y(self):
+        return self._y
+    @y.setter
+    def y(self, value):
+        self._y = 1000 + value
+    @property
+    def y2(self):
+        return self._y
+    @y2.setter
+    def y2(self, value):
+        self._y = value
+    @property
+    def t(self):
+        return self._t
+    @t.setter
+    def t(self, value):
+        self._t = value
+    @property
+    def u(self):
+        return self._u + 10000 if self._u is not None else None
+    @u.setter
+    def u(self, value):
+        self._u = value - 5000
+obj = A()
+obj.x = 10; print(obj.x)
+obj.y = 20; print(obj.y) 
+obj.y2 = 500; print(obj.y2) 
+obj.t = 30; print(obj.t)  
+obj.u = 7000; print(obj.u) 
+"""                    """
+class A:   
+    p = 1234 
+    def getX (self):
+        return self._x
+    def setX (self, value): 
+        self._x = value 
+    def getY (self): 
+        return self._y 
+    def setY (self, value): 
+        self._y = 1000 + value    
+    def getY2 (self): 
+        return self._y 
+    def setY2 (self, value): 
+        self._y = value 
+    def getT    (self): 
+        return self._t
+    def setT (self, value): 
+        self._t = value 
+    def getU (self):
+        return self._u + 10000 
+    def setU (self, value):
+        self._u = value - 5000 
+    x = property(getX, setX)
+    y = property(getY, setY)
+    y2 = property(getY2, setY2)
+    t = property(getT, setT)
+    u = property(getU, setU)
+class B:
+    def getZ (self):
+        return self.z_ 
+    def setZ (self, value):
+        self.z_ = value  
+    z = property (getZ, setZ)
+class C: 
+    def __init__ (self):
+        self.offset = 1234 
+    def getW (self): 
+        return self.w_ + self.offset 
+    def setW (self, value): 
+        self.w_ = value - self.offset    
+    w = property (getW, setW)
+a1, a2 = A () 
+a1.y2, a2.y2 = 1000, 2000
+a1.x = 5; a1.y = 6 
+a2.x = 7; a2.y = 8 
+a1.t = 77; a1.u = 88
+print (a1.x, a1.y, a1.y2)
+print (a2.x, a2.y, a2.y2) 
+print (a1.t, a1.u)
+b = B ()
+c = C ()
+b.z = 100100; c.z = 200200; c.w = 300300
+print (a1.x, b.z, c.z, c.w)
+c.w = 400400; c.z = 500500; b.z = 600600
+print (a1.x, b.z, c.z, c.w)
+A.q = 5678
+obj = A()
+obj.x = 10; print(obj.x) 
+obj.y = 20; print(obj.y) 
+obj.y2 = 500; print(obj.y2)  
+obj.t = 30; print(obj.t)  
+obj.u = 7000; print(obj.u) 
+print(A.p, A.q)
