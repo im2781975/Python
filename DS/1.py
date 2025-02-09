@@ -975,3 +975,59 @@ node3 = Node(3)
 node2 = Node(2, node3)
 node1 = Node(1, node2)
 Node.display(node1) 
+"""				"""
+import datetime
+from operator import attrgetter
+class Person(object):
+    def __init__(self, name, birthday, height):
+        self.name = name
+        self.birthday = birthday
+        self.height = height
+    def __repr__(self):
+        return self.name
+persons = [
+    Person("John Cena", datetime.date(1992, 9, 12), 175),
+    Person("Chuck Norris", datetime.date(1990, 8, 28), 180),
+    Person("Jon Skeet", datetime.date(1991, 7, 6), 185)
+]
+persons.sort(key = lambda p: (p.name, p.birthday, p.height))
+print(persons)
+persons.sort(key = attrgetter('name'))     
+persons.sort(key = attrgetter('birthday'))
+persons.sort(key = attrgetter('height'))   
+print(persons)
+"""                """
+class Rectangle(object):    
+    def __init__(self, width, height, pos = None, color = 'blue'):
+        if pos is None: 
+            pos = [0, 0]
+        self.width = width; self.height = height
+        self.pos = pos; self.color = color
+    def area(self):       
+        return self.width  * self.height
+r1 = Rectangle(5, 3)
+r2 = Rectangle(7, 8, 'red')
+r1.pos[0] = 4
+print(r1.pos, r2.pos, r1.color, r2.color)
+print(r1.area())
+"""                """
+class C:
+    x = 2 
+    def __init__(self, y):
+        self.y = y  
+print(C.x)  
+c1, c2 = C(3), C(4)
+print(c1.x, c1.y, c2.x, c2.y)  
+print(c2.x, C.x)  
+class D:
+    def __init__(self, item):
+        self.x = [] 
+        self.x.append(item)
+d1, d2 = D(1), D(2)
+d2 = D(2)
+print(d1.x, d2.x)
+print(d2.x) 
+try:
+    print(D.x)
+except AttributeError as e:
+    print(e) 
