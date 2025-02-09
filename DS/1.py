@@ -1068,3 +1068,47 @@ if US.cities and US.cities[0].people:
     print(US.cities[0].people[0].people_in_my_country())  
 print(dir(list))
 print([m for m in dir(list) if not m.startswith('__')])
+"""					"""
+class Singleton:
+    _instance = None  
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)  
+        return cls._instance  
+    def __repr__(self):
+        return '<{}>'.format(self.__class__.__name__.upper())
+    def __eq__(self, other):
+        return other is self  
+class Single(Singleton):
+    def __init__(self):
+        if not hasattr(self, 'initialized'):  #
+            self.name = None
+            self.val = 0
+            self.initialized = True  
+    def getName(self):
+        print(self.name)
+x = Single()
+y = Single()
+print(x is y)  
+x.name = "I'm single"
+x.getName(); y.getName()
+def singleton(cls):
+    instances = {}
+    def get_instance(*args, **kwargs):
+        if cls not in instances:
+            instances[cls] = cls(*args, **kwargs)  
+        return instances[cls]
+    return get_instance 
+@singleton
+class Single:
+    def __init__(self):
+        self.name = None
+        self.val = 0
+    def getName(self):
+        print(self.name)
+x = Single()
+y = Single()
+print(x == y)  
+x.name = "I'm single"
+x.getName(); y.getName() 
+"""					"""
