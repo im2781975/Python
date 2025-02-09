@@ -1459,3 +1459,415 @@ solarSystem = SolarSystem()
 solarSystem.greet()
 solarSystem.greet()
 """                    """
+class Switch:   
+    def __init__(self, value):       
+        self._val = value    
+    def __enter__(self):      
+        return self    
+    def __exit__(self, type, value, traceback):       
+        return False  
+    def __call__(self, cond, *mconds):    
+        return self._val in (cond,)+mconds
+def run_switch(value):   
+    with Switch(value) as case:       
+        if case(1):           
+            return 'one'        
+        if case(2):           
+            return 'two'       
+        if case(3):           
+            return 'the answer to the question about life, the universe and everything'   
+        raise Exception('Not a case!')
+print(run_switch(1))
+"""            """
+class SwitchBase:    
+    def switch(self, case):       
+        m = getattr(self, f'case_{case}', None)        
+        if not m:            
+            return self.default() 
+        return m()
+    __call__ = switch
+class CustomSwitcher(SwitchBase):    
+    def case_1(self):        
+        return 'one'    
+    def case_2(self):        
+        return 'two'    
+    def case_42(self):        
+        return 'the answer of life, the universe, and everything!'    
+    def default(self):       
+        return 'Not a case!'  
+switch = CustomSwitcher()
+print(switch(1), switch(2), switch(42), switch(99))  
+"""                """
+import functools
+@functools.total_ordering
+class Integral(object):
+    def __init__(self, value):
+        self.value = value
+    def __repr__(self):
+        return "{}({})".format(self.__class__.__name__, self.value)
+    def __lt__(self, other):
+        print('{!r} - Test less than {!r}'.format(self, other))
+        return self.value < other.value
+    def __eq__(self, other):
+        print('{!r} - Test equal to {!r}'.format(self, other))
+        return self.value == other.value
+print(Integral(5) > Integral(6))  
+print(Integral(6) > Integral(5))  
+"""                """
+class integral(object):
+    def __init__(self, value):
+        self.value = value
+    def __repr__(self):
+        return "{}({})".format(self.__class__.__name__, self.value)
+    def __lt__(self, other):
+        print('{!r} - Test less than {!r}'.format(self, other))
+        return self.value < other.value
+    def __le__(self, other):
+        print('{!r} - Test less than or equal to {!r}'.format(self, other))
+        return self.value <= other.value
+    def __gt__(self, other):
+        print('{!r} - Test greater than {!r}'.format(self, other))
+        return self.value > other.value
+    def __ge__(self, other):
+        print('{!r} - Test greater than or equal to {!r}'.format(self, other))
+        return self.value >= other.value
+    def __eq__(self, other):
+        print('{!r} - Test equal to {!r}'.format(self, other))
+        return self.value == other.value
+
+    def __ne__(self, other):
+        print('{!r} - Test not equal to {!r}'.format(self, other))
+        return self.value != other.value
+alist = [integral(5), integral(3), integral(10), integral(7)]
+res = max(alist)
+print("Max:", res)
+res = min(alist)
+print("Min:", res)
+res = sorted(alist)
+print("Sorted:", res)
+res = sorted(alist, reverse = True)
+print("Sorted (desc):", res)
+del integral.__lt__
+try:
+    res = min(alist)
+    print("Min after deleting __lt__:", res)
+except TypeError as e:
+    print("Error after deleting __lt__:", e)
+try:
+    res = sorted(alist)
+    print("Sorted after deleting __lt__:", res)
+except TypeError as e:
+    print("Error after deleting __lt__:", e)
+"""                """
+class Car(object):   
+    def __init__(self):        
+        self.color = "red"        
+        self.wheels = [Wheel(), Wheel(), Wheel(), Wheel()]
+"""                """
+class ListList:
+    def __init__(self, value):
+        self.value = value
+        self.setofvalues = set(item for sublist in self.value for item in sublist)
+    def __iter__(self):
+        return (item for sublist in self.value for item in sublist)
+    def __contains__(self, value):
+        return value in self.setofvalues
+a = ListList([[1, 1, 1], [0, 1, 1], [1, 5, 1]])
+print(10 in a, 5 in a)  
+delattr(ListList, '__contains__')
+print(5 in a)
+"""                """
+class Fred:    
+    a = 'Class'  
+    b = (a for i in range(10)) 
+    c = [a for i in range(10)] 
+    d = a  
+    e = lambda : Fred.a  
+    f = lambda a = Fred.a : a  
+    @staticmethod 
+    def g():  
+        return Fred.a 
+print(Fred.a, next(Fred.b), Fred.c[0])    
+print(Fred.d, Fred.e(), Fred.f(), Fred.g())
+"""                """
+class A:
+    def __init__(self, x):
+        self.x = x
+    def show(self, label):
+        print('A.show', label, self.x)
+class B:
+    def __init__(self, y):
+        print('In B constructor') 
+        self.y = y
+    def show(self, label):
+        print('B.show', label, self.y)
+class C(A, B):
+    def __init__(self, x, y):
+        print('In C constructor')  
+        A.__init__(self, x)  
+        B.__init__(self, y)  
+        self.show('constructor')
+    def show(self, label):
+        B.show(self, label)  
+        print('C.show', label, self.x, self.y)
+a = A(1001)
+a.show('america')
+b = B(2002)
+b.show('russia')
+c = C(3003, 4004)
+c.show('netherlands')
+show2 = c.show
+show2('copy')
+"""                    """
+from abc import ABC, abstractmethod
+class Music(ABC):
+    @abstractmethod
+    def do_play(self):
+        pass
+class Mp3(Music):
+    def do_play(self):
+        print("Playing .mp3 music!")
+class Ogg(Music):
+    def do_play(self):
+        print("Playing .ogg music!")
+class MusicFactory(object):
+    def play_sound(self, object_type):
+        music_classes = {
+            "mp3": Mp3,
+            "ogg": Ogg
+        }
+        music_class = music_classes.get(object_type.lower(), None)
+        if music_class:
+            music_class().do_play()
+        else:
+            print("Invalid music type. Please choose either 'Mp3' or 'Ogg'.")
+if __name__ == "__main__":
+    mf = MusicFactory()
+    music = input("Which music do you want to play? Mp3 or Ogg: ")
+    mf.play_sound(music)
+"""                """
+import threading
+class Singleton:
+    _instance = None
+    _lock = threading.Lock()  
+    def __new__(cls):
+        with cls._lock:  
+            if cls._instance is None:
+                cls._instance = super(Singleton, cls).__new__(cls)
+                print("Creating Singleton instance")
+        return cls._instance
+    def __init__(self):
+        print(f"Initializing Singleton: {id(self)}")  
+s = Singleton()
+print("Object created:", s)
+s1 = Singleton()
+print("Object2 created:", s1)
+print("Are both instances the same?", s is s1)
+"""                    """
+class Singleton(object):    
+    def __new__(cls):          
+        if not hasattr(cls, 'instance'):           
+            cls.instance = super(Singleton, cls).__new__(cls) 
+        return cls.instance
+s = Singleton() 
+print ("Object created", s) 
+s1 = Singleton() 
+print ("Object2 created", s1)
+"""                    """
+from types import MethodType
+class Animal(object):      
+    def __init__(self, *args, **kwargs):        
+        self.name = kwargs.pop('name', None) or 'Animal'       
+        if kwargs.get('walk', None):            
+            self.walk = MethodType(kwargs.pop('walk'), self)   
+    def walk(self):        
+        """        Cause animal instance to walk               Walking functionality is a strategy, and is intended to        be implemented separately by different types of animals.        """        
+        message = '{} should implement a walk method'.format(           self.__class__.__name__)        
+        raise NotImplementedError(message)
+    def snake_walk(self):    
+        print('I am slithering side to side because I am a {}.'.format(self.name)) 
+    def four_legged_animal_walk(self):    
+        print('I am using all four of my legs to walk because I am a(n) {}.'.format(        self.name)) 
+    def two_legged_animal_walk(self):    
+        print('I am standing up on my two legs to walk because I am a {}.'.format(        self.name))
+generic_animal = Animal() 
+king_cobra = Animal(name='King Cobra', walk=snake_walk) 
+elephant = Animal(name='Elephant', walk=four_legged_animal_walk)
+kangaroo = Animal(name='Kangaroo', walk=two_legged_animal_walk)
+kangaroo.walk() 
+elephant.walk() 
+king_cobra.walk()
+generic_animal.walk()
+
+from datetime import date 
+from operator import attrgetter
+class Proxy: 
+    def __init__(self, current_user, reservation_service): 
+        self.current_user = current_user 
+        self.reservation_service = reservation_service
+    def highest_total_price_reservations(self, date_from, date_to, reservations_count): 
+        if self.current_user.can_see_reservations: 
+            return self.reservation_service.highest_total_price_reservations(                date_from,                date_to,                reservations_count ) 
+        else: 
+            return []
+            
+class Reservation: 
+    def __init__(self, date, total_price): 
+        self.date = date 
+        self.total_price = total_price
+class ReservationService: 
+    def highest_total_price_reservations(self, date_from, date_to, reservations_count): 
+        reservations = [            Reservation(date(2014, 5, 15), 100),            Reservation(date(2017, 5, 15), 10),            Reservation(date(2017, 1, 15), 50) ]
+        filtered_reservations = [r for r in reservations if (date_from <= r.date <= date_to)]        
+        sorted_reservations = sorted(filtered_reservations, key=attrgetter('total_price'), reverse=True) 
+        return sorted_reservations[0:reservations_count]
+class User:
+    def __init__(self, can_see_reservations, name): 
+        self.can_see_reservations = can_see_reservations 
+        self.name = name
+class StatsService: 
+    def __init__(self, reservation_service): 
+        self.reservation_service = reservation_service 
+    def year_top_100_reservations_average_total_price(self, year):        
+        reservations = self.reservation_service.highest_total_price_reservations(            date(year, 1, 1),            date(year, 12, 31), 1 ) 
+        if len(reservations) > 0:            
+            total = sum(r.total_price for r in reservations) 
+            return total / len(reservations)
+            else: 
+                return 0
+def test(user, year):    
+    reservations_service = Proxy(user, ReservationService())    
+    stats_service = StatsService(reservations_service)    
+    average_price = stats_service.year_top_100_reservations_average_total_price(year) 
+    print("{0} will see: {1}".format(user.name, average_price))
+    test(User(True, "John the Admin"), 2017) 
+    test(User(False, "Guest"),         2017)
+"""				"""
+import unittest
+class SomeTest(unittest.TestCase): 
+    def setUp(self): 
+        super(SomeTest, self).setUp() 
+        self.mock_data = [1,2,3,4,5]
+    def test(self): 
+        self.assertEqual(len(self.mock_data), 5) 
+    def tearDown(self):
+        super(SomeTest, self).tearDown() 
+        self.mock_data = [] 
+if __name__ == '__main__': unittest.main()
+
+import unittest import some_module
+class SomeOtherTest(unittest.TestCase):
+    def setUp(self): 
+        super(SomeOtherTest, self).setUp()
+        my_patch = mock.patch.object(some_module, 'method')        
+        my_patch.start()
+    self.addCleanup(my_patch.stop)
+def division_function(dividend, divisor):   
+    return dividend / divisor
+class MyTestCase(unittest.TestCase):  
+    def test_using_context_manager(self):        
+        with self.assertRaises(ZeroDivisionError):            
+            x = division_function(1, 0)
+class MyTestCase(unittest.TestCase):    
+    def test_using_context_manager(self):        
+        with self.assertRaises(ZeroDivisionError) as ex:           
+            x = division_function(1, 0)        
+        self.assertEqual(ex.message, 'integer division or modulo by zero')
+        
+class WrongInputException(Exception):    
+    pass
+def convert2number(random_input):    
+    try:       
+        my_input = int(random_input)    
+    except ValueError:        
+        raise WrongInputException("Expected an integer!")   
+    return my_input
+
+import unittest
+class ExceptionTestCase(unittest.TestCase):    
+    def test_wrong_input_string(self):        
+        self.assertRaises(WrongInputException, convert2number, "not a number")    
+    def test_correct_input(self):        
+        try:            
+            result = convert2number("56")            
+            self.assertIsInstance(result, int)        
+        except WrongInputException:            
+            self.fail()
+            
+import unittest 
+class SimplisticTest(unittest.TestCase):    
+    def test_basic(self):        
+        self.assertTrue(1 + 1 == 2)
+        self.assertTrue(1 + 1 == 3)
+        
+class Deque:
+    def __init__(self): 
+        self.items = []
+    def isEmpty(self):
+        return self.items == [] 
+    def addFront(self, item):
+        self.items.append(item)
+    def addRear(self, item): 
+        self.items.insert(0,item) 
+    def removeFront(self): 
+        return self.items.pop()
+    def removeRear(self):
+        return self.items.pop(0) 
+    def size(self): 
+        return len(self.items)
+class Father(object):   
+    pass
+class Child(Father):   
+    pass
+
+class Stack:   
+    def __init__(self):       
+        self.items = []
+    def isEmpty(self): 
+        return self.items == []
+    def push(self, item):        
+        self.items.append(item)
+    def pop(self):
+        return self.items.pop()
+    def peek(self): 
+        return self.items[-1]
+    def size(self): 
+        return len(self.items)
+    def fullStack(self):
+        return self.items
+stack = Stack() 
+print('Current stack:', stack.fullStack()). 
+print('Stack empty?:', stack.isEmpty()) 
+print('Pushing integer 1') stack.push(1) 
+print('Pushing string "Told you, I am generic stack!"') 
+stack.push('Told you, I am generic stack!') 
+print('Pushing integer 3')
+stack.push(3)
+print('Current stack:', stack.fullStack()) 
+print('Popped item:', stack.pop()) 
+print('Current stack:', stack.fullStack()) 
+print('Stack empty?:', stack.isEmpty())
+
+def checkParenth(str):    
+    stack = Stack()    
+    pushChars, popChars = "<({[", ">)}]"   
+    for c in str:        
+        if c in pushChars:           
+            stack.push(c)        
+        elif c in popChars:           
+            if stack.isEmpty():                
+                return False         
+            else:                
+                stackTop = stack.pop()                # Checks to see whether the opening bracket matches the closing one               
+                balancingBracket = pushChars[popChars.index(c)]               
+                if stackTop != balancingBracket:                    
+                    return False        
+                    
+        else:            
+            return False    
+    return not stack.isEmpty()
+class Car(object):   
+    def __init__(self):        
+        self.color = "red"        
+        self.wheels = [Wheel(), Wheel(), Wheel(), Wheel()]
+        
