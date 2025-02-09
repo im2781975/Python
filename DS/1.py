@@ -955,3 +955,21 @@ ll.insert(1, 'e')
 ll.append('l')
 ll.append('o')
 ll.printList()  
+"""					"""
+class Node:
+    def __init__(self, cargo=None, next=None): 
+        self.car = cargo
+        self.cdr = next    
+    def __str__(self): 
+        return str(self.car)
+    @staticmethod
+    def display(lst): 
+        current = lst
+        while current:
+            print(current, end=" -> ")
+            current = current.cdr
+        print("nil") 
+node3 = Node(3)
+node2 = Node(2, node3)
+node1 = Node(1, node2)
+Node.display(node1) 
