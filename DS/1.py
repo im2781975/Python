@@ -1,3 +1,109 @@
+class delta:
+    def __init__(self, value):
+        self.value = value
+    def __add__(self, other):
+        return delta(self.value + other.value)
+    def __sub__(self, other):
+        return delta(self.value - other.value)
+    def __mul__(self, other):
+        return delta(self.value * other.value)
+    def __matmul__(self, other):
+        return delta(self.value @ other.value)  
+    def __truediv__(self, other):
+        return delta(self.value / other.value)
+    def __floordiv__(self, other):
+        return delta(self.value // other.value)
+    def __mod__(self, other):
+        return delta(self.value % other.value)
+    def __pow__(self, other, modulo = None):
+        return delta(pow(self.value, other.value, modulo) if modulo else self.value ** other.value)
+    def __lshift__(self, other):
+        return delta(self.value << other.value)
+    def __rshift__(self, other):
+        return delta(self.value >> other.value)
+    def __and__(self, other):
+        return delta(self.value & other.value)
+    def __xor__(self, other):
+        return delta(self.value ^ other.value)
+    def __or__(self, other):
+        return delta(self.value | other.value)
+    def __neg__(self):
+        return delta(-self.value)
+    def __pos__(self):
+        return delta(+self.value)
+    def __invert__(self):
+        return delta(~self.value)
+    def __lt__(self, other):
+        return self.value < other.value
+    def __le__(self, other):
+        return self.value <= other.value
+    def __eq__(self, other):
+        return self.value == other.value
+    def __ne__(self, other):
+        return self.value != other.value
+    def __gt__(self, other):
+        return self.value > other.value
+    def __ge__(self, other):
+        return self.value >= other.value
+    def __getitem__(self, index):
+        return str(self.value)[index]  
+        # Access digit of a number as a string
+    def __contains__(self, other):
+        return str(other) in str(self.value)
+    def __call__(self, *args, **kwargs):
+        return f"Called with {args}, {kwargs}"
+    def __str__(self):
+        return str(self.value)
+x, y = delta(10), delta(3)
+print(x + y, x - y, x * y, x / y, x // y, x % y)
+print(x ** y, x << y, x >> y, x & y, x | y, x ^ y) 
+print(-x, +x, ~x, x > y, x < y, x == y, x != y) 
+a = delta(12345)
+print(a[2], 2 in a)
+print(x(5, key = "value"))
+import math
+class cast:
+    def __init__(self, value):
+        self.value = value
+    def __int__(self):
+        return int(self.value)
+    def __abs__(self):
+        return abs(self.value)
+    def __str__(self):
+        return str(self.value)
+    def __repr__(self):
+        return f"CustomNumber({self.value})"
+    def __unicode__(self):
+        return unicode(self.value)
+    def __bool__(self):
+        return self.value != 0
+    def __format__(self, formatstr):
+        return formatstr.format(self.value)
+    def __hash__(self):
+        return hash(self.value)
+    def __len__(self):
+        return len(str(abs(self.value)))
+    def __reversed__(self):
+        return reversed(str(abs(self.value)))  
+    def __floor__(self):
+        return math.floor(self.value)
+    def __ceil__(self):
+        return math.ceil(self.value)
+num = cast(123.75)
+num_neg = cast(-456.25)
+print("Casting to int:", int(num))  
+print("Absolute value:", abs(num_neg))  
+print("Casting to str:", str(num))  
+print("String representation:", repr(num))
+print("Casting to bool:", bool(num))
+print("Casting to bool (zero case):", bool(cast(0)))  
+print("String formatting:", "{:.2f}".format(num))  
+print("Hash value:", hash(num)) 
+print("Length (digit count):", len(CustomNumber(98765)))  
+print("Reversed digits:", ''.join(reversed(CustomNumber(54321))))  
+print("Floor value:", math.floor(num)) 
+print("Ceiling value:", math.ceil(num))
+"""						"""
 class lst:
     def __init__(self, val):
         self.val = val
