@@ -156,13 +156,15 @@ class Vector:
         if scalar == 0:
             raise ZeroDivisionError("Cannot divide by zero")
         return Vector(self.x / scalar, self.y / scalar)
+    def __floordiv__(self, scalar): 
+        return Vector(self.x // scalar, self.y // scalar)
     def __str__(self):    
         return f'<{self.x}, {self.y}>'
     def __repr__(self):        
         return f'Vector({self.x}, {self.y})'
 v = Vector(3, 4); u = Vector(1, 2)
 print(v + u, v - u, v == u, abs(v))  
-print(v * 2, v / 2, u + v == v + u)
+print(v * 2, v / 2, v // 2, u + v == v + u)
 """						"""
 class lst:
     def __init__(self, val):
