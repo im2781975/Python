@@ -333,6 +333,46 @@ female = Female("Aslam", 24, True)
 female.display(); female.eat()
 male = Male("Molla", 25, "DCA")
 male.disp()
+"""					"""
+class Shape:
+    def calculate_area(self):
+        raise NotImplementedError("Subclasses must implement calculate_area")
+class Square(Shape):
+    length = 2
+    def calculate_area(self):
+        return self.length ** 2 
+class Triangle(Shape):
+    length = 4; height = 3
+    def calculate_area(self):
+        return 0.5 * self.length * self.height
+def get_area(obj):
+    print(obj.calculate_area())
+square_obj = Square()
+triangle_obj = Triangle()
+get_area(square_obj) 
+get_area(triangle_obj)
+"""					"""
+class Square:    
+    length = 2    
+    def square_area(self): 
+        return self.length ** 2
+class Triangle:   
+    length = 4   
+    height = 3    
+    def triangle_area(self):
+        return 0.5 * self.length * self.height
+def get_area(obj):
+    if isinstance(obj, Square):  
+        area = obj.square_area()    
+    elif isinstance(obj, Triangle):
+        area = obj.triangle_area()
+    else:
+        raise TypeError("Unsupported object type")
+    print(area)
+square_obj = Square()
+triangle_obj = Triangle()
+get_area(square_obj)
+get_area(triangle_obj)
 """            HibridHeritance        """
 class A:
     def show(self):
