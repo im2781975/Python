@@ -834,3 +834,124 @@ obj.y2 = 500; print(obj.y2)
 obj.t = 30; print(obj.t)  
 obj.u = 7000; print(obj.u) 
 print(A.p, A.q)
+"""					"""
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.next = None 
+    def getData(self): 
+        return self.data 
+    def getNext(self): 
+        return self.next 
+    def setData(self, val):
+        self.data = val 
+    def setNext(self, val):
+        self.next = val
+class LinkedList: 
+    def __init__(self):
+        self.head = None 
+    def isEmpty(self):
+        return self.head is None 
+    def add(self, item):
+        new_node = Node(item)  
+        new_node.setNext(self.head) 
+        self.head = new_node 
+    def size(self):
+        count = 0       
+        current = self.head
+        while current is not None:
+            count += 1            
+            current = current.getNext()
+        return count 
+    def search(self, item): 
+        current = self.head        
+        while current is not None: 
+            if current.getData() == item:                
+                return True 
+            current = current.getNext()
+        return False
+    def remove(self, item): 
+        current = self.head        
+        previous = None        
+        found = False 
+        while current is not None and not found:
+            if current.getData() == item:                
+                found = True
+            else:               
+                previous = current
+                current = current.getNext()
+        if found: 
+            if previous is None: 
+                self.head = current.getNext()
+            else:                
+                previous.setNext(current.getNext()) 
+        else: 
+            raise ValueError("Value not found.")
+
+    def insert(self, position, item):
+        if position > self.size(): 
+            raise IndexError("Index out of bounds.")
+        new_node = Node(item)
+        if position == 0:
+            new_node.setNext(self.head)
+            self.head = new_node
+        else:
+            current = self.head        
+            previous = None        
+            pos = 0
+            while pos < position:              
+                previous = current
+                current = current.getNext()
+                pos += 1  
+            previous.setNext(new_node)           
+            new_node.setNext(current)
+    def index(self, item):
+        current = self.head        
+        pos = 0       
+        while current is not None:
+            if current.getData() == item:                
+                return pos
+            current = current.getNext()
+            pos += 1
+        return None  
+    def pop(self, position=None): 
+        if self.head is None:
+            raise IndexError("Cannot pop from empty list.")
+        if position is None:
+            position = self.size() - 1  
+        if position >= self.size() or position < 0:
+            raise IndexError("Index out of bounds.")
+        current = self.head 
+        previous = None 
+        pos = 0 
+        while pos < position:
+            previous = current
+            current = current.getNext()
+            pos += 1  
+        if previous is None:
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
+        return current.getData()
+    def append(self, item):
+        new_node = Node(item)
+        if self.head is None:
+            self.head = new_node
+            return
+        current = self.head
+        while current.getNext() is not None:
+            current = current.getNext()
+        current.setNext(new_node)
+    def printList(self):
+        current = self.head 
+        while current is not None: 
+            print(current.getData(), end=" ")  
+            current = current.getNext()
+        print()
+ll = LinkedList() 
+ll.add('l') 
+ll.add('H') 
+ll.insert(1, 'e') 
+ll.append('l')
+ll.append('o')
+ll.printList()  
