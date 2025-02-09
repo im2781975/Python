@@ -1112,3 +1112,99 @@ print(x == y)
 x.name = "I'm single"
 x.getName(); y.getName() 
 """					"""
+class Parent(object):   
+    def introduce(self):    
+        print("Hello!")    
+    def print_name(self):        
+        print("Parent")
+class Child(Parent):   
+    def print_name(self):        
+        print("Child")
+p = Parent()
+c = Child()
+p.introduce(); p.print_name() 
+c.introduce(); c.print_name()
+"""                """
+class A(object):
+    def func(self):
+        print("Instance method func called")
+    @classmethod
+    def classMethod(cls):
+        print("Class method classMethod called")
+class B(object):
+    unboundMeth = A.func 
+a = A()
+b = B()
+print(A.func, a.func) 
+print(B.unboundMeth, b.unboundMeth)  
+print(A.classMethod, a.classMethod)
+"""                """
+class Parent(object):
+    def func(self):
+        pass    
+    func2 = func  
+class Child(Parent):   
+    func = Parent.func 
+class AnotherClass(object):   
+    func = Parent.func  
+print(Parent.func is Parent.func)        
+print(Parent.func2 is Parent.func2)     
+print(Child.func is Child.func)            
+print(AnotherClass.func is AnotherClass.func)
+"""                """
+import turtle, time, random
+turtle.speed(0)
+turtle.colormode(255)
+turtle.pensize(4)
+def triangle(size):
+    for _ in range(2):
+        turtle.forward(size)
+        turtle.right(90)
+    turtle.forward(size * (2 ** 0.5))
+    turtle.right(135)  
+for _ in range(20):
+    turtle.penup()  
+    turtle.setpos(random.randint(-200, 200), random.randint(-200, 200))
+    turtle.pendown()  
+    turtle.pencolor(random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
+    triangle(random.randint(5, 55))
+    time.sleep(0.1)  
+turtle.done()
+"""                """
+class Card:
+    def __init__(self, suit, pips):
+        self.suit = suit
+        self.pips = pips
+    def __str__(self):
+        special_names = {1: 'Ace', 11: 'Jack', 12: 'Queen', 13: 'King'}
+        card_name = special_names.get(self.pips, str(self.pips))
+        return f"{card_name} of {self.suit}"
+    def __repr__(self):
+        return str(self)  
+ace_of_spades = Card('Spades', 1)
+four_of_clubs = Card('Clubs', 4)
+six_of_hearts = Card('Heart', 6)
+print(ace_of_spades) 
+print([ace_of_spades, four_of_clubs, six_of_hearts])
+print(str(ace_of_spades))
+"""                """
+class Card:    
+    special_names = {1: 'Ace', 11: 'Jack', 12: 'Queen', 13: 'King'}    
+    def __init__(self, suit, pips):      
+        self.suit = suit        
+        self.pips = pips    
+    def __str__(self):       
+        card_name = Card.special_names.get(self.pips, str(self.pips))  
+        return f"{card_name} of {self.suit} (S)" 
+    def __repr__(self):        
+        card_name = Card.special_names.get(self.pips, str(self.pips))  
+        return f"{card_name} of {self.suit} (R)"  
+ace_of_spades = Card('Spades', 1) 
+four_of_clubs = Card('Clubs', 4) 
+six_of_hearts = Card('Hearts', 6)
+print([ace_of_spades, four_of_clubs, six_of_hearts])
+print(ace_of_spades)           
+print(str(four_of_clubs), repr(four_of_clubs))
+print(four_of_clubs.__str__())   
+print(four_of_clubs.__repr__())
+"""                """
