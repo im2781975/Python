@@ -107,8 +107,23 @@ if random.random() < prob:
     print("Decision with probability 0.3")
 else:    
     print("Decision with probability 0.7")
-
+import functools, locale
+print(sorted(['A', 'S', 'F', 'D'],key = functools.cmp_to_key(locale.strcoll)))
+from functools import partial
+def func(a, b, c, x):
+    return 1000 * a + 100 * b + 10 * c + x
+res = partial(func, 1, 1, 1)
+print(res(2))
 import itertools
+for num in itertools.count():
+    if num > 20:
+        break
+    print(num, end = " ")
+print()
+for num in itertools.count(start = 10, step = 4):
+    print(num, end = " ")
+    if num > 20:
+        break
 print(list(itertools.combinations([1, 2, 3, 4, 5], 3)))
 def gen():
     n = 0
@@ -164,4 +179,24 @@ def fetch():
 limit = 20
 for data in islice(fetch(), limit):
     print(data, end = " ") 
-    
+import operator
+print(list(itertools.accumulate([1, 2, 3, 4])))
+print(list(itertools.accumulate([1, 2, 3, 4], func = operator.mul)))
+print(itertools.cycle('ABCDE'))
+it = itertools.cycle('abc123')
+print([next(it) for i in range(1, 10)])
+from itertools import product
+for x, y in product(range(10), range(10)):
+    print(x, y, end = " ")
+it = [range(10)] * 2
+for x, y in product(*it):
+    print(x, y, end = " ")
+lst, tis = [1, 2, 3, 4], ['a', 'b', 'c']
+print(product(lst, tis))
+for i in product(lst, tis):
+    print(i, end = " ")
+from itertools import chain
+a = (x for x in ['1', '2', '3', '4'])
+b = (x for x in ['a', 'b', 'c'])
+print(' '.join(chain(a, b)))
+
