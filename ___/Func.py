@@ -1,3 +1,7 @@
+def modularInv(x, p):
+    return pow(x, p - 2, p)
+print([modularInv(x, 13) for x in range(1, 13)])
+
 def info(name, surname):
     formattedName = name.title()
     formattedSurname = surname.title()
