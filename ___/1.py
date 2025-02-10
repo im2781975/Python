@@ -98,6 +98,10 @@ print(random.randrange(10, 20, 3), random.random(), random.uniform(1, 8))
 random.seed(5)
 print(random.randrange(0, 10), random.randrange(0, 10))
 random.seed(5); print(random.randrange(1, 10))
+import random, inspect
+print(inspect.getsource(random.randrange))
+print(inspect.getdoc(random.randrange))
+
 """            """
 state = random.getstate(); random.setstate(state)
 print(state, end = " ")
@@ -199,4 +203,38 @@ from itertools import chain
 a = (x for x in ['1', '2', '3', '4'])
 b = (x for x in ['a', 'b', 'c'])
 print(' '.join(chain(a, b)))
+
+import sys, codecs
+print(sys.stdout.write('hello world ?\\n'))
+print(sys.stdout.buffer.write(b'hello world \\xf0\\x9f\\x90\\x8d\\n'))
+print(codecs.decode('1deadbeef4', 'hex'))
+print(codecs.encode(b'\x1d\xea\xdb\xee\xf4', 'hex'))
+print(codecs.encode(b'\x1d\xea\xdb\xee\xff', 'hex').decode('ascii'))
+import hashlib 
+m = hashlib.md5()
+m.update("Nobody inspects".encode())  
+m.update(" the spammish repetition".encode())  
+print("MD5 Digest (Bytes):", m.digest()) 
+print("MD5 Hex Digest:", m.hexdigest())   
+print("Digest Size:", m.digest_size)     
+print("Block Size:", m.block_size)        
+md5_hash = hashlib.md5("Nobody inspects the spammish repetition".encode()).hexdigest()
+print("MD5 Hash (Single Call):", md5_hash)
+h = hashlib.new('ripemd160')  
+h.update("Nobody inspects the spammish repetition".encode())  
+print("RIPEMD-160 Hash:", h.hexdigest()) 
+import pandas as pd
+df = DataFrame()
+df['customer_id'] = [1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 3, 3]
+df['order_id'] = [1, 1, 1, 2, 2, 3, 3, 4, 5, 6, 6, 6]
+df['item'] = ['apples', 'chocolate', 'chocolate', 'coffee', 'coffee', 'apples', 'bananas', 'coffee', 'milkshake', 'chocolate', 'strawberry', 'strawberry']
+print(df)
+countOrders = lambda x : len(x.unique())
+df['number_of_orders_per_cient'] = (df .groupby(['customer_id'])['order_id']  .transform(countOrders))
+print(df)
+def multipleOrder(_items): 
+    multiple_item_bool = _items.duplicated(keep = False) 
+    return(multiple_item_bool)
+orders_df['item_duplicated_per_order'] = (orders_df .groupby(['order_id'])['item'] .transform(multipleOrder))
+print(orders_df)
 
