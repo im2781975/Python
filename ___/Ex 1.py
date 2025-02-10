@@ -348,3 +348,11 @@ elif(score <= 40 or score >= 60):
 else:
     print(f"Score is {score}")
     
+def fib(n):
+    if n < 2:
+        return 1
+    return fib(n - 1) + fib(n - 2)
+"""            """
+from functools import reduce
+def factorial(n):
+    return reduce(lambda a, b: (a * b), range(1, n + 1)
