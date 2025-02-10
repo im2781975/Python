@@ -107,3 +107,61 @@ if random.random() < prob:
     print("Decision with probability 0.3")
 else:    
     print("Decision with probability 0.7")
+
+import itertools
+print(list(itertools.combinations([1, 2, 3, 4, 5], 3)))
+def gen():
+    n = 0
+    while n < 20:
+        n += 1; yield n
+for part in itertools.islice(gen(), 3):   
+    print(part, end = " ")
+    
+def testGroupBy(lst):    
+    groups = itertools.groupby(lst, key = lambda x : x[1])   
+    for key, group in groups:        
+        print(key, list(group))
+lst = [("a", 5, 6), ("b", 2, 4), ("a", 2, 5), ("c", 5, 6)] 
+testGroupBy(lst)
+lst = [("a", 5, 6), ("b", 2, 4), ("a", 2, 5), ("c", 2, 6)]  
+lst.sort(key = lambda x : x[1])  
+groups = itertools.groupby(lst, key = lambda x : x[1])  
+group_list = [(key, list(group)) for key, group in groups]
+for key, group in group_list:
+    print(key, group)
+for key, group in sorted(group_list):   
+    print(key, group)
+lst = [1, 2, 3]
+print(list(itertools.permutations(lst)))  
+print(list(itertools.permutations(lst, 2)))   
+for i in itertools.repeat('over-and-over', 3):
+    print(i, end=" ")
+from itertools import dropwhile, takewhile
+def IsEven(x):
+    return x % 2 == 0
+lst = [0, 2, 4, 12, 18, 13, 14, 22, 23, 44]
+print(list(dropwhile(IsEven, lst)))
+print(list(takewhile(IsEven, lst))) 
+def custom_dropwhile(predicate, iterable):
+    iterable = iter(iterable)
+    for x in iterable:
+        if not predicate(x):
+            yield x  
+            break
+    yield from iterable  
+print(list(custom_dropwhile(IsEven, lst)))
+print(list(takewhile(IsEven, lst)) + list(dropwhile(IsEven, lst)))
+from itertools import zip_longest, islice
+a = [i for i in range(5)]
+b = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+for i in zip_longest(a, b):
+    x, y = i; print(x, y)
+for i in zip_longest(a, b, fillvalue='Hogwash!'):
+    x, y = i; print(x, y)
+def fetch():
+    for i in range(50):
+        yield f"Result {i + 1}"
+limit = 20
+for data in islice(fetch(), limit):
+    print(data, end = " ") 
+    
