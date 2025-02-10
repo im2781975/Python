@@ -1,0 +1,109 @@
+import collections as col 
+count = col.Counter([1, 5, 9, 20])
+count = col.Counter(["Hi everyone", "where "])
+count = col.Counter('Here - i - am!where are-u'.split())
+count = col.Counter({'a' : 4, 'b' : 2, 'c' : -2, 'd' : 0})
+count['c'] = -3
+count.update({'a' : 3, 'b' : 3})
+count.update({'a' : 2, 'c' : 2})
+count.subtract({'a': 3, 'b': 3, 'c': 3})
+print(sum(count.values()))
+print(count.elements())
+print(count.keys())
+print(count.values())
+print(count.items())
+from collections import deque
+deq = deque('ghi')
+deq.append('a'); deq.pop()
+deq.popleft(); deq.extend('jkl')
+deq.extendleft('mnk'); deq.rotate(1)
+deq.rotate(-1)
+print(deque.reverse(deq), list(deq), list(reversed(deq)))
+print('h' in deq)
+print(deq)
+for val in deq:
+    print(val.upper(), end = " ")
+deq.clear()
+deq = deque([1, 2, 3])
+deq.popleft(); deq.appendleft(5)
+deq.clear()
+deq = deque()
+deq.append(2); deq.extend([6, 7])
+deq.extendleft([-2, -1]); deq.popleft()
+deq.remove(7); deq.reverse()
+print(deq)
+"""                """
+def bfs(graph, root):
+    distances = {}
+    distances[root] = 0
+    q = deque([root])
+    while q:
+        current = q.popleft()
+        for neighbor in graph[current]:
+            if neighbor not in distances:
+                distances[neighbor] = distances[current] + 1
+                q.append(neighbor)
+    return distances
+graph = {1: [2, 3], 2: [4], 3: [4, 5], 4: [3, 5], 5: []}
+print(bfs(graph, 1))
+import operator
+print(operator.pow(4, 2), operator.__pow__(4, 3))
+x, y = 2, 6; print(x.__pow__(y), y.__rpow__(x))
+from operator import *
+a, b = 30, 15
+print(add(a, b), sub(a, b), truediv(a, b), floordiv(a, b))
+import math
+from decimal import Decimal
+import cmath
+print(math.pow(2, 2), math.pow(2, -2), math.pow(-2, 5), math.e ** 2, math.exp(2), math.exp(10), math.exp(10).real)
+print(math.e ** 1e-3 - 1, math.exp(1e-3) - 1, math.expm1(1e-3), math.e ** 1e-15 - 1, math.exp(1e-15) - 1, math.expm1(1e-15))
+print(Decimal('6.25').sqrt(), math.sqrt(9), math.sqrt(11.11))
+print(cmath.sqrt(4), cmath.sqrt(-4))
+a, b = 1, 2
+print(math.sinh(a), math.cosh(a), math.atan(math.pi))
+print(math.hypot(a, b), math.degrees(a), math.radians(57.29577951308232))
+num = cmath.sqrt(-1)
+while num:
+    print(num)
+    break
+import heapq
+num = [1, 4, 2, 100, 20, 50, 32, 200, 150, 8]
+print(heapq.nlargest(4, num), heapq.nsmallest(4, num))
+heapq.heapify(num); print(num)
+heapq.heappop(num); print(num)
+people = [{'firstname': 'John', 'lastname': 'Doe', 'age': 30},    
+        {'firstname': 'Jane', 'lastname': 'Doe', 'age': 25},    
+        {'firstname': 'Janie', 'lastname': 'Doe', 'age': 10},  
+        {'firstname': 'Jane', 'lastname': 'Roe', 'age': 22},    
+        {'firstname': 'Johnny', 'lastname': 'Doe', 'age': 12},    
+        {'firstname': 'John', 'lastname': 'Roe', 'age': 45}]
+oldest = heapq.nlargest(2, people, key = lambda x : x['age'])
+youngest = heapq.nsmallest(2, people, key = lambda x : x['age'])
+print(oldest,"\n", youngest)
+
+from queue import Queue
+q = Queue()
+for x in range(1, 10):
+    dic = ('key', x)
+    q.put(dic)
+while(not q.empty()):
+    print(str(q.get()))
+import random
+print(str(random.randint(0, 12)))
+laugh = ["Aa", "Bb", " Cc"]; random.shuffle(laugh)
+print(laugh, random.choice(laugh))
+print(random.sample(laugh, 1), random.sample(laugh, 3))
+print(random.randint(1, 100), random.randrange(100), random.randrange(20, 50))
+print(random.randrange(10, 20, 3), random.random(), random.uniform(1, 8))
+random.seed(5)
+print(random.randrange(0, 10), random.randrange(0, 10))
+random.seed(5); print(random.randrange(1, 10))
+"""            """
+state = random.getstate(); random.setstate(state)
+print(state, end = " ")
+random.seed(None); random.seed()
+prob = 0.3
+if random.random() < prob:
+    print("Decision with probability 0.3")
+else:    
+    print("Decision with probability 0.7")
