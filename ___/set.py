@@ -128,3 +128,10 @@ print(set(A), list(set(A)))
 from collections import Counter
 cnt = Counter(['A', 'B', 'C', 'B'])
 print(cnt)
+number = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+num = set(number)
+num.add(10)
+if 5 in num: num.remove(5)
+print(num)
+for i, item in enumerate(num):
+    print(i, item)
