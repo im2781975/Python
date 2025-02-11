@@ -454,3 +454,18 @@ try:
     print(timeit.timeit(lambda: lst.index(4), number=10000))
 except ValueError:
     print("ValueError occurred (as expected)")
+
+import numpy as np
+import calc  
+import sys
+print(sys.path)
+a = np.array([0, 3, 4, 3, 5, 4, 7])
+print("Occurrences of 3:", np.sum(a == 3)) 
+print("10 + 2 =", calc.add(10, 2))
+List = [1, 4, True, 800, "python", 27, "hello"]
+print(random.choice(List)) 
+import datetime
+from datetime import date
+import time
+print(time.time())  
+print(date.fromtimestamp(454554))
