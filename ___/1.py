@@ -311,3 +311,143 @@ while True:
     if not s: continue   
     result = parser.parse(s)
     print(result)
+import threading
+def foo():
+    print("Hello")
+threading.Thread(target = foo)
+t.start(); t.join()
+import time
+class sleepy(threading.Thread):
+    def run(self):
+        time.sleep(5)
+        print("ciao")
+if __name__ = "__main__":
+    t = sleepy()
+    t.start(); t.join()
+import threading, time
+def func(i):
+    return i * i
+def other(m, i):
+    return m + i
+def process():
+    for j in range(100):
+        result = 0
+    for i in range(100000):            
+        result = other(result, func(i))
+"""def process():
+    time.sleep(2) """
+start = time.time()
+process() 
+print("One run took %.2fs" % (time.time() - start))
+start = time.time()
+threads = [threading.Thread(target = process) for _ in range(4)]
+for t in threads:    
+    t.start()
+for t in threads:   
+    t.join() 
+print("Four runs took %.2fs" % (time.time() - start))
+import multiprocessing, time
+def func(i):
+    return i * i
+def other(m, i):
+    return m + i
+def process():
+    for j in range(100):
+        result = 0
+    for i in range(100000):            
+        result = other(result, func(i))
+start = time.time()
+process() 
+print("One run took %.2fs" % (time.time() - start))
+start = time.time()
+processes = [multiprocessing.Process(target = process)for _ in range(4)] 
+for p in processes:    
+    p.start() 
+for p in processes:    
+    p.join()
+print("Four runs took %.2fs" % (time.time() - start))
+"""                """
+import threading, os
+def process():  
+    print("Pid is %s, thread id is %s" % (os.getpid(), threading.current_thread().name))
+threads = [threading.Thread(target = process) for _ in range(4)] 
+for t in threads:  
+    t.start()
+for t in threads:   
+    t.join()
+import multiprocessing
+import os
+def process():    
+    print("Pid is %s" % (os.getpid(),))
+processes = [multiprocessing.Process(target = process) for _ in range(4)]
+for p in processes:   
+    p.start() 
+for p in processes:   
+    p.join()
+
+import threading, pprint
+obj = {}
+obj_lock = threading.Lock()
+def objify(key, val):
+    print(f"[{threading.current_thread().name}] Obj has {len(obj)} values")
+    with obj_lock:
+        obj[key] = val
+    print(f"[{threading.current_thread().name}] Obj now has {len(obj)} values")
+ts = [threading.Thread(target = objify, args = (str(n), n)) for n in range(4)]
+for t in ts:
+    t.start()
+for t in ts:
+    t.join()
+print("Obj final result:")
+pprint.pprint(obj)
+"""                """
+from threading import Thread
+import time
+def countdown(n):    
+    while n > 0:       
+        n -= 1
+def run_threads():
+    COUNT = 10000000 
+    t1 = Thread(target = countdown, args = (COUNT//2,))
+    t2 = Thread(target = countdown, args = (COUNT//2,))
+    start = time.time()
+    t1.start() ; t2.start()
+    t1.join() ;t2.join()
+    end = time.time()
+    print(f"Time taken: {end - start} seconds")
+run_threads()
+import math
+from multiprocessing import Process
+def calc_fact(num):
+    result = math.factorial(num)  
+    print(f"Factorial of {num} is computed successfully.")
+if __name__ == "__main__":
+    num = 600000  
+    print(f"About to calculate: {num}!")
+    p = Process(target = calc_fact, args = (num,))  
+    p.start()
+    p.join()
+    print("Factorial calculation completed.")
+import bisect, timeit
+def index_sorted(sorted_seq, value):   
+    i = bisect.bisect_left(sorted_seq, value)    
+    if i != len(sorted_seq) and sorted_seq[i] == value:        
+        return i    
+    raise ValueError(f"Value {value} not found in list")
+lst = [i for i in range(1, 100000, 3)]
+print(index_sorted(lst, 97285))  
+try:
+    print(index_sorted(lst, 4))  
+except ValueError as e:
+    print(e)
+print("Timing with bisect.bisect_left:")
+print(timeit.timeit(lambda: index_sorted(lst, 97285), number=10000))
+print("Timing with list.index():")
+print(timeit.timeit(lambda: lst.index(97285), number=10000))
+print("Timing with bisect for missing value:")
+print(timeit.timeit(lambda: index_sorted(lst, 4), number=10000))
+print("Timing with list.index() for missing value:")
+try:
+    print(timeit.timeit(lambda: lst.index(4), number=10000))
+except ValueError:
+    print("ValueError occurred (as expected)")
