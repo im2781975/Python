@@ -89,6 +89,9 @@ for x in range(1, 10):
 while(not q.empty()):
     print(str(q.get()))
 import random
+print(random.randint(0, 5))  
+print(random.random())  
+print(random.random() * 100)  
 print(str(random.randint(0, 12)))
 laugh = ["Aa", "Bb", " Cc"]; random.shuffle(laugh)
 print(laugh, random.choice(laugh))
