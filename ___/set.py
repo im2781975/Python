@@ -135,3 +135,9 @@ if 5 in num: num.remove(5)
 print(num)
 for i, item in enumerate(num):
     print(i, item)
+
+A, B = {1, 2, 3}, {3, 4, 5, 6, 7, 8}
+print(f"A & B: {A & B}\nA | B: {A | B} ")
+comb = {}
+comb = {(x, y)for x in A for y in B}
+print(comb)
