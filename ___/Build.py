@@ -482,3 +482,20 @@ from datetime import date
 import time
 print(time.time())  
 print(date.fromtimestamp(454554))
+
+import typing as typ
+point = typ.NamedTuple('point', [('x', int), ('y', int)])
+p = point(3, 4); print(p.x, p.y)
+x, y = p; print(x, y, p)
+T = typ.TypeVar("T")
+def getelement(elements: typ.Sequence[T], default: typ.Optional[T] = None) -> T:
+    if elements:
+        return elements[0]
+    if default is not None:
+        return default
+    raise ValueError("Sequence is empty and no default value provided")
+lst = [1, 2, 3]
+strlst = ["apple", "banana", "cherry"]
+empty_list = []
+print(getelement(lst), getelement(strlst))  
+print(getelement(empty_list, default = "No elements"))  
