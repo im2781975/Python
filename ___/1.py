@@ -19,7 +19,14 @@ print(dic['key']); dic['key'] = 'full'
 print(dic['key'])
 dic = {}  
 dic.setdefault('Another_key', []).append("This worked!"); print(dic)
-
+fish = {'name': "Nemo", 'hands': "fins", 'special': "gills"} 
+dog = {'name': "Clifford", 'hands': "paws", 'color': "red"}
+print({**fish, **dog})
+from collections import ChainMap 
+print(dict(ChainMap(fish, dog)))
+from itertools import chain 
+print(dict(chain(fish.items(), dog.items())))
+fish.update(dog); print(fish)
 guy = [
     {'name' : 'A', 'age' : 12}, {'name' : 'B', 'age' : 17},
     {'name' : 'C', 'age' : 15}, {'name' : 'D', 'age' : 22}]
@@ -69,6 +76,17 @@ info["A"]["num"] = 789
 print(info["A"].pop("num"))
 print(info, info["A"], info["B"]["num"])
 #del info["A"]["num"]
+stock = {'eggs': 5, 'milk': 2}
+dic = {}
+dic['eggs']; dic['milk'] = 5, 2
+print(stock, dic)
+dic = [('eggs', 5), ('milk', 2)]; print(dict(dic))
+print(dict(eggs = 5, milk = 2))
+print(dict.fromkeys(("milk", "eggs")))
+print(dict.fromkeys(("milk", "eggs"), (2, 5)))
+print(dict([('d', 4), ('e', 5), ('f', 6)]))
+print(dict([('a', 1)], b = 2, c = 3))
+print(dict({'a' : 1, 'b' : 2}, c = 3))
 dic = {'Name' : 'Asam', 1 : [2, 3, 4]}
 dic = {}
 dic = dict({1 : 'Aa', 2 : 'Bb', 3 : 'Cc'})
@@ -88,6 +106,29 @@ dic.popitem(); dic.update({2 : "cpp"})
 print(dic)
 dic = {"1" : "B", '2' : 'C'}
 print(dic.keys(), all(dic.keys()), dic.values(), all(dic.values())); print(sorted(dic))
+dic = dict(); dic = dict(key = 'value')         
+dic = dict([('key', 'value')])
+dec = {'val' : 'val'}; dic = dict(**dec)
+dic['newkey'] = 42; dic['newlist'] = [1, 2, 3] 
+dic['newdict'] = {'nested_dict' : 1}
+del dic['newkey']
+print(dic)
+dic = {}; print(dic)
+print(dic.get("foo", "bar")); print(dic)
+print(dic.setdefault("foo", "bar")); print(dic)
+key = 'baz'; default= 'default'
+try:
+    value = dic[key]
+except KeyError:
+    value = default
+print(f"Value for key '{key}' using try-except:", value) 
+key = 'foo'
+value = dic[key] if key in dic else default
+print(f"Value for key '{key}' using if-else:", value)  
+print(dic.get("unknown", "missing"))
+print(dic.setdefault("foo", "newvalue"), dic)
+print(dic.setdefault("newkey", "hello"), dic)
+
 from collections import OrderedDict as Od
 dic = {"Foo" : 3, "Baz" : 4}; dic["Bar"] = 9
 print(dic.keys(), dic.values())
@@ -98,6 +139,7 @@ exp = Od([("A", 1), ("B", 2)])
 print(dic, exp)
 dic = Od([('1st', 1), ('2nd', 2), ('3rd', 3)])
 print([k for k in dic])
+
 print({*range(4), 5, *(5, 6, 7)})
 dic = ([('1st', 1), ('2nd', 2), ('3rd', 3)])
 print(dic, [k for k in dic])
@@ -148,4 +190,9 @@ lst = [(4, 5, 6), (3, 1, 'a'), (7, 0, 4.3)]
 print(outerIdx(lst, 6), outerIdx(lst, 'a')) 
 print(outerIdx(lst, 4.3), outerIdx(lst, 9))
 print(innerIdx(lst, 'a'), innerIdx(lst, 7), innerIdx(lst, 99))  
-
+def parrot(voltage, state, action): 
+    print("This parrot wouldn't", action, end = ' ')
+    print("if you put", voltage, "volts through it.", end = ' ') 
+    print("E's", state, "!")
+dic = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
+print(parrot(**dic))
