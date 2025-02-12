@@ -667,3 +667,91 @@ print(df, "\n\n", df1)
 result = df.join(df1, how='inner')
  
 result
+#sorting
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 40],
+        'Score': [85, 90, 95, 80]}
+df = pd.DataFrame(data)
+
+# Sorting by 'Age' in ascending order
+sorted_df = df.sort_values(by='Age')
+print(sorted_df)
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],'Age': [25, 30, 35, 40],'Score': [85, 90, 95, 80]}
+df = pd.DataFrame(data)
+
+# Sorting by 'Age' in descending order
+sorted_df = df.sort_values(by='Age',ascending=False)
+print(sorted_df)
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+        'Age': [25, 30, 35, 40],
+        'Score': [85, 90, 95, 80]}
+df = pd.DataFrame(data)
+
+# Sorting by 'Score' in ascending order
+sorted_df = df.sort_values(by=['Age', 'Score'])
+print(sorted_df)
+import pandas as pd
+data_with_nan = {"Name": ["Alice", "Bob", "Charlie", "David"],"Age": [28, 22, None, 22]}
+df_nan = pd.DataFrame(data_with_nan)
+
+# Sort by 'Age', placing missing values first
+sorted_df = df_nan.sort_values(by="Age", na_position="first")
+print(sorted_df)
+import pandas as pd
+
+# Create a DataFrame with duplicate 'Age' values
+data = {
+    "Name": ["Alice", "Bob", "Charlie", "David", "Eve"],
+    "Age": [28, 22, 25, 22, 28],
+    "Score": [85, 90, 95, 80, 88]
+}
+df = pd.DataFrame(data)
+
+# Sort the DataFrame by 'Age' using the 'mergesort' algorithm
+sorted_df = df.sort_values(by='Age', kind='mergesort')
+print(sorted_df)
+import pandas as pd
+data = {
+    "Name": ["Alice", "Bob", "Charlie", "David", "Eve"],
+    "Age": [28, 22, 25, 22, 28],
+    "Score": [85, 90, 95, 80, 88]
+}
+df = pd.DataFrame(data)
+
+sorted_df = df.sort_values(by='Name', key=lambda col: col.str.lower())
+print(sorted_df)
+#pivot
+import pandas as pd
+ 
+# creating dataframe
+df = pd.DataFrame({'Product': ['Carrots', 'Broccoli', 'Banana', 'Banana',
+                               'Beans', 'Orange', 'Broccoli', 'Banana'],
+                   'Category': ['Vegetable', 'Vegetable', 'Fruit', 'Fruit',
+                                'Vegetable', 'Fruit', 'Vegetable', 'Fruit'],
+                   'Quantity': [8, 5, 3, 4, 5, 9, 11, 8],
+                   'Amount': [270, 239, 617, 384, 626, 610, 62, 90]})
+df
+pivot = df.pivot_table(index=['Product'],
+                       values=['Amount'],
+                       aggfunc='sum')
+print(pivot)
+# creating pivot table of total
+# sales category-wise aggfunc = 'sum'
+pivot = df.pivot_table(index=['Category'],
+                       values=['Amount'],
+                       aggfunc='sum')
+print(pivot)
+pivot = df.pivot_table(index=['Product', 'Category'],
+                       values=['Amount'], aggfunc='sum')
+print(pivot)
+# 'mean', 'min'} will get median, mean and
+# minimum of sales respectively
+pivot = df.pivot_table(index=['Category'], values=['Amount'],
+                       aggfunc={'median', 'mean', 'min'})
+print(pivot)
+pivot = df.pivot_table(index=['Product'], values=['Amount'],
+                       aggfunc={'median', 'mean', 'min'})
+print(pivot)
