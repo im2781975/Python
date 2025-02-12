@@ -35,6 +35,10 @@ for i in num:
 for i in num.items():
     print(i, end = " ")
 cpy = num.copy(); print(cpy, len(cpy))
+dic = {1 : [], 2 : set()}
+#tuple is immuteable
+cpy = dic.copy(); cpy[1].append(2);
+cpy[2].add(5); print(cpy, dic is cpy, dic[1] is cpy[1])
 info = {1 : 'abc', 2 : 'bcd', 3 : 'cde'}
 print(info[1], info.keys(), info.values(), info.items())
 del info[1]
@@ -92,7 +96,9 @@ for key in tmp:
     del dic[key]
 for key, value in dic.items():
     print(key, value)
- 
+print(sorted((7, 2, 1, 5)), sorted(['c', 'A', 'b']), sorted({11, 8, 1}))
+print(sorted({'11': 5, '3': 2, '10': 15}), sorted('bdca'), sorted([2, 7, 5])[-1])
+print(min(7,2,1,5), max(7,2,1,5), max([2, 7, 5]))
 def getkey(dic, val):
     found = []
     for key in dic:
