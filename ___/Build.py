@@ -12,6 +12,11 @@ print(count.elements())
 print(count.keys())
 print(count.values())
 print(count.items())
+cnt = col.Counter(["a", "b", "c", "d", "a", "b", "a", "c", "d"])
+print(cnt, cnt.keys(), cnt.values(), cnt.items(), cnt["a"])
+dic = {'a': 5, 'b': 3, 'c': 5, 'd': 2, 'e':2, 'q': 5}
+print(col.Counter(dic.values()).most_common())
+print(col.Counter(dic.values()).most_common(2))
 from collections import deque
 deq = deque('ghi')
 deq.append('a'); deq.pop()
