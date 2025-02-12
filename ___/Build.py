@@ -158,6 +158,12 @@ def testGroupBy(lst):
         print(key, list(group))
 lst = [("a", 5, 6), ("b", 2, 4), ("a", 2, 5), ("c", 5, 6)] 
 testGroupBy(lst)
+import itertools
+options = {
+    "x": ["a", "b"], "y": [10, 20, 30] }
+keys = options.keys()
+values = (options[key] for key in keys)
+print([dict(zip(keys, combination)) for combination in itertools.product(*values)])
 lst = [("a", 5, 6), ("b", 2, 4), ("a", 2, 5), ("c", 2, 6)]  
 lst.sort(key = lambda x : x[1])  
 groups = itertools.groupby(lst, key = lambda x : x[1])  
