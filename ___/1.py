@@ -11,6 +11,15 @@ state = defaultdict(lambda : 'Boston',{
 print(state['X'], "\n", state.keys(), "\n", state.values())
 for key, value in state.items():
     print(key, value, end = " ")
+dic = defaultdict(int)
+print(dic['key'])
+dic['key'] = 5; print(dic['key'])
+dic = defaultdict(lambda : 'empty')
+print(dic['key']); dic['key'] = 'full'
+print(dic['key'])
+dic = {}  
+dic.setdefault('Another_key', []).append("This worked!"); print(dic)
+
 guy = [
     {'name' : 'A', 'age' : 12}, {'name' : 'B', 'age' : 17},
     {'name' : 'C', 'age' : 15}, {'name' : 'D', 'age' : 22}]
@@ -26,7 +35,7 @@ num = dict({'A' : 23, 'B' : 34, 'C' : 45, 'A' : 56})
 num = dict([('A', 23), ('B', 34), ('C', 45)])
 num['D'] = {23, 34, 45}
 num['E'] = {'Home': 'Dhaka', 'contact': '234567'}; print()
-print(num.keys(), num.values())
+print(num.keys(), num.values(), num.items())
 print(num, num['A'], num.get('B'))
 for key, value in num.items():
     print(key, value, end = " ")
@@ -34,6 +43,15 @@ for i in num:
     print(i, num[i], end = " ")
 for i in num.items():
     print(i, end = " ")
+for key in num:
+    print(key, num[key], end = " ")
+for key in num.keys():
+    print(key, end = " ")
+for val in num.values():
+    print(key, ":", val, end = " ")
+for key, val in num.items():
+    print(key, ":", val, end = " ")
+print([key for key in num])
 cpy = num.copy(); print(cpy, len(cpy))
 dic = {1 : [], 2 : set()}
 #tuple is immuteable
