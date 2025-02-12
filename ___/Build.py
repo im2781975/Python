@@ -54,6 +54,14 @@ print(bfs(graph, 1))
 import operator
 print(operator.pow(4, 2), operator.__pow__(4, 3))
 x, y = 2, 6; print(x.__pow__(y), y.__rpow__(x))
+from operator import truediv, floordiv
+test = [ (10, 8), (10, -8), (-10, 8), (-10, -8), 
+    (7.5, 2.5), (9, 3), (0, 5), (5, 2)]
+for a, b in test:
+    print(f"truediv({a}, {b}) = {truediv(a, b)}")
+    print(f"floordiv({a}, {b}) = {floordiv(a, b)}")
+    assert truediv(a, b) == a / b 
+    assert floordiv(a, b) == a // b
 from operator import *
 a, b = 30, 15
 print(add(a, b), sub(a, b), truediv(a, b), floordiv(a, b))
