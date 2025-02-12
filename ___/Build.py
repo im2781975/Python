@@ -482,7 +482,28 @@ from datetime import date
 import time
 print(time.time())  
 print(date.fromtimestamp(454554))
+from datetime import datetime, timedelta
+once = datetime(2010, 7, 1, 12, 0, 0) 
+delta = timedelta(days = 13, hours = 8,  minutes = 20)   
+gen = (once + x * delta for x in range(5))
+print('\n'.join(map(lambda d : d.strftime('%Y-%m-%d %H:%M:%S'), gen)))
+print('North America: {dt:%m/%d/%Y}. ISO: {dt:%Y-%m-%d}.'.format(dt = datetime.now()))
 
+import unicodedata
+print([unicodedata.name(char) for char in "ê"])
+print([unicodedata.name(char) for char in "e"])
+print(unicodedata.normalize("NFKD", "ê") == unicodedata.normalize("NFKD", "e"))
+def normalize_caseless(text):    
+    return unicodedata.normalize("NFKD", text.casefold())
+def caseless_equal(left, right):    
+    return normalize_caseless(left) == normalize_caseless(right)
+pairs = [
+    ("Straße", "STRASSE"), ("café", "cafe"),   
+    ("Êcole", "ecole"), ("Hello", "hello"),     
+    ("𝐀𝐛𝐜", "Abc"), ("ﬁ", "fi")]
+for left, right in pairs:
+    print(f"Comparing '{left}' vs '{right}': {caseless_equal(left, right)}")
+    
 import typing as typ
 point = typ.NamedTuple('point', [('x', int), ('y', int)])
 p = point(3, 4); print(p.x, p.y)
