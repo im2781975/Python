@@ -812,3 +812,213 @@ feature_mean = data.mean(axis=0)
 # Center data using broadcasting
 centered_data = data - feature_mean
 print(centered_data)
+#Slicing e Indexing
+import numpy as np
+# Create a sequence of integers from 10 to 1 with a step of -2
+a = np.arange(10, 1, -2) 
+print("\n A sequential array with a negative step: \n",a)
+# Indexes are specified inside the np.array method.
+newarr = a[np.array([3, 1, 2 ])]
+print("\n Elements at these indices are:\n",newarr)
+import numpy as np 
+# Arrange elements from 0 to 19 
+a = np.arrange(20) 
+print("\n Array is:\n ",a) 
+print("\n a[15]=",a[15])
+# a[start:stop:step]
+print("\n a[-8:17:1] = ",a[-8:17:1]) 
+print("\n a[10:] = ",a[10:]) 
+
+import numpy as np 
+# A 3 dimensional array. 
+b = np.array([[[1, 2, 3],[4, 5, 6]], 
+            [[7, 8, 9],[10, 11, 12]]]) 
+print(b[...,1]) #Equivalent to b[: ,: ,1 ] 
+# Python program showing advanced indexing
+import numpy as np
+a = np.array([[1 ,2 ],[3 ,4 ],[5 ,6 ]])
+print(a[[0 ,1 ,2 ],[0 ,0 ,1]])
+# You may wish to select numbers greater than 50
+import numpy as np
+
+a = np.array([10, 40, 80, 50, 100])
+print(a[a>50])
+# You may wish to select those elements whose
+# sum of row is a multiple of 10.
+import numpy as np
+
+b = np.array([[5, 5],[4, 5],[16, 4]])
+sumrow = b.sum(-1)
+print(b[sumrow%10==0])
+
+import numpy as np
+
+# Create a 1D NumPy array with five elements
+arr = np.array([10, 20, 30, 40, 50])
+
+# Access and print the first element of the array
+print(arr[0]) 
+import numpy as np 
+
+# Define a 2D array
+matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# Access the element at row 1, column 2 
+print(matrix[1, 2]) 
+import numpy as np
+
+cube = np.array([[[1, 2, 3],
+                  [4, 5, 6],
+                  [7, 8, 9]],
+                 
+                 [[10, 11, 12],
+                  [13, 14, 15],
+                  [16, 17, 18]]])
+
+# Access the element at depth 1, row 2, column 0
+print(cube[1, 2, 0]) 
+import numpy as np
+
+# Create a 1D NumPy array with six elements
+arr = np.array([0, 1, 2, 3, 4, 5])
+
+# Use slicing to access a subset of the array
+print(arr[1:4])  
+import numpy as np
+
+# Create a 2D NumPy array (matrix) with three rows and three columns
+matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# Use slicing to extract a submatrix
+print(matrix[0:2, 1:3]) 
+import numpy as np
+
+# Create a 1D NumPy array with five elements
+arr = np.array([10, 15, 20, 25, 30])
+
+# Use boolean indexing to filter elements greater than 20
+print(arr[arr > 20]) 
+import numpy as np 
+
+# Create a 1D NumPy array with five elements
+arr = np.array([10, 15, 20, 25, 30])
+
+# Use boolean indexing with multiple conditions to filter elements
+print(arr[(arr > 10) & (arr < 30)])  
+import numpy as np
+
+cube = np.random.rand(4, 4, 4)
+
+# Selects the first "slice" along the last axis
+print(cube[..., 0])  
+import numpy as np
+
+# Create a 1D NumPy array with three elements
+arr = np.array([1, 2, 3])
+
+# Add a new axis to convert the 1D array into a 2D column vector
+# arr[:, np.newaxis] inserts a new axis along the second dimension 
+print(arr[:, np.newaxis])  
+import numpy as np 
+
+# Create a 1D NumPy array with four elements
+arr = np.array([1, 2, 3, 4])
+
+# Modify elements in the array using slicing
+arr[1:3] = 99
+
+# Print the updated array to see the changes
+print(arr) 
+# Importing Numpy module 
+import numpy as np 
+  
+# Creating a 3X3 2-D Numpy array 
+arr = np.array([[10, 20, 30],  
+                [40, 5, 66],  
+                [70, 88, 94]]) 
+  
+print("Given Array :") 
+print(arr) 
+  
+# Access the First and Last rows of array 
+res_arr = arr[[0,2]] 
+print("\nAccessed Rows :") 
+print(res_arr)
+# Importing Numpy module 
+import numpy as np 
+  
+# Creating a 3X4 2-D Numpy array 
+arr = np.array([[101, 20, 3, 10],  
+                [40, 5, 66, 7],  
+                [70, 88, 9, 141]]) 
+                 
+print("Given Array :") 
+print(arr) 
+  
+# Access the Middle row of array 
+res_arr = arr[1] 
+print("\nAccessed Row :") 
+print(res_arr)
+# Importing Numpy module 
+import numpy as np 
+  
+# Creating a 4X4 2-D Numpy array 
+arr = np.array([[1, 20, 3, 1],  
+                [40, 5, 66, 7],  
+                [70, 88, 9, 11], 
+               [80, 100, 50, 77]]) 
+  
+print("Given Array :") 
+print(arr) 
+  
+# Access the Last three rows of array 
+res_arr = arr[[1,2,3]] 
+print("\nAccessed Rows :") 
+print(res_arr)
+# Importing Numpy module 
+import numpy as np 
+  
+# Creating a 5X4 2-D Numpy array 
+arr = np.array([[1, 20, 3, 1],  
+                [40, 5, 66, 7],  
+                [70, 88, 9, 11], 
+               [80, 100, 50, 77], 
+               [1, 8.5, 7.9, 4.8]]) 
+  
+print("Given Array :") 
+print(arr) 
+  
+# Access the First two rows of array 
+res_arr = arr[[0,1]] 
+print("\nAccessed Rows :") 
+print(res_arr)
+# Importing Numpy module  
+import numpy as np 
+  
+# Creating 3-D Numpy array 
+n_arr = np.array([[[10, 25, 70], [30, 45, 55], [20, 45, 7]],  
+                  [[50, 65, 8], [70, 85, 10], [11, 22, 33]]]) 
+  
+print("Given 3-D Array:") 
+print(n_arr) 
+  
+# Access the Middle rows of 3-D array 
+res_arr = n_arr[:,[1]] 
+print("\nAccessed Rows :") 
+print(res_arr)
+# Importing Numpy module  
+import numpy as np 
+  
+# Creating 3-D Numpy array 
+n_arr = np.array([[[10, 25, 70], [30, 45, 55], [20, 45, 7]],  
+                  [[50, 65, 8], [70, 85, 10], [11, 22, 33]], 
+                 [[19, 69, 36], [1, 5, 24], [4, 20, 96]]]) 
+  
+  
+print("Given 3-D Array:") 
+print(n_arr) 
+  
+# Access the First and Last rows of 3-D array 
+res_arr = n_arr[:,[0, 2]] 
+print("\nAccessed Rows :") 
+print(res_arr)
