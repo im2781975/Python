@@ -1534,3 +1534,458 @@ data_frame[column] = data_frame[column].apply(lambda x: pd.to_numeric(x, errors 
 # Traverse data frame to detect data types after fix
 for column in data_frame.columns:
   print(pd.api.types.infer_dtype(data_frame[column]))
+
+
+#displaying first five rows
+display(data_frame.head())
+ 
+#displaying last five rows
+display(data_frame.tail())
+# Program to print all the column name of the dataframe
+print(list(data_frame.columns))
+data_frame.info()
+data_frame.describe()
+data_frame.isnull( )
+data_frame.isnull().sum()
+data_frame = data_frame.dropna()
+data_frame = data_frame.fillna(value)
+data_frame[col] = data_frame[col].fillna(value)
+#Removing 4th indexed value from the dataframe
+data_frame.drop(4).head()
+data_frame.rename({0:"First",1:"Second"})
+#Creates a new column with all the values equal to 1
+data_frame['NewColumn'] = 1
+data_frame.head()
+data_frame.sort_values(by='Age', ascending=False).head()
+data_frame.sort_values(by=['Age','Annual Income (k$)']).head(10)
+#Creating dataframe1
+df1 = pd.DataFrame({
+        'Name':['Jeevan', 'Raavan', 'Geeta', 'Bheem'], 
+        'Age':[25, 24, 52, 40], 
+        'Qualification':['Msc', 'MA', 'MCA', 'Phd']})
+df1
+#Creating dataframe2
+df2 = pd.DataFrame({'Name':['Jeevan', 'Raavan', 'Geeta', 'Bheem'],
+                    'Salary':[100000, 50000, 20000, 40000]})
+df2
+#Merging two dataframes
+df = pd.merge(df1, df2)
+df
+# Apply function
+def fun(value):
+    if value > 70:
+        return "Yes"
+    else:
+        return "No"
+ 
+data_frame['Customer Satisfaction'] = data_frame['Spending Score (1-100)'].apply(fun)
+data_frame.head(10)
+const = data_frame['Age'].max()
+data_frame['Age'] = data_frame['Age'].apply(lambda x: x/const)
+data_frame.head()
+# Visualization
+data_frame.plot(x ='CustomerID', y='Spending Score (1-100)',kind = 'scatter')
+data_frame.plot.hist()
+
+# importing packages 
+import pandas as pd 
+  
+# create data 
+df = pd.DataFrame([ 
+                   [180000, 110, 18.9, 1400],  
+                   [360000, 905, 23.4, 1800],  
+                   [230000, 230, 14.0, 1300],  
+                   [60000, 450, 13.5, 1500]],  
+    
+                   columns=['Col A', 'Col B', 
+                            'Col C', 'Col D']) 
+  
+# view data 
+display(df)
+import matplotlib.pyplot as plt 
+df.plot(kind = 'bar')
+# copy the data 
+df_max_scaled = df.copy() 
+  
+# apply normalization techniques 
+for column in df_max_scaled.columns: 
+    df_max_scaled[column] = df_max_scaled[column]  / df_max_scaled[column].abs().max() 
+      
+# view normalized data 
+display(df_max_scaled) 
+import matplotlib.pyplot as plt 
+df_max_scaled.plot(kind = 'bar')
+# copy the data 
+df_min_max_scaled = df.copy() 
+  
+# apply normalization techniques 
+for column in df_min_max_scaled.columns: 
+    df_min_max_scaled[column] = (df_min_max_scaled[column] - df_min_max_scaled[column].min()) / (df_min_max_scaled[column].max() - df_min_max_scaled[column].min())     
+  
+# view normalized data 
+print(df_min_max_scaled)
+import matplotlib.pyplot as plt 
+df_min_max_scaled.plot(kind = 'bar')
+# copy the data 
+df_z_scaled = df.copy() 
+  
+# apply normalization techniques 
+for column in df_z_scaled.columns: 
+    df_z_scaled[column] = (df_z_scaled[column] -
+                           df_z_scaled[column].mean()) / df_z_scaled[column].std()     
+  
+# view normalized data    
+display(df_z_scaled)
+import matplotlib.pyplot as plt 
+df_z_scaled.plot(kind='bar')
+#Data Manipulation
+# Importing the pandas library
+import pandas as pd
+ 
+# creating a dataframe object
+student_register = pd.DataFrame()
+ 
+# assigning values to the 
+# rows and columns of the dataframe
+student_register['Name'] = ['Abhijit','Smriti',
+                            'Akash', 'Roshni']
+student_register['Age'] = [20, 19, 20, 14]
+student_register['Student'] = [False, True,
+                               True, False]
+ 
+print(student_register)
+# creating a new pandas
+# series object
+new_person = pd.Series(['Mansi', 19, True], 
+                       index = ['Name', 'Age', 
+                                'Student'])
+ 
+# using the .append() function
+# to add that row to the dataframe
+student_register.append(new_person, ignore_index = True)
+print(student_register)
+# dimension of the dataframe
+print('Shape: ')
+print(student_register.shape)
+print('--------------------------------------')
+# showing info about the data 
+print('Info: ')
+print(student_register.info())
+print('--------------------------------------')
+# correlation between columns
+print('Correlation: ')
+print(student_register.corr())
+# for showing the statistical 
+# info of the dataframe
+print('Describe')
+print(student_register.describe())
+students = student_register.drop('Age', axis=1)
+print(students.head())
+students = students.drop(2, axis=0)
+print(students.head())
+# import module 
+import pandas as pd 
+  
+# Creating our dataset 
+df = pd.DataFrame([[9, 4, 8, 9], 
+                   [8, 10, 7, 6], 
+                   [7, 6, 8, 5]], 
+                  columns=['Maths',  'English',  
+                           'Science', 'History']) 
+  
+# display dataset 
+print(df) 
+df.sum()
+df.describe()
+df.agg(['sum', 'min', 'max'])
+df.groupby(by=['Maths'])
+a = df.groupby('Maths') 
+a.first() 
+b = df.groupby(['Maths', 'Science']) 
+b.first() 
+# import module 
+import numpy as np 
+import pandas as pd 
+  
+# reading csv file 
+dataset = pd.read_csv("diamonds.csv") 
+  
+# printing first 5 rows 
+print(dataset.head(5)) 
+dataset.groupby('cut').sum()
+dataset.groupby(['cut', 'color']).agg('min') 
+# dictionary having key as group name of price and 
+# value as list of aggregation function  
+# we want to perform on group price 
+agg_functions = { 
+    'price': 
+    ['sum', 'mean', 'median', 'min', 'max', 'prod'] 
+} 
+  
+dataset.groupby(['color']).agg(agg_functions) 
+# importing pandas
+ 
+import pandas as pd
+ 
+# Creating dataframe a
+a = pd.DataFrame()
+ 
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12], 
+     'val1': ['a', 'b', 'c', 'd']}
+ 
+a = pd.DataFrame(d)
+ 
+# printing the dataframe
+a
+# importing pandas
+import pandas as pd
+ 
+# Creating dataframe b
+b = pd.DataFrame()
+ 
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+     'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+ 
+# printing the dataframe
+b
+# importing pandas
+import pandas as pd
+ 
+# Creating dataframe a
+a = pd.DataFrame()
+ 
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12],
+     'val1': ['a', 'b', 'c', 'd']}
+ 
+a = pd.DataFrame(d)
+ 
+# Creating dataframe b
+b = pd.DataFrame()
+ 
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+     'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+ 
+# inner join
+df = pd.merge(a, b, on='id', how='inner')
+ 
+# display dataframe
+df
+# importing pandas
+import pandas as pd
+ 
+# Creating dataframe a
+a = pd.DataFrame()
+ 
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12],
+     'val1': ['a', 'b', 'c', 'd']}
+ 
+a = pd.DataFrame(d)
+ 
+# Creating dataframe b
+b = pd.DataFrame()
+ 
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+     'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+ 
+# left outer join
+df = pd.merge(a, b, on='id', how='left')
+ 
+# display dataframe
+df
+# importing pandas
+import pandas as pd
+ 
+# Creating dataframe a
+a = pd.DataFrame()
+ 
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12],
+     'val1': ['a', 'b', 'c', 'd']}
+ 
+a = pd.DataFrame(d)
+ 
+# Creating dataframe b
+b = pd.DataFrame()
+ 
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+     'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+ 
+# right outer join
+df = pd.merge(a, b, on='id', how='right')
+ 
+# display dataframe
+df
+# importing pandas
+import pandas as pd
+ 
+# Creating dataframe a
+a = pd.DataFrame()
+ 
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12],
+     'val1': ['a', 'b', 'c', 'd']}
+ 
+a = pd.DataFrame(d)
+ 
+# Creating dataframe b
+b = pd.DataFrame()
+ 
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+     'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+ 
+# full outer join
+df = pd.merge(a, b, on='id', how='outer')
+ 
+# display dataframe
+df
+# importing pandas
+import pandas as pd
+ 
+# Creating dataframe a
+a = pd.DataFrame()
+ 
+# Creating Dictionary
+d = {'id': [1, 2, 10, 12],
+     'val1': ['a', 'b', 'c', 'd']}
+ 
+a = pd.DataFrame(d)
+ 
+# Creating dataframe b
+b = pd.DataFrame()
+ 
+# Creating dictionary
+d = {'id': [1, 2, 9, 8],
+     'val1': ['p', 'q', 'r', 's']}
+b = pd.DataFrame(d)
+ 
+# index join
+df = pd.merge(a, b, left_index=True, right_index=True)
+ 
+# display dataframe
+df
+
+import pandas as pd
+
+df = {
+    "Array_1": [30, 70, 100],
+    "Array_2": [65.1, 49.50, 30.7]
+}
+
+data = pd.DataFrame(df)
+
+print(data.corr())
+
+import pandas as pd
+
+df = {
+    "Array_1": [30, 70, 100],
+    "Array_2": [65.1, 49.50, 30.7]
+}
+
+data = pd.DataFrame(df)
+
+print(data.corr())
+
+To find the correlation matrix of a DataFrame, simply call the corr() method:
+
+
+import pandas as pd
+
+# Example DataFrame
+df = pd.DataFrame({
+    ‘A’: [1, 2, 3, 4, 5],
+    ‘B’: [5, 6, 7, 8, 9],
+    ‘C’: [9, 8, 7, 6, 5]
+})
+
+# Calculate the correlation matrix
+correlation_matrix = df.corr()
+print(correlation_matrix)
+
+import pandas as pd
+
+# Sample data for TV serials
+data = {
+    'Title': ['The Crown', 'Stranger Things', 'Breaking Bad', 'The Mandalorian', 'Avatar: The Last Airbender', 'The Office', 'Game of Thrones', 'Cosmos: A Spacetime Odyssey', 'The Good Place', 'Black Mirror', 'The Chosen', 'The Bible'],
+    'Genre': ['Drama', 'Sci-Fi', 'Drama', 'Sci-Fi', 'Animation', 'Comedy', 'Fantasy', 'Documentary', 'Comedy', 'Sci-Fi', 'Drama', 'Drama'],
+    'Release_Year': [2016, 2016, 2008, 2019, 2005, 2005, 2011, 2014, 2016, 2011, 2019, 2013],
+    'Director': ['Peter Morgan', 'The Duffer Brothers', 'Vince Gilligan', 'Jon Favreau', 'Michael Dante DiMartino, Bryan Konietzko', 'Greg Daniels', 'David Benioff, D. B. Weiss', 'Brannon Braga', 'Michael Schur', 'Charlie Brooker', 'Dallas Jenkins', 'Various'],
+    'Seasons': [4, 4, 5, 2, 3, 9, 8, 1, 4, 5, 2, 1],
+    'Duration_Minutes': [60, 50, 47, 40, 23, 22, 57, 60, 22, 60, 45, 43]
+}
+tv_serials_df = pd.DataFrame(data)
+tv_serials_df.head()
+
+# Bar Plot: Genre vs Seasons
+genre_seasons = tv_serials_df.groupby('Genre')['Seasons'].mean()
+genre_seasons.plot.bar(figsize=(10, 6), color='coral', title='Bar Plot of Average Seasons by Genre')
+
+import pandas as pd 
+from datetime import datetime 
+import numpy as np 
+  
+range_date = pd.date_range(start ='1/1/2019', end ='1/08/2019', freq ='Min') 
+print(range_date)
+import pandas as pd 
+from datetime import datetime 
+import numpy as np 
+  
+range_date = pd.date_range(start ='1/1/2019', end ='1/08/2019', freq ='Min') 
+print(type(range_date[110]))
+import pandas as pd 
+from datetime import datetime 
+import numpy as np 
+  
+range_date = pd.date_range(start ='1/1/2019', end ='1/08/2019',freq ='Min') 
+df = pd.DataFrame(range_date, columns =['date']) 
+df['data'] = np.random.randint(0, 100, size =(len(range_date))) 
+  
+print(df.head(10))
+import pandas as pd 
+from datetime import datetime 
+import numpy as np 
+  
+range_date = pd.date_range(start ='1/1/2019', end ='1/08/2019',freq ='Min') 
+  
+df = pd.DataFrame(range_date, columns =['date']) 
+df['data'] = np.random.randint(0, 100, size =(len(range_date))) 
+  
+string_data = [str(x) for x in range_date] 
+print(string_data[1:11])
+import pandas as pd 
+from datetime import datetime 
+import numpy as np 
+  
+range_data = pd.date_range(start ='1/1/2019', end ='1/08/2019', freq ='Min') 
+df = pd.DataFrame(range_data, columns =['date']) 
+df['data'] = np.random.randint(0, 100, size =(len(range_data))) 
+  
+df['datetime'] = pd.to_datetime(df['date']) 
+df = df.set_index('datetime') 
+df.drop(['date'], axis = 1, inplace = True) 
+  
+print(df['2019-01-05'][1:11])
+
+# reading the dataset using read_csv
+df = pd.read_csv("stock_data.csv", 
+                 parse_dates=True, 
+                 index_col="Date")
+
+# displaying the first five rows of dataset
+df.head()
+# deleting column
+df.drop(columns='Unnamed: 0', inplace =True)
+df.head()
