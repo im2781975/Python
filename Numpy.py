@@ -1022,3 +1022,791 @@ print(n_arr)
 res_arr = n_arr[:,[0, 2]] 
 print("\nAccessed Rows :") 
 print(res_arr)
+
+# shaping
+import numpy as npy
+ 
+# creating a 2-d array
+arr1 = npy.array([[1, 3, 5, 7], [2, 4, 6, 8]])
+ 
+# creating a 3-d array
+arr2 = npy.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+ 
+print(arr1.shape)
+print(arr2.shape)
+import numpy as npy
+ 
+# creating an array of 6 dimension
+# using ndim
+arr = npy.array([2, 4, 6, 8, 10], ndmin=6)
+ 
+# printing array
+print(arr)
+ 
+# verifying the value of last dimension
+# as 5
+print('shape of an array :', arr.shape)
+import numpy as np
+ 
+# Create an array of tuples
+array_of_tuples = np.array([(1, 2), (3, 4), (5, 6), (7, 8)])
+ 
+# Display the array
+print("Array of Tuples:")
+print(array_of_tuples)
+ 
+# Determine and display the shape
+shape = array_of_tuples.shape
+print("\nShape of Array:", shape)
+# importing numpy
+import numpy as np
+ 
+# creating a numpy array
+array = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])
+ 
+# printing array
+print("Array : " + str(array))
+ 
+# length of array
+n = array.size
+ 
+# N-D array N dimension
+N = 4
+ 
+# calculating M
+M = n//N
+ 
+# reshaping numpy array
+# converting it to 2-D from 1-D array
+reshaped1 = array.reshape((N, M))
+ 
+# printing reshaped array
+print("First Reshaped Array : ")
+print(reshaped1)
+ 
+# creating another reshaped array
+reshaped2 = np.reshape(array, (2, 8))
+ 
+# printing reshaped array
+print("Second Reshaped Array : ")
+print(reshaped2)
+# importing numpy
+import numpy as np
+ 
+# creating a numpy array
+array = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])
+ 
+# printing array
+print("Array : " + str(array))
+ 
+ 
+# reshaping numpy array
+# converting it to 3-D from 1-D array
+reshaped = array.reshape((2, 2, 4))
+ 
+# printing reshaped array
+print("Reshaped 3-D Array : ")
+print(reshaped)
+# importing numpy
+import numpy as np
+ 
+# creating a numpy array
+array = np.array([[1, 2, 3],
+                 [4, 5, 6],
+                 [7, 8, 9]])
+ 
+# printing array
+print(" 2-D Array : ")
+print(array)
+ 
+ 
+# reshaping numpy array
+# converting it to 1-D from 2-D array
+reshaped = array.reshape((9))
+ 
+# or we can use unknown dimension
+# reshaped = array.reshape((-1))
+ 
+# printing reshaped array
+print("Reshaped 1-D Array : ")
+print(reshaped)
+# importing numpy
+import numpy as np
+ 
+# creating a numpy array
+array = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])
+ 
+# printing array
+print("Array : " + str(array))
+ 
+ 
+# reshaping numpy array
+# converting it to 3-D from 1-D array
+reshaped1 = array.reshape((2, 2, -1))
+ 
+# printing reshaped array
+print("First Reshaped Array : ")
+print(reshaped1)
+ 
+ 
+# converting it to 2-D array
+reshaped2 = array.reshape((4, -1))
+ 
+# printing reshaped array
+print("Second Reshaped Array : ")
+print(reshaped2)
+# importing numpy
+import numpy as np
+ 
+# creating a numpy array
+array = np.array([[1, 2, 3],
+                 [4, 5, 6],
+                 [7, 8, 9]])
+ 
+# printing array
+print(" 2-D Array : ")
+print(array)
+ 
+ 
+# reshaping numpy array
+# converting it to 1-D from 2-D array
+# reshaping it into 1, 5
+reshaped = array.reshape((1, 5))
+ 
+# or we can use 
+ 
+# printing reshaped array
+print("Reshaped 1-D Array : ")
+print(reshaped)
+# importing numpy as geek 
+import numpy as geek
+ 
+arr = geek.array([[5, 6], [7, 8]])
+ 
+gfg = arr.flatten()
+ 
+print( gfg )
+# importing numpy as geek 
+import numpy as geek
+ 
+arr = geek.array([[5, 6], [7, 8]])
+ 
+gfg = arr.flatten('F')
+ 
+print( gfg )
+import numpy as np
+ 
+# Create two 2D arrays
+array1 = np.array([[1, 2, 3], [4, 5, 6]])
+array2 = np.array([[7, 8, 9], [10, 11, 12]])
+ 
+# Flatten the arrays and concatenate them
+concatenated_array = np.concatenate((array1.flatten(), array2.flatten()))
+ 
+print("Array 1:")
+print(array1)
+print("\nArray 2:")
+print(array2)
+print("\nConcatenated Array:")
+print(concatenated_array)
+import numpy as np
+ 
+# Create a 2D array
+original_array = np.array([[1, 2, 3],
+                           [4, 5, 6]])
+ 
+# Flatten the array and initialize a new flattened array with zeros
+flattened_zeros = np.zeros_like(original_array.flatten())
+ 
+print("Original Array:")
+print(original_array)
+print("\nFlattened Zeros Array:")
+print(flattened_zeros)
+import numpy as np
+ 
+# Create a 3x3 array
+original_array = np.array([[4, 12, 8],
+                           [5, 9, 10],
+                           [7, 6, 11]])
+ 
+# Flatten the array and find the maximum value
+max_value = original_array.flatten().max()
+ 
+print("Original Array:")
+print(original_array)
+print("\nMaximum Value in Flattened Array:", max_value)
+#sorting
+# importing libraries 
+import numpy as np 
+  
+a = np.array([12, 15, 10, 1]) 
+print("Array before sorting",a) 
+a.sort() 
+print("Array after sorting",a) 
+# importing libraries 
+import numpy as np 
+# sort along the first axis 
+a = np.array([[12, 15], [10, 1]]) 
+arr1 = np.sort(a, axis = 0)         
+print ("Along first axis : \n", arr1)         
+# sort along the last axis 
+a = np.array([[10, 15], [12, 1]]) 
+arr2 = np.sort(a, axis = -1)         
+print ("\nAlong first axis : \n", arr2) 
+a = np.array([[12, 15], [10, 1]]) 
+arr1 = np.sort(a, axis = None)         
+print ("\nAlong none axis : \n", arr1)
+import numpy as np 
+  
+# Numpy array created 
+a = np.array([9, 3, 1, 7, 4, 3, 6]) 
+  
+# unsorted array print 
+print('Original array:\n', a) 
+  
+# Sort array indices 
+b = np.argsort(a) 
+print('Sorted indices of original array->', b) 
+  
+# To get sorted array using sorted indices 
+# c is temp array created of same len as of b 
+c = np.zeros(len(b), dtype = int) 
+for i in range(0, len(b)): 
+    c[i]= a[b[i]] 
+print('Sorted array->', c) 
+import numpy as np 
+  
+# Numpy array created 
+# First column 
+a = np.array([9, 3, 1, 3, 4, 3, 6]) 
+  
+# Second column 
+b = np.array([4, 6, 9, 2, 1, 8, 7]) 
+print('column a, column b') 
+for (i, j) in zip(a, b): 
+    print(i, ' ', j) 
+  
+# Sort by a then by b 
+ind = np.lexsort((b, a)) 
+print('Sorted indices->', ind) 
+# Python code to sort an array in-place 
+# using a.sort 
+import numpy as np 
+  
+# Numpy array created 
+a = np.array([9, 3, 1, 7, 4, 3, 6]) 
+  
+# unsorted array print 
+print('Original array:\n', a) 
+  
+# Return type is None 
+print('Return type:', a.sort()) 
+  
+# Sorted array output 
+print('Original array sorted->', a) 
+# Python code to create a sorted copy using 
+# sorted() 
+import numpy as np 
+  
+# Numpy array created 
+a = np.array([9, 3, 1, 7, 4, 3, 6]) 
+  
+# unsorted array print 
+print('Original array:\n', a) 
+b = sorted(a) 
+  
+# sorted list returned to b, b type is 
+# <class 'list'>  
+print('New array sorted->', b) 
+  
+# original array no change 
+print('Original array->', a) 
+# Python code to demonstrate working of np.argsort 
+import numpy as np 
+  
+# Numpy array created 
+a = np.array([9, 3, 1, 7, 4, 3, 6]) 
+  
+# unsorted array print 
+print('Original array:\n', a) 
+  
+# Sort array indices 
+b = np.argsort(a) 
+print('Sorted indices of original array->', b) 
+  
+# To get sorted array using sorted indices 
+# c is temp array created of same len as of b 
+c = np.zeros(len(b), dtype = int) 
+for i in range(0, len(b)): 
+    c[i]= a[b[i]] 
+print('Sorted array->', c) 
+# Python code to demonstrate working of  
+# np.lexsort() 
+import numpy as np 
+  
+# Numpy array created 
+a = np.array([9, 3, 1, 3, 4, 3, 6]) # First column 
+b = np.array([4, 6, 9, 2, 1, 8, 7]) # Second column 
+print('column a, column b') 
+for (i, j) in zip(a, b): 
+    print(i, ' ', j) 
+  
+ind = np.lexsort((b, a)) # Sort by a then by b 
+print('Sorted indices->', ind) 
+# importing the module 
+import numpy as np 
+  
+# creating the array 
+arr = np.array([10, 32, 30, 50, 20, 82, 91, 45]) 
+  
+#  printing arr 
+print("arr = {}".format(arr)) 
+  
+#  looking for value 30 in arr and storing its index in i 
+i = np.where(arr == 30) 
+print("i = {}".format(i))
+# importing the module 
+import numpy as np 
+  
+# creating the array 
+arr = [1, 2, 2, 3, 3, 3, 4, 5, 6, 6] 
+print("arr = {}".format(arr)) 
+  
+# left-most 3 
+print("left-most index = {}".format(np.searchsorted(arr, 3, side="left"))) 
+  
+# right-most 3 
+print("right-most index = {}".format(np.searchsorted(arr, 3, side="right")))
+# importing libraries
+import numpy as np
+ 
+# sort along the first axis
+a = np.array([[12, 15], [10, 1]])
+arr1 = np.sort(a, axis = 0)        
+print ("Along first axis : \n", arr1)        
+ 
+ 
+# sort along the last axis
+a = np.array([[10, 15], [12, 1]])
+arr2 = np.sort(a, axis = -1)        
+print ("\nAlong first axis : \n", arr2)
+ 
+ 
+a = np.array([[12, 15], [10, 1]])
+arr1 = np.sort(a, axis = None)        
+print ("\nAlong none axis : \n", arr1)
+# Python code to demonstrate 
+# working of  numpy.argsort
+import numpy as np
+ 
+# Numpy array created
+a = np.array([9, 3, 1, 7, 4, 3, 6])
+ 
+# unsorted array print
+print('Original array:\n', a)
+ 
+# Sort array indices
+b = np.argsort(a)
+print('Sorted indices of original array->', b)
+ 
+# To get sorted array using sorted indices
+# c is temp array created of same len as of b
+c = np.zeros(len(b), dtype = int)
+for i in range(0, len(b)):
+    c[i]= a[b[i]]
+print('Sorted array->', c)
+# Python code to demonstrate working of 
+# numpy.lexsort()
+import numpy as np
+ 
+# Numpy array created
+# First column
+a = np.array([9, 3, 1, 3, 4, 3, 6])
+ 
+# Second column 
+b = np.array([4, 6, 9, 2, 1, 8, 7]) 
+print('column a, column b')
+for (i, j) in zip(a, b):
+    print(i, ' ', j)
+ 
+# Sort by a then by b
+ind = np.lexsort((b, a)) 
+print('Sorted indices->', ind)
+# Python Program illustrating
+# working of argmax()
+ 
+import numpy as geek 
+ 
+# Working on 2D array
+array = geek.arange(12).reshape(3, 4)
+print("INPUT ARRAY : \n", array)
+ 
+# No axis mentioned, so works on entire array
+print("\nMax element : ", geek.argmax(array))
+ 
+# returning Indices of the max element
+# as per the indices
+print(("\nIndices of Max element : "
+      , geek.argmax(array, axis=0)))
+print(("\nIndices of Max element : "
+      , geek.argmax(array, axis=1)))
+# Python Program illustrating
+# working of nanargmax()
+ 
+import numpy as geek 
+ 
+# Working on 1D array
+array = [geek.nan, 4, 2, 3, 1]
+print("INPUT ARRAY 1 : \n", array)
+ 
+array2 = geek.array([[geek.nan, 4], [1, 3]])
+ 
+# returning Indices of the max element
+# as per the indices ingnoring NaN
+print(("\nIndices of max in array1 : "
+       , geek.nanargmax(array)))
+ 
+# Working on 2D array
+print("\nINPUT ARRAY 2 : \n", array2)
+print(("\nIndices of max in array2 : "
+      , geek.nanargmax(array2)))
+ 
+print(("\nIndices at axis 1 of array2 : "
+      , geek.nanargmax(array2, axis = 1)))
+# Python Program illustrating
+# working of argmin()
+ 
+import numpy as geek 
+ 
+# Working on 1D array
+array = geek.arange(8)
+print("INPUT ARRAY : \n", array)
+ 
+ 
+# returning Indices of the min element
+# as per the indices
+print("\nIndices of min element : ", geek.argmin(array, axis=0))
+import numpy as np
+
+# Counting the number of non-zero values in the entire array
+a = np.count_nonzero([[0, 1, 7, 0, 0], [3, 0, 0, 2, 19]])
+
+# Counting the number of non-zero values along axis 0 (column-wise)
+b = np.count_nonzero([[0, 1, 7, 0, 0], [3, 0, 0, 2, 19]], axis=0)
+
+print("Number of nonzero values in the entire array is:", a)
+print("Number of nonzero values along axis 0 is:", b)
+#Combine
+import numpy as np 
+  
+array_1 = np.array([1, 2]) 
+array_2 = np.array([3, 4]) 
+  
+array_new = np.concatenate((array_1, array_2)) 
+print(array_new) 
+#join
+# Python program explaining 
+# hstack() function 
+  
+import numpy as geek 
+  
+# input array 
+in_arr1 = geek.array([ 1, 2, 3] ) 
+print ("1st Input array : \n", in_arr1)  
+  
+in_arr2 = geek.array([ 4, 5, 6] ) 
+print ("2nd Input array : \n", in_arr2)  
+  
+# Stacking the two arrays horizontally 
+out_arr = geek.hstack((in_arr1, in_arr2)) 
+print ("Output horizontally stacked array:\n ", out_arr) 
+# Python program explaining 
+# hstack() function 
+  
+import numpy as geek 
+  
+# input array 
+in_arr1 = geek.array([[ 1, 2, 3], [ -1, -2, -3]] ) 
+print ("1st Input array : \n", in_arr1)  
+  
+in_arr2 = geek.array([[ 4, 5, 6], [ -4, -5, -6]] ) 
+print ("2nd Input array : \n", in_arr2)  
+  
+# Stacking the two arrays horizontally 
+out_arr = geek.hstack((in_arr1, in_arr2)) 
+print ("Output stacked array :\n ", out_arr) 
+# Python program explaining 
+# vstack() function 
+  
+import numpy as geek 
+  
+# input array 
+in_arr1 = geek.array([ 1, 2, 3] ) 
+print ("1st Input array : \n", in_arr1)  
+  
+in_arr2 = geek.array([ 4, 5, 6] ) 
+print ("2nd Input array : \n", in_arr2)  
+  
+# Stacking the two arrays vertically 
+out_arr = geek.vstack((in_arr1, in_arr2)) 
+print ("Output vertically stacked array:\n ", out_arr) 
+# Python program explaining 
+# vstack() function 
+  
+import numpy as geek 
+  
+# input array 
+in_arr1 = geek.array([[ 1, 2, 3], [ -1, -2, -3]] ) 
+print ("1st Input array : \n", in_arr1)  
+  
+in_arr2 = geek.array([[ 4, 5, 6], [ -4, -5, -6]] ) 
+print ("2nd Input array : \n", in_arr2)  
+  
+# Stacking the two arrays vertically 
+out_arr = geek.vstack((in_arr1, in_arr2)) 
+print ("Output stacked array :\n ", out_arr) 
+import numpy as np 
+  
+array_1 = np.array([1, 2]) 
+array_2 = np.array([3, 4]) 
+  
+array_new = np.concatenate((array_1, array_2)) 
+print(array_new) 
+import numpy as np 
+  
+array_1 = np.array([[1, 2], [3, 4]]) 
+array_2 = np.array([[5, 6], [7, 8]]) 
+  
+array_new = np.concatenate((array_1, array_2), axis=1) 
+print(array_new) 
+import numpy as np 
+  
+array_1 = np.array([1, 2, 3, 4]) 
+array_2 = np.array([5, 6, 7, 8]) 
+  
+array_new = np.stack((array_1, array_2), axis=1) 
+print(array_new) 
+import numpy as np 
+  
+block_1 = np.array([[1, 1], [1, 1]]) 
+block_2 = np.array([[2, 2, 2], [2, 2, 2]]) 
+block_3 = np.array([[3, 3], [3, 3], [3, 3]]) 
+block_4 = np.array([[4, 4, 4], [4, 4, 4], [4, 4, 4]]) 
+  
+block_new = np.block([ 
+    [block_1, block_2], 
+    [block_3, block_4] 
+]) 
+  
+print(block_new) 
+# importing Numpy package  
+import numpy as np 
+  
+num_1d = np.arange(5) 
+print("One dimensional array:") 
+print(num_1d) 
+  
+num_2d = np.arange(10).reshape(2,5) 
+print("\nTwo dimensional array:") 
+print(num_2d) 
+  
+# Combine 1-D and 2-D arrays and display  
+# their elements using numpy.nditer()  
+for a, b in np.nditer([num_1d, num_2d]): 
+    print("%d:%d" % (a, b),)
+# importing Numpy package  
+import numpy as np 
+  
+num_1d = np.arange(7) 
+print("One dimensional array:") 
+print(num_1d) 
+  
+num_2d = np.arange(21).reshape(3,7) 
+print("\nTwo dimensional array:") 
+print(num_2d) 
+  
+# Combine 1-D and 2-D arrays and display  
+# their elements using numpy.nditer()  
+for a, b in np.nditer([num_1d, num_2d]): 
+    print("%d:%d" % (a, b),)
+# importing Numpy package  
+import numpy as np 
+  
+num_1d = np.arange(2) 
+print("One dimensional array:") 
+print(num_1d) 
+  
+num_2d = np.arange(12).reshape(6,2) 
+print("\nTwo dimensional array:") 
+print(num_2d) 
+  
+# Combine 1-D and 2-D arrays and display 
+# their elements using numpy.nditer()  
+for a, b in np.nditer([num_1d, num_2d]): 
+    print("%d:%d" % (a, b),)
+import numpy as np
+Arr = np.array([1, 2, 3, 4, 5, 6])
+array = np.array_split(arr, 3)
+print(array)
+import numpy as np
+ 
+# Creating an example array
+array = np.arange(6)
+ 
+# Splitting the array into 2 equal parts along the first axis (axis=0)
+result = np.split(array, 2)
+ 
+print("Array:")
+print(array)
+print("\nResult after numpy.split():")
+print(result)
+import numpy as np
+ 
+# Creating an example array
+array = np.arange(13)
+ 
+# Splitting the array into 4 unequal parts along the first axis (axis=0)
+result = np.array_split(array, 4)
+ 
+print("Array:")
+print(array)
+print("\nResult after numpy.array_split():")
+print(result)
+import numpy as np
+ 
+# Creating a 2D array
+array = np.array([[3, 2, 1], [8, 9, 7], [4, 6, 5]])
+ 
+# Splitting the array into 3 equal parts along the second axis (axis=1)
+result = np.split(array, 3, axis=1)
+ 
+print("2D Array:")
+print(original_array)
+print("\nResult after numpy.split() along axis=1:")
+print(result)
+import numpy as np
+ 
+# Creating an example matrix
+matrix = np.array([[1, 2, 3],
+                            [4, 5, 6],
+                            [7, 8, 9],
+                            [10, 11, 12]])
+ 
+# Vertical splitting into 2 subarrays along axis=0
+result = np.vsplit(matrix, 2)
+ 
+print("Matrix:")
+print(matrix)
+print("\nResult after numpy.vsplit():")
+print(result)
+import numpy as np
+ 
+# Creating an example 2D array
+array = np.array([[1, 2, 3, 4],
+                           [5, 6, 7, 8],
+                           [9, 10, 11, 12]])
+ 
+# Horizontal splitting into 2 subarrays along axis=1
+result = np.hsplit(array, 2)
+ 
+print("2D Array:")
+print(array)
+print("\nResult after numpy.hsplit():")
+print(result)
+import numpy as np
+ 
+# Creating an example 3D array
+original_3d_array = np.arange(24).reshape((2, 3, 4))
+ 
+# Splitting along axis=2 (third axis)
+result = np.dsplit(original_3d_array, 2)
+ 
+print("Original 3D Array:")
+print(original_3d_array)
+print("\nResult after numpy.dsplit():")
+print(result)
+
+# Python Program illustrating 
+# numpy.sum() method
+import numpy as np 
+    
+# 1D array 
+arr = [20, 2, .2, 10, 4] 
+
+print("\nSum of arr : ", np.sum(arr)) 
+
+print("Sum of arr(uint8) : ", np.sum(arr, dtype = np.uint8)) 
+print("Sum of arr(float32) : ", np.sum(arr, dtype = np.float32))
+
+print ("\nIs np.sum(arr).dtype == np.uint : ", 
+    np.sum(arr).dtype == np.uint) 
+
+print ("Is np.sum(arr).dtype == np.float : ", 
+    np.sum(arr).dtype == np.float) 
+# Python Program illustrating 
+# numpy.sum() method
+import numpy as np 
+    
+# 2D array 
+arr = [[14, 17, 12, 33, 44], 
+    [15, 6, 27, 8, 19], 
+    [23, 2, 54, 1, 4,]] 
+
+print("\nSum of arr : ", np.sum(arr)) 
+
+print("Sum of arr(uint8) : ", np.sum(arr, dtype = np.uint8)) 
+print("Sum of arr(float32) : ", np.sum(arr, dtype = np.float32))
+
+print ("\nIs np.sum(arr).dtype == np.uint : ", 
+                np.sum(arr).dtype == np.uint) 
+
+print ("Is np.sum(arr).dtype == np.float : ", 
+            np.sum(arr).dtype == np.float) 
+# Python Program illustrating 
+# numpy.sum() method 
+import numpy as np 
+    
+# 2D array 
+arr = [[14, 17, 12, 33, 44], 
+    [15, 6, 27, 8, 19], 
+    [23, 2, 54, 1, 4,]] 
+
+print("\nSum of arr : ", np.sum(arr)) 
+print("Sum of arr(axis = 0) : ", np.sum(arr, axis = 0)) 
+print("Sum of arr(axis = 1) : ", np.sum(arr, axis = 1))
+
+print("\nSum of arr (keepdimension is True): \n",
+    np.sum(arr, axis = 1, keepdims = True))
+# Python Program illustrating  
+# numpy.mean() method  
+import numpy as np 
+    
+# 1D array  
+arr = [20, 2, 7, 1, 34] 
+  
+print("arr : ", arr)  
+print("mean of arr : ", np.mean(arr)) 
+# Python Program illustrating  
+# numpy.mean() method    
+import numpy as np 
+    
+  
+# 2D array  
+arr = [[14, 17, 12, 33, 44],   
+       [15, 6, 27, 8, 19],  
+       [23, 2, 54, 1, 4, ]]  
+    
+# mean of the flattened array  
+print("\nmean of arr, axis = None : ", np.mean(arr))  
+    
+# mean along the axis = 0  
+print("\nmean of arr, axis = 0 : ", np.mean(arr, axis = 0))  
+   
+# mean along the axis = 1  
+print("\nmean of arr, axis = 1 : ", np.mean(arr, axis = 1)) 
+  
+out_arr = np.arange(3) 
+print("\nout_arr : ", out_arr)  
+print("mean of arr, axis = 1 : ",  
+      np.mean(arr, axis = 1, out = out_arr)) 
+      
