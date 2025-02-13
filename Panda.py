@@ -1989,3 +1989,113 @@ df.head()
 # deleting column
 df.drop(columns='Unnamed: 0', inplace =True)
 df.head()
+
+import pandas as pd
+import numpy as np
+
+# Load the dataset
+df = pd.read_csv('titanic.csv')
+df.head()
+# Categorical columns
+cat_col = [col for col in df.columns if df[col].dtype == 'object']
+print('Categorical columns :',cat_col)
+# Numerical columns
+num_col = [col for col in df.columns if df[col].dtype != 'object']
+print('Numerical columns :',num_col)
+df['Ticket'].unique()[:50]
+df1 = df.drop(columns=['Name','Ticket'])
+df1.shape
+round((df1.isnull().sum()/df1.shape[0])*100,2)
+df2 = df1.drop(columns='Cabin')
+df2.dropna(subset=['Embarked'], axis=0, inplace=True)
+df2.shape
+# Mean imputation
+df3 = df2.fillna(df2.Age.mean())
+# Let's check the null values again
+df3.isnull().sum()
+
+# calculate summary statistics
+mean = df3['Age'].mean()
+std  = df3['Age'].std()
+
+# Calculate the lower and upper bounds
+lower_bound = mean - std*2
+upper_bound = mean + std*2
+
+print('Lower Bound :',lower_bound)
+print('Upper Bound :',upper_bound)
+
+# Drop the outliers
+df4 = df3[(df3['Age'] >= lower_bound) 
+                & (df3['Age'] <= upper_bound)]
+X = df3[['Pclass','Sex','Age', 'SibSp','Parch','Fare','Embarked']]
+Y = df3['Survived']
+from sklearn.preprocessing import MinMaxScaler
+
+# initialising the MinMaxScaler
+scaler = MinMaxScaler(feature_range=(0, 1))
+
+# Numerical columns
+num_col_ = [col for col in X.columns if X[col].dtype != 'object']
+x1 = X
+# learning the statistical parameters for each of the data and transforming
+x1[num_col_] = scaler.fit_transform(x1[num_col_])
+x1.head()
+
+import pandas as pd
+import numpy as np
+
+# Creating a sample DataFrame with missing values
+data = {
+    'School ID': [101, 102, 103, np.nan, 105, 106, 107, 108],
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Henry'],
+    'Address': ['123 Main St', '456 Oak Ave', '789 Pine Ln', '101 Elm St', np.nan, '222 Maple Rd', '444 Cedar Blvd', '555 Birch Dr'],
+    'City': ['Los Angeles', 'New York', 'Houston', 'Los Angeles', 'Miami', np.nan, 'Houston', 'New York'],
+    'Subject': ['Math', 'English', 'Science', 'Math', 'History', 'Math', 'Science', 'English'],
+    'Marks': [85, 92, 78, 89, np.nan, 95, 80, 88],
+    'Rank': [2, 1, 4, 3, 8, 1, 5, 3],
+    'Grade': ['B', 'A', 'C', 'B', 'D', 'A', 'C', 'B']
+}
+
+df = pd.DataFrame(data)
+print("Sample DataFrame:")
+
+print(df)
+
+# Removing rows with missing values
+df_cleaned = df.dropna()
+
+# Displaying the DataFrame after removing missing values
+print("\nDataFrame after removing rows with missing values:")
+print(df_cleaned)
+#  Mean, Median, and Mode Imputation
+mean_imputation = df['Marks'].fillna(df['Marks'].mean())
+median_imputation = df['Marks'].fillna(df['Marks'].median())
+mode_imputation = df['Marks'].fillna(df['Marks'].mode().iloc[0])
+
+print("\nImputation using Mean:")
+print(mean_imputation)
+
+print("\nImputation using Median:")
+print(median_imputation)
+
+print("\nImputation using Mode:")
+print(mode_imputation)
+# Forward and Backward Fill
+forward_fill = df['Marks'].fillna(method='ffill')
+backward_fill = df['Marks'].fillna(method='bfill')
+
+print("\nForward Fill:")
+print(forward_fill)
+
+print("\nBackward Fill:")
+print(backward_fill)
+#  Interpolation Techniques
+linear_interpolation = df['Marks'].interpolate(method='linear')
+quadratic_interpolation = df['Marks'].interpolate(method='quadratic')
+
+print("\nLinear Interpolation:")
+print(linear_interpolation)
+
+print("\nQuadratic Interpolation:")
+print(quadratic_interpolation)
