@@ -1058,3 +1058,59 @@ data = np.array(['a', 'b', 'c', 'd', 'e'])
 # creating series 
 s = pd.Series(data, index =[1000, 1001, 1002, 1003, 1004]) 
 print(s) 
+import pandas as pd
+import json
+data = {
+    "One": {
+        "0": 60,
+        "1": 60,
+        "2": 60,
+        "3": 45,
+        "4": 45,
+        "5": 60
+    },
+    "Two": {
+        "0": 110,
+        "1": 117,
+        "2": 103,
+        "3": 109,
+        "4": 117,
+        "5": 102
+    }
+}
+# Corrected the attribute name to dumps
+df_read_json = pd.read_json(json.dumps(data), orient='index')
+print("DataFrame using pd.read_json() method:")
+print(df_read_json)
+import pandas as pd
+import json
+ 
+# Using JSON module and pd.json_normalize() method
+json_data = json.dumps(data)
+df_json_normalize = pd.json_normalize(json.loads(json_data))
+print("\nDataFrame using JSON module and pd.json_normalize() method:")
+print(df_json_normalize)
+import pandas as pd
+ 
+df = pd.DataFrame(data)
+ 
+print(df)
+import pandas as pd 
+# Creating Dataframe  
+df = pd.DataFrame([['a', 'b'], ['c', 'd']], 
+                  index =['row 1', 'row 2'], 
+                  columns =['col 1', 'col 2']) 
+  
+# Indication of expected JSON string format 
+print(df.to_json(orient ='split')) 
+  
+print(df.to_json(orient ='index'))
+works_data = json_normalize(data = d['programs'], 
+                            record_path ='works',  
+                            meta =['id', 'orchestra', 'programID', 'season']) 
+works_data.head(3)
+soloist_data = json_normalize(data = d['programs'], 
+                              record_path =['works', 'soloists'], 
+                              meta =['id']) 
+  
+soloist_data.head(3) 
