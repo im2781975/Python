@@ -1114,3 +1114,371 @@ soloist_data = json_normalize(data = d['programs'],
                               meta =['id']) 
   
 soloist_data.head(3) 
+#Data manuplate
+# Importing pandas and numpy
+import pandas as pd
+import numpy as np
+
+# Sample DataFrame with missing values
+data = {'First Score': [100, 90, np.nan, 95],
+        'Second Score': [30, 45, 56, np.nan],
+        'Third Score': [np.nan, 40, 80, 98]}
+
+df = pd.DataFrame(data)
+
+# Checking for missing values using isnull()
+missing_values = df.isnull()
+
+print(missing_values)
+# Importing pandas and numpy
+import pandas as pd
+import numpy as np
+
+# Sample DataFrame with missing values
+data = {'First Score': [100, 90, np.nan, 95],
+        'Second Score': [30, 45, 56, np.nan],
+        'Third Score': [np.nan, 40, 80, 98]}
+
+df = pd.DataFrame(data)
+
+# Checking for non-missing values using notnull()
+non_missing_values = df.notnull()
+
+print(non_missing_values)
+# Importing pandas
+import pandas as pd
+import numpy as np
+
+dict = {'First Score': [100, 90, np.nan, 95],
+        'Second Score': [30, 45, 56, np.nan],
+        'Third Score': [np.nan, 40, 80, 98]}
+
+df = pd.DataFrame(dict)
+
+# Filling missing values with 0
+df.fillna(0)
+df.fillna(method='pad')  # Forward fill
+df.fillna(method='bfill')  # Backward fill
+# importing pandas as pd 
+import pandas as pd
+  
+# Creating the dataframe  
+df = pd.DataFrame({"A": [12, 4, 5, None, 1], 
+                   "B": [None, 2, 54, 3, None], 
+                   "C": [20, 16, None, 3, 8], 
+                   "D": [14, 3, None, None, 6]}) 
+  
+# Print the dataframe 
+print(df)
+# to interpolate the missing values 
+df.interpolate(method ='linear', limit_direction ='forward')
+import pandas as pd
+import numpy as np
+
+dict = {'First Score': [100, 90, np.nan, 95],
+        'Second Score': [30, np.nan, 45, 56],
+        'Third Score': [52, 40, 80, 98],
+        'Fourth Score': [np.nan, np.nan, np.nan, 65]}
+
+df = pd.DataFrame(dict)
+
+# Drop rows with at least one missing value
+df.dropna()
+dict = {'First Score': [100, np.nan, np.nan, 95],
+        'Second Score': [30, np.nan, 45, 56],
+        'Third Score': [52, np.nan, 80, 98],
+        'Fourth Score': [np.nan, np.nan, np.nan, 65]}
+
+df = pd.DataFrame(dict)
+
+# Drop rows where all values are missing
+df.dropna(how='all')
+dict = {'First Score': [100, np.nan, np.nan, 95],
+        'Second Score': [30, np.nan, 45, 56],
+        'Third Score': [52, np.nan, 80, 98],
+        'Fourth Score': [60, 67, 68, 65]}
+
+df = pd.DataFrame(dict)
+
+# Drop columns with at least one missing value
+df.dropna(axis=1)
+import pandas as pd
+data = {
+    "Name": ["Alice", "Bob", "Alice", "David"],
+    "Age": [25, 30, 25, 40],
+    "City": ["NY", "LA", "NY", "Chicago"]
+}
+df = pd.DataFrame(data)
+display(df)
+
+# Removing duplicates
+unique_df = df.drop_duplicates()
+display(unique_df)
+import pandas as pd
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Alice', 'David'],
+    'Age': [25, 30, 25, 40],
+    'City': ['NY', 'LA', 'SF', 'Chicago']
+})
+
+# Drop duplicates based on the 'Name' column
+result = df.drop_duplicates(subset=['Name'])
+print(result)
+import pandas as pd
+
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Alice', 'David'],
+    'Age': [25, 30, 25, 40],
+    'City': ['NY', 'LA', 'NY', 'Chicago']
+})
+
+# Keep the last occurrence of duplicates
+result = df.drop_duplicates(keep='last')
+print(result)
+import pandas as pd
+
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Alice', 'David'],
+    'Age': [25, 30, 25, 40],
+    'City': ['NY', 'LA', 'NY', 'Chicago']
+})
+# Drop all duplicates
+result = df.drop_duplicates(keep=False)
+print(result)
+import pandas as pd
+
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Alice', 'David'],
+    'Age': [25, 30, 25, 40],
+    'City': ['NY', 'LA', 'NY', 'Chicago']
+})
+# Modify the DataFrame in place
+df.drop_duplicates(inplace=True)
+print(df)
+# Remove duplicates considering only column 'A'
+clean_df = df.drop_duplicates(subset=['A'])
+print(clean_df)
+has_duplicates = df.duplicated().any()
+print(has_duplicates)  # True if duplicates exist  
+df1 = pd.DataFrame({
+    'A': [1, 2, 3],
+    'B': ['a', 'b', 'c']
+})
+
+df2 = pd.DataFrame({
+    'A': [4, 2, 3],
+    'B': ['d', 'b', 'c']
+})
+
+# Merge DataFrames and remove duplicates
+merged_df = pd.merge(df1, df2, how='outer').drop_duplicates()
+print(merged_df)
+#change type
+import pandas as pd
+
+data = {'Name': ['John', 'Alice', 'Bob', 'Eve', 'Charlie'], 
+        'Age': [25, 30, 22, 35, 28], 
+        'Gender': ['Male', 'Female', 'Male', 'Female', 'Male'], 
+        'Salary': [50000, 55000, 40000, 70000, 48000]}
+
+df = pd.DataFrame(data)
+
+# Convert 'Age' column to float type
+df['Age'] = df['Age'].astype(float)
+print(df.dtypes)
+# Example: Create a 'Join Date' column as a string
+df['Join Date'] = ['2021-01-01', '2020-05-22', '2022-03-15', '2021-07-30', '2020-11-11']
+
+# Convert 'Join Date' to datetime type
+df['Join Date'] = pd.to_datetime(df['Join Date'])
+print(df.dtypes)
+# Convert 'Age' to float and 'Salary' to string
+df = df.astype({'Age': 'float64', 'Salary': 'str'})
+print(df.dtypes)
+
+import numpy as np 
+import pandas as pd 
+  
+# create a Dataframe 
+Mydataframe = pd.DataFrame({'FirstName': ['Vipul', 'Ashish', 'Milan'], 
+                            "Gender": ["", "", ""], 
+                            "Age": [0, 0, 0]}) 
+Mydataframe['Department'] = np.nan 
+  
+# show the dataframe 
+print(Mydataframe) 
+# import required libraries 
+import numpy as np 
+import pandas as pd 
+  
+# create a Dataframe 
+Mydataframe = pd.DataFrame({'FirstName': ['Vipul', 'Ashish', 'Milan'], 
+                            "Gender": ["", "", ""], 
+                            "Age": [0, 0, 0]}) 
+  
+Mydataframe['Department'] = np.nan 
+  
+display(Mydataframe) 
+  
+Mydataframe.dropna(how='all', axis=1, inplace=True) 
+  
+# show the dataframe 
+display(Mydataframe) 
+# import required libraries 
+import numpy as np 
+import pandas as pd 
+  
+# create a Dataframe 
+Mydataframe = pd.DataFrame({'FirstName': ['Vipul', 'Ashish', 'Milan'], 
+                            "Gender": ["", "", ""], 
+                            "Age": [0, 0, 0]}) 
+  
+Mydataframe['Department'] = np.nan 
+display(Mydataframe) 
+  
+nan_value = float("NaN") 
+Mydataframe.replace("", nan_value, inplace=True) 
+  
+Mydataframe.dropna(how='all', axis=1, inplace=True) 
+  
+# show the dataframe 
+display(Mydataframe) 
+# import required libraries 
+import numpy as np 
+import pandas as pd 
+  
+# create a Dataframe 
+Mydataframe = pd.DataFrame({'FirstName': ['Vipul', 'Ashish', 'Milan'], 
+                            "Gender": ["", "", ""], 
+                            "Age": [0, 0, 0]}) 
+  
+Mydataframe['Department'] = np.nan 
+display(Mydataframe) 
+  
+nan_value = float("NaN") 
+Mydataframe.replace(0, nan_value, inplace=True) 
+  
+Mydataframe.dropna(how='all', axis=1, inplace=True) 
+  
+# show the dataframe 
+display(Mydataframe) 
+# import required libraries 
+import numpy as np 
+import pandas as pd 
+  
+# create a Dataframe 
+Mydataframe = pd.DataFrame({'FirstName': ['Vipul', 'Ashish', 'Milan'], 
+                            "Gender": ["", "", ""], 
+                            "Age": [0, 0, 0]}) 
+  
+Mydataframe['Department'] = np.nan 
+display(Mydataframe) 
+  
+nan_value = float("NaN") 
+Mydataframe.replace(0, nan_value, inplace=True) 
+Mydataframe.replace("", nan_value, inplace=True) 
+  
+Mydataframe.dropna(how='all', axis=1, inplace=True) 
+  
+# show the dataframe 
+display(Mydataframe) 
+# Importing the necessary libraries
+import pandas as pd
+import numpy as np
+ 
+# df stands for dataframe
+df = pd.Series(['Gulshan', 'Shashank', 'Bablu',
+                'Abhishek', 'Anand', np.nan, 'Pratap'])
+ 
+print(df)
+# we can change the dtype after
+# creation of dataframe
+print(df.astype('string'))
+# now creating the dataframe as dtype = 'string'
+import pandas as pd
+import numpy as np
+ 
+df = pd.Series(['Gulshan', 'Shashank', 'Bablu', 'Abhishek',
+                'Anand', np.nan, 'Pratap'], dtype='string')
+ 
+print(df)
+# now creating the dataframe as dtype = pd.StringDtype()
+import pandas as pd
+import numpy as np
+ 
+df = pd.Series(['Gulshan', 'Shashank', 'Bablu', 'Abhishek',
+                'Anand', np.nan, 'Pratap'], dtype=pd.StringDtype())
+ 
+print(df)
+# python script for create a dataframe
+# for string manipulations
+import pandas as pd
+import numpy as np
+ 
+df = pd.Series(['night_fury1', 'Is  ', 'Geeks, forgeeks',
+                '100', np.nan, '  Contributor '])
+df
+#upper()
+print(df.str.upper())
+# lower()
+print(df.str.lower())
+# strip()
+print(df)
+print('\nAfter using the strip:')
+print(df.str.strip())
+# split(pattern)
+print(df)
+print('\nAfter using the strip:')
+print(df.str.split(','))
+ 
+# now we can use [] or get() to fetch 
+# the index values
+print('\nusing []:')
+print(df.str.split(',').str[0])
+ 
+print('\nusing get():')
+print(df.str.split(',').str.get(1))
+# len()
+print("length of the dataframe: ", len(df))
+print("length of each value of dataframe:")
+print(df.str.len())
+# cat(sep=pattern)
+print(df)
+ 
+print("\nafter using cat:")
+print(df.str.cat(sep='_'))
+ 
+print("\nworking with NaN using cat:")
+print(df.str.cat(sep='_', na_rep='#'))
+# get_dummies()
+print(df.str.get_dummies())
+# startswith(pattern)
+print(df.str.startswith('G'))
+# endswith(pattern)
+print(df.str.endswith('1'))
+# replace(a,b)
+print(df)
+print("\nAfter using replace:")
+print(df.str.replace('Geeks', 'Gulshan'))
+# repeat(value)
+print(df.str.repeat(2))
+# count(pattern)
+print(df.str.count('n'))
+# find(pattern)
+# in result '-1' indicates there is no
+# value matching with given pattern in 
+# particular row
+print(df.str.find('n'))
+# findall(pattern)
+# in result [] indicates null list as 
+# there is no value matching with given
+# pattern in particular row
+print(df.str.findall('n'))
+# islower()
+print(df.str.islower())
+# isupper()
+print(df.str.isupper()) 
+# isnumeric()
+print(df.str.isnumeric())
+# swapcase()
+print(df.str.swapcase())
