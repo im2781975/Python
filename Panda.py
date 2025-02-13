@@ -1482,3 +1482,55 @@ print(df.str.isupper())
 print(df.str.isnumeric())
 # swapcase()
 print(df.str.swapcase())
+import pandas as pd 
+sports = pd.Series(['Virat', 'azam', 'fiNch', 'ShakiB', 'STOKES', 'KAne']) 
+print(sports) 
+print(s.str.upper())
+print(s.str.lower()) 
+print(s.str.isupper())
+print(s.str.islower())
+print(s.str.len())
+print(s.str.startswith('a'))
+print(s.str.split('a')) 
+print(s.str.find('a')) 
+print(s.str.strip()) 
+print(s.str.replace('a', '')) 
+# Python program to detect mixed data types in Pandas data frame
+
+# Import the library Pandas
+import pandas as pd
+  
+# Create the pandas DataFrame
+data_frame = pd.DataFrame( [['tom', 10], ['nick', '15'], ['juli', 14.8]], columns=['Name', 'Age'])
+
+# Traverse data frame to detect mixed data types
+for column in data_frame.columns:
+    print(column,':',pd.api.types.infer_dtype(data_frame[column]))
+# Python program to fix mixed data types using astype() in Pandas data frame
+
+# Import the library Pandas
+import pandas as pd
+  
+# Create the pandas DataFrame
+data_frame = pd.DataFrame( [['tom', 10], ['nick', '15'], ['juli', 14.8]], columns=['Name', 'Age'])
+
+# Transforming mixed data types to single data type
+data_frame[column] = data_frame[column].astype(int)
+
+# Traverse data frame to detect data types after fix
+for column in data_frame.columns:
+    print(column,':',pd.api.types.infer_dtype(data_frame[column]))
+# Python program to fix mixed data types using to_numeric() in Pandas data frame
+
+# Import the library Pandas
+import pandas as pd
+  
+# Create the pandas DataFrame
+data_frame = pd.DataFrame( [['tom', 10], ['nick', '15'], ['juli', 14.8]], columns=['Name', 'Age'])
+
+# Transforming mixed data types to single data type
+data_frame[column] = data_frame[column].apply(lambda x: pd.to_numeric(x, errors = 'ignore'))
+
+# Traverse data frame to detect data types after fix
+for column in data_frame.columns:
+  print(pd.api.types.infer_dtype(data_frame[column]))
