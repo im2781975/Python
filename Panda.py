@@ -755,3 +755,306 @@ print(pivot)
 pivot = df.pivot_table(index=['Product'], values=['Amount'],
                        aggfunc={'median', 'mean', 'min'})
 print(pivot)
+#series
+import pandas as pd
+ 
+# Creating empty series
+ser = pd.Series()
+ 
+print(ser)
+# import pandas as pd
+import pandas as pd
+ 
+# import numpy as np
+import numpy as np
+ 
+# simple array
+data = np.array(['g', 'e', 'e', 'k', 's'])
+ 
+ser = pd.Series(data)
+print(ser)
+# import pandas as pd
+import pandas as pd
+ 
+# import numpy as np
+import numpy as np
+ 
+# simple array
+data = np.array(['g', 'e', 'e', 'k', 's'])
+ 
+ser = pd.Series(data)
+print(ser)
+# import pandas as pd
+import pandas as pd
+ 
+# import numpy as np
+import numpy as np
+ 
+# simple array
+data = np.array(['g', 'e', 'e', 'k', 's'])
+ 
+# providing an index
+ser = pd.Series(data, index=[10, 11, 12, 13, 14])
+print(ser)
+import pandas as pd
+ 
+# a simple list
+list = ['g', 'e', 'e', 'k', 's']
+ 
+# create series form a list
+ser = pd.Series(list)
+print(ser)
+import pandas as pd
+ 
+# a simple dictionary
+dict = {'Geeks': 10,
+        'for': 20,
+        'geeks': 30}
+ 
+# create series from dictionary
+ser = pd.Series(dict)
+ 
+print(ser)
+import pandas as pd
+ 
+import numpy as np
+ 
+# giving a scalar value with index
+ser = pd.Series(10, index=[0, 1, 2, 3, 4, 5])
+ 
+print(ser)
+# import pandas and numpy
+import pandas as pd
+import numpy as np
+ 
+# series with numpy linspace()
+ser1 = pd.Series(np.linspace(3, 33, 3))
+print(ser1)
+ 
+# series with numpy linspace()
+ser2 = pd.Series(np.linspace(1, 100, 10))
+print(& quot
+       \n"       , ser2)
+# code
+import pandas as pd
+ser=pd.Series(range(10))
+print(ser)
+import pandas as pd
+ser=pd.Series(range(1,20,3), index=[x for x in 'abcdefg'])
+print(ser)
+import pandas as pd
+import numpy as np
+ser=np.arange(10,15)
+serobj=pd.Series(data=ser*5,index=ser)
+print(serobj)
+
+# import pandas and numpy
+import pandas as pd
+import numpy as np
+
+# creating simple array
+data = np.array(['g', 'e', 'e', 'k', 's', 'f',
+                 'o', 'r', 'g', 'e', 'e', 'k', 's'])
+ser = pd.Series(data)
+# retrieve the first element
+print(ser[0])
+# import pandas and numpy
+import pandas as pd
+import numpy as np
+
+# creating simple array
+data = np.array(['g', 'e', 'e', 'k', 's', 'f',
+                 'o', 'r', 'g', 'e', 'e', 'k', 's'])
+ser = pd.Series(data)
+# retrieve the first element
+print(ser[:5])
+# import pandas and numpy
+import pandas as pd
+import numpy as np
+
+# creating simple array
+data = np.array(['g', 'e', 'e', 'k', 's', 'f',
+                 'o', 'r', 'g', 'e', 'e', 'k', 's'])
+ser = pd.Series(data)
+
+# retrieve the first element
+print(ser[-10:])
+# importing pandas module
+import pandas as pd
+
+# making data frame
+df = pd.read_csv("nba.csv")
+
+ser = pd.Series(df['Name'])
+ser.head(10)
+# get first five names
+ser[:5]
+# import pandas and numpy
+import pandas as pd
+import numpy as np
+
+# creating simple array
+data = np.array(['g', 'e', 'e', 'k', 's', 'f',
+                 'o', 'r', 'g', 'e', 'e', 'k', 's'])
+ser = pd.Series(data, index=[10, 11, 12, 13, 14,
+                             15, 16, 17, 18, 19, 20, 21, 22])
+
+# accessing a element using index element
+print(ser[16])
+# import pandas and numpy
+import pandas as pd
+import numpy as np
+
+# creating simple array
+data = np.array(['g', 'e', 'e', 'k', 's', 'f',
+                 'o', 'r', 'g', 'e', 'e', 'k', 's'])
+ser = pd.Series(data, index=[10, 11, 12, 13, 14,
+                             15, 16, 17, 18, 19, 20, 21, 22])
+
+# accessing a multiple element using
+# index element
+print(ser[[10, 11, 12, 13, 14]])
+# importing pandas and numpy
+import pandas as pd
+import numpy as np
+
+ser = pd.Series(np.arange(3, 9), index=['a', 'b', 'c', 'd', 'e', 'f'])
+
+print(ser[['a', 'd']])
+# importing pandas module
+import pandas as pd
+
+# making data frame
+df = pd.read_csv("nba.csv")
+
+ser = pd.Series(df['Name'])
+ser.head(10)
+
+import pandas as pd
+s1 = pd.Series([10, 20, 30], index=['a', 'b', 'c'])
+s2 = pd.Series([1, 2, 3], index=['a', 'b', 'c'])
+
+# Adding the two Series
+result = s1 + s2
+print(result)
+
+import pandas as pd
+s1 = pd.Series([10, 20, 30])
+s2 = pd.Series([10, 25, 30])
+
+# Comparing the two Series
+result = s1 == s2
+print(result)
+
+import pandas as pd
+df1 = pd.DataFrame({'A': [10, 20, 30], 'B': [40, 50, 60]})
+df2 = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})
+
+# Subtracting the DataFrames
+result = df1 - df2
+print(result)
+
+import pandas as pd
+df1 = pd.DataFrame({'A': [10, 20, 30], 'B': [40, 50, 60]})
+df2 = pd.DataFrame({'A': [5, 15, 35], 'B': [30, 60, 55]})
+
+# Checking if elements of df1 are greater than df2
+result = df1 > df2
+print(result)
+
+import pandas as pd
+df1 = pd.DataFrame({'A': [10, 20, 30], 'B': [40, 50, 60]})
+df2 = pd.DataFrame({'A': [5, 15, 35], 'B': [30, 60, 55]})
+
+# Checking if elements of df1 are greater than df2
+result = df1 > df2
+print(result)
+
+import pandas as pd
+s1 = pd.Series([True, False, True])
+s2 = pd.Series([False, False, True])
+
+# Applying logical AND
+result = s1 & s2
+print(result)
+
+import pandas as pd 
+df1 = pd.DataFrame({'A': [1, 2, None], 'B': [4, None, 6]})
+df2 = pd.DataFrame({'A': [1, None, 3], 'B': [None, 5, 6]})
+
+# Adding the DataFrames
+result = df1 + df2
+print(result)
+
+# importing pandas as pd
+import pandas as pd
+
+# Creating the Series
+series = pd.Series(['New York', 'Chicago', 'Toronto', 'Lisbon'])
+
+# Print the series
+print(series)
+
+# Creating the row axis labels
+series.index = ['City 1', 'City 2', 'City 3', 'City 4'] 
+
+# Print the series
+print(series)
+
+# Creating the row axis labels
+series.index = ['City 1', 'City 1', 'City 3', 'City 3'] 
+
+# Print the series
+print(series)
+
+# importing pandas as pd
+import pandas as pd
+
+Date = ['1/1/2018', '2/1/2018', '3/1/2018', '4/1/2018']
+Index_name = ['Day 1', 'Day 2', 'Day 3', 'Day 4']
+
+# Creating the Series
+sr = pd.Series(data = Date,        # Series Data
+              index = Index_name   # Index
+              )             
+
+# Print the series
+print(sr)
+# print the index labels
+print(sr.index)
+import pandas as pd
+
+s = pd.Series([1, 2, 3], index=['a', 'b', 'c'])
+print(s.index)  # Output: Index(['a', 'b', 'c'], dtype='object')
+# Setting index at creation
+s = pd.Series([1, 2, 3], index=['x', 'y', 'z'])
+
+# Modifying index of an existing Series
+s.index = ['a', 'b', 'c']
+print(s)
+# Create a Series with an index
+s = pd.Series([10, 20, 30], index=pd.Index(['apples', 'oranges', 'bananas'], name='fruits'))
+
+# Access the index name
+print(s.index.name)  # Output: 'fruits'
+# importing Pandas & numpy 
+import pandas as pd 
+import numpy as np 
+  
+# numpy array 
+data = np.array(['a', 'b', 'c', 'd', 'e']) 
+  
+# creating series 
+s = pd.Series(data) 
+print(s) 
+
+# importing Pandas & numpy 
+import pandas as pd 
+import numpy as np 
+  
+# numpy array 
+data = np.array(['a', 'b', 'c', 'd', 'e']) 
+  
+# creating series 
+s = pd.Series(data, index =[1000, 1001, 1002, 1003, 1004]) 
+print(s) 
