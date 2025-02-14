@@ -2269,3 +2269,391 @@ random_array = np.random.normal(0.0, 1.0, 5)
   
 # printing 1D array with random numbers 
 print("1D Array with random values : \n", random_array) 
+
+import numpy as np
+
+array_2d = np.array([[1, 2, 3], [4, 5, 6]])  # 2D array
+scalar = 10  # Scalar value
+
+result = array_2d + scalar
+print(result)
+import numpy as np
+arr = np.array([1, 2, 3])
+
+res = arr + 1  # Adds 1 to each element
+print(res)
+import numpy as np
+
+# Broadcasting a 1D array with a 2D array
+a1 = np.array([2, 4, 6])
+a2 = np.array([[1, 3, 5], [7, 9, 11]])
+res = a1 + a2
+print(res)
+import numpy as np
+matrix = np.array([[1, 2], [3, 4]])
+vector = np.array([10, 20])
+result = matrix * vector
+print(result)
+import numpy as np
+food_data = np.array([[0.8, 2.9, 3.9], 
+                      [52.4, 23.6, 36.5],
+                      [55.2, 31.7, 23.9],
+                      [14.4, 11, 4.9]])
+# Caloric values per gram
+caloric_values = np.array([3, 3, 8]) 
+# Broadcast caloric values to match food data
+caloric_matrix = caloric_values 
+
+# Calculate calorie breakdown for each food
+calorie_breakdown = food_data * caloric_matrix
+print(calorie_breakdown)
+import numpy as np
+
+temperatures = np.array([
+    [30, 32, 34, 33, 31],  
+    [25, 27, 29, 28, 26], 
+    [20, 22, 24, 23, 21]  
+])
+
+# Correction factors for each city
+corrections = np.array([1.5, -0.5, 2.0])
+
+adjusted_temperatures = temperatures + corrections[:, np.newaxis]
+print(adjusted_temperatures)
+import numpy as np
+
+# Example image data (3x3 grayscale image)
+image = np.array([
+    [100, 120, 130],
+    [90, 110, 140],
+    [80, 100, 120]
+])
+
+mean = image.mean(axis=0)   # Mean per column (feature-wise)
+std = image.std(axis=0)     # Standard deviation per column
+
+# Normalize using broadcasting
+normalized_image = (image - mean) / std
+print(normalized_image)
+import numpy as np
+
+data = np.array([
+    [10, 20],
+    [15, 25],
+    [20, 30]
+])
+
+feature_mean = data.mean(axis=0)
+
+# Center data using broadcasting
+centered_data = data - feature_mean
+print(centered_data)
+import numpy as np
+
+a1 = np.array([2,4,6,8,10 ])
+number= 2
+result = a1 + number
+print(result)
+import numpy as np
+a1 = np.array([1, 2, 3])
+a2 = np.array([4, 5, 6])
+result = a1 + a2
+print(result)  
+import numpy as np
+a1 = np.array([1, 2, 3, 4])
+result = a1 * 2
+print(result)  
+import numpy as np
+a1 = np.array([10, 20, 30])
+result = a1 > 15
+print(result)  
+import numpy as np
+a1= np.array([[1, 2], [3, 4]])
+a2 = np.array([[5, 6], [7, 8]])
+result = np.dot(a1, a2) 
+print(result)
+import numpy as np
+
+def custom_func(x):
+    return x**2 + 2*x + 1
+
+a1 = np.array([1, 2, 3, 4])
+result = custom_func(a1)
+print(result) 
+import numpy as np
+a1 = np.array([1, 2, 3])
+result_sum = a1.sum()
+result_mean = a1.mean()
+print(result_sum)   
+print(result_mean)  
+import numpy as np
+import time
+
+start_time = time.time()
+vectorized_sum = np.sum(np.arange(15000))
+print("Vectorized sum:", vectorized_sum)
+print("Time taken by vectorized sum:", time.time() - start_time)
+
+start_time = time.time()
+iterative_sum = sum(range(15000)) 
+print("\nIterative sum:", iterative_sum)
+print("Time taken by iterative sum:", time.time() - start_time)
+# Python code to demonstrate trigonometric function 
+import numpy as np 
+  
+# create an array of angles 
+angles = np.array([0, 30, 45, 60, 90, 180])  
+  
+# conversion of degree into radians 
+# using deg2rad function 
+radians = np.deg2rad(angles) 
+  
+# sine of angles 
+print('Sine of angles in the array:') 
+sine_value = np.sin(radians) 
+print(np.sin(radians)) 
+  
+# inverse sine of sine values 
+print('Inverse Sine of sine values:') 
+print(np.rad2deg(np.arcsin(sine_value))) 
+  
+# hyperbolic sine of angles 
+print('Sine hyperbolic of angles in the array:') 
+sineh_value = np.sinh(radians) 
+print(np.sinh(radians)) 
+  
+# inverse sine hyperbolic  
+print('Inverse Sine hyperbolic:') 
+print(np.sin(sineh_value))  
+  
+# hypot function demonstration 
+base = 4
+height = 3
+print('hypotenuse of right triangle is:') 
+print(np.hypot(base, height)) 
+# Python code demonstrate statistical function 
+import numpy as np 
+  
+# construct a weight array 
+weight = np.array([50.7, 52.5, 50, 58, 55.63, 73.25, 49.5, 45]) 
+  
+# minimum and maximum  
+print('Minimum and maximum weight of the students: ') 
+print(np.amin(weight), np.amax(weight)) 
+  
+# range of weight i.e. max weight-min weight 
+print('Range of the weight of the students: ') 
+print(np.ptp(weight)) 
+  
+# percentile 
+print('Weight below which 70 % student fall: ') 
+print(np.percentile(weight, 70)) 
+   
+# mean  
+print('Mean weight of the students: ') 
+print(np.mean(weight)) 
+  
+# median  
+print('Median weight of the students: ') 
+print(np.median(weight)) 
+  
+# standard deviation  
+print('Standard deviation of weight of the students: ') 
+print(np.std(weight)) 
+  
+# variance  
+print('Variance of weight of the students: ') 
+print(np.var(weight)) 
+  
+# average  
+print('Average weight of the students: ') 
+print(np.average(weight)) 
+# Python code to demonstrate bitwise-function 
+import numpy as np 
+  
+# construct an array of even and odd numbers 
+even = np.array([0, 2, 4, 6, 8, 16, 32]) 
+odd = np.array([1, 3, 5, 7, 9, 17, 33]) 
+  
+# bitwise_and 
+print('bitwise_and of two arrays: ') 
+print(np.bitwise_and(even, odd)) 
+  
+# bitwise_or 
+print('bitwise_or of two arrays: ') 
+print(np.bitwise_or(even, odd)) 
+  
+# bitwise_xor 
+print('bitwise_xor of two arrays: ') 
+print(np.bitwise_xor(even, odd)) 
+   
+# invert or not 
+print('inversion of even no. array: ') 
+print(np.invert(even)) 
+  
+# left_shift  
+print('left_shift of even no. array: ') 
+print(np.left_shift(even, 1)) 
+  
+# right_shift  
+print('right_shift of even no. array: ') 
+print(np.right_shift(even, 1)) 
+
+##QE
+import numpy as np
+
+# Create an empty array of shape (3, 4)
+empty_array = np.empty((3, 4))
+print("Empty Array:\n", empty_array)
+
+# Create a full array of shape (3, 3) filled with the value 5
+full_array = np.full((3, 3), 5)
+print("Full Array:\n", full_array)
+import numpy as np
+
+empty_array_2d = np.empty((3, 4))
+print(empty_array_2d)
+import numpy as np
+
+full_array_2d = np.full((3, 4), 5)
+print(full_array_2d)
+import numpy as np
+
+# Create a 1D array of zeros with 5 elements
+array_1d = np.zeros(5)
+print(array_1d)
+import numpy as np
+
+# Create a 2D array of zeros (3 rows, 4 columns)
+array_2d = np.zeros((3, 4))
+print(array_2d)
+import numpy as np
+
+# Create an integer zero array
+array_int = np.zeros((2, 3), dtype=int)
+print(array_int)
+import numpy as np
+
+# Create an array with column-major order
+array_column_major = np.zeros((2, 3), order='F')
+print(array_column_major)
+import numpy as np
+
+array = np.ones(5)
+print(array) 
+import numpy as np
+
+# Create a 2D array of ones (3 rows, 4 columns)
+ones_array_2d = np.ones((3, 4))
+print(ones_array_2d)
+import numpy as np
+
+# Create an integer array of ones with 4 elements
+ones_int_array = np.ones(4, dtype=int)
+print(ones_int_array)
+import numpy as np
+
+# Create a 3D array of ones with shape (2, 3, 4)
+ones_array_3d = np.ones((2, 3, 4))
+print(ones_array_3d)
+# importing package 
+import numpy 
+  
+# create numpy array 
+arr = numpy.array([[1, 2, 3, 4, 5], 
+                   [6, 7, 8, 9, 10], 
+                   [11, 12, 13, 14, 15], 
+                   [16, 17, 18, 19, 20] 
+                   ]) 
+  
+# view array 
+print(arr) 
+  
+# check for some lists 
+print([1, 2, 3, 4, 5] in arr.tolist()) 
+print([16, 17, 20, 19, 18] in arr.tolist()) 
+print([3, 2, 5, -4, 5] in arr.tolist()) 
+print([11, 12, 13, 14, 15] in arr.tolist()) 
+# Importing Numpy module
+import numpy as np
+
+# Creating a 2x3 2-D NumPy array
+n_arr = np.array([[10.5, 22.5, 3.8],
+                  [41, np.nan, np.nan]])
+
+print("Given array:")
+print(n_arr)
+
+print("\nRemove all rows containing NaN values:")
+cleaned_arr = n_arr[~np.isnan(n_arr).any(axis=1)]
+print(cleaned_arr)
+# Importing Numpy module 
+import numpy as np
+
+# Creating a 3x3 2-D NumPy array
+n_arr = np.array([[10.5, 22.5, 3.8], 
+                  [23.45, 50, 78.7],
+                  [41, np.nan, np.nan]])
+
+print("Given array:")
+print(n_arr)
+
+print("\nRemove all rows containing NaN values:")
+cleaned_arr = n_arr[~np.isnan(n_arr).any(axis=1)]
+print(cleaned_arr)
+# Importing Numpy module
+import numpy as np
+
+# Creating a 5x4 2-D NumPy array
+n_arr = np.array([[10.5, 22.5, 3.8, 5],
+                  [23.45, 50, 78.7, 3.5],
+                  [41, np.nan, np.nan, 0],
+                  [20, 50.20, np.nan, 2.5],
+                  [18.8, 50.60, 8.8, 58.6]])
+
+print("Given array:")
+print(n_arr)
+
+print("\nRemove all rows containing NaN values:")
+cleaned_arr = n_arr[~np.isnan(n_arr).any(axis=1)]
+print(cleaned_arr)
+# Python program explaining 
+# numpy.squeeze function 
+  
+import numpy as geek 
+  
+in_arr = geek.array([[[2, 2, 2], [2, 2, 2]]]) 
+   
+print ("Input array : ", in_arr)  
+print("Shape of input array : ", in_arr.shape)   
+  
+out_arr = geek.squeeze(in_arr)  
+  
+print ("output squeezed array : ", out_arr) 
+print("Shape of output array : ", out_arr.shape)  
+# Python program explaining 
+# numpy.squeeze function 
+import numpy as geek 
+in_arr = geek.arange(9).reshape(1, 3, 3)  
+  
+print ("Input array : ", in_arr)   
+out_arr = geek.squeeze(in_arr, axis = 0)  
+  
+print ("output array : ", out_arr)   
+print("The shapes of Input and Output array : ")  
+  
+print(in_arr.shape, out_arr.shape) 
+# Python program explaining 
+# numpy.squeeze function 
+# when value error occurs 
+import numpy as geek 
+  
+in_arr = geek.arange(9).reshape(1, 3, 3)  
+  
+print ("Input array : ", in_arr)   
+out_arr = geek.squeeze(in_arr, axis = 1)  
+  
+print ("output array : ", out_arr)   
+print("The shapes of Input and Output array : ") 
+   
+print(in_arr.shape, out_arr.shape) 
