@@ -2657,3 +2657,132 @@ print ("output array : ", out_arr)
 print("The shapes of Input and Output array : ") 
    
 print(in_arr.shape, out_arr.shape) 
+
+import numpy as np
+
+array_2d = np.array([[1, 2, 3], [4, 5, 6]])  # 2D array
+scalar = 10  # Scalar value
+
+result = array_2d + scalar
+print(result)
+import numpy as np
+arr = np.array([1, 2, 3])
+
+res = arr + 1  # Adds 1 to each element
+print(res)
+import numpy as np
+
+# Broadcasting a 1D array with a 2D array
+a1 = np.array([2, 4, 6])
+a2 = np.array([[1, 3, 5], [7, 9, 11]])
+res = a1 + a2
+print(res)
+import numpy as np
+matrix = np.array([[1, 2], [3, 4]])
+vector = np.array([10, 20])
+result = matrix * vector
+print(result)
+import numpy as np
+food_data = np.array([[0.8, 2.9, 3.9], 
+                      [52.4, 23.6, 36.5],
+                      [55.2, 31.7, 23.9],
+                      [14.4, 11, 4.9]])
+# Caloric values per gram
+caloric_values = np.array([3, 3, 8]) 
+# Broadcast caloric values to match food data
+caloric_matrix = caloric_values 
+
+# Calculate calorie breakdown for each food
+calorie_breakdown = food_data * caloric_matrix
+print(calorie_breakdown)
+import numpy as np
+
+temperatures = np.array([
+    [30, 32, 34, 33, 31],  
+    [25, 27, 29, 28, 26], 
+    [20, 22, 24, 23, 21]  
+])
+
+# Correction factors for each city
+corrections = np.array([1.5, -0.5, 2.0])
+
+adjusted_temperatures = temperatures + corrections[:, np.newaxis]
+print(adjusted_temperatures)
+import numpy as np
+
+# Example image data (3x3 grayscale image)
+image = np.array([
+    [100, 120, 130],
+    [90, 110, 140],
+    [80, 100, 120]
+])
+
+mean = image.mean(axis=0)   # Mean per column (feature-wise)
+std = image.std(axis=0)     # Standard deviation per column
+
+# Normalize using broadcasting
+normalized_image = (image - mean) / std
+print(normalized_image)
+import numpy as np
+
+data = np.array([
+    [10, 20],
+    [15, 25],
+    [20, 30]
+])
+
+feature_mean = data.mean(axis=0)
+
+# Center data using broadcasting
+centered_data = data - feature_mean
+print(centered_data)
+import numpy as np
+
+a1 = np.array([2,4,6,8,10 ])
+number= 2
+result = a1 + number
+print(result)
+import numpy as np
+a1 = np.array([1, 2, 3])
+a2 = np.array([4, 5, 6])
+result = a1 + a2
+print(result)  
+import numpy as np
+a1 = np.array([1, 2, 3, 4])
+result = a1 * 2
+print(result)  
+import numpy as np
+a1 = np.array([10, 20, 30])
+result = a1 > 15
+print(result)  
+import numpy as np
+a1= np.array([[1, 2], [3, 4]])
+a2 = np.array([[5, 6], [7, 8]])
+result = np.dot(a1, a2) 
+print(result)
+import numpy as np
+
+def custom_func(x):
+    return x**2 + 2*x + 1
+
+a1 = np.array([1, 2, 3, 4])
+result = custom_func(a1)
+print(result) 
+import numpy as np
+a1 = np.array([1, 2, 3])
+result_sum = a1.sum()
+result_mean = a1.mean()
+print(result_sum)   
+print(result_mean)  
+import numpy as np
+import time
+
+start_time = time.time()
+vectorized_sum = np.sum(np.arange(15000))
+print("Vectorized sum:", vectorized_sum)
+print("Time taken by vectorized sum:", time.time() - start_time)
+
+start_time = time.time()
+iterative_sum = sum(range(15000)) 
+print("\nIterative sum:", iterative_sum)
+print("Time taken by iterative sum:", time.time() - start_time)
