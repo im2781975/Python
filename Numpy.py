@@ -1810,3 +1810,462 @@ print("\nout_arr : ", out_arr)
 print("mean of arr, axis = 1 : ",  
       np.mean(arr, axis = 1, out = out_arr)) 
       
+#matrix
+# Python code to demonstrate matrix operations 
+# add(), subtract() and divide() 
+
+# importing numpy for matrix operations 
+import numpy 
+
+# initializing matrices 
+x = numpy.array([[1, 2], [4, 5]]) 
+y = numpy.array([[7, 8], [9, 10]]) 
+
+# using add() to add matrices 
+print ("The element wise addition of matrix is : ") 
+print (numpy.add(x,y)) 
+
+# using subtract() to subtract matrices 
+print ("The element wise subtraction of matrix is : ") 
+print (numpy.subtract(x,y)) 
+
+# using divide() to divide matrices 
+print ("The element wise division of matrix is : ") 
+print (numpy.divide(x,y)) 
+# Python code to demonstrate matrix operations 
+# multiply() and dot() 
+
+# importing numpy for matrix operations 
+import numpy 
+
+# initializing matrices 
+x = numpy.array([[1, 2], [4, 5]]) 
+y = numpy.array([[7, 8], [9, 10]]) 
+
+# using multiply() to multiply matrices element wise 
+print ("The element wise multiplication of matrix is : ") 
+print (numpy.multiply(x,y)) 
+
+# using dot() to multiply matrices 
+print ("The product of matrices is : ") 
+print (numpy.dot(x,y)) 
+# Python code to demonstrate matrix operations 
+# sqrt(), sum() and "T" 
+
+# importing numpy for matrix operations 
+import numpy 
+
+# initializing matrices 
+x = numpy.array([[1, 2], [4, 5]]) 
+y = numpy.array([[7, 8], [9, 10]]) 
+
+# using sqrt() to print the square root of matrix 
+print ("The element wise square root is : ") 
+print (numpy.sqrt(x)) 
+
+# using sum() to print summation of all elements of matrix 
+print ("The summation of all matrix element is : ") 
+print (numpy.sum(y)) 
+
+# using sum(axis=0) print summation of each column of matrix 
+print ("The column wise summation of all matrix is : ") 
+print (numpy.sum(y,axis=0)) 
+
+# using sum(axis=1) print summation of each row of matrix 
+print ("The row wise summation of all matrix is : ") 
+print (numpy.sum(y,axis=1)) 
+
+# using "T" to transpose the matrix 
+print ("The transpose of given matrix is : ") 
+print (x.T) 
+A = [[1,2],[4,5]] 
+B = [[7,8],[9,10]] 
+rows = len(A) 
+cols = len(A[0]) 
+
+# Element wise addition 
+C = [[0 for i in range(cols)] for j in range(rows)] 
+for i in range(rows): 
+    for j in range(cols): 
+        C[i][j] = A[i][j] + B[i][j] 
+print("Addition of matrices: \n", C) 
+
+# Element wise subtraction 
+D = [[0 for i in range(cols)] for j in range(rows)] 
+for i in range(rows): 
+    for j in range(cols): 
+        D[i][j] = A[i][j] - B[i][j] 
+print("Subtraction of matrices: \n", D) 
+
+# Element wise division 
+E = [[0 for i in range(cols)] for j in range(rows)] 
+for i in range(rows): 
+    for j in range(cols): 
+        E[i][j] = A[i][j] / B[i][j] 
+print("Division of matrices: \n", E) 
+import numpy as np
+ 
+# Original matrix
+original_matrix = np.matrix([[1, 2, 3], [4, 5, 6]])
+ 
+# Transposed matrix
+transposed_matrix = original_matrix.transpose()
+ 
+print("Original Matrix:")
+print(original_matrix)
+print("\nTransposed Matrix:")
+print(transposed_matrix)
+# import the important module in python 
+import numpy as np 
+               
+# make matrix with numpy 
+gfg = np.matrix('[4, 1, 9; 12, 3, 1; 4, 5, 6]') 
+               
+# applying matrix.transpose() method 
+geek = gfg.transpose() 
+     
+print(geek)
+import numpy as np
+ 
+# Matrices for multiplication
+matrix_a = np.matrix([[1, 2], [3, 4]])
+matrix_b = np.matrix([[5, 6], [7, 8]])
+ 
+# Transpose one matrix before multiplication
+result = matrix_a * matrix_b.transpose()
+ 
+print("Result of Matrix Multiplication:")
+print(result)
+# Import required package
+import numpy as np
+ 
+# Taking a 3 * 3 matrix
+A = np.array([[6, 1, 1],
+              [4, -2, 5],
+              [2, 8, 7]])
+ 
+# Calculating the inverse of the matrix
+print(np.linalg.inv(A))
+# Import required package
+import numpy as np
+ 
+# Taking a 4 * 4 matrix
+A = np.array([[6, 1, 1, 3],
+              [4, -2, 5, 1],
+              [2, 8, 7, 6],
+              [3, 1, 9, 7]])
+ 
+# Calculating the inverse of the matrix
+print(np.linalg.inv(A))
+# Import required package
+import numpy as np
+ 
+# Inverses of several matrices can
+# be computed at once
+A = np.array([[[1., 2.], [3., 4.]],
+              [[1, 3], [3, 5]]])
+ 
+# Calculating the inverse of the matrix
+print(np.linalg.inv(A))
+# Python program explaining 
+# numpy.ndarray.dot() function 
+  
+# importing numpy as geek  
+import numpy as geek 
+  
+arr1 = geek.eye(3) 
+arr = geek.ones((3, 3)) * 3
+  
+gfg = arr1.dot( arr ) 
+  
+print( gfg) 
+# Python program explaining 
+# numpy.ndarray.dot() function 
+  
+# importing numpy as geek  
+import numpy as geek 
+  
+arr1 = geek.eye(3) 
+arr = geek.ones((3, 3)) * 3
+  
+gfg = arr1.dot(arr).dot(arr) 
+  
+print( gfg) 
+# import the important module in python 
+import numpy as np 
+              
+# make matrix with numpy 
+gfg = np.matrix('[4, 1; 12, 3]') 
+              
+# applying matrix.var() method 
+geek = gfg.var() 
+    
+print(geek) 
+# import the important module in python 
+import numpy as np 
+              
+# make matrix with numpy 
+gfg = np.matrix('[4, 1, 9; 12, 3, 1; 4, 5, 6]') 
+              
+# applying matrix.var() method 
+geek = gfg.var() 
+    
+print(geek) 
+#Linear Algebra
+# Importing numpy as np
+import numpy as np
+ 
+A = np.array([[6, 1, 1],
+              [4, -2, 5],
+              [2, 8, 7]])
+ 
+# Rank of a matrix
+print("Rank of A:", np.linalg.matrix_rank(A))
+ 
+# Trace of matrix A
+print("\nTrace of A:", np.trace(A))
+ 
+# Determinant of a matrix
+print("\nDeterminant of A:", np.linalg.det(A))
+ 
+# Inverse of matrix A
+print("\nInverse of A:\n", np.linalg.inv(A))
+ 
+print("\nMatrix A raised to power 3:\n",
+           np.linalg.matrix_power(A, 3))
+import numpy as np
+from numpy import linalg as geek
+
+# Creating an array using array function
+a = np.array([[1, -2j], [2j, 5]])
+
+print("Array is:", a)
+
+# Calculating eigenvalues and eigenvectors using eigh() function
+c, d = geek.eigh(a)
+
+print("Eigenvalues are:", c)
+print("Eigenvectors are:", d)
+import numpy as np
+from numpy import linalg as geek
+
+# Creating an array using diag function
+a = np.diag((1, 2, 3))
+
+print("Array is:", a)
+
+# Calculating eigenvalues and eigenvectors using eig() function
+c, d = geek.eig(a)
+
+print("Eigenvalues are:", c)
+print("Eigenvectors are:", d)
+# Python Program illustrating
+# numpy.dot() method
+ 
+import numpy as geek
+ 
+# Scalars
+product = geek.dot(5, 4)
+print("Dot Product of scalar values  : ", product)
+ 
+# 1D array
+vector_a = 2 + 3j
+vector_b = 4 + 5j
+ 
+product = geek.dot(vector_a, vector_b)
+print("Dot Product  : ", product)
+# Python Program illustrating
+# numpy.vdot() method
+ 
+import numpy as geek
+ 
+# 1D array
+vector_a = 2 + 3j
+vector_b = 4 + 5j
+ 
+product = geek.vdot(vector_a, vector_b)
+print("Dot Product  : ", product)
+# Python Program illustrating
+# numpy.linalg.solve() method
+ 
+import numpy as np
+ 
+# Creating an array using array
+# function
+a = np.array([[1, 2], [3, 4]])
+ 
+# Creating an array using array
+# function
+b = np.array([8, 18])
+ 
+print(("Solution of linear equations:", 
+      np.linalg.solve(a, b)))
+# Python Program illustrating
+# numpy.linalg.lstsq() method
+ 
+ 
+import numpy as np
+import matplotlib.pyplot as plt
+ 
+# x co-ordinates
+x = np.arange(0, 9)
+A = np.array([x, np.ones(9)])
+ 
+# linearly generated sequence
+y = [19, 20, 20.5, 21.5, 22, 23, 23, 25.5, 24]
+# obtaining the parameters of regression line
+w = np.linalg.lstsq(A.T, y)[0] 
+ 
+# plotting the line
+line = w[0]*x + w[1] # regression line
+plt.plot(x, line, 'r-')
+plt.plot(x, y, 'o')
+plt.show()
+# Python Program illustrating
+# numpy.linalg.det() method
+ 
+import numpy as np
+ 
+# creating an array using 
+# array method
+A = np.array([[6, 1, 1],
+              [4, -2, 5],
+              [2, 8, 7]])
+ 
+ 
+print(("\nDeterminant of A:"
+     , np.linalg.det(A)))
+# Python Program illustrating
+# numpy.trace()() method
+ 
+import numpy as np
+ 
+# creating an array using 
+# array method
+A = np.array([[6, 1, 1],
+              [4, -2, 5],
+              [2, 8, 7]])
+ 
+ 
+print("\nTrace of A:", np.trace(A))
+# Import numpy package 
+import numpy as np 
+  
+# Create a numpy array  
+arr = np.array([[10,22],[13,6]]) 
+  
+# Find the QR factor of array 
+q, r =  np.linalg.qr(arr) 
+  
+# Print the result 
+print("Decomposition of matrix:") 
+print( "q=\n", q, "\nr=\n", r)
+# Import numpy package 
+import numpy as np 
+  
+# Create a numpy array  
+arr = np.array([[0, 1], [1, 0], [1, 1], [2, 2]]) 
+  
+# Find the QR factor of array 
+q, r =  np.linalg.qr(arr) 
+  
+# Print the result 
+print("Decomposition of matrix:") 
+print( "q=\n", q, "\nr=\n", r) 
+# Import numpy package 
+import numpy as np 
+  
+# Create a numpy array  
+arr = np.array([[5, 11, -15], [12, 34, -51], 
+                [-24, -43, 92]], dtype=np.int32) 
+  
+# Find the QR factor of array 
+q, r = np.linalg.qr(arr) 
+  
+# Print the result 
+print("Decomposition of matrix:") 
+print( "q=\n", q, "\nr=\n", r)
+# import numpy 
+from numpy import linalg as LA 
+  
+# using np.eigvals() method 
+gfg = LA.eigvals([[1, 2], [3, 4]]) 
+  
+print(gfg) 
+# import numpy 
+from numpy import linalg as LA 
+  
+# using np.eigvals() method 
+gfg = LA.eigvals([[1, 2, 3], [4, 5, 6], [7, 8, 9]]) 
+print(gfg) 
+#Random
+# Python program explaining 
+# numpy.random.randint() function 
+  
+# importing numpy 
+import numpy as geek 
+  
+# output array 
+out_arr = geek.random.randint(low = 0, high = 3, size = 5) 
+print ("Output 1D Array filled with random integers : ", out_arr)
+# Python program explaining 
+# numpy.random.randint() function 
+  
+# importing numpy 
+import numpy as geek 
+  
+  
+# output array 
+out_arr = geek.random.randint(low = 4, size =(2, 3)) 
+print ("Output 2D Array filled with random integers : ", out_arr) 
+# Python program explaining 
+# numpy.random.randint() function 
+  
+# importing numpy 
+import numpy as geek 
+  
+# output array 
+out_arr = geek.random.randint(2, 10, (2, 3, 4)) 
+print ("Output 3D Array filled with random integers : ", out_arr)  
+# Python Program illustrating 
+# numpy.random.rand() method 
+   
+import numpy as geek 
+   
+# 1D Array 
+array = geek.random.rand(5) 
+print("1D Array filled with random values :", array);
+# Python Program illustrating 
+# numpy.random.rand() method 
+   
+import numpy as geek 
+   
+# 2D Array    
+array = geek.random.rand(3, 4) 
+print("\n\n2D Array filled with random values : ", array); 
+# Python Program illustrating 
+# numpy.random.rand() method 
+   
+import numpy as geek 
+   
+# 3D Array      
+array = geek.random.rand(2, 2 ,2) 
+print("\n\n3D Array filled with random values : \n", array); 
+# importing module 
+import numpy as np 
+  
+  
+# numpy.random.normal() method 
+r = np.random.normal(size=5) 
+  
+# printing numbers 
+print(r) 
+# importing module 
+import numpy as np 
+  
+  
+# numpy.random.normal() method 
+random_array = np.random.normal(0.0, 1.0, 5) 
+  
+# printing 1D array with random numbers 
+print("1D Array with random values : \n", random_array) 
