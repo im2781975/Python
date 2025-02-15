@@ -1,18 +1,38 @@
 import numpy as np
 arr = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]]); print(arr)
 arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-print(arr, "\n", arr.shape, arr.ndim, arr.size, arr.dtype, arr.itemsize)
+print(arr, "\n", arr.shape, arr.ndim, arr.size, arr.dtype, arr.itemsize, arr[0 : 2], arr[1 : 3])
+print(arr + 10)
 print(arr[0 : 2, 1 : 3], arr[1, 2])
 arr = np.array([1, 2, 3, 4, 5])
-print(arr[2], arr[1 : 4])
-
-a, b = np.array([1, 2, 3]), np.array([4, 5, 6])
+print(arr[2], arr[1 : 4], arr + 1)
+arr[1 : 3] = 99; print(arr)
+a, b, c = np.array([1, 2, 3]), np.array([4, 5, 6]), np.array([[1, 2, 3], [4, 5, 6]])
 print(a + b, a - b, a * b, a / b)
+print(a + c, a * c)
 mat, rix = np.array([[1, 2], [3, 4]]), np.array([[5, 6], [7, 8]])
 print(np.dot(mat, rix))
 print(mat + 10)
-arr = np.array([1, 2, 3, 4, 5, 6]); print(arr.reshape(2, 3))
-arr = np.array([[1, 2, 3], [4, 5, 6]]); print(arr.flatten())
+arr = np.array([1, 2, 3, 4, 5, 6]); print(arr.reshape(2, 3), arr[arr > 3], arr[0], arr[1 : 4], arr[(arr > 2) & (arr < 6)])  
+arr = np.array([[1, 2, 3], [4, 5, 6]]); print(arr[1, 2], arr.flatten())
+arr = np.array([[1, 2], [3, 4], [5, 6]])
+print(arr[[0, 1, 2],[0, 0, 1]])
+arr = np.array(
+    [[1, 20, 3, 1], [40, 5, 66, 7], [70, 88, 9, 11], 
+    [80, 100, 50, 77], [1, 8.5, 7.9, 4.8]])
+print(arr, arr[[0, 1]])
+arr = np.array(
+    [[[10, 25, 70], [30, 45, 55], [20, 45, 7]],  
+    [[50, 65, 8], [70, 85, 10], [11, 22, 33]]])
+print(arr, arr[:, [1]])
+arr = np.array([
+    [[10, 25, 70], [30, 45, 55], [20, 45, 7]],  
+    [[50, 65, 8], [70, 85, 10], [11, 22, 33]], 
+    [[19, 69, 36], [1, 5, 24], [4, 20, 96]]]) 
+print(arr, arr[:, [0, 2]])
+
+row = arr.sum(-1)
+print(arr[row % 10 == 0])
 lst = [1, 2, 3, 4, 5]; print(np.array(lst))
 print(np.zeros((3, 4)))
 print(np.zeros(5))
@@ -30,11 +50,16 @@ print(np.full((2, 2), 7))
 print(np.full((3, 3), 5))
 print(np.full((3, 4), 5))
 print(np.random.rand(2, 3))
+print(np.random.rand(4, 4, 4))
 print(np.random.randint(1, 10, size = (3, 3)))
+arr = np.arange(20)
+print(arr[15], arr[-8 : 17 : 1], arr[10:])
 print(np.arange(0, 10, 2))
 print(np.arange(5, 10))
 print(np.arange(10))
 print(np.arange(0, 1, 0.2))
+arr = np.arange(10, 1, -2); print(arr)
+print([np.array([3, 1, 2 ])])
 seq = np.arange(0, 20, 3); print(seq[seq > 10])
 print(np.linspace(0, 1, 5))
 print(np.linspace(0, 1, num = 10))
@@ -47,6 +72,7 @@ print(np.eye((3, 4)))
 print(np.eye(4, k = 1)) """
 print(np.diag([1, 2, 3]))
 print([('f', 'f4'), ('i', 'i4')])
+
 #Operation
 import numpy as np
 x, y = 10, 11
@@ -72,6 +98,7 @@ print(np.binary_repr(lst[2], width = 7))
 print(np.clip(lst, a_min = 2, a_max = 6))
 print(np.divide(lst, ist))
 print(np.cbrt(lst), np.cbrt(ist))
+print(np.asarray(lst))
 import numpy as np
 arr = np.array([[[1, 0, 1], [0, 1, 0]], [[1, 1, 0], [0, 0, 1]]])
 print(np.packbits(arr, axis = -1))
@@ -107,3 +134,30 @@ print(np.char.isnumeric('12geeks'))
 print(np.char.equal('geeks','for'))
 print(np.char.not_equal('geeks', 'for'))
 print(np.char.greater('geeks','for'))
+arr = np.chararray((2, 3))  
+arr[:] = 'Hello'; print(arr)
+data = np.array([[0.8, 2.9, 3.9], [52.4, 23.6, 36.5],
+    [55.2, 31.7, 23.9], [14.4, 11, 4.9]])
+print(data * np.array([3, 3, 8]))
+print(arr, arr[[1, 2, 3]])
+temp = np.array([
+    [30, 32, 34, 33, 31], [25, 27, 29, 28, 26], 
+    [20, 22, 24, 23, 21] ])
+correct = np.array([1.5, -0.5, 2.0])
+print(temp + correct[:, newaxis])
+print(temp, temp[1])
+image = np.array([
+    [100, 120, 130], [90, 110, 140],
+    [80, 100, 120] ])
+mean = image.mean(axis = 0) 
+std = image.std(axis = 0)     
+print((image - mean) / std)
+data = np.array([
+    [10, 20], [15, 25], [20, 30] ])
+feature = data.mean(axis = 0)
+print(data - feature)
+print(image, image[[0, 2]])
+cube = np.array([
+    [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+    [[10, 11, 12], [13, 14, 15], [16, 17, 18]]])
+print(cube[1, 2, 0])
