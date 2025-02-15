@@ -1,18 +1,23 @@
 import numpy as np
-arr = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]]); print(arr)
+arr = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]]); print(arr, arr.shape)
 arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 print(arr, "\n", arr.shape, arr.ndim, arr.size, arr.dtype, arr.itemsize, arr[0 : 2], arr[1 : 3])
-print(arr + 10)
+print(arr + 10, arr.shape)
 print(arr[0 : 2, 1 : 3], arr[1, 2])
+arr = np.array([2, 4, 6, 8, 10], ndmin = 6)
+print(arr, arr.shape)
+arr = np.array([(1, 2), (3, 4), (5, 6), (7, 8)])
+print(arr, arr.shape)
 arr = np.array([1, 2, 3, 4, 5])
 print(arr[2], arr[1 : 4], arr + 1)
 arr[1 : 3] = 99; print(arr)
+arr.sort(); print(arr)
 a, b, c = np.array([1, 2, 3]), np.array([4, 5, 6]), np.array([[1, 2, 3], [4, 5, 6]])
 print(a + b, a - b, a * b, a / b)
 print(a + c, a * c)
 mat, rix = np.array([[1, 2], [3, 4]]), np.array([[5, 6], [7, 8]])
 print(np.dot(mat, rix))
-print(mat + 10)
+print(mat + 10, mat.flatten(), mat.flatten('F'), )
 arr = np.array([1, 2, 3, 4, 5, 6]); print(arr.reshape(2, 3), arr[arr > 3], arr[0], arr[1 : 4], arr[(arr > 2) & (arr < 6)])  
 arr = np.array([[1, 2, 3], [4, 5, 6]]); print(arr[1, 2], arr.flatten())
 arr = np.array([[1, 2], [3, 4], [5, 6]])
@@ -161,3 +166,56 @@ cube = np.array([
     [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
     [[10, 11, 12], [13, 14, 15], [16, 17, 18]]])
 print(cube[1, 2, 0])
+
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])
+n = arr.size(); N = 4
+M = n // N
+reshape = arr.reshape((N, M))
+print(reshape, str(arr))
+print(np.reshape(arr, (2, 8)))
+print(arr.reshape((2, 2, 4)))
+print(arr.reshape((2, 2, -1)))
+print(arr.reshape((4, -1)))
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(arr, arr.reshape((9)), arr.reshape((1, 5)))
+
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+ray = np.array([[7, 8, 9], [10, 11, 12]])
+print(np.concatenate((arr.flatten(), ray.flatten())))
+print(np.zeros_like(arr.flatten()))
+print(arr.flatten().max())
+print(np.sort(ray, axis = 0))
+print(np.sort(ray, axis = -1)) 
+print(np.sort(ray, axis = None))
+arr = np.array([9, 3, 1, 7, 4, 3, 6])
+b = np.argsort(arr); print(arr, b)
+c = np.zeros(len(b), dtype = int) 
+for i in range(0, len(b)): 
+    c[i]= a[b[i]] 
+print(c) 
+
+arr = np.array([9, 3, 1, 3, 4, 3, 6]) 
+ray = np.array([4, 6, 9, 2, 1, 8, 7]) 
+for (i, j) in zip(arr, ray): 
+    print(i, ' ', j) 
+print(np.lexsort((ray, arr)))
+arr.sort(); print(arr)
+b = sorted(ray); print(b)
+tmp = np.argsort(arr)
+c = np.zeros(len(tmp), dtype = int) 
+for i in range(0, len(tmp)): 
+    c[i]= a[tmp[i]] 
+print(c) 
+
+arr = np.array([10, 32, 30, 50, 20, 82, 91, 45]) 
+print("arr = {}".format(arr)) 
+tmp = np.where(arr == 30) 
+print("i = {}".format(tmp))
+import numpy as np
+
+arr = np.array([10, 32, 30, 50, 20, 82, 91, 45]); print("arr =", arr)
+idx = np.where(arr == 30)[0]; print(idx)
+arr = [1, 2, 2, 3, 3, 3, 4, 5, 6, 6] 
+print("left-most index =", np.searchsorted(arr, 3, side="left"))
+print("right-most index =", np.searchsorted(arr, 3, side="right"))
+
