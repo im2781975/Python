@@ -46,4 +46,24 @@ print(np.eye((3, 4)))
 print(np.eye(4, k = 1))
 print(np.diag([1, 2, 3]))
 print([('f', 'f4'), ('i', 'i4')])
-
+#Operation
+import numpy as np
+x, y = 10, 11
+lst, ist = [2, 8, 125], [3, 3, 115]
+print(np.bitwise_and(x, y))
+print(np.bitwise_or(x, y))
+print(np.bitwise_xor(x, y))
+print(np.invert(x))
+print(np.left_shift(x, y))
+print(np.right_shift(x, y))
+print(np.binary_repr(x))
+print(np.bitwise_and(lst, ist))
+print(np.bitwise_or(lst, ist))
+print(np.bitwise_xor(lst, ist))
+print(np.invert(lst))
+print(np.left_shift(lst, ist))
+print(np.right_shift(lst, ist))
+print(np.binary_repr(lst[1]))
+print(np.binary_repr(lst[1], width = 4))
+print(np.binary_repr(lst[2]))
+print(np.binary_repr(lst[2], width = 7))
