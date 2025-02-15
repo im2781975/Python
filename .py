@@ -49,7 +49,9 @@ print([('f', 'f4'), ('i', 'i4')])
 #Operation
 import numpy as np
 x, y = 10, 11
+
 lst, ist = [2, 8, 125], [3, 3, 115]
+print(np.reciprocal(x))
 print(np.bitwise_and(x, y))
 print(np.bitwise_or(x, y))
 print(np.bitwise_xor(x, y))
