@@ -69,3 +69,19 @@ print(np.binary_repr(lst[1]))
 print(np.binary_repr(lst[1], width = 4))
 print(np.binary_repr(lst[2]))
 print(np.binary_repr(lst[2], width = 7))
+import numpy as np
+arr = np.array([[[1, 0, 1], [0, 1, 0]], [[1, 1, 0], [0, 0, 1]]])
+print(np.packbits(arr, axis = -1))
+arr = np.array([[2], [7], [23]], dtype = np.uint8)
+print(np.unpackbits(arr, axis = 1))
+import math
+arr = [0, math.pi / 2, np.pi / 3, np.pi]
+print(np.sin(arr), np.cos(arr), np.sinh(arr), np.cosh(arr))
+arr = [.5, 1.5, 2.5, 3.5, 4.5, 10.1]
+print(np.around(arr))
+print(np.around(arr, decimals = 3))
+print(np.round(arr))
+print(np.round(arr, decimals = 3))
+arr = [1, 3, 5, 7, 9, 2 ** 8]
+print(np.exp(arr), np.log(arr))
+print(np.log(4 ** 4), np.log(2 ** 8))
