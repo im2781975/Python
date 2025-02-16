@@ -211,6 +211,27 @@ print(color_agg)
 cut_sum.to_csv("cut_sum.csv")
 cut_color_min.to_csv("cut_color_min.csv")
 color_agg.to_csv("color_agg.csv")
+import pandas as pd
+import matplotlib.pyplot as plt
+data = {
+    'Title': ['The Crown', 'Stranger Things', 'Breaking Bad', 'The Mandalorian', 'Avatar: The Last Airbender', 'The Office', 'Game of Thrones', 'Cosmos: A Spacetime Odyssey', 'The Good Place', 'Black Mirror', 'The Chosen', 'The Bible'],
+    'Genre': ['Drama', 'Sci-Fi', 'Drama', 'Sci-Fi', 'Animation', 'Comedy', 'Fantasy', 'Documentary', 'Comedy', 'Sci-Fi', 'Drama', 'Drama'],
+    'Release_Year': [2016, 2016, 2008, 2019, 2005, 2005, 2011, 2014, 2016, 2011, 2019, 2013],
+    'Director': ['Peter Morgan', 'The Duffer Brothers', 'Vince Gilligan', 'Jon Favreau', 'Michael Dante DiMartino, Bryan Konietzko', 'Greg Daniels', 'David Benioff, D. B. Weiss', 'Brannon Braga', 'Michael Schur', 'Charlie Brooker', 'Dallas Jenkins', 'Various'],
+    'Seasons': [4, 4, 5, 2, 3, 9, 8, 1, 4, 5, 2, 1],
+    'Duration_Minutes': [60, 50, 47, 40, 23, 22, 57, 60, 22, 60, 45, 43]
+}
+tv_serials_df = pd.DataFrame(data)
+print(tv_serials_df.head())
+genre_seasons = tv_serials_df.groupby('Genre')['Seasons'].mean()
+plt.figure(figsize = (10, 6))
+genre_seasons.plot(kind = 'bar', color = 'coral')
+plt.title('Bar Plot of Average Seasons by Genre')
+plt.xlabel('Genre')
+plt.ylabel('Average Seasons')
+plt.xticks(rotation=45)
+plt.grid(axis = 'y', linestyle = '--', alpha = 0.7)
+plt.show()
 """
 lst = [
     ['M.S.Dhoni', 36, 75, 5428000], ['A.B.D Villers', 38, 74, 3428000],
@@ -617,4 +638,24 @@ print(a.first())
 b = df.groupby(['Maths', 'Science']) 
 print(b.first())
 
-
+import pandas as pd
+a, b = pd.DataFrame()
+dic = {'id' : [1, 2, 10, 12], 
+    'val1': ['a', 'b', 'c', 'd']}
+dec = {'id': [1, 2, 9, 8],
+     'val1': ['p', 'q', 'r', 's']}
+x = pd.DataFrame(dic)
+y = pd.DataFrame(dec)
+print(x, y)
+df = pd.merge(x, y, on = 'id', how = 'outer'); print(df)
+df = pd.merge(x, y, left_index = True, right_index = True); print(df)
+df ={
+    "arr": [30, 70, 100],
+    "ray": [65.1, 49.50, 30.7] }
+data = pd.DataFrame(df)
+print(data.corr())
+df = pd.DataFrame({
+    'A' : [1, 2, 3, 4, 5],
+    'B' : [5, 6, 7, 8, 9],
+    'C' : [9, 8, 7, 6, 5] })
+print(df.corr())
