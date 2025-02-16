@@ -151,6 +151,66 @@ print("\nWorks Data (First 3 rows):\n", works_data.head(3))
 soloist_data = pd.json_normalize(data=d['programs'],record_path=['works', 'soloists'], 
     meta=['id'], errors='ignore')  
 print("\nSoloist Data (First 3 rows):\n", soloist_data.head(3))
+import pandas as pd
+import matplotlib.pyplot as plt
+data = {
+    'CustomerID': [1, 2, 3, 4, 5],
+    'Spending Score (1-100)': [50, 80, 45, 90, 30],
+    'Age': [25, 40, 35, 50, 45]}
+frame = pd.DataFrame(data)
+def fun(value):
+    return "Yes" if value > 70 else "No"
+frame['Customer Satisfaction'] = frame['Spending Score (1-100)'].apply(fun)
+const = frame['Age'].max()
+if const > 0: 
+    frame['Age'] = frame['Age'].apply(lambda x: x / const)
+print(frame.head())
+frame.plot(x='CustomerID', y='Spending Score (1-100)', kind='scatter')
+plt.title("CustomerID vs Spending Score")
+plt.show()
+frame['Spending Score (1-100)'].plot.hist(bins=5, alpha=0.7)
+plt.title("Spending Score Distribution")
+plt.xlabel("Spending Score (1-100)")
+plt.show()
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.DataFrame([
+    [180000, 110, 18.9, 1400],
+    [360000, 905, 23.4, 1800],
+    [230000, 230, 14.0, 1300],
+    [60000, 450, 13.5, 1500]
+], columns=['Col A', 'Col B', 'Col C', 'Col D'])
+print(df.head())
+df.plot(kind = 'bar', title = "Original Data")
+plt.show()
+df_max_scaled = df / df.abs().max()
+print(df_max_scaled.head())
+df_max_scaled.plot(kind = 'bar', title = "Max Normalized Data")
+plt.show()
+df_min_max_scaled = (df - df.min()) / (df.max() - df.min())
+print(df_min_max_scaled.head())
+df_min_max_scaled.plot(kind = 'bar', title = "Min-Max Normalized Data")
+plt.show()
+df_z_scaled = (df - df.mean()) / df.std()
+print(df_z_scaled.head())
+df_z_scaled.plot(kind='bar', title="Z-Score Normalized Data")
+plt.show()
+import numpy as np
+import pandas as pd
+dataset = pd.read_csv("diamonds.csv")
+print(dataset.head(5))
+cut_sum = dataset.groupby('cut').sum()
+print(cut_sum)
+cut_color_min = dataset.groupby(['cut', 'color']).agg('min')
+print(cut_color_min)
+agg_functions = {
+    'price': ['sum', 'mean', 'median', 'min', 'max', 'prod']
+}
+color_agg = dataset.groupby(['color']).agg(agg_functions)
+print(color_agg)
+cut_sum.to_csv("cut_sum.csv")
+cut_color_min.to_csv("cut_color_min.csv")
+color_agg.to_csv("color_agg.csv")
 """
 lst = [
     ['M.S.Dhoni', 36, 75, 5428000], ['A.B.D Villers', 38, 74, 3428000],
@@ -500,4 +560,61 @@ for column in frame.columns:
 frame[column] = frame[column].apply(lambda x: pd.to_numeric(x, errors = 'ignore'))
 for column in data_frame.columns:
     print(pd.api.types.infer_dtype(frame[column]))
-    
+print(frame.head())
+print(frame.tail())
+print(list(frame.columns))
+print(frame.info())
+print(frame.describe())
+print(frame.isnull())
+print(frame.isnull().sum())
+frame = frame.dropna()
+frame = frame.fillna(value)
+frame[col] = frame[col].fillna(value)
+frame.drop(4).head()
+frame.rename({0:"First",1:"Second"})
+frame['NewColumn'] = 1
+print(frame.head())
+frame.sort_values(by = 'Age', ascending = False).head()
+frame.sort_values(by = ['Age','Annual Income (k$)']).head(10)
+print(frame)
+df1 = pd.DataFrame({
+    'Name':['Jeevan', 'Raavan', 'Geeta', 'Bheem'],
+    'Age':[25, 24, 52, 40], 
+    'Qualification':['Msc', 'MA', 'MCA', 'Phd']})
+df2 = pd.DataFrame({
+    'Name':['Jeevan', 'Raavan', 'Geeta', 'Bheem'],
+    'Salary':[100000, 50000, 20000, 40000]})
+print(pd.merge(df1, df2))
+register = pd.DataFrame()
+register['Name'] = ['Abhijit','Smriti', 'Akash', 'Roshni']
+register['Age'] = [20, 19, 20, 14]
+register['Student'] = [False, True, True, False]
+print(register)
+person = pd.Series(['Mansi', 19, True], 
+    index = ['Name', 'Age', 'Student'])
+register.append(person, ignore_index = True)
+print(register)
+print(register.shape)
+print(register.info())
+print(register.corr())
+print(register.describe())
+students = register.drop('Age', axis = 1)
+print(students.head())
+students = students.drop(2, axis = 0)
+print(students.head())
+
+import pandas as pd 
+df = pd.DataFrame([[9, 4, 8, 9], 
+    [8, 10, 7, 6], [7, 6, 8, 5]], 
+    columns=['Maths','English',   'Science', 'History']) 
+print(df) 
+print(df.sum())
+print(df.describe())
+df.agg(['sum', 'min', 'max'])
+df.groupby(by = ['Maths'])
+a = df.groupby('Maths') 
+print(a.first())
+b = df.groupby(['Maths', 'Science']) 
+print(b.first())
+
+
