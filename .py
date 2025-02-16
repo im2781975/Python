@@ -219,3 +219,156 @@ arr = [1, 2, 2, 3, 3, 3, 4, 5, 6, 6]
 print("left-most index =", np.searchsorted(arr, 3, side="left"))
 print("right-most index =", np.searchsorted(arr, 3, side="right"))
 
+import numpy as np
+import array
+arr = np.arange(12).reshape(3, 4)
+print(arr,np.argmax(arr), np.argmax(arr,  axis = 0), np.argmax(array, axis = 1))
+print(np.dot(5, 4))
+arr = [np.nan, 4, 2, 3, 1]
+ray = np.array([[np.nan, 4], [1, 3]])
+print(np.nanargmax(arr))
+print(np.nanargmax(ray))
+print(np.nanargmax(ray, axis = 1))
+print(np.arange(8))
+print(np.count_nonzero([[0, 1, 7, 0, 0], [3, 0, 0, 2, 19]]))
+print(np.count_nonzero([[0, 1, 7, 0, 0], [3, 0, 0, 2, 19]], axis = 0))
+arr = np.array([1, 2]); ray = np.array([3, 4]) 
+print(np.concatenate((arr, ray)))
+print(np.hstack((arr, ray)))
+arr = np.array([[1, 2]]); ray = np.array([[3, 4]]) 
+print(np.vstack((arr, ray))) 
+arr = np.array([[1, 2, 3], [-1, -2, -3]]) 
+ray = np.array([[4, 5, 6], [-4, -5, -6]]) 
+print(np.hstack((arr, ray)))
+print(np.vstack((arr, ray)))
+arr = np.array([[1, 2], [3, 4]]) 
+ray = np.array([[5, 6], [7, 8]])
+print(np.concatenate((arr, ray), axis = 1))
+arr = np.array([1, 2, 3, 4]) 
+ray = np.array([5, 6, 7, 8]) 
+print(np.stack((arr, ray), axis = 1))
+
+a = np.array([[1, 1], [1, 1]]) 
+b = np.array([[2, 2, 2], [2, 2, 2]]) 
+c = np.array([[3, 3], [3, 3], [3, 3]]) 
+d = np.array([[4, 4, 4], [4, 4, 4], [4, 4, 4]]) 
+print(np.block([[a, b], [c, d] ]))
+arr = np.arrange(13)
+print(np.array_split(arr, 4))
+print(np.split(arr, 2))
+x = np.arange(5)
+y = np.arange(10).reshape(2,5) 
+print(x, y)
+for a, b in np.nditer([x, y]): 
+    print("%d:%d" % (a, b),)
+arr = np.arange(3) 
+print(arr, np.mean(arr, axis = 1, out = arr)) 
+import numpy as np
+arr = np.array([1, 2, 3, 4, 5, 6])
+print(np.array_split(arr, 3))
+arr = np.array([[3, 2, 1], [8, 9, 7], [4, 6, 5]])
+print(np.split(arr, 3, axis = 1))
+
+matrix = np.array([
+    [1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]])
+print(matrix, np.vsplit(matrix, 2))
+arr = np.array([[1, 2, 3, 4],
+    [5, 6, 7, 8], [9, 10, 11, 12]])
+print(arr, np.hsplit(arr, 2))
+
+arr = np.arange(24).reshape((2, 3, 4))
+print(np.dsplit(arr, 2))
+import numpy as np 
+arr = [20, 2, .2, 10, 4] 
+ray = [[14, 17, 12, 33, 44], [15, 6, 27, 8, 19], 
+    [23, 2, 54, 1, 4,]] 
+print(np.mean(arr))
+print(np.sum(arr)) 
+print(np.sum(ray))
+print(np.sum(arr, dtype = np.uint8)) 
+print(np.sum(ray, dtype = np.uint8)) 
+print(np.sum(arr, dtype = np.float32))
+print(np.sum(ray, dtype = np.float32))
+print (np.sum(arr).dtype == np.uint) 
+print (np.sum(ray).dtype == np.uint) 
+print (np.sum(arr).dtype == np.float) 
+print (np.sum(ray).dtype == np.float) 
+print(np.sum(ray, axis = 0))
+print(np.sum(ray, axis = 1))
+print(np.sum(ray, axis = 1, keepdims = True))
+print(np.mean(ray))  
+print(np.mean(ray, axis = 0))  
+print(np.mean(ray, axis = 1)) 
+x = np.array([[1, 2], [4, 5]]) 
+y = np.array([[7, 8], [9, 10]]) 
+print(np.add(x, y), x.T) 
+print(np.subtract(x, y))
+print(np.divide(x, y))
+print (np.multiply(x,y)) 
+print (np.dot(x,y)) 
+print (np.sqrt(x)) 
+print (np.sum(y)) 
+print (np.sum(y, axis = 0))
+print (np.sum(y, axis = 1)) 
+A, B = [[1, 2], [4, 5]], [[7, 8], [9, 10]]
+rows = len(A) 
+cols = len(A[0]) 
+C = [[0 for i in range(cols)] for j in range(rows)] 
+for i in range(rows): 
+    for j in range(cols): 
+        C[i][j] = A[i][j] + B[i][j] 
+D = [[0 for i in range(cols)] for j in range(rows)] 
+for i in range(rows): 
+    for j in range(cols): 
+        D[i][j] = A[i][j] - B[i][j] 
+E = [[0 for i in range(cols)] for j in range(rows)] 
+for i in range(rows): 
+    for j in range(cols): 
+        E[i][j] = A[i][j] / B[i][j] 
+print(C, D, E)
+matrix = np.matrix([[1, 2, 3], [4, 5, 6]])
+print(matrix, matrix.transpose())
+print(np.linalg.inv(matrix))
+print(np.linalg.matrix_rank(matrix))
+print( np.trace(matrix))
+print(np.linalg.det(matrix))
+print( np.linalg.inv(matrix))
+ 
+print(np.linalg.matrix_power(matrix, 3))
+rix = np.matrix('[4, 1, 9; 12, 3, 1; 4, 5, 6]') 
+print(rix, rix.transpose())
+mat = np.matrix([[1, 2], [3, 4]])
+rix = np.matrix([[5, 6], [7, 8]])
+print(mat * rix.transpose())
+arr = np.array(
+    [[6, 1, 1, 3], [4, -2, 5, 1],
+     [2, 8, 7, 6], [3, 1, 9, 7]])
+print(np.linalg.inv(arr))
+arr = np.array([[[1., 2.], [3., 4.]],
+              [[1, 3], [3, 5]]])
+print(np.linalg.inv(arr))
+x = np.eye(3) 
+y = np.ones((3, 3)) * 3
+print(x.dot(y), x.dot(y).dot(y))
+x = np.matrix('[4, 1; 12, 3]') 
+print(x.var())
+y = np.matrix('[4, 1, 9; 12, 3, 1; 4, 5, 6]') 
+print(y.var())
+import numpy as np
+from numpy import linalg
+a = np.array([[1, -2j], [2j, 5]])
+c, d = linalg.eigh(a)
+print(a, c, d)
+a = np.diag((1, 2, 3))
+c, d = linalg.eig(a)
+print(a, c, d)
+
+vec = 2 + 3j
+tor = 4 + 5j
+print(np.vdot(vec, tor))
+a = np.array([[1, 2], [3, 4]])
+b = np.array([8, 18])
+print((np.linalg.solve(a, b)))
+arr = np.array([[6, 1, 1], [4, -2, 5], [2, 8, 7]])
+print(np.linalg.det(arr))
+print(np.trace(arr))
