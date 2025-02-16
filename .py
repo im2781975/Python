@@ -418,4 +418,86 @@ print(df.drop_duplicates(keep = False))
 print(df.drop_duplicates(inplace = True))
 print(df.drop_duplicates(subset = ['A']))
 print(df.duplicated().any())
+df1 = pd.DataFrame({ 'A': [1, 2, 3], 'B': ['a', 'b', 'c']})
+df2 = pd.DataFrame({ 'A': [4, 2, 3], 'B': ['d', 'b', 'c']})
+print(pd.merge(df1, df2, how = 'outer').drop_duplicates())
 
+data = 
+    {'Name': ['John', 'Alice', 'Bob', 'Eve', 'Charlie'], 
+    'Age': [25, 30, 22, 35, 28], 
+    'Gender': ['Male', 'Female', 'Male', 'Female', 'Male'], 
+    'Salary': [50000, 55000, 40000, 70000, 48000]}
+df = pd.DataFrame(data)
+df['Age'] = df['Age'].astype(float)
+print(df.dtypes)
+df['Join Date'] = ['2021-01-01', '2020-05-22', '2022-03-15', '2021-07-30', '2020-11-11']
+df['Join Date'] = pd.to_datetime(df['Join Date'])
+print(df.dtypes)
+df = df.astype({'Age': 'float64', 'Salary': 'str'})
+print(df.dtypes)
+frame = pd.DataFrame(
+    {'FirstName': ['Vipul', 'Ashish', 'Milan'], 
+    "Gender": ["", "", ""], 
+    "Age": [0, 0, 0]}) 
+frame['Department'] = np.nan 
+print(frame) 
+frame.dropna(how = 'all', axis = 1, inplace = True) 
+print(frame)
+nan_value = float("NaN") 
+#frame.replace("", nan_value, inplace = True) 
+frame.replace(0, nan_value, inplace=True) 
+frame.dropna(how = 'all', axis = 1, inplace = True) 
+print(frame)
+
+df = pd.Series(['Gulshan', 'Shashank', 'Bablu', 'Abhishek', 'Anand', np.nan, 'Pratap'])
+print(df.astype('string'))
+df = pd.Series(['Gulshan', 'Shashank', 'Bablu', 'Abhishek', 'Anand', np.nan, 'Pratap'], dtype = 'string')
+print(df)
+
+df = pd.Series(['night_fury1', 'Is  ', 'Geeks, forgeeks', '100', np.nan, '  Contributor '])
+print(df)
+print(df.str.upper())
+print(df.str.lower())
+print(df.str.strip())
+print(df.str.split(','))
+print(df.str.split(',').str[0])
+print(df.str.split(',').str.get(1))
+print(len(df))
+print(df.str.len())
+print("\nafter using cat:")
+print(df.str.cat(sep = '_'))
+print(df.str.cat(sep='_', na_rep='#'))
+print(df.str.get_dummies())
+print(df.str.startswith('G'))
+print(df.str.endswith('1'))
+print(df.str.replace('Geeks', 'Gulshan'))
+print(df.str.repeat(2))
+print(df.str.count('n'))
+print(df.str.find('n'))
+print(df.str.findall('n'))
+print(df.str.islower())
+print(df.str.isupper()) 
+print(df.str.isnumeric())
+print(df.str.swapcase())
+
+sports = pd.Series(['Virat', 'azam', 'fiNch', 'ShakiB', 'STOKES', 'KAne']) 
+print(sports) 
+print(s.str.upper())
+print(s.str.lower()) 
+print(s.str.isupper())
+print(s.str.islower())
+print(s.str.len())
+print(s.str.startswith('a'))
+print(s.str.split('a')) 
+print(s.str.find('a')) 
+print(s.str.strip()) 
+print(s.str.replace('a', ''))
+
+frame = pd.DataFrame( [['tom', 10], ['nick', '15'], ['juli', 14.8]], columns=['Name', 'Age'])
+# frame[column] = frame[column].astype(int)
+for column in frame.columns:
+    print(column,':',pd.api.types.infer_dtype(frame[column]))
+frame[column] = frame[column].apply(lambda x: pd.to_numeric(x, errors = 'ignore'))
+for column in data_frame.columns:
+    print(pd.api.types.infer_dtype(frame[column]))
+    
