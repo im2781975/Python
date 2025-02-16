@@ -13,7 +13,7 @@ print(arr[2], arr[1 : 4], arr + 1)
 arr[1 : 3] = 99; print(arr)
 arr.sort(); print(arr)
 a, b, c = np.array([1, 2, 3]), np.array([4, 5, 6]), np.array([[1, 2, 3], [4, 5, 6]])
-print(a + b, a - b, a * b, a / b)
+print(a + b, a - b, a * b, a / b, a * 2, a > 2)
 print(a + c, a * c)
 mat, rix = np.array([[1, 2], [3, 4]]), np.array([[5, 6], [7, 8]])
 print(np.dot(mat, rix))
@@ -166,7 +166,9 @@ cube = np.array([
     [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
     [[10, 11, 12], [13, 14, 15], [16, 17, 18]]])
 print(cube[1, 2, 0])
-
+def custom(x):
+    return x**2 + 2*x + 1
+print(custom(np.array([1, 2, 3, 4])))
 arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16])
 n = arr.size(); N = 4
 M = n // N
@@ -310,6 +312,8 @@ print (np.sqrt(x))
 print (np.sum(y)) 
 print (np.sum(y, axis = 0))
 print (np.sum(y, axis = 1)) 
+x = np.array([1, 2, 3])
+print(x.sum(), x.mean())
 A, B = [[1, 2], [4, 5]], [[7, 8], [9, 10]]
 rows = len(A) 
 cols = len(A[0]) 
@@ -393,7 +397,48 @@ print(np.random.rand(3, 4))
 print(np.random.rand(2, 2 ,2))
 print(np.random.normal(size = 5))
 print(np.random.normal(0.0, 1.0, 5))
-arr = np.array([[1, 2, 3], [4, 5, 6]])  
-print(arr + 10)
-arr = np.array([1, 2, 3])
-print(arr + 1)
+
+arr = np.array([2, 4, 6])
+ray = np.array([[1, 3, 5], [7, 9, 11]])
+print(arr + ray)
+
+import time
+start_time = time.time()
+print(np.sum(np.arange(15000)))
+print(time.time() - start_time)
+start_time = time.time()
+iterative_sum = sum(range(15000)) 
+print("\nIterative sum:", iterative_sum)
+print("Time taken by iterative sum:", time.time() - start_time)
+
+angles = np.array([0, 30, 45, 60, 90, 180])  
+radians = np.deg2rad(angles)
+sine_value = np.sin(radians) 
+print(np.sin(radians)) 
+print(np.rad2deg(np.arcsin(sine_value))) 
+sineh_value = np.sinh(radians) 
+print(np.sinh(radians))
+print('Inverse Sine hyperbolic:') 
+print(np.sin(sineh_value))  
+
+base = 4
+height = 3
+print(np.hypot(base, height)) 
+weight = np.array([50.7, 52.5, 50, 58, 55.63, 73.25, 49.5, 45]) 
+print(np.amin(weight), np.amax(weight)) 
+print(np.ptp(weight))
+print(np.percentile(weight, 70))
+print(np.mean(weight)) 
+print(np.median(weight))
+print(np.std(weight))
+print(np.var(weight))
+print(np.average(weight)) 
+
+even = np.array([0, 2, 4, 6, 8, 16, 32]) 
+odd = np.array([1, 3, 5, 7, 9, 17, 33]) 
+print(np.bitwise_and(even, odd))
+print(np.bitwise_or(even, odd)) 
+print(np.bitwise_xor(even, odd))
+print(np.invert(even))
+print(np.left_shift(even, 1))
+print(np.right_shift(even, 1)) 
