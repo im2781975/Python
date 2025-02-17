@@ -659,3 +659,135 @@ df = pd.DataFrame({
     'B' : [5, 6, 7, 8, 9],
     'C' : [9, 8, 7, 6, 5] })
 print(df.corr())
+import pandas as pd 
+from datetime import datetime 
+import numpy as np 
+rang = pd.date_range(start = '1/1/2019', end  = '1/08/2019', freq = 'Min') 
+print(rang, rang[10])
+range_date = pd.date_range(start ='1/1/2019', end ='1/08/2019',freq ='Min') 
+df = pd.DataFrame(range_date, columns  = ['date']) 
+df['data'] = np.random.randint(0, 100, size = (len(range_date))) 
+print(df.head(10))
+ing = [str(x) for x in range_date]; print(ing[1 : 11])
+df['datetime'] = pd.to_datetime(df['date'])
+df = df.set_index('datetime') 
+df.drop(['date'], axis = 1, inplace = True)
+import pandas as pd
+import numpy as np
+data = {
+    'Survived': np.random.choice([0, 1], size=100),
+    'Pclass': np.random.choice([1, 2, 3], size=100),
+    'Sex': np.random.choice(['male', 'female'], size=100),
+    'Age': np.append(np.random.normal(30, 10, 95), [100, 2, 150, -5, 80]),  
+    'SibSp': np.random.randint(0, 5, 100),
+    'Parch': np.random.randint(0, 5, 100),
+    'Fare': np.random.uniform(10, 100, 100),
+    'Embarked': np.random.choice(['C', 'Q', 'S', np.nan], size=100),
+    'Name': np.random.choice(['John Doe', 'Jane Doe', 'Jack Smith'], size=100),
+    'Ticket': np.random.randint(100000, 999999, 100),
+    'Cabin': np.random.choice([np.nan, 'C23', 'E31', 'B57'], size=100)
+}
+df = pd.DataFrame(data)
+print(df.head())
+cat_col = [col for col in df.columns if df[col].dtype == 'object']
+print('Categorical columns:', cat_col)
+num_col = [col for col in df.columns if df[col].dtype != 'object']
+print('Numerical columns:', num_col)
+df1 = df.drop(columns=['Name', 'Ticket'])
+print("\nShape after dropping Name and Ticket columns:", df1.shape)
+missing_percent = round((df1.isnull().sum() / df1.shape[0]) * 100, 2)
+print("\nMissing values percentage:\n", missing_percent)
+df2 = df1.drop(columns='Cabin')
+df2.dropna(subset = ['Embarked'], inplace = True)
+print("\nShape after dropping Cabin and missing Embarked rows:", df2.shape)
+df3 = df2.copy()
+df3['Age'].fillna(df3['Age'].mean(), inplace=True)
+print("\nNull values after imputation:\n", df3.isnull().sum())
+mean_age = df3['Age'].mean()
+std_age = df3['Age'].std()
+lower_bound = mean_age - 2 * std_age
+upper_bound = mean_age + 2 * std_age
+print("\nLower Bound:", lower_bound)
+print("Upper Bound:", upper_bound)
+df4 = df3[(df3['Age'] >= lower_bound) & (df3['Age'] <= upper_bound)]
+print("\nShape after removing outliers:", df4.shape)
+X = df4[['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']]
+Y = df4['Survived']
+print("\nFinal X shape:", X.shape)
+print("Final Y shape:", Y.shape)
+
+import pandas as pd
+import numpy as np
+date_range = pd.date_range(start="2023-01-01", periods=10, freq='D')
+data = {
+    'Unnamed: 0': range(10),  
+    'Open': np.random.uniform(100, 200, 10),
+    'High': np.random.uniform(150, 250, 10),
+    'Low': np.random.uniform(90, 190, 10),
+    'Close': np.random.uniform(120, 220, 10),
+    'Volume': np.random.randint(10000, 50000, 10)
+}
+df = pd.DataFrame(data, index = date_range)
+df.index.name = "Date"
+print("First 5 rows before deleting 'Unnamed: 0' column:")
+print(df.head())
+if 'Unnamed: 0' in df.columns:
+    df.drop(columns='Unnamed: 0', inplace=True)
+    print("\nColumn 'Unnamed: 0' deleted.")
+else:
+    print("\nColumn 'Unnamed: 0' not found, no deletion needed.")
+print("\nFirst 5 rows after deleting 'Unnamed: 0' column:")
+print(df.head())
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+data = {
+    'Pclass': np.random.choice([1, 2, 3], size=10),
+    'Sex': np.random.choice(['male', 'female'], size=10),
+    'Age': np.random.uniform(18, 70, 10),
+    'SibSp': np.random.randint(0, 5, 10),
+    'Parch': np.random.randint(0, 5, 10),
+    'Fare': np.random.uniform(10, 200, 10),
+    'Embarked': np.random.choice(['C', 'Q', 'S'], size=10)
+}
+X = pd.DataFrame(data)
+num_col_ = [col for col in X.columns if X[col].dtype != 'object']
+scaler = MinMaxScaler(feature_range = (0, 1))
+X_scaled = X.copy()
+X_scaled[num_col_] = scaler.fit_transform(X_scaled[num_col_])
+print(X_scaled.head())
+print("\nMin values after scaling:\n", X_scaled[num_col_].min())
+print("\nMax values after scaling:\n", X_scaled[num_col_].max())
+
+data = {
+    'School ID': [101, 102, 103, np.nan, 105, 106, 107, 108],
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Henry'],
+    'Address': ['123 Main St', '456 Oak Ave', '789 Pine Ln', '101 Elm St', np.nan, '222 Maple Rd', '444 Cedar Blvd', '555 Birch Dr'],
+    'City': ['Los Angeles', 'New York', 'Houston', 'Los Angeles', 'Miami', np.nan, 'Houston', 'New York'],
+    'Subject': ['Math', 'English', 'Science', 'Math', 'History', 'Math', 'Science', 'English'],
+    'Marks': [85, 92, 78, 89, np.nan, 95, 80, 88],
+    'Rank': [2, 1, 4, 3, 8, 1, 5, 3],
+    'Grade': ['B', 'A', 'C', 'B', 'D', 'A', 'C', 'B']}
+df = pd.DataFrame(data); print(df)
+df_cleaned = df.dropna()
+print("\nDataFrame after removing rows with missing values:")
+print(df_cleaned)
+mean_imputation = df['Marks'].fillna(df['Marks'].mean())
+median_imputation = df['Marks'].fillna(df['Marks'].median())
+mode_imputation = df['Marks'].fillna(df['Marks'].mode().iloc[0])
+
+print(mean_imputation)
+print(median_imputation)
+print(mode_imputation)
+# Forward and Backward Fill
+forward_fill = df['Marks'].fillna(method='ffill')
+backward_fill = df['Marks'].fillna(method='bfill')
+
+print(forward_fill)
+print(backward_fill)
+#  Interpolation Techniques
+linear_interpolation = df['Marks'].interpolate(method='linear')
+quadratic_interpolation = df['Marks'].interpolate(method='quadratic')
+
+print(linear_interpolation)
+print(quadratic_interpolation)
