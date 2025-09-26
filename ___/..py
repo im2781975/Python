@@ -7,12 +7,7 @@ print(name + ' ' + cog, length)
 print("name[3]:", name[3])
 print(5 * "Molla\'s \"Lecture\"\n")
 #swap
-a = input("Enter a: ")
-b = input("Enter b: ")
-tmp = a 
-a = b 
-b = tmp
-print(a, b)
+
 
 #string is immutable like a[0] = 'R' cant assign
 a, b, c, d, e = 'ibrahimmolla', 'Molla vai', 'Molla\'s vai', "Molla's vai", """ibrahim
