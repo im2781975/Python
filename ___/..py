@@ -1,15 +1,9 @@
-
-
 name = input("whats your name: ")
 length = len(name)
 cog = "Molla"
 print(name + ' ' + cog, length)
 print("name[3]:", name[3])
 print(5 * "Molla\'s \"Lecture\"\n")
-#swap
-
-
-
 
 string = '''House
 For
