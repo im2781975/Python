@@ -1,5 +1,3 @@
-
-
 integer = 12.3456789
 print('The value of Integer is %3.2f' %integer)
 print('The value of Integer is %3.4f' % integer)
