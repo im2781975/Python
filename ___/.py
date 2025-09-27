@@ -18,6 +18,21 @@ print(s + "\n" + repr(s) + "\n" + str(s))
 print(eval(repr(s)) + "\n" + eval(repr(s)) == s)
 print(5 * "Molla\'s \"Lecture\"\n")
 
+ing = "\222\110\220"; print(ing)
+ing = r"\222\110\220"; print(ing)
+ing = "x\222\110\220"; print(ing)
+ing = r"x\222\110\220"; print(ing)
+
+ing = "{} {} {}".format('how', 'are', 'him'); print(ing)
+ing = "{1} {0} {2}".format('how', 'are', 'him'); print(ing)
+ing = "{l} {f} {g}".format(g = 'how', f ='are', l = 'him'); print(ing)
+ing = "{0:b}".format(8); print(ing)
+ing = "{0:b}".format(16); print(ing)
+ing = "{0:e}". format(165.789); print(ing)
+ing = "{0:0.2f}". format(1/6); print(ing)
+ing ="{0:^16} was founded in {1:<4}!".format("OfSport", 2009); print(ing)
+ing = "|{:<10}|{:^10}|{:>10}|".format('Here', 'You', 'Are'); print(ing)
+
 ing = "HELLO"
 rev = reversed(ing); print(rev)
 rev = "".join(reversed(ing)); print(rev)
@@ -36,3 +51,8 @@ name = input("whats your name:")
 cog = "molla"
 print(name + ' ' + cog, len(name))
 
+ing = "molla vai"
+lst = list(ing); print(lst)
+lst[1] = 'p'; print(lst)
+tis = ''.join(lst); print(tis)
+print(ing[0 : 2] + ' ' + tis[: : -1])
