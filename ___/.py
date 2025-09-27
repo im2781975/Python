@@ -2,6 +2,9 @@
 s = """He'l" l\'"""
 a, b, c, d = 'Molla vai', 'Molla\'s vai', "Molla's vai", """ibrahim 
 molla """
+ing = '''House
+For Rent'''
+print(ing, ing[ : : -1], ing[3 : 12], ing[3 : -2])
 print(a, b, c, d)
 print(a.upper(), a.lower(), a.capitalize())
 print(a,'\n',f"a[3]: {a[3]}\na[2 : 6]: {a[2:6]}\na[1 : 8]: {a[1 : 8]}")
@@ -13,6 +16,7 @@ else: print("Not exits")
 #repr() : single quote (') in the string is escaped as \'.
 print(s + "\n" + repr(s) + "\n" + str(s))
 print(eval(repr(s)) + "\n" + eval(repr(s)) == s)
+print(5 * "Molla\'s \"Lecture\"\n")
 
 ing = "HELLO"
 rev = reversed(ing); print(rev)
@@ -27,3 +31,8 @@ print("concatenation of str is:", first + sec, ",", a + b)
 text = a + b #loop
 for char in text:
     print(char, end = ' ')
+
+name = input("whats your name:")
+cog = "molla"
+print(name + ' ' + cog, len(name))
+
