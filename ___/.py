@@ -17,6 +17,8 @@ else: print("Not exits")
 print(s + "\n" + repr(s) + "\n" + str(s))
 print(eval(repr(s)) + "\n" + eval(repr(s)) == s)
 print(5 * "Molla\'s \"Lecture\"\n")
+upper = lambda string : string.upper(); print(upper('Molla'))
+lower = lambda string : string.lower(); print(lower('Molla'))
 
 ing = "\222\110\220"; print(ing)
 ing = r"\222\110\220"; print(ing)
@@ -32,6 +34,10 @@ ing = "{0:e}". format(165.789); print(ing)
 ing = "{0:0.2f}". format(1/6); print(ing)
 ing ="{0:^16} was founded in {1:<4}!".format("OfSport", 2009); print(ing)
 ing = "|{:<10}|{:^10}|{:>10}|".format('Here', 'You', 'Are'); print(ing)
+print('{:~<9s}, world'.format('Hello'))
+print('{:~>9s}, world'.format('Hello'))
+print('{:~^9s}, world'.format('Hello'))
+print('{:0=6d}'.format(-1234))
 
 ing = "HELLO"
 rev = reversed(ing); print(rev)
@@ -56,3 +62,17 @@ lst = list(ing); print(lst)
 lst[1] = 'p'; print(lst)
 tis = ''.join(lst); print(tis)
 print(ing[0 : 2] + ' ' + tis[: : -1])
+
+data = [(1, 'apple'), (3, 'banana'), (2,  'orange')]
+info = sorted(data, key = lambda x : x[0]); print(info)
+
+a, b, c = 1, 'hero', 3.95
+print('{}, {} & {}'.format(a, b, c))
+print('{0}, {1}, {2} & {1}'.format(a, b, c))
+print("x = {x}\ny = {y}".format(x = 2, y = 5))
+print(f"b is: {b : ^7s}")
+
+dig = 12.345; print("digit's: %3.2f" %dig)
+ric = lambda num : f"{num :e}" if isinstance(num, int) else f"{num : ,.2f}"
+print(ric(9999), '\n', ric(2.87))
+
