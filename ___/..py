@@ -1,30 +1,4 @@
-integer = 12.3456789
-print('The value of Integer is %3.2f' %integer)
-print('The value of Integer is %3.4f' % integer)
 
-ing = 'MollaVai'
-upper = lambda string : string.upper()
-print(upper(ing))
-formatNumeric = lambda num : f"{num : e} " if isinstance(num, int) else f"{num :,.2f} "
-print(formatNumeric(99999), formatNumeric(123.98))
-data = [(1, 'apple'), (2, 'banana'), (3, 'orange')]
-sortedData = sorted(data, key = lambda x : x[1])
-print(sortedData)
-"""				"""
-foo, bar, baz = 1, 'bar', 3.1416
-print('{}, {} & {}'.format(foo, bar, baz))
-print('{0}, {1}, {2} & {1}'.format(foo, bar, baz))
-print("X value {x}, Y value {y}".format(x = 2, y = 3))
-"""            """
-print('{:~<9s}, World'.format('Hello'))
-print('{:~>9s}, World'.format('Hello'))
-print('{:~^9s}'.format('Hello'))
-print('{:0=6d}'.format(-123))
-"""            """
-foo = 'bar'
-print(f'Foo is: {foo} ')
-print(f'{foo : ^7s}')
-"""            """
 print('{0:.0f}'.format(42.12345))
 print('{0:.1f}'.format(42.12345))
 print('{0:.3f}'.format(42.12345))
