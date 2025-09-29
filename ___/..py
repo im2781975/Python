@@ -20,53 +20,7 @@ print(type(u"£13.55".encode('utf8')))
 print(u"£13.55".encode('utf8'))
 print(b'\xc2\xa313.55'.decode('utf8'))
 """            """
-import re
-pattern, ing = r"123", "123zzb"
-re.match(pattern, ing)
-match = re.match(pattern, ing)
-print(match.group())
 
-pattern, ing = r"\t123", "\t123zzb" 
-print(re.match(pattern, ing).group())
-print(re.match(pattern, "\t123zzb").group())  
-
-pattern = r"\t123" 
-print(re.match(pattern, ing).group())
-match = re.match(r"(123)", "a123zzb")
-print(match is None)
-match = re.search(r"(123)", "a123zzb")
-print(match.group())
-
-pattern = r"(your base)"
-sentence = "All your base are belong to us."
-match = re.search(pattern, sentence)
-print(match.group(1))
-match = re.search(r"(belong.*)", sentence)
-print(match.group(1))
-
-match = re.search(r"^123", "123zzb")
-print(match.group(0))
-match = re.search(r"^123", "a123zzb")
-print(match is None)
-match = re.search(r"123$", "zzb123")
-print(match.group(0))
-
-print(re.search("b", "ABC") is None)
-print(re.search("b", "ABC", flags=re.IGNORECASE).group())
-print(re.search("a.b", "A\nBC", flags=re.IGNORECASE) is None)
-m = re.search("a.b", "A\nBC", flags=re.IGNORECASE|re.DOTALL)
-print(m.group())
-print(re.sub(r"t[0-9][0-9]", "foo", "my name t13 is t44 what t99 ever t44"))
-print(re.sub(r"t([0-9])([0-9])", r"t\2\1", "t13 t19 t81 t25"))
-print(re.sub(r"t([0-9])([0-9])", r"t\g<2>\g<1>", "t13 t19 t81 t25"))
-items = ["zero", "one", "two"]
-print(re.sub(r"a\[([0-3])\]", lambda match: items[int(match.group(1))], "Items: a[0], a[1], something, a[2]"))
-print(re.findall(r"[0-9]{2,3}", "some 1 text 12 is 945 here 4445588899"))
-results = re.finditer(r"([0-9]{2,3})", "some 1 text 12 is 945 here 4445588899")
-print(results)
-for result in results:     
-    print(result.group(0), end = " ")
-"""            """
 def Isallowed(string):    
     characherRegex = re.compile(r'[^a-zA-Z0-9.]')    
     string = characherRegex.search(string)  
