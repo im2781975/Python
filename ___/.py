@@ -27,6 +27,7 @@ print('This is very useful'.translate(str.maketrans('', '', 'aeiou')))
 print(5 * "Molla\'s \"Lecture\"\n")
 upper = lambda string : string.upper(); print(upper('Molla'))
 lower = lambda string : string.lower(); print(lower('Molla'))
+
 import string
 print(string.ascii_letters, "\n", string.ascii_lowercase, "\n", string.ascii_uppercase)
 print(string.digits, string.hexdigits, string.octdigits)
