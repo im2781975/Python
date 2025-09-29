@@ -1,30 +1,4 @@
 
-def reverse(ing):
-    return ing[::-1]
-print(reverse('Hello'))
-ing = "Values are a: {a}, c: {c}, e: {e}"
-print(ing.format(a = "1"*1, c = "3"*3, e = "5"*5))
-"""            """
-ing = ''
-print(ing.isspace())
-print(ing.isspace() or not ing)
-print(not ing.strip())
-"""            """
-ing = "She sells seashells by the seashore."
-start = 10
-print(ing.count("sh"), ing.count("sea", start))
-tr = ing[start:]
-print(tr.count("sea"))
-"""            """
-lengths = {5: (1381, 2222), 19: (63, 102),    40: (2555, 4112), 93: (189,305),}
-for road, length in lengths.items():    miles,kms = length
-print('{} -> {} mi. ({} km.)'.format(str(road).rjust(4), str(miles).ljust(4), str(kms).ljust(4)))
-"""            """
-ing = "This is a test string"
-print(ing.startswith("T"), ing.startswith("is", 2), ing.startswith(('This', 'That')))
-print(ing.startswith(('ab', 'bc')), ing.endswith('.'), ing.endswith('!'), ing.endswith('stop.'))
-print(ing.endswith('Stop.'), ing.endswith(('.', 'something')), ing.endswith(('ab', 'bc')))
-"""            """
 ing = b'\xc2\xa9 abc'
 print(ing[0], type(ing))
 u = ing.decode('utf-8')
