@@ -56,6 +56,10 @@ print("foo" in "foo.baz.bar", "\n", "" in "test")
 x = ["once", "upon", "a", "time"]
 print(" ".join(x), "\n", "-".join(x))
 print("£".lower(), "£".upper().lower())
+ing = "This is a test string"
+print(ing.startswith("T"), ing.startswith("is", 2), ing.startswith(('This', 'That')))
+print(ing.startswith(('ab', 'bc')), ing.endswith('.'), ing.endswith('!'), ing.endswith('stop.'))
+print(ing.endswith('Stop.'), ing.endswith(('.', 'something')), ing.endswith(('ab', 'bc')))
 
 ing = "\222\110\220"; print(ing)
 ing = r"\222\110\220"; print(ing)
@@ -158,3 +162,19 @@ print("{'a' : 5, 'b' : 6}")
 print("{{'{}' : {}, '{}' : {}}}".format("a", 5, "b", 7))
 print(f"{{'{'a'}': {5}, '{'b'}': {6}}} ")
 
+def reverse(ing):
+    return ing[::-1]
+print(reverse("HELLO"))
+ing = "a : {a}, b : {b}, c : {c}"
+print(ing.format(a = "1" * 1, b = "3" * 3, c = "5" * 5))
+ing = ''
+print(ing.isspace(), ing.isspace() or not ing, not ing.strip())
+
+ing = "She sells seashells by the seashore"
+start = 10
+tr = ing[start:]
+print(ing.count("sh"), ing.count("sea", start), tr.count("sea"))
+length = {5 : (1381, 2222), 19 : (63, 102),    40 : (2555, 4112),}
+for road, leng in length.items():
+    miles, kms = leng
+    print('{} -> {} mi.({} km)'.format(str(road).rjust(3), str(miles).ljust(5), str(kms).ljust(5)))
