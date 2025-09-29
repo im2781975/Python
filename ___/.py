@@ -48,7 +48,14 @@ print(ing.split('e', maxsplit = 2), "\n", ing.split('e', maxsplit = -1))
 print(ing.split('e', maxsplit = 1), "\n", ing.split('e', maxsplit = 2))
 print(ing.replace('is', 'x'))
 print("""It can foo multiple if you want,  ... or you can limit the foo .""".replace('foo', 'spam', 1))
-
+#Hello World, HelloWorld!, HELLO WORLD, hello world, Hello world
+ing = "Hello2World!"
+print(ing.isalpha(), ing.isupper(), ing.islower(), ing.istitle(), ing.isalnum(), "2016".isalnum())
+print("".isupper(), "".islower(), "".istitle(), " ".isspace(), "\t\r\n".isspace())
+print("foo" in "foo.baz.bar", "\n", "" in "test")
+x = ["once", "upon", "a", "time"]
+print(" ".join(x), "\n", "-".join(x))
+print("B".lower(), "B".upper().lower())
 ing = "\222\110\220"; print(ing)
 ing = r"\222\110\220"; print(ing)
 ing = "x\222\110\220"; print(ing)
