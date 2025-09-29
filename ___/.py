@@ -49,6 +49,8 @@ ing = "HELLO"
 rev = reversed(ing); print(rev)
 rev = "".join(reversed(ing)); print(rev)
 print("HELLO"[::-1])
+print([char for char in reversed("HELLO")])
+print(''.join(reversed("HELLO")))
 
 first = input("Enter: "); sec = input("Enter: ")
 tmp = first; first = sec; sec = tmp; #swap
