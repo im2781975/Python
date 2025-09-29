@@ -178,3 +178,32 @@ length = {5 : (1381, 2222), 19 : (63, 102),    40 : (2555, 4112),}
 for road, leng in length.items():
     miles, kms = leng
     print('{} -> {} mi.({} km)'.format(str(road).rjust(3), str(miles).ljust(5), str(kms).ljust(5)))
+
+
+import re
+a, b, c, d = r"\t123", "\t123zzb",r"123", "123zzb",
+x = re.match(c, d); print(x.group(), x)
+print(re.match(a, b).group())
+x = re.match(r"(123)", "a123zzb"); print(x is  None)
+x = re.search(r"(123)", "a123zzb"); print(x.group())
+
+a, b, c, d = r"(your base)", "All your base are belong", r"^123", "123zzb"
+x = re.search(a, b); print(x.group(1))
+x = re.search(r"(belong.*)", b); print(x.group(1))
+x = re.search(c, d); print(x.group(0), x is None)
+print(re.search(r"123$", "zzb123").group(0))
+print(re.search("b", "ABC") is None)
+print(re.search("b", "ABC", flags = re.IGNORECASE).group())
+print(re.search("a.b", "A\nBC", flags = re.IGNORECASE)is None)
+x = re.search("a.b", "A\nBC", flags = re.IGNORECASE | re.DOTALL); print(x, x.group())
+
+print(re.sub(r"t[0 - 9][0 - 9]", "foo", " name t13 age t44 year t99 age t44"))
+print(re.sub(r"t([0 - 9])([0 - 9])", r"t\2\1", "t13 t19 t81 t25"))
+print(re.sub(r"t([0-9])([0-9])", r"t\g<2>\g<1>", "t13 t19 t81 t25"))
+items = ["zero", "one", " two"]
+print(re.sub(r"a\[([0-3])\]", lambda match: items[int(match.group(1))], "Items: a[0], a[1], something, a[2]"))
+print(re.findall(r"[0-9]{2,3}", "some 1 text 12 is 945 here 4445588899"))
+res = re.finditer(r"([0-9]{2,3})", "some 1 text 12 is 945 here 4445588899")
+print(res)
+for result in res:     
+    print(result.group(0), end = " ")
