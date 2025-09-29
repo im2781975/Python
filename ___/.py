@@ -55,7 +55,8 @@ print("".isupper(), "".islower(), "".istitle(), " ".isspace(), "\t\r\n".isspace(
 print("foo" in "foo.baz.bar", "\n", "" in "test")
 x = ["once", "upon", "a", "time"]
 print(" ".join(x), "\n", "-".join(x))
-print("B".lower(), "B".upper().lower())
+print("£".lower(), "£".upper().lower())
+
 ing = "\222\110\220"; print(ing)
 ing = r"\222\110\220"; print(ing)
 ing = "x\222\110\220"; print(ing)
