@@ -16,6 +16,14 @@ else: print("Not exits")
 #repr() : single quote (') in the string is escaped as \'.
 print(s + "\n" + repr(s) + "\n" + str(s))
 print(eval(repr(s)) + "\n" + eval(repr(s)) == s)
+ing = "Aslam"
+print("X£B".casefold(), ing.upper(), ing.lower(), ing.capitalize())
+print(ing.title(), ing.swapcase(), str.upper('Here i am'))
+print(map(str.upper,["There", "are", " some", "string"]))
+table = str.maketrans("aeiou", "12345")
+ing = "This is a string"
+print(ing.translate(table))
+print('This is very useful'.translate(str.maketrans('', '', 'aeiou')))
 print(5 * "Molla\'s \"Lecture\"\n")
 upper = lambda string : string.upper(); print(upper('Molla'))
 lower = lambda string : string.lower(); print(lower('Molla'))
@@ -28,15 +36,13 @@ ing = r"x\222\110\220"; print(ing)
 ing = "{} {} {}".format('how', 'are', 'him'); print(ing)
 ing = "{1} {0} {2}".format('how', 'are', 'him'); print(ing)
 ing = "{l} {f} {g}".format(g = 'how', f ='are', l = 'him'); print(ing)
-ing = "{0:b}".format(8); print(ing)
-ing = "{0:b}".format(16); print(ing)
-ing = "{0:e}". format(165.789); print(ing)
-ing = "{0:0.2f}". format(1/6); print(ing)
-ing ="{0:^16} was founded in {1:<4}!".format("OfSport", 2009); print(ing)
 ing = "|{:<10}|{:^10}|{:>10}|".format('Here', 'You', 'Are'); print(ing)
 print('{:~<9s}, world'.format('Hello'))
 print('{:~>9s}, world'.format('Hello'))
 print('{:~^9s}, world'.format('Hello'))
+print('{:.>10}'.format('foo'))
+print('{:.>{}}'.format('foo', 10))
+print('{:{}{}{}}'.format('foo', '*', '^', 15))
 print('{:0=6d}'.format(-1234))
 
 ing = "HELLO"
@@ -75,4 +81,49 @@ print(f"b is: {b : ^7s}")
 dig = 12.345; print("digit's: %3.2f" %dig)
 ric = lambda num : f"{num :e}" if isinstance(num, int) else f"{num : ,.2f}"
 print(ric(9999), '\n', ric(2.87))
+x = 42.12345678
+print('{0:.0f}'.format(x), '{0:.1f}'.format(x))
+print('{0:.3f}'.format(x), '{0:.5f}'.format(x))
+print('{0:.7f}'.format(x), '{:.3f}'.format(x))
+print('{0:.3e}'.format(x), '{0:.0%}'.format(x))
+print('{res:.3f}'.format(res = x))
+print('{:c}'.format(65), '{:d}'.format(0x0a))
+print('{:n}'.format(0x0a), '{0:x}'.format(10))
+print('{0:X}'.format(10), '{:o}'.format(10))
+print('{:b}'.format(10))
+print('{0:#b}, {0:#o}, {0:#x}'.format(42))
+print('8 bit: {0:08b}, Three bytes: {0:06x}'.format(42))
+ing = "{0:b}".format(8); print(ing)
+ing = "{0:b}".format(16); print(ing)
+ing = "{0:e}". format(165.789); print(ing)
+ing = "{0:0.2f}". format(1/6); print(ing)
+ing ="{0:^16} was founded in {1:<4}!".format("OfSport", 2009); print(ing)
+
+r, g, b = 1.0, 0.4, 0.0
+print('#{:02X} {:02X} {:02X}'.format(int(255 * r), int(255 * g), int(255 * b)))
+
+ing = 'Hello'
+a, b, c, d= 1.12345, 2.34567, 34.5678, 478.23
+dig = 2
+print('{0}!, {1:.{n}f}, {2:.{n}f}, {3:.{n}f}'.format(ing, a, b, c, n = dig))
+print(f"{f'${d : 0.2f}':*>20s}")
+data = {"first" : "info", "last" : "nation"}
+print('{first} {last}'.format_map(data))
+print('{first} {last}'.format(first = "nation", last = " info"))
+
+i, f, s, lst, dct = 10, 1.5, "foo", [" a", 1, 2], {'a' : 1, 2 : "foo"}
+
+print('{} {} {} {} {}'.format(i, f, s, lst, dct))
+print('{0} {1} {2} {3} {4}'.format(i, f, s, lst, dct))
+print(str.format("{} {} {} {} {}", i, f, s, lst, dct))
+print('{0:d} {1:0.2f} {2} {3!r} {4!r}'.format(i, f, s, lst, dct))
+print('{i:d} {f:0.1f} {s} {l!r} {d!r}'.format(i = i, f = f, s = s, l = lst, d = dct))
+print(f"{i} {f} {s} {lst} {dct}")
+print(f"{i:d} {f:0.1f} {s} {lst!r} {dct!r}")
+print("%(i)d %(f)0.1f %(s)s %(l)r %(d)r".format(i = i, f = f, s = s, l = lst, d = dct))
+print("from {}.love cake from {}".format("BD", "BD"))
+print("from {0}.love cake from {0}".format("BD"))
+print("{'a' : 5, 'b' : 6}")
+print("{{'{}' : {}, '{}' : {}}}".format("a", 5, "b", 7))
+print(f"{{'{'a'}': {5}, '{'b'}': {6}}} ")
 
