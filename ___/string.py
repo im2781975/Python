@@ -1,4 +1,4 @@
-"""					STRING					"""
+"""				STRING				"""
 #string is immutable like a[0] = 'R' cant assign
 s = """He'l" l\'"""
 a, b, c, d = 'Molla vai', 'Molla\'s vai', "Molla's vai", """ibrahim 
