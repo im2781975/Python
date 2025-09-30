@@ -1,3 +1,4 @@
+"""					STRING					"""
 #string is immutable like a[0] = 'R' cant assign
 s = """He'l" l\'"""
 a, b, c, d = 'Molla vai', 'Molla\'s vai', "Molla's vai", """ibrahim 
@@ -278,6 +279,7 @@ def Isallowed(string):
 print (Isallowed("abyzABYZ0099"))
 print (Isallowed("#*@#$%^"))
 print(re.split(r'\s+', 'James 94 Samantha 417 Scarlett 74'))
+
 """                LIST                """
 x = {10, 56, 89, 90, True, 'Molla', 1}
 #1 & True return same value
