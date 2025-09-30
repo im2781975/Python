@@ -16,6 +16,17 @@ else: print("Not exits")
 #repr() : single quote (') in the string is escaped as \'.
 print(s + "\n" + repr(s) + "\n" + str(s))
 print(eval(repr(s)) + "\n" + eval(repr(s)) == s)
+ing, b = u'Café', 'Lorem ipsum'; print(isinstance(ing, str))
+ing = b'Cafe'         
+ing = 'Café'.encode(); print(isinstance(ing, str))
+ing = b"abc"
+print(ing[0] == 97, ing[0 : 1] == b"a", ing[1] == 98, ing[1 : 2] == b"b")
+print(u"Hello, Here i am"[::-1])
+print("Hello, Here i am"[::-1])
+print("A", "B", "C", sep = "")
+print("A", "B", "C", sep = ",")
+print("A", "B", end = ".\n")
+print("Flush this", flush = True)
 ing = "Aslam"
 print("X£B".casefold(), ing.upper(), ing.lower(), ing.capitalize())
 print(ing.title(), ing.swapcase(), str.upper('Here i am'))
