@@ -184,7 +184,6 @@ print('{first} {last}'.format_map(data))
 print('{first} {last}'.format(first = "nation", last = " info"))
 
 i, f, s, lst, dct = 10, 1.5, "foo", [" a", 1, 2], {'a' : 1, 2 : "foo"}
-
 print('{} {} {} {} {}'.format(i, f, s, lst, dct))
 print('{0} {1} {2} {3} {4}'.format(i, f, s, lst, dct))
 print(str.format("{} {} {} {} {}", i, f, s, lst, dct))
@@ -215,8 +214,6 @@ length = {5 : (1381, 2222), 19 : (63, 102),    40 : (2555, 4112),}
 for road, leng in length.items():
     miles, kms = leng
     print('{} -> {} mi.({} km)'.format(str(road).rjust(3), str(miles).ljust(5), str(kms).ljust(5)))
-
-
 import re
 a, b, c, d = r"\t123", "\t123zzb",r"123", "123zzb",
 x = re.match(c, d); print(x.group(), x)
@@ -233,7 +230,6 @@ print(re.search("b", "ABC") is None)
 print(re.search("b", "ABC", flags = re.IGNORECASE).group())
 print(re.search("a.b", "A\nBC", flags = re.IGNORECASE)is None)
 x = re.search("a.b", "A\nBC", flags = re.IGNORECASE | re.DOTALL); print(x, x.group())
-
 print(re.sub(r"t[0 - 9][0 - 9]", "foo", " name t13 age t44 year t99 age t44"))
 print(re.sub(r"t([0 - 9])([0 - 9])", r"t\2\1", "t13 t19 t81 t25"))
 print(re.sub(r"t([0-9])([0-9])", r"t\g<2>\g<1>", "t13 t19 t81 t25"))
@@ -244,7 +240,6 @@ res = re.finditer(r"([0-9]{2,3})", "some 1 text 12 is 945 here 4445588899")
 print(res)
 for result in res:     
     print(result.group(0), end = " ")
-
 import re
 a, b = "This is a phone number 672-123-456-9910" , r".*(phone).*?([\d-]+)"
 x = re.match(b, a);
@@ -260,7 +255,6 @@ print(re.search(re.escape('a[b]c'), 'a[b]c').group())
 username = 'A.C.'
 print(re.findall(r'Hi {}!'.format(username), 'Hi A.C.! Hi ABCD!'))
 print(re.findall(r'Hi {}!'.format(re.escape(username)), 'Hi A.C.! Hi ABCD!'))
-
 text, pattern = 'You can try to find an ant in this string', 'an?\\w' 
 for x in re.finditer(pattern, text):
     print('Match "{}" found at: [{},{}]'.format(x.group(), x.start(), x.end()))
