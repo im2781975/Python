@@ -258,3 +258,23 @@ print(re.findall(r'Hi {}!'.format(re.escape(username)), 'Hi A.C.! Hi ABCD!'))
 text, pattern = 'You can try to find an ant in this string', 'an?\\w' 
 for x in re.finditer(pattern, text):
     print('Match "{}" found at: [{},{}]'.format(x.group(), x.start(), x.end()))
+
+ing = b'\xc2\xa9 abc'; print(ing[0], type(ing))
+u = ing.decode('utf-8'); print(u[0], type(u), u.encode('utf-8'))
+a, b, c, d, e = 'replace', 'namereplace', 'ignore','xmlcharrefreplace','backslashreplace'
+print("£13.55".encode('ascii', errors = a))
+ing = "£13.55".encode('utf-8')
+a, b, c = 'replace', 'ignore','backslashreplace'
+print(ing.decode('ascii', errors = a))
+print(type("f") == type(u"f"), type(b"f"))
+print("£13.55".encode('utf8'), "£13.55".encode('utf16'))
+print(type(u"£13.55".encode('utf8')))
+print(u"£13.55".encode('utf8'), b'\xc2\xa313.55'.decode('utf8'))
+
+def Isallowed(string):    
+    ch = re.compile(r'[^a-zA-Z0-9.]')    
+    string = ch.search(string)  
+    return not bool(string)
+print (Isallowed("abyzABYZ0099"))
+print (Isallowed("#*@#$%^"))
+print(re.split(r'\s+', 'James 94 Samantha 417 Scarlett 74'))
