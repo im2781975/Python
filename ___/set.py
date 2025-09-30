@@ -1,33 +1,3 @@
-ing = b'\xc2\xa9 abc'
-print(ing[0], type(ing))
-u = ing.decode('utf-8')
-print(u[0], type(u), u.encode('utf-8'))
-print("£13.55".encode('ascii', errors = 'replace'))
-print("£13.55".encode('ascii', errors = 'namereplace'))
-print("£13.55".encode('ascii', errors = 'ignore'))
-print("£13.55".encode('ascii', errors = 'xmlcharrefreplace'))
-print("£13.55".encode('ascii', errors = 'backslashreplace'))
-ing = "£13.55".encode('utf-8')
-print(ing.decode('ascii', errors = 'replace'))
-print(ing.decode('ascii', errors = 'ignore'))
-print(ing.decode('ascii', errors = 'backslashreplace'))
-print(type("f") == type(u"f"))
-print(type(b"f"))
-print("£13.55".encode('utf8'))
-print("£13.55".encode('utf16'))
-print(type(u"£13.55".encode('utf8')))
-print(u"£13.55".encode('utf8'))
-print(b'\xc2\xa313.55'.decode('utf8'))
-"""            """
-
-def Isallowed(string):    
-    characherRegex = re.compile(r'[^a-zA-Z0-9.]')    
-    string = characherRegex.search(string)  
-    return not bool(string)
-print (Isallowed("abyzABYZ0099"))
-print (Isallowed("#*@#$%^"))
-print(re.split(r'\s+', 'James 94 Samantha 417 Scarlett 74'))
-"""            """
 
 set1 = {10, 56, 89, 90, True, 'Molla', 1}
 #1 & True return same value
