@@ -38,6 +38,32 @@ print('This is very useful'.translate(str.maketrans('', '', 'aeiou')))
 print(5 * "Molla\'s \"Lecture\"\n")
 upper = lambda string : string.upper(); print(upper('Molla'))
 lower = lambda string : string.lower(); print(lower('Molla'))
+ing = "Hello world!"
+print([ing for ing in 'aeiou'], ing)
+print(str[i] for i in [1, 2, 3, 4, 5])
+ing = ""
+for i in range(1, 22):
+    ing += str(i)
+    ing += ","
+print(ing)
+ing = bytearray(b'stack'); print(id(ing))
+ing += b'overflow'
+print(id(ing), bytearray(b'StackOverflow'))
+rin = ing; rin += b'rock'
+print(bytearray(b'StackOverflow rocks!'))
+print(id(rin) == id(ing))
+
+ing = 'thisisashorttext' 
+print(ing.count('t'), ing.count('th'), ing.count('is'), ing.count('text'))
+from collections import Counter
+print(Counter(ing))
+print(sorted( [" foo ", " bAR", "BaZ "], key = lambda s: s.strip().upper())) 
+print(sorted( [" foo ", " bAR", "BaZ "], key = lambda s: s.strip()))
+print(sorted(map(lambda s: s.strip().upper(), [" foo ", " bAR", "BaZ "])))
+print(sorted(map(lambda s: s.strip(), [" foo", "bAR", "BaZ"])))
+ing = "GFG"
+ch = iter(ing)
+print(next(ch), next(ch), next(ch))
 
 import string
 print(string.ascii_letters, "\n", string.ascii_lowercase, "\n", string.ascii_uppercase)
@@ -218,3 +244,23 @@ res = re.finditer(r"([0-9]{2,3})", "some 1 text 12 is 945 here 4445588899")
 print(res)
 for result in res:     
     print(result.group(0), end = " ")
+
+import re
+a, b = "This is a phone number 672-123-456-9910" , r".*(phone).*?([\d-]+)"
+x = re.match(b, a);
+print(x.group(),'\n', x.group(0),'\n',x.group(1),'\n',x.group(1, 2))
+x = re.search(r'My name is (?P<name>[A-Za-z ]+)', 'My name is John Smith')
+print(x.group('name'), x.group(1))
+print(re.match(r'(\d+)(\+(\d+))?', '11+22').groups())
+print(re.match(r'(\d+)(?:\+(\d+))?', '11+22').groups())
+print(re.search(r'[b]', 'a[b]c').group())
+print(re.search(r'\[b\]', 'a[b]c').group())
+print(re.search(re.escape('a[b]c'), 'a[b]c').group())
+
+username = 'A.C.'
+print(re.findall(r'Hi {}!'.format(username), 'Hi A.C.! Hi ABCD!'))
+print(re.findall(r'Hi {}!'.format(re.escape(username)), 'Hi A.C.! Hi ABCD!'))
+
+text, pattern = 'You can try to find an ant in this string', 'an?\\w' 
+for x in re.finditer(pattern, text):
+    print('Match "{}" found at: [{},{}]'.format(x.group(), x.start(), x.end()))
