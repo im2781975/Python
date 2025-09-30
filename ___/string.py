@@ -175,7 +175,7 @@ r, g, b = 1.0, 0.4, 0.0
 print('#{:02X} {:02X} {:02X}'.format(int(255 * r), int(255 * g), int(255 * b)))
 
 ing = 'Hello'
-a, b, c, d= 1.12345, 2.34567, 34.5678, 478.23
+a, b, c, d = 1.12345, 2.34567, 34.5678, 478.23
 dig = 2
 print('{0}!, {1:.{n}f}, {2:.{n}f}, {3:.{n}f}'.format(ing, a, b, c, n = dig))
 print(f"{f'${d : 0.2f}':*>20s}")
@@ -278,3 +278,78 @@ def Isallowed(string):
 print (Isallowed("abyzABYZ0099"))
 print (Isallowed("#*@#$%^"))
 print(re.split(r'\s+', 'James 94 Samantha 417 Scarlett 74'))
+"""                LIST                """
+x = {10, 56, 89, 90, True, 'Molla', 1}
+#1 & True return same value
+#if not present discard will return no error
+x.add(99); x.remove(56); x.discard(10)
+if 56 in x:    x.remove(56)
+print(x)
+for i in range(1, 6):    x.add(i)
+for i in range(1, 5):    x.remove(i)
+print(x, len(x), x.pop())
+x.add((13, 14, 15)); print(x)
+#x.add([16, 17, 18]) not work for immutable
+x.clear(); y = {}; y.clear(); z = set()
+print(type(x), type(y), type(z))
+print(2 in {1, 2, 3}, 4 not in {1, 2, 3})
+x, y, z = {1, 2, 3, 4}, {3, 4, 5, 6}, set()
+print(type(x), type(y), type(z))
+comb = {}
+comb = {(i, j)for i in x for j in y}; print(comb)
+print(f"union is: {x.union(y)}")
+print(y.union(x), x | y, x.union((10, 11)))
+x |= y
+print(x, x.update(y), x.update([29, 30]), "\n", x)
+print(x.intersection(y, z), x.intersection([19, 20]), x.intersection(y))
+print(x & y, x & y & z)
+x &= y
+x &= y; x.intersection_update(y); print(x)
+print(x.difference(y, z), x.difference((10, 11)), x - y)
+x -= y; x.difference_update(y); print(x)
+x.symmetric_difference(y); print(x, x ^ y)
+#method take maximum one agr
+print((x | y) - (x & y), (x ^ y ^ z))
+y.symmetric_difference_update(x); print(y)
+y.symmetric_difference_update((11, 15)); print(y)
+
+x, y = {1, 2, 3, 4, 5}, {4, 10, 7, 8, -10}
+print(x.isdisjoint(y), x.isdisjoint((['ab', 'bc'])))
+print(len(x), len(y), len(x & y) == 0, (x & y) == set())
+#method
+print(x.issubset(y), x <= y, x.issuperset(y), x >= y)
+#del y, it will remove whole set
+y.clear(); print(x, y)
+
+x = set(); print(x)
+x = set("Molla vai"); print(x)
+ing = "Here I am"; x = set(ing); print(x)
+x = set(["Mah", "Abd"]); print(x)
+print("Abd" in x)
+x = ("Abd", "Mah"); print(set(x))
+dic = {"ab" : 1, "bc" : 2, "cd" : 3}; print(set(dic))
+x = set([1, 2, 4, 4, 3, 3, 3, 6, 5]); print(x)
+x = set([1, 2, 'wx', 4, 'xy', 6, 'yz']); print(x)
+x = {1, 2, 3}; print(x)
+x = set([4, 5, (6, 7)]); x.update([10, 11]); print(x)
+
+#set is muteable(mean can add or remove) but frozen is immuteable.set print unique elements
+ing = ('M', 'o', 'l', 'l', 'a'); print(frozenset(ing), frozenset())
+lst = [1, 2, 3, 3, 4, 5, 5, 6, 2]; print(set(lst))
+x = {'A', 'B', 'C', 'D', 'B'}
+y = set('abcde'); y.add('xyz'); print(y, x)
+print(frozenset("Mollavai"))
+x, y = set("mollavai"), set([1, 2, "am", "ironman", 6, 9])
+print(x, y)
+for i in y:    print(i, end = " ")
+x = {1, 2, 3, 4, 5}; tmp = iter(x)
+print(tmp, next(tmp), next(tmp), next(tmp))
+for i in x:    print(i, end = " ")
+a = list(x); b = [i * 2 for i in x if i > 2]; print(a, b)
+
+x = [1, 2, 3, 1, 4, 5]; print(set(x), list(set(x)))
+num = set(x); num.add(10)
+if 5 in num:    num.remove(5)
+for i, item in enumerate(num):    print(i, item)
+from collections import Counter
+print(Counter(['a', 'b', 'c', 'b']))
