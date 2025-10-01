@@ -355,3 +355,64 @@ if 5 in num:    num.remove(5)
 for i, item in enumerate(num):    print(i, item)
 from collections import Counter
 print(Counter(['a', 'b', 'c', 'b']))
+
+"""            TUPLE            """
+tup = (123, "Molla", " Ibra"); print(tup, tup[0])
+for i in range(len(tup)):    print(tup[i], end = "\t")
+def multi():    return 3, 4
+print("\n", multi())
+x = 'A', 'B', 'C', 'D', 'E', 'F'
+print(type(x), x[0], x[-1], x[:: -1], x[5: 2: -1])
+for item in x:    print(item, end = "\t")
+print(item, len(item))
+x = "red", " green", "blue"
+print(x[::-1], tuple(reversed(x)))
+#tuple is immuteable but it can hold muteable object like list
+x = ([1, 2, 3], [4, 5, 6]); x[0][1] = 66
+for i in range(len(x)):    print(x[i], end = " ")
+#tuple are zero idx
+a, b, c = (1, 7, -4, "jenny", True, 9, -5), (10, 12, 14, 16), (11,); print(a, b, c)
+print(a[1], a[-2], a[5], a[-1], a[:-1], a[-1:], len(a), a[1 : 3], a[: 5])
+for item in b:    print(item, end = "\t")
+x = (a, b, c); print("\n", len(x), x[0], x)
+x = a + b + c; print(len(x), x[0], x)
+#should be same type not mixed
+print(max(b), min(b), b.count(12), b.index(12))
+obj = iter(b)
+for item in b:    print(item, end = " ")
+for item in obj:    print(item, end = " ")
+
+print((10, ) * 6, ("MOLLA ") * 2)
+x = [1, 2, 3, 4, 5, 6]; print(tuple(x))
+x, y = (5, "molla", 7, " vai"), (9, 1)
+print(x[0], x + y)
+x = ('bear', 'weasel', 'bear', 'frog')
+print(x.count('bear'), x.count('fox'))
+obj = iter(x)
+for index, item in enumerate(obj):
+    print(item, end = " ")
+    if index == 2:    break
+print(next(obj), next(obj))
+tup = ("molla", "vai", "aslam")
+print(tup[:1], tup[: :-1])
+a, b, c = tup; print(a, b, c)
+x = ("MOLLA"); n = 2
+for i in range(int(n)):
+    x = (x, ); print(x)
+man = ("Molla", "Fra", (1, 9, 2000))
+*_, (*_, xz) = man; print(xz, *_)
+
+def add(*put):
+    put += (3, ); return put
+print(add(2, 4, 6))
+print(tuple('lupin'), tuple(range(3)))
+
+x = (1, 2); y = x; x += y; print(y, x)
+a = 1, 2, 3, 4; _, x, y, _ = a; print(x, y)
+x, *y, z = (1, 2, 3, 4, 5); print(x, z, *y)
+x = (12, 45, 22222, 103, 6)
+print('{0} {2} {1} {2} {3} {4}'.format(*x))
+x, y = ('a', 'b', 'c', 'd', 'e'), ('1', '2', '3')
+z = x; print(x + y, x > y, y > x, x == y, len(x), max(x), min(x))
+import heapq
+print(heapq.nlargest(5, range(10)), heapq.nsmallest(5, range(10)))
