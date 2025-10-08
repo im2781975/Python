@@ -651,3 +651,19 @@ print([l ** 3 for l in lst])
 words = ["apple", "banana", "cherry", "orange"] 
 print([len(word) for word in words])
 
+a = 1
+if a in (1, 2, 3):
+    print(f"{a} is in the tuple (1, 2, 3)")
+print(list(filter(lambda x : x.isalpha(), 'a1b2c3')))
+lem = filter(lambda x : x.isalpha(), 'a1b2c3')
+print(''.join(lem))
+print(list(map(lambda x : x * x, [1, 2, 3])))
+print(list(map(lambda x, y, z : (x, y, z), [1, 2, 3], [1, 2], [1, 2, 3, 4])))
+print(list(zip([0, 1, 2], [3, 4, 5])))
+print(list(map(lambda x : x[0] + x[1], zip(range(5), range(5)))))
+print(list(map(lambda x : x[0] + x[1], zip(range(5), range(5)))))
+print(list(range(1, 10)))
+print(map(str, [1, 2, 3, 4, 5]), list(map(str, [1, 2, 3, 4, 5])))
+lst = [1, 2, 3, 4, 5]
+lst2 = lst
+print(f"in: {2 in lst}\nnot in: {7 not in lst}\nis: {lst is lst2}\nis not: {lst is not lst2}")
