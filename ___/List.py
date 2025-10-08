@@ -721,3 +721,22 @@ print(formatted)
 name, age = "Aslam", 22
 sentence = "name {} age {}".format(name, age)
 print(sentence)
+
+x, y = 5, 10
+print(["Less than", "Equal", " Greater than"][(x > y) - (x < y) + 1])
+from itertools import filterfalse
+names = ['Fred', 'Wilma', 'Barney']
+def longName(name):
+    return len(name) > 5
+print(filter(longName, names), list(filter(longName, names)))
+print(list(filterfalse(longName, names)))
+print([name for name in names if len(name) > 5])
+print(list(filter(None, [1, 0, 2, [], '', 'a'])))
+from itertools import filterfalse
+print(list(filterfalse(None, [1, 0, 2, [], '', 'a'])))
+"""                     """
+alist = ['wolf', 'sheep', 'duck'] 
+print(list(filter(lambda x : x.startswith('d'), alist)))
+from operator import methodcaller
+print(list(filter(methodcaller('startswith', 'd'), alist)))
+"""				"""
