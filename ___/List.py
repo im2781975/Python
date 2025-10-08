@@ -667,3 +667,57 @@ print(map(str, [1, 2, 3, 4, 5]), list(map(str, [1, 2, 3, 4, 5])))
 lst = [1, 2, 3, 4, 5]
 lst2 = lst
 print(f"in: {2 in lst}\nnot in: {7 not in lst}\nis: {lst is lst2}\nis not: {lst is not lst2}")
+
+import operator
+print(operator.contains([1, 2, 3, 4, 5], 2))
+print(operator.contains("Hello World", 'O'))
+print(operator.contains({1, 2, 3, 4, 5}, 6))
+print(operator.contains({1: "Geeks", 2:"for", 3:"geeks"}, 3))
+print(operator.contains((1, 2, 3, 4, 5), 9))
+from functools import reduce
+lst = [5, 8, 10, 20, 50, 100]
+print(reduce((lambda x, y : x + y), lst))
+print(reduce(lambda x, y : x if x > y else y , lst))
+print(list(accumulate(lambda x, y : x + y, lst)))
+"""                """
+import operator
+import itertools
+print(reduce(operator.add, lst))
+print(reduce(operator.mul, lst))
+print(reduce(operator.add, ["Here", "I", " Am"]))
+print(list(itertools.accumulate(lst, lambda x, y: x + y)))
+def reduce(function, iterable, initializer=None):
+    it = iter(iterable)
+    if initializer is None:
+        try:
+            value = next(it)
+        except StopIteration:
+            raise TypeError("reduce() of empty sequence with no initial value")
+    else:
+        value = initializer
+    for element in it:
+        value = function(value, element)
+    return value
+result = reduce(lambda x, y: x + y, [1, 2, 3, 4])
+result = reduce(lambda x, y: x * y, [1, 2, 3, 4], initializer=2)
+print(result)
+"""                """
+tup = (2, 1, 0, 0, 0, 2, 2, 2)
+print(reduce(lambda x , y : x + y, tup, 6))
+
+import datetime
+today = datetime.datetime.today()
+print(f"{today :%B %d %Y} ")
+print('''Geeks'for'Geeks''')
+line = ord('\n')
+print(f"newline: {line} ")
+print(f"{{Double Braces}} ")
+
+dic = {'id' : 10, 'Name' : 'molla'}
+print(f"id: {dic['id']} name: {dic['Name']} ")
+num = 3.14167
+formatted = f"{num :.2f} "
+print(formatted)
+name, age = "Aslam", 22
+sentence = "name {} age {}".format(name, age)
+print(sentence)
