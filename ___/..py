@@ -16,8 +16,7 @@ if 3 in (a, b, c):
     print("3 is present")
 if any(x == 3 for x in (a, b, c)):
     print("3 is found")
-if a in (1, 2, 3):
-    print(f"{a} is in the tuple (1, 2, 3)")
+
 print(7.bit_length())
 print(7.2.as_integer_ratio())
 a += 2
@@ -27,20 +26,13 @@ print(2 ** 3, (- (2 ** 3)), type(2 ** 1024))
 print(len([1, 2]) > len('foo'), len((1, 2)) > len([1, 2]))
 print((100 < 200), ('xyz' < 'abc'), (1, 'x') < (2, 'y'))
 print(round(1.5), round(0.5), round(-0.5), round(-1.5), round(4.8))
-print(list(filter(lambda x : x.isalpha(), 'a1b2c3')))
-lem = filter(lambda x : x.isalpha(), 'a1b2c3')
-print(''.join(lem))
-print(list(map(lambda x : x * x, [1, 2, 3])))
-print(list(map(lambda x, y, z : (x, y, z), [1, 2, 3], [1, 2], [1, 2, 3, 4])))
-print(list(zip([0, 1, 2], [3, 4, 5])))
-print(list(map(lambda x : x[0] + x[1], zip(range(5), range(5)))))
-print(list(map(lambda x : x[0] + x[1], zip(range(5), range(5)))))
+
 print(range(1, 10), range(1, 10)[2 : 8], range(1, 10).count(5), range(1, 10).index(7))
-print(list(range(1, 10)))
+
 print(isinstance(range(1, 10), range))
 g = (i for i in range(0, 3))
 print(next(g), next(g), next(g))
-print(map(str, [1, 2, 3, 4, 5]), list(map(str, [1, 2, 3, 4, 5])))
+
 i = 0
 print([i for i in range(3)])
 def fact(num):
@@ -91,9 +83,6 @@ c, d = 5, 5
 e = 5
 print(id(c) == id(e), id(d) == id(c))
 #membership operator
-lst = [1, 2, 3, 4, 5]
-lst2 = lst
-print(f"in: {2 in lst}\nnot in: {7 not in lst}\nis: {lst is lst2}\nis not: {lst is not lst2}")
 
 # Assign value
 a, b, _ = 1, 2, 3
