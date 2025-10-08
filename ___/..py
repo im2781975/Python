@@ -227,12 +227,7 @@ print(f"round(2.5222, 2): {round(2.52222, 2)}\nround(2.555): {round(2.555)}\nrou
 print(f"round(675, -3): {round(675, -3)}\nround(-8/3, 2): {round(-8/3, 2)}\nround(-1.5, 2): {round(-1.5, 2)}\nround(675.678, -1): {round(675.678, -1)}\nround(6.777, 2): {round(6.777, 2)}\nround(6.777): {round(6.777)}\n " )
 
 #contains
-import operator
-print(operator.contains([1, 2, 3, 4, 5], 2))
-print(operator.contains("Hello World", 'O'))
-print(operator.contains({1, 2, 3, 4, 5}, 6))
-print(operator.contains({1: "Geeks", 2:"for", 3:"geeks"}, 3))
-print(operator.contains((1, 2, 3, 4, 5), 9))
+
 """				"""
 a, b = True, False
 print("type of bool is: ", type(a), type(b))
@@ -269,54 +264,10 @@ print(root)
 import decimal
 print(decimal.Decimal('1.1') + decimal.Decimal('4.9'))
 """						"""
-from functools import reduce
-lst = [5, 8, 10, 20, 50, 100]
-print(reduce((lambda x, y : x + y), lst))
-print(reduce(lambda x, y : x if x > y else y , lst))
-print(list(accumulate(lambda x, y : x + y, lst)))
-"""                """
-import operator
-import itertools
-print(reduce(operator.add, lst))
-print(reduce(operator.mul, lst))
-print(reduce(operator.add, ["Here", "I", " Am"]))
-print(list(itertools.accumulate(lst, lambda x, y: x + y)))
-"""                """
-def reduce(function, iterable, initializer=None):
-    it = iter(iterable)
-    if initializer is None:
-        try:
-            value = next(it)
-        except StopIteration:
-            raise TypeError("reduce() of empty sequence with no initial value")
-    else:
-        value = initializer
-    for element in it:
-        value = function(value, element)
-    return value
-result = reduce(lambda x, y: x + y, [1, 2, 3, 4])
-result = reduce(lambda x, y: x * y, [1, 2, 3, 4], initializer=2)
-print(result)
-"""                """
-tup = (2, 1, 0, 0, 0, 2, 2, 2)
-print(reduce(lambda x , y : x + y, tup, 6))
 
-import datetime
-today = datetime.datetime.today()
-print(f"{today :%B %d %Y} ")
-print('''Geeks'for'Geeks''')
-line = ord('\n')
-print(f"newline: {line} ")
-print(f"{{Double Braces}} ")
 
-dic = {'id' : 10, 'Name' : 'molla'}
-print(f"id: {dic['id']} name: {dic['Name']} ")
-num = 3.14167
-formatted = f"{num :.2f} "
-print(formatted)
-name, age = "Aslam", 22
-sentence = "name {} age {}".format(name, age)
-print(sentence)
+"""                """
+
 """					"""
 #Boolean logic
 print(1 and 2, 1 or 2, None or 1, 0 or [])
