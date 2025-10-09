@@ -281,7 +281,7 @@ print (Isallowed("abyzABYZ0099"))
 print (Isallowed("#*@#$%^"))
 print(re.split(r'\s+', 'James 94 Samantha 417 Scarlett 74'))
 
-"""                LIST                """
+"""                SET                """
 x = {10, 56, 89, 90, True, 'Molla', 1}
 #1 & True return same value
 #if not present discard will return no error
@@ -417,3 +417,428 @@ x, y = ('a', 'b', 'c', 'd', 'e'), ('1', '2', '3')
 z = x; print(x + y, x > y, y > x, x == y, len(x), max(x), min(x))
 import heapq
 print(heapq.nlargest(5, range(10)), heapq.nsmallest(5, range(10)))
+
+"""            LIST            """
+#list is muteable
+x = y = [12, 13, 14]
+x = [9, 10, 11]; y[0] = -1; x.append(5)
+x.sort(); x += [4]; x += [6]; print(x, y)
+x = sorted(x); print(x, y)
+x = [1, 2, 3, [4, 5, 6], 7]; print(x, x[3], x[3][2])
+x, y = [1, 3.60, 'Hello', 'd'], ["Hello", "world"];x.insert(3, [2009])
+x += y; print(x, x[0 : 2], x * 2)
+x = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]; print(x, x[0][0], x[0][1])
+x = ['A', 'B', 'C', 'D', 'E']; x.insert(1,  'F'); 
+import collections as col
+print(col.OrderedDict.fromkeys(x).keys())
+print(list(reversed(x))[0 : 2])
+x.reverse(); print(x, len(x), 'A' in x, 'a' in x)
+if 'B' in x:    x.remove('B')
+for i in x:    print(i, end = " ")
+print(); print(x.index('F'), x.count('A'))
+for i in x:    print(i[: 1], end = " ")
+for idx, i in enumerate(x):    print("%s has an index of %d" % (i, idx))
+for i in range(2, 4):   print("%d contains %s" % (i, x[i]))
+for s in x[1 :: 2]:
+    print(s, end = " ")
+    for i in range(1, len(x), 2):    print(x[i])
+for item in x:    
+    if item == 'C':    del x[0]
+    print(item, end = " ")
+for (idx, item) in enumerate(x):    print('pos {} is: {}'.format(idx, item))
+for i in range(len(x)):    print(x[i], end = " ")
+y = x[: :-1]; x.reverse()
+if x == y:    print('TRUE')
+print(len(['one', [2, 3], 'four']))
+ing = "abcdef"
+print(ing[-1], ing[:], ing[: :], ing[3:], ing[:4])
+print(ing[2: 4], ing[: :2], ing[1: 4: 2], ing[5: None: -1], ing[: :-1], ing[5: 0: -1])
+x = [[[1, 2], [3, 4]], [[5, 6, 7], [8, 9, 10], [12, 13, 14]]]; x[0][0].append(1)
+for row in x:
+    for col in row:    print(col, end = " ")
+print()
+print([col for row in x for col in row])
+x[1].insert(2, 15)
+for row in range(len(x)):
+    for col in range(len(x[row])):    print(x[row][col], end = " ")
+print(x, x[1][1:])
+values = [('a', 'b'), ('x', 'y'), ('1', '2')]
+for item in values:    print(item[0], item[1], end = "\t")
+for item in values:
+    i1, i2 = item; print(item[0], item[1], end = "\t")
+for i1, i2 in values:    print(i1, i2, end = "\t")
+print()
+data = "MOLLA IBRAHIM 22 2000"
+name, age, salary = slice(0, 13), slice(13, 15), slice(15, None)
+print(data[name], data[age], data[salary])
+x, y = [1, 2, 3, 4, 5], ['Aa', 'Bb', 'Cc', 'Dd', 'Ee']
+print(map('{}'.format, x))
+print(list(set(y)))
+for item in x:
+    for name in y:
+        print(item, name, end = " ")
+        if item == 4 and name == 'Cc':    break
+    print("Inner")
+print("Outer")
+print('Cc' in y, 'Ff' in y, 'Cc' in set(y))
+x, y = ['a1', 'a2', 'a3'], ['b1', 'b2', 'b3', 'b4']
+z = x[:]; z.append('d')
+for a, b in zip(x, y):    print(a, b, end = " ")
+print(len(list(zip(x, y))), z)
+print("{[2]}".format(x))
+*x, y = [1, 2, 3, 4, 5, 6]; print(*x, y, x[0], x[1:])
+a, *x, b = [1, 2, 3, 4, 5]; print(a, b, *x)
+a, x, b, x, c, *x = [1, 2, 3, 4, 5, 6]; print(a, b, c)
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+x[1: 3] = [6]; x[4 : 6] = [0, 1]
+x[:] = [4, 5, 6]; x[-2:] = [4, 5, 6]
+y = x[:]; print(y, x is y)
+print(list(map(lambda i : i * i, x)))
+print(x[len(x) - 1], x[3], x[-3], x[:], x[2 : 6], x[1 :], x[:7])
+print(x[1 :8 :2], x[2 :8 :-1], x[8 :2 :-2], x[: :-1])
+x.append(100); x.insert(6, -1); x.extend([46, 47, 48]); x.extend(range(3))
+print(x.index(2), x.index(2, 3), x.pop(2), x.count(3))
+if 5 in x:    x.remove(5)
+if 6 in x:    print(x.index(6))
+x.sort(); x.sort(reverse = True); x.reverse()
+print(x, x.pop(), x.count(0))
+print(len(x), max(x), min(x))
+for i in range(0, 5):
+    if i in x:    x.remove(i)
+print(x.pop(2), x.pop())
+x[1] = -1; x[2 : 4] = [34, 35, 36]
+x = ["Molla"] * 3; print(x)
+x = [2, 4, 6] * 3; print(x)
+x = list(range(3)); del x[::2]; print(x)
+del x[-1]; print(x)
+x = [None] * 10; print(x)
+x = [{1}] * 10; x[0].add(2); print(x)
+print([{1} for _ in range(10)])
+val = ["1", "2", "3", "4"]
+print([int(item)for item in val], map(float, val))
+
+num = int(input("Enter digits: "))
+if num in x:    x.remove(num)
+else:    print("Doesn't exit")
+if len(x) > 1:    print(x.sort(), x.pop(), x.pop(1)) #return none, x.pop(idx)
+while(i := len(x) > 2):
+    x.pop(); print(i, end = " ")
+x = [1, 10, 15, ["Aa", "Bb", "Cc"], 17, -20]
+print(x[3][1], x[len(x) - 1], x[3][0 : 3], x[3][-1 : 3], x[3][::-1], len(x))
+
+x, y = ["a", "b", "c", "d"], ["a", "b", "c", "d"] 
+print(x is y)
+if "b" in x:    print("True")
+x = [["A", "B"], ["C", " D"]]; x.append((7, 9))
+for i in range(1, 5):    x.append(i)
+y = ["Z", "X"]; y.append(x); print(y)
+x.extend([8, 'Geeks', 'Always']); x.reverse(); print(list(reversed(x)))
+print(len(x), x[:], x[-1], x[::-1])
+
+tup = [(0, 10), (1, 15), (2, 8)]
+print(min(tup), min(tup, key = lambda x : x[0]), min(tup, key = lambda x : x[1]))
+print(sorted(tup, key = lambda x : x[0]), sorted(tup, key = lambda x : x[1]))
+import operator as op
+print(max(tup, key = op.itemgetter(0)),"\n", max(tup, key = op.itemgetter(1)))
+print(sorted(tup, key = op.itemgetter(0), reverse = True), sorted(tup, key = op.itemgetter(0), reverse = True))
+print(max([], default = 42), max([], default = 0))
+ing = input("Enter: "); print(ing.split())
+n = int(input("Enter integer: "))
+lst = list(map(int, input("Enter the integer elements:").strip().split()))[:n]; print(lst)
+num, odd = [1, 2, 3, 4, 5, 6, 7, 8], []
+for i in num:
+    if i % 2 == 1:    odd.append(i)
+print(odd)
+#odd = [i for i in num if i % 2 == 1 if i % 2 == 0]
+even = []
+for x in range(10):
+    if x % 2 == 0:    even.append(x)
+print(even)
+#print([x if x % 2 == 0 else None for x in range(10)])
+player, age, comb = ['A', 'B', 'C'], [21, 22, 23], []
+for pl in player:
+    for ag in age:    comb.append([pl, ag])
+print(comb)
+#comb = [(pl, ag)for pl in player for ag in age]
+num, sum = [5, 10, 15, 20], 0
+for i in num:
+    sum += i;    print(i, end = " ")
+    if(sum > 20):    print(sum)
+print(sum)
+for i in num[:]:
+    sum += i; num.append(sum)
+print(num) 
+x = [3, -4, -2, 5, 1, 7]
+print(sorted(x, key = lambda i : abs(i)))
+print(list(filter(lambda i: i > 0, x)), list(map(lambda i: abs(i), x)))
+x = y = [1, 2, 3, 4, 5, 6, 7]
+print([i for i in x if i % 2 != 0])
+print([i * 2 for i in x])
+print([i ** 2 for i in x])
+print([i for i in [1, 2, 3]])
+print([i for i in range(11) if i % 2 == 0])
+print([x ** 2 for x in range(10)])
+for i in[x ** 2 for x in range(10)]:    print(i, end = " ")
+print({x for x in range(5)})
+print({x for x in range(1, 11) if x % 2 == 0})
+print([[j for j in range(3)]for i in range(3)])
+print([i * 10 for i in range(1, 6)])
+print(list(map(lambda i : i * 10, [i for i in range(1, 6)])))
+print(["Even" if i % 2 == 0 else "Odd" for i in range(8)])
+print([num for num in range(100) if num % 5 == 0 if num % 10 == 0])
+print([n ** 2 for n in range(1, 11)])
+grid = [[10, 20], [30, 40], [50, 60]]
+print([[i[j] for i in grid] for j in range(len(grid[0]))])
+ing = 'Molla4Now'
+print(list(map(lambda i : chr(ord(i) ^ 32), ing)))
+print([ing[: :-1]for ing in ('Molla', '4', 'Now')])
+print([sorted(x)for x in [[2, 1], [4, 3], [0, 1]]])
+from functools import reduce
+print(filter(lambda x : x % 2 == 0, range(10)))
+print(map(lambda x : 2 * x, range(10)))
+print(reduce(lambda x, y : x + y, range(10)))
+
+print([x + y for x, y in [(1, 2), (3, 4), (5, 6)]])
+print([(x, y) for x, y in [(1, 2), (3, 4), (5, 6)]])
+x, y, z = [1, 2, 3 , 4], ['a', 'b', 'c', 'd'], ['6', '7', '8', '9']
+print([(i, j)for i, j in zip(x, y)])
+print([(i, j, k)for i, j, k in zip(x, y, z)])
+print([x + y + z for x, y, z in zip([1, 2, 3], [4, 5, 6], [7, 8, 9])])
+for x, y in [(1, 2), (3, 4), (5, 6)]:    print(x + y, end = " ")
+#print(sum(1 for x in range(1000) if x % 2 == 0 and '9' in str(x)))
+print([x + y for x in [1, 2, 3] for y in [4, 5, 6]])
+print([[x + y for x in [2, 4, 6]]for y in [1, 3, 5]])
+from random import randrange
+print([randrange(1, 7)for _ in range(10)])
+print([x for x in range(10) if x % 2 == 0])
+print([2 * x for x in range(10)])
+print([ing.upper() for ing in "hello"])
+print([w.strip(',') for w in ["Here", "are,,", "we,here,"]])
+ing = "beautiful is better than ugly"
+print(["".join(sorted(word, key = lambda x: x.lower())) for word in ing.split()])
+print({ch.lower() for ch in ing if ch.isalpha()})
+print([x if x in 'aeiou' else '*' for x in 'apple'])
+print([x * x for x in (1, 2, 3, 4)])
+sqr = []
+for x in (1, 2, 3, 4):    sqr.append(x * x)
+print(sqr)
+a = 1;
+if a in (1, 2, 3):    print(f"{a} contained")
+print(list(filter(lambda x : x.isalpha(), 'a1b2c3')))
+lem = filter(lambda x : x.isalpha(), 'a1b2c3'); print(''.join(lem))
+print(list(map(lambda x : x * x, [1, 2, 3])))
+print(list(map(lambda x, y, z : (x, y, z), [1, 2, 3], [1, 2], [1, 2, 3, 4])))
+print(list(zip([0, 1, 2], [2, 3, 4])))
+print(list(map(lambda x : x[0] + x[1], zip(range(5), range(5)))))
+print(list(range(1, 11)))
+print(map(str, [1, 2, 3, 4, 5]), list(map(str, [1, 2, 3, 4, 5])))
+def digsum(n):
+    dsum = 0
+    for val in str(n):    dsum += int(val)
+    return dsum
+x = [367, 111, 562, 945, 6726, 873] 
+print([digsum(i)for i in x if i & 1])
+print([i ** 3 for i in x])
+lett = ["apple", "banana", "cherry", "orange"] 
+print([len(word) for word in lett])
+dx = []
+for i in range(1, 6):    dx.append(i * 10)
+print(dx)
+lst = []
+for y in [3, 4, 5]:
+    tmp = []
+    for x in [1, 2, 3]:    tmp.append(x + y)
+    lst.append(tmp)
+print(lst)
+x, y = 5, 10; print(["Less than", "Equal", " Greater than"][(x > y) - (x < y) + 1])
+data = [[1, 2], [3, 4], [5, 6]] 
+#print([val for lst in data for val in lst])
+def func():
+    res = []
+    for lst in data:
+        for val in lst:    res.append(val)
+    return res
+print(func())
+grid = []
+for i in range(3):
+    grid.append([])
+    for j in range(5):    grid[i].append(j)
+print(grid)
+print([[j for j in range(5)]for i in range(3)])
+data = ["a", "bbbbbbb", "ccc"] 
+maxi = max(map(len, data)) 
+for i in data:    print('{:>{}}'.format(i, maxi))
+data = [[1], [2, 3], [4, 5]]
+print([val for lst in data if len(lst) == 2 for val in lst if val != 5])
+print([ch for ch in 'Molla 4 Now'])
+grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print([[row[i] for row in grid]for i in range(len(grid))])
+print([[[i + j + k for k in 'cd']for j in 'ab']for i in '12'])
+lst = []
+for ch in 'Molla 4 Now':    lst.append(ch)
+if not lst:    print("list is empty")
+else:    print(lst)
+x, y, z = [1, 2, 3 , 4], ['a', 'b', 'c', 'd'], ['6', '7', '8', '9']
+for item in range(len(y)):
+    if item % 2 == 0:    item = 'even'
+    print(y, end = "\t")
+for idx, item in reversed(list(enumerate(x))):
+    if item % 2 == 0:    x.pop(idx)
+print(x)
+for idx, val in enumerate(x):
+    if idx == 8:    break
+    x.insert(idx, 'a')
+print(x)
+for idx, val in enumerate(x):
+    x.pop(idx); print(x)
+while(x):
+    print(x[0], end = " "); x.pop(0)
+print(x)
+ing = "Hello"; x.append(ing); print(x, x + y)
+x, tmp, i = [1, 2, 3, 4, 5, 6, 7], [], 0
+for item in x:
+    if item % 2 != 0:    tmp.append(item)
+print(tmp)
+while len(x) > 1:
+    print(x[0], end = " "); x.pop(0)
+print(x)
+while i < len(x):
+    if x[i] % 2 == 0:    x.pop(i)
+    else:    i += 1
+print(x)
+import copy as cp
+lst = [[1, 2]]; x = cp.copy(lst); y = cp.deepcopy(lst)
+print(lst is x, lst[0] is x[0], lst is y, lst[0] is y)
+name = ['A', 'B', 'C', 'A']; print(list(map(len, name)))
+res = [len(item)for item in name]
+genex = (len(item)for item in name)
+print(res, list(genex))
+import operator as op
+print(op.contains([1, 2, 3, 4, 5], 2))
+print(op.contains("Hello world", '0'))
+print(op.contains({1, 2, 3, 4, 5}, 6))
+print(op.contains([1, 2, 3, 4, 5], 9))
+print(op.contains({1: "Geeks", 2: "for", 3: "geeks"}, 3))
+lst = [5, 8, 10, 20, 50, 100]
+print(reduce(op.add, lst), reduce(op.mul, lst), reduce(op.add, ["Here", "I", " Am"]))
+from functools import reduce
+from itertools import accumulate
+lst = [5, 8, 10, 20, 50, 100]
+print(reduce((lambda x, y : x + y), lst))
+print(reduce(lambda x, y : x if x > y else y, lst))
+def reduce(func, able, init = None):
+    it = iter(able)
+    if init is None:
+        try:    value = next(it)
+        except StopIteration:
+            raise TypeError("reduce() of empty sequence with no initial value")
+    else:    value = init
+    for ele in it:    value = func(value, ele)
+    return value
+res = reduce(lambda x, y: x + y, [1, 2, 3, 4]); print(res)
+res = reduce(lambda x, y: x * y, [1, 2, 3, 4], init = 2); print(res)
+tup = (2, 1, 0, 0, 0, 2, 2, 2)
+print(reduce(lambda x, y : x + y, tup, 6))
+print(list(accumulate(lst, lambda x, y : x + y)))
+import datetime as dt
+x = [{'nome' : 'Molla', 'Bdate' : dt.date(2000, 9, 1), 'height' : 176}, {'nome' : 'Kazi', 'Bdate' : dt.date(2001, 7, 1), 'height' : 172}, 
+    {'nome' : 'Khan', 'Bdate' : dt.date(1998, 6, 27), 'height' : 174}, {'nome' : 'Hasan', 'Bdate' : dt.date(1997, 5, 17), 'height' : 178}]
+x.sort(key = lambda item : item['nome']); print(x)
+x.sort(key = lambda item : item['Bdate']); print(x)
+x.sort(key = lambda item : item['height']); print(x)
+x = [{'nome' : 'Molla', 'Bdate' : dt.date(2000, 9, 1), 'size': {'height' : 176, 'weight' : 100}}, {'nome' : 'Kazi', 'Bdate' : dt.date(2001, 7, 1), 'size' : {'height' : 172, 'weight' : 85}}, 
+    {'nome' : 'Khan', 'Bdate' : dt.date(1998, 6, 27), 'size' : {'height' : 174, 'weight' : 89}}, {'nome' : 'Hasan', 'Bdate' : dt.date(1997, 5, 17), 'size' : {'height' : 178, 'weight' : 95}}]
+x.sort(key = lambda item : item['size']['height']); print(x)
+import datetime as dt
+print(dt.datetime.today())
+from operator import itemgetter
+x = [{'nome' : 'Molla', 'age' : 27, 'salary' : 1500}, {'nome' : 'kazi', 'age' : 23, 'salary' : 1150}, 
+    {'nome' : 'Khan', 'age' : 30, 'salary' : 1700}, {'nome' : 'Hasan', 'age' : 19, 'salary' : 900}]
+x.sort(key = (itemgetter('age'))); print(x)
+x.sort(key = (itemgetter('salary'))); print(x)
+x = [(1, 2), (3, 4), (5, 0)]
+print(x.sort(key = itemgetter(1)))
+import operator, functools, itertools
+x = [1, 2, 3, 4]; print(x, *x)
+print(functools.reduce(operator.truediv, x))
+print(list(itertools.zip_longest([1, 2, 3], [1, 2], [1, 2, 3, 4])))
+x, y, z = ['a1', 'a2', 'a3'],  ['b1'], ['c1', 'c2', 'c3', 'c4']
+for a, b, c in itertools.zip_longest(x, y, z):    print(x, y, z, end = " ")
+
+x = [7, 'x', (1, 2), [5, 6], 5, 8.0, 'y', 1.2, [7, 8], 'z']; print(sorted(x, key = str))
+ing = "hello world"; vowel = []
+for ing in 'aeiou':    vowel.append(ing)
+print(vowel, ing)
+x = [[]] * 4; x[0].append(23) #x = [[23], [23], [23], [23]]
+def add(x):
+    x += [3]; return x # x.extend([3])
+print(add([2, 3, 4]))
+from itertools import filterfalse
+names = ['Fred', 'Wilma', 'Barney']
+def longname(name):    return len(name) > 5
+print(filter(longname, names), list(filter(longname, names)), list(filterfalse(longname, names)))
+print([name for name in names if len(name) > 5])
+print(list(filter(None, [1, 0, 2, [], '', 'a'])))
+print(list(filterfalse(None, [1, 0, 2, [], '', 'a'])))
+print(list(filter(lambda x : x.startswith('d'), names)))
+from operator import methodcaller
+print(list(filter(methodcaller('startswith', 'd'), names)))
+import time
+def loop(n):
+    res = []
+    for i in range(n):    res.append(i ** 2)
+    return res
+def compresslist(n):
+    return [i ** 2 for i in range(n)]
+begin = time.time(); loop(10 ** 6); end = time.time()
+print(round(end - begin, 2))
+begin = time.time(); compresslist(10 ** 6); end = time.time()
+print(round(end - begin, 2))
+x, y = [], [[]]; x = y + y + y
+y.append(1); print(x)
+x = [[]] * 3; print(id(inner) for inner in x)
+x = [[] for _ in range(3)];print(id(inner) for inner in x)
+x = []
+for i in range(3):    x.append([])
+for k in x:    print(id(k))
+for i, val in enumerate(x): print((i, val), end = " ")
+
+def tion(x = None):
+    if not x:
+        x = []; x.append(1); print(x)
+def func(x = []):
+    x.append(1); print(x)
+def unct(x = None):
+    if x is None:
+        x = []; x.append(1); print(x)
+func([2]); func([3])
+tion(); tion([]); tion(x = ""); tion(x = 0)
+unct()   
+def shift(x, pos):
+    pos %= len(x); return(x[:-pos] + x[-pos:])
+x = [3, -4, -2, 5, 1, 7]
+print(shift(x, -7), shift(x, 5), shift(x, 3))
+def append(val, y = None):
+    if y is None:    y = []
+    y.append(val); return y
+print(append(2), append(3, []))
+def func(x):
+    x[0] = 9; print(x)
+x = [4, 6, 8]; print(x); func(x); print(x)
+def func(x):
+    x[0] = 9; x = [1, 2, 3]; x[2] = -8
+    print(x)
+x = [4, 6, 8]; func(x)
+def func(lst, incr): 
+    result = lst[0] 
+    lst[0] += incr 
+    return result
+lst = [0]
+print(f'{func(lst, 2)} {func(lst, 3)}')
+print(f'{func(lst, 2)} {func(lst, 3)}')
+def func(i):
+    return i, i + 0.5
+def generate():
+    for i in range(3):
+        for x in func(i):    yield str(x)
+print([str(x)for i in range(3)for x in func(i)], "\n", list(generate()))
