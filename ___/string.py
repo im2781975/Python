@@ -115,7 +115,8 @@ print('{:.>10}'.format('foo'))
 print('{:.>{}}'.format('foo', 10))
 print('{:{}{}{}}'.format('foo', '*', '^', 15))
 print('{:0=6d}'.format(-1234))
-
+num = 3.14167; print(f"{num :.2f} ")
+name, age = "Aslam", 22; print("name {} age {}".format(name, age))
 ing = "HELLO"
 rev = reversed(ing); print(rev)
 rev = "".join(reversed(ing)); print(rev)
