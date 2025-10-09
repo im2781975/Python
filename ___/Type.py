@@ -1,3 +1,5 @@
+line = ord('\n'); print(f"newline: {line} ", f"{{Double Braces}} ")
+print('''Molla'4'Now''')
 from __future__ import unicode_literals 
 print(repr("hi"))
 begin, *tail = "Hello"
