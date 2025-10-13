@@ -212,7 +212,7 @@ print("from {0}.love cake from {0}".format("BD"))
 print("{'a' : 5, 'b' : 6}")
 print("{{'{}' : {}, '{}' : {}}}".format("a", 5, "b", 7))
 print(f"{{'{'a'}': {5}, '{'b'}': {6}}} ")
-
+val = 3.14159; print(f"{val:.2f}" ,"{:.2f}".format(val))
 def reverse(ing):
     return ing[::-1]
 print(reverse("HELLO"))
