@@ -713,6 +713,8 @@ name = ['A', 'B', 'C', 'A']; print(list(map(len, name)))
 res = [len(item)for item in name]
 genex = (len(item)for item in name)
 print(res, list(genex))
+from operator import *
+print(add(1, 1), mul(2, 2), mul('a', 10), mul([3], 3))
 import operator as op
 print(op.contains([1, 2, 3, 4, 5], 2))
 print(op.contains("Hello world", '0'))
