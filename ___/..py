@@ -1,4 +1,3 @@
-car_shop = [('Toyota', 1000), ('re
 
 print(input("Enter your value: "))
 print(input('What is your name?\n'))
