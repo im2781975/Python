@@ -194,7 +194,10 @@ print(f"{f'${d : 0.2f}':*>20s}")
 data = {"first" : "info", "last" : "nation"}
 print('{first} {last}'.format_map(data))
 print('{first} {last}'.format(first = "nation", last = " info"))
-
+name, age = "Alice", 30
+print("Name: {}, Age: {}".format(name, age))
+print(f"Name: {name}, Age: {age}")
+print("Name: %s, Age: %d" % (name, age))
 i, f, s, lst, dct = 10, 1.5, "foo", [" a", 1, 2], {'a' : 1, 2 : "foo"}
 print('{} {} {} {} {}'.format(i, f, s, lst, dct))
 print('{0} {1} {2} {3} {4}'.format(i, f, s, lst, dct))
