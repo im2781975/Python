@@ -65,7 +65,18 @@ print(sorted(map(lambda s: s.strip(), [" foo", "bAR", "BaZ"])))
 ing = "GFG"
 ch = iter(ing)
 print(next(ch), next(ch), next(ch))
-
+ing = "I Love Myself"
+print(ing.center(40, " "))
+print(ing.ljust(40, " "))
+print(ing.rjust(40, " "))
+print('G','F','G', sep = '')
+print('09','12','2016', sep = '-') 
+print('G','F', sep = '', end = '') 
+print('09','12','2016', sep = '-', end = '\n') 
+print('prtk','agarwal', sep = '', end = '@') 
+print('apples', 'oranges', 'bananas', sep = ', ')
+print('one', 'two', 'three', sep = ';') 
+print('????', '????', '????', sep = '????')
 import string
 print(string.ascii_letters, "\n", string.ascii_lowercase, "\n", string.ascii_uppercase)
 print(string.digits, string.hexdigits, string.octdigits)
