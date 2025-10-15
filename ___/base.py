@@ -258,6 +258,16 @@ print(math.log(1), math.log(100), math.log(1 + 1e-20), math.log1p(1e-20), math.l
 print(math.log(100, 10), math.log(27, 3), math.log(1, 10), math.copysign(-2, 3)   )
 print(math.copysign(3, -3), math.copysign(4, 14.2), math.copysign(1, -0.0), math.floor(-1.7))
 print(abs(1 + 1j), complex(1), complex(imag = 1), complex(1, 1), complex(1 + 1j), abs(1 + 1j))
+print(math.pow(2, 2), math.pow(2, -2), math.pow(-2, 5), math.e ** 2, math.exp(2), math.exp(10), math.exp(10).real)
+print(math.e ** 1e-3 - 1, math.exp(1e-3) - 1, math.expm1(1e-3), math.e ** 1e-15 - 1, math.exp(1e-15) - 1, math.expm1(1e-15))
+print(Decimal('6.25').sqrt(), math.sqrt(9), math.sqrt(11.11))
+print(cmath.sqrt(4), cmath.sqrt(-4))
+a, b = 1, 2
+print(math.sinh(a), math.cosh(a), math.atan(math.pi))
+print(math.hypot(a, b), math.degrees(a), math.radians(57.29577951308232))
+num = cmath.sqrt(-1)
+while num:
+    print(num); break
 import cmath
 print(cmath.sqrt(-1), cmath.polar(1 + 1j), cmath.phase(1 + 1j), cmath.rect(math.sqrt(2), math.atan(1)))
 print(cmath.phase(complex(-1.0, 0.0)), cmath.phase(complex(-1.0, -0.0)), cmath.log(1+1j), cmath.exp(1j * cmath.pi))
