@@ -130,6 +130,20 @@ print(rnd.random()) # 1 < x
 print(rnd.uniform(1, 3)) # a < x <= b
 x = [2, 8, 5, 1, 9]; print(rnd.choice(x))
 rnd.shuffle(x); print(rnd.choice(x))
+import random as rnd
+print(rnd.randint(1, 10), rnd.random(), rnd.random() * 100)
+print(str(rnd.randint(0, 12)), rnd.randrange(10, 20, 3)); rnd.seed(5)
+print(rnd.randrange(0, 10), rnd.randrange(1, 10))
+import inspect as ins
+print(ins.getsource(rnd.randrange), ins.getdoc(rnd.randrange), ins.getmodule(rnd.randrange))
+
+state = rnd.getstate(); rnd.setstate(state)
+print(state, end = " ")
+rnd.seed(None); rnd.seed()
+prob = 0.3
+if rnd.random() < prob:    print("Decision with probability 0.3")
+else:    print("Decision with probability 0.7")
+    
 import decimal as dc
 print(dc.Decimal('1.1') + dc.Decimal('4.9'))
 try:
