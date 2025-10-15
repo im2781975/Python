@@ -378,8 +378,8 @@ x = [1, 2, 3, 1, 4, 5]; print(set(x), list(set(x)))
 num = set(x); num.add(10)
 if 5 in num:    num.remove(5)
 for i, item in enumerate(num):    print(i, item)
-from collections import Counter
-print(Counter(['a', 'b', 'c', 'b']))
+
+
 
 """            TUPLE            """
 tup = (123, "Molla", " Ibra"); print(tup, tup[0])
@@ -439,8 +439,8 @@ x = (12, 45, 22222, 103, 6)
 print('{0} {2} {1} {2} {3} {4}'.format(*x))
 x, y = ('a', 'b', 'c', 'd', 'e'), ('1', '2', '3')
 z = x; print(x + y, x > y, y > x, x == y, len(x), max(x), min(x))
-import heapq
-print(heapq.nlargest(5, range(10)), heapq.nsmallest(5, range(10)))
+
+
 
 """            LIST            """
 #list is muteable
