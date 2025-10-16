@@ -1,3 +1,17 @@
+import pandas as pd
+df = DataFrame()
+df['customer_id'] = [1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 3, 3]
+df['order_id'] = [1, 1, 1, 2, 2, 3, 3, 4, 5, 6, 6, 6]
+df['item'] = ['apples', 'chocolate', 'chocolate', 'coffee', 'coffee', 'apples', 'bananas', 'coffee', 'milkshake', 'chocolate', 'strawberry', 'strawberry']
+print(df)
+countOrders = lambda x : len(x.unique())
+df['number_of_orders_per_cient'] = (df .groupby(['customer_id'])['order_id']  .transform(countOrders))
+print(df)
+def multipleOrder(_items): 
+    multiple_item_bool = _items.duplicated(keep = False) 
+    return(multiple_item_bool)
+orders_df['item_duplicated_per_order'] = (orders_df .groupby(['order_id'])['item'] .transform(multipleOrder))
+print(orders_df)
 import pandas as pd 
 import numpy as np
 ser = pd.Series() 
