@@ -474,3 +474,13 @@ arr = np.array([[[2, 2, 2], [2, 2, 2]]]np
 print(arr.shape)   
 x = np.squeeze(arr))
 print(x, x.shape)  
+
+import numpy as np
+import calc  
+import sys
+print(sys.path)
+a = np.array([0, 3, 4, 3, 5, 4, 7])
+print("Occurrences of 3:", np.sum(a == 3)) 
+print("10 + 2 =", calc.add(10, 2))
+List = [1, 4, True, 800, "python", 27, "hello"]
+print(random.choice(List)) 
