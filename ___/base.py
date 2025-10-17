@@ -304,4 +304,279 @@ print(cmath.sin(z)**2 + cmath.cos(z)**2,  cmath.sinh(z), cmath.cosh(z), cmath.ta
 print(cmath.cosh(z)**2 - cmath.sin(z)**2,  cmath.cosh((0+1j)*z) - cmath.cos(z))
 x.conjugate(); print(x)
 
+import collections as col
+print(col.Counter([1, 3, 5, 7, 9]))
+print(col.Counter(['a', 'b', 'c', 'b']))
+print(col.Counter(["Hi everyone", "where"]))
+print(col.Counter('Here-I-am! where-are-u'.split()))
+cnt = col.Counter({'a' : 1, 'b' : 2, 'c' : -3, 'd' : 0}); print(cnt)
+cnt['d'] = 5; cnt.update({'b' : 5, 'c' : 7})
+cnt.subtract({'a' : 1, 'b' : 1, 'c' : 1}); print(cnt)
+print(sum(cnt.values()), cnt.elements(), cnt.keys())
+print(cnt.values(), cnt.items())
+cnt = col.Counter(["a", "b", "c", "d", "a", "b", "a", "c", "d"])
+print(cnt, cnt.keys(), cnt.values(), cnt.items(), cnt["a"])
+dic = {'a': 5, 'b': 3, 'c': 5, 'd': 2, 'e':2, 'q': 5}
+print(col.Counter(dic.values()).most_common())
+print(col.Counter(dic.values()).most_common(2))
+from collections import deque
+deq = deque('mollavai')
+deq.append('a'); deq.pop(); deq.popleft();
+deq.extend('jkl'); deq.extendleft('mnk'); deq.rotate(1)
+deq.rotate(-1); print(deq, 'h' in deq)
+print(deque.reverse(deq), list(deq), list(reversed(deq)))
+for val in deq:    print(val.upper(), val.lower(), end = " ")
+deq.clear()
+deq, que = deque([1, 2, 3]), deque()
+deq.popleft(); deq.appendleft(5);
+que.append(2); que.extend([6, 7]); que.extendleft([-2, -1]);
+que.popleft(); que.remove(7); que.reverse()
+print(deq, que); 
+
+def bfs(grid, root):
+    dist = {}; dist[root] = 0
+    q = deque([root])
+    while q:
+        curr = q.popleft()
+        for adj in grid[curr]:
+            if adj not in dist:
+                dist[adj] = dist[curr] + 1
+                q.append(adj)
+    return dist
+dic = {1: [2, 3], 2: [4], 3: [4, 5], 4: [3, 5], 5: []}
+print(bfs(dic, 1))
+import operator as op
+print(op.pow(4, 3), op.__pow__(4, 3))
+x, y = 2, 6; print(x.__pow__(y), y.__rpow__(x), op.add(x, y), op.sub(x, y), op.truediv(x, y), op.floordiv(x, y))
+from operator import *
+print(add(1, 1), mul(2, 2), mul('a', 10), mul([3], 3))
+import operator as op
+print(op.contains([1, 2, 3, 4, 5], 2))
+print(op.contains("Hello world", '0'))
+print(op.contains({1, 2, 3, 4, 5}, 6))
+print(op.contains([1, 2, 3, 4, 5], 9))
+print(op.contains({1: "Geeks", 2: "for", 3: "geeks"}, 3))
+from operator import truediv, floordiv
+test = [ (10, 8), (10, -8), (-10, 8), (-10, -8), 
+    (7.5, 2.5), (9, 3), (0, 5), (5, 2)]
+for a, b in test:
+    print(truediv(a, b), floordiv(a, b))
+    assert truediv(a, b) == a / b
+    assert floordiv(a, b) == a // b
+import heapq as hq
+print(hq.nlargest(5, range(10)), hq.nsmallest(5, range(10)))
+num = [1, 4, 2, 100, 20, 50, 32, 200, 150, 8]
+print(hq.nlargest(4, num), hq.nsmallest(4, num))
+hq.heapify(num); print(num)
+hq.heappop(num); print(num)
+info = [{'first': 'Abc', 'last': 'Doe', 'age': 30}, {'first': 'Def', 'last': 'Doe', 'age': 25},    
+        {'first': 'Ghi', 'last': 'Doe', 'age': 10}, {'first': 'Jkl', 'last': 'Roe', 'age': 22},    
+        {'first': 'Mno', 'last': 'Doe', 'age': 12}, {'first': 'Pqr', 'last': 'Roe', 'age': 45}]
+print(hq.nlargest(2, info, key = lambda x : x['age']))
+print(hq.nsmallest(2, info, key = lambda x : x['age']))
+
+from queue import Queue
+q = Queue()
+for x in range(1, 10):
+    dic = ('key', x); q.put(dic)
+while(not q.empty()):    print(str(q.get())) 
+import locale, functools as funto
+print(sorted(['A', 'S', 'F', 'D'], key = funto.cmp_to_key(locale.strcoll)))
+
+def func(a, b, c, x):    return 1000 * a + 100 * b + 10 * c + x
+res = funto.partial(func, 1, 1, 1); print(res(5))
+import itertools as it
+for num in it.count():  
+    if num > 20:    break
+    print(num, end = " - ")
+for num in it.count(start = 10, step = 4):
+    print(num, end = "  ")
+    if num > 30:    break
+print()
+print(list(it.combinations([1, 2, 3, 4, 5], 3)))
+def func():
+    n = 0
+    while n < 20:    n += 1; yield n
+for i in it.islice(func(), 3):    print(i, end = " - ")
+def test(lst):
+    group = it.groupby(lst, key = lambda x : x[1])
+    for key, val in group:    print(key, list(val))
+lst = [("a", 5, 6), ("b", 2, 4), ("a", 2, 5), ("c", 5, 6)]; test(lst)
+lst.sort(key = lambda x : x[1]); print(lst)
+grp = it.groupby(lst, key = lambda x : x[1])
+grplst = [(key, list(val)) for key, val in grp]
+for key, val in grplst:    print(key, val)
+for key, val in sorted(grplst):    print(key, val)
+lst = [1, 2, 3]
+print(list(it.permutations(lst)))
+print(list(it.permutations(lst, 2)))
+for i in it.repeat('over-and-over', 3):    print(i, end = " ")
+print()
+def IsEven(x):    return x % 2 == 0
+lst = [0, 2, 4, 12, 18, 13, 14, 22, 23, 44]
+print(list(it.dropwhile(IsEven, lst)))
+print(list(it.takewhile(IsEven, lst)))
+def customdrop(predicate, able):
+    able = iter(able)
+    for x in able:
+        if not predicate(x):
+            yield x; break
+    yield from able
+print(list(customdrop(IsEven, lst)))
+print(list(it.takewhile(IsEven, lst)) + list(it.dropwhile(IsEven, lst)))
+a, b = [i for i in range(5)], ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+for i in it.zip_longest(a, b):
+    x, y = i; print(x, y, end = "\n")
+for i in it.zip_longest(a, b, fillvalue = "wash"):
+    x, y = i; print(x, y, end = "\n")
+def fetch():
+    for i in range(50):    yield f"{i + 1}"
+limit = 20
+for data in it.islice(fetch(), limit):    print(data, end = " ")
+
+dic = {
+    "x": ["a", "b"], "y": [10, 20, 30]
+}
+key = dic.keys(); val = [dic[k] for k in key]
+print([dict(zip(key, combination)) for combination in it.product(*val)])
+import operator as op
+print(list(it.accumulate([1, 2, 3, 4])))
+print(list(it.accumulate([1, 2, 3, 4], func = op.mul)))
+print(it.cycle('ABCDE'))
+t = it.cycle('abc123')
+print([next(t) for i in range(1, 10)])
+for x, y in it.product(range(10), range(10)):    print(x, y, end = "\t")
+print()
+t = [range(10)] * 2
+for x, y in it.product(*t):    print(x, y, end = "\t")
+print()
+x, y = [1, 2, 3, 4], ['a', 'b', 'c']; print(it.product(x, y))
+for i in it.product(x, y):    print(i, end = " ")
+print()
+a = (x for x in ['1', '2', '3', '4'])
+b = (x for x in ['a', 'b', 'c'])
+print(' '.join(it.chain(a, b)))
+
+import hashlib as hb
+m = hb.md5(); m.update('Nobody inspects'.encode())
+print(m.digest(), m.hexdigest(), m.digest_size, m.block_size)
+m.update('spammish repitition'.encode())
+print(m.digest(), m.hexdigest(), m.digest_size, m.block_size)
+print(hb.md5("Nobody inspects".encode()).hexdigest())
+h = hb.new('ripemd160')
+h.update("Nobody inspects the spammish repetition".encode()); print(h.hexdigest())
+
+import threading as th
+import multiprocessing as mp
+def func():    print("Hello")
+t = th.Thread(target = func)
+t.start();    t.join()
+import time
+class nap(th.Thread):
+    def run(self):    
+        time.sleep(2)
+        print("ciao")
+if __name__ == "__main__":
+    t = nap()
+    t.start(); t.join()
+    
+def func(i):    return i * i
+def other(m, i):    return m + i
+def task():
+    for j in range(100):    res = 0
+    for i in range(1000):    res = other(res, func(i))
+start = time.time();    task()
+print(time.time() - start)
+start = time.time()
+#threads = [th.Thread(target = task) for i in range(4)]
+threads = [mp.Process(target = task) for i in range(4)]
+for t in threads:    t.start()
+for t in threads:    t.join()
+print(time.time() - start)
+def countdown(n):
+    while n > 0:    n -= 1
+def runthread():
+    COUNT = 10000000
+    t1 = th.Thread(target = countdown, args = (COUNT // 2,))
+    t2 = th.Thread(target = countdown, args = (COUNT // 2,))
+    start = time.time()
+    t1.start(); t2.start(); t1.join(), t2.join()
+    print(f"{time.time() - start} seconds")
+runthread()
+import math
+def fact(n):    print(math.factorial(n))
+if __name__ == '__main__':
+    num = 60
+    p = mp.Process(target = fact, args = (num,))
+    p.start(); p.join()
+import pprint
+obj, lock = {}, th.Lock()
+def objify(key, val):
+    print(f"[{th.current_thread().name}] Obj has {len(obj)} values")
+    with lock:    obj[key] = val
+    print(f"[{th.current_thread().name}] Obj now has {len(obj)} values")
+ts = [th.Thread(target = objify, args = (str(n), n)) for n in range(4)]
+for t in ts:    t.start()
+pprint.pprint(obj)
+for t in ts:    t.join()
+
+"""
+import os
+def task():
+    print("Pid is %s, thread id is %s" % (os.getpid(), th.current_thread().name))
+def process():    print("Pid is %s" % (os.getpid(),))
+threads = [th.Thread(target = process) for i in range(4)]
+processes = [mp.Process(target = process) for _ in range(4)]
+for t in threads:    t.start()
+for t in threads:    t.join()
+for p in processes:   p.start() 
+for p in processes:   p.join()
+import sys, codecs
+print(sys.stdout.write('Hello World'))
+print(sys.stdout.buffer.write(b'\\xf0\\x9f\\x90\\x8d\\n'))
+print(codecs.stdout('1deadbeef4', 'hex'))
+print(codecs.encode(b'\x1d\xea\xdb\xee\xf4', 'hex'))
+print(codecs.encode(b'\x1d\xea\xdb\xee\xff', 'hex').decode('ascii'))
+"""
+import bisect as bis
+import timeit as tim
+def sortedIdx(seq, val):
+    i = bis.bisect_left(seq, val)
+    if i != len(seq) and seq[i] == val:    return i
+    raise ValueError(f"{val} not found")
+lst = [i for i in range(1, 100000, 3)]
+print(sortedIdx(lst, 97285))
+try:    print(sortedIdx(lst, 4))  
+except ValueError as e:    print(e)
+print(tim.timeit(lambda: sortedIdx(lst, 97285), number = 10000))
+print(tim.timeit(lambda: lst.index(97285), number = 10000))
+print(tim.timeit(lambda: sortedIdx(lst, 4), number = 10000))
+try:    print(tim.timeit(lambda: lst.index(4), number = 10000))
+except ValueError:    print("ValueError")
+import unicodedata as udata
+print([udata.name(char) for char in "ê"])
+print([udata.name(char) for char in "e"])
+print(udata.normalize("NFKD","ê") == udata.normalize("NFKD", "e"))
+def caselessNormalize(text):    return udata.normalize("NFKD", text.casefold())
+def caselessEqual(left, right):    return caselessNormalize(left) == caselessNormalize(right)
+pairs = [
+    ("Straße", "STRASSE"), ("café", "cafe"),   ("Êcole", "ecole"), 
+    ("Hello", "hello"), ("𝐀𝐛𝐜", "Abc"), ("ﬁ", "fi")]
+for left, right in pairs:
+    print(f"Comparing '{left}' vs '{right}': {caselessEqual(left, right)}")
+
+import typing as typ
+point = typ.NamedTuple('point', [('x', int), ('y', int)])
+p = point(3, 4); print(p.x, p.y)
+x, y = p; print(x, y, p)
+T = typ.TypeVar("T")
+def getval(val: typ.Sequence[T], default: typ.Optional[T] = None) -> T:
+    if val:    return val[0]
+    if default is not None:    return default
+    raise ValueError("Sequence is empty and no default value provided")
+lst = [1, 2, 3]
+strlst = ["apple", "banana", "cherry"]
+empty_list = []
+print(getval(lst), getval(strlst))  
+print(getval(empty_list, default = "No elements"))  
 
