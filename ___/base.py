@@ -214,6 +214,15 @@ point = float(input("Enter floating: ")); print(point, type(point))
 import datetime as dt
 ing = input("Enter time(HH : MM : SS): ")
 print(dt.datetime.strptime(ing, "%H:%M:%S"))
+import datetime as dt
+import time as tm
+print(tm.time(), dt.date.fromtimestamp(454554))
+once = dt.datetime(2010, 7, 1, 12, 0, 0) 
+delta = dt.timedelta(days = 13, hours = 8,  minutes = 20)   
+gen = (once + x * delta for x in range(5))
+print('\n'.join(map(lambda d : d.strftime('%Y-%m-%d %H:%M:%S'), gen)))
+print('North America: {dt:%m/%d/%Y}. ISO: {dt:%Y-%m-%d}.'.format(dt = dt.datetime.now()))
+
 x, y, z = input("Enter values: ").split(); print(x, y, z)
 print("first-{} second-{} third-{}".format(x, y, z))
 x = list(map(int, input("Enter values: ").split())); print(x)
