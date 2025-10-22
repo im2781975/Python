@@ -1,5 +1,3 @@
-
-
 def unpacking(a, b, c = 45, d = 60, *args, **kwargs):
     print(a, b, c, d, args, kwargs)
 unpacking(1, 2)
