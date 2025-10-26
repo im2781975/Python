@@ -940,3 +940,31 @@ print(bilbo.hp, bilbo.is_alive, bilbo.is_wounded, bilbo.is_dead)
 bilbo.take_damage(50)  
 print(bilbo.hp, bilbo.is_alive)  
 print(bilbo.is_wounded, bilbo.is_dead)
+
+
+class Node:
+    def __init__(self, value, children=None):
+        self.value = value
+        self.children = children or []
+
+def preorder_traversal(node):    
+    yield node.value    
+    for child in node.children:        
+        yield from preorder_traversal(child)
+
+# Example tree:
+#        A
+#      / | \
+#     B  C  D
+#       / \
+#      E   F
+
+tree = Node('A', [
+    Node('B'),
+    Node('C', [Node('E'), Node('F')]),
+    Node('D')
+])
+
+# Run the preorder traversal and print the results
+print(list(preorder_traversal(tree)))
+
