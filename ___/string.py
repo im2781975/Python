@@ -857,3 +857,40 @@ def generate():
     for i in range(3):
         for x in func(i):    yield str(x)
 print([str(x)for i in range(3)for x in func(i)], "\n", list(generate()))
+
+lst = [2, 4, 6, 8]
+print(any(x == 0 for x in lst))
+print(type(a > b for a in lst if a % 2 == 1))
+print(sum((i for i in range(10) if i % 2 == 0)))
+lem = lambda x : x * x; print(lem(4))
+print(map(len, ["Mary", "Isla", "Sam"]))
+arr = [1, 2, 3, 4, 5, 6]
+print([i for i in filter(lambda x : x > 4,arr)])
+def addition(x):    return x + x
+num = (2, 4, 6, 8)
+print(list(map(addition, num)))
+print(list(map(lambda x : x + x, num)))
+print(list(map(lambda x : x ** 2, num)))
+num, ber = [1, 2, 3], [4, 5, 6]
+print(list(map(lambda x, y : x + y, num, ber)))
+lst = ['sat', 'sun', 'mon', 'fri']; print(list(map(list, lst)))
+
+x, y, z = [100, 111, 99, 97], [102, 117, 91, 102], [104, 102, 95, 101]
+print(list(map(avrg, x, y, z)))
+print(list(map(median, x, y, z)))
+def func(lst):
+    for item in lst:    print(item, end = " ")
+import operator as op
+lst = ['a', 'b', 'c', 'd']; func(lst)
+x, y = [100, 111, 99, 97], [102, 117]
+print(list(map(op.sub, x, y)), list(map(op.sub, y, x)))
+
+insects = ['fly', 'ant', 'beetle', 'cankerworm']
+f = lambda x : x + ' is an insects'
+print(list(map(f, insects)), list(map(len, insects)))
+carnivores = ['lion', 'tiger', 'leopard', 'arctic fox'] 
+herbivores = ['african buffalo', 'moose', 'okapi', 'parakeet'] 
+omnivores = ['chicken', 'dove', 'mouse', 'pig']
+def animals(w, x, y, z):    
+    return '{0}, {1}, {2}, and {3} ARE ALL ANIMALS'.format(w.title(), x, y, z)
+print(list(map(animals, insects, carnivores, herbivores, omnivores)))
