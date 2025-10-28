@@ -633,6 +633,603 @@ strlst = ["apple", "banana", "cherry"]
 empty_list = []
 print(getval(lst), getval(strlst))  
 print(getval(empty_list, default = "No elements"))  
+
+def modularInv(x, p):    return pow(x, p - 2, p)
+print([modularInv(x, 13) for x in range(1, 13)])
+from statistics import *
+def statis(lst):
+    return mean(lst), median(lst), mode(lst)
+    #return [mean(lst), median(lst), mode(lst)]
+print(statis([2, 4, 1, 7, 5, 9]))
+a, b, c = statis([2, 4, 1, 7, 5, 9]); print(f"{a}\t{b}\t{c}")
+def add(a, b):    return a + b
+def func(x):    return x + 1
+def double_it(x):
+    x *= 2;    return x
+x = add(9, 11); print(func(x), double_it(x))
+double = lambda x : x * 2; square = lambda x : x * x
+add = lambda x, y: x + y; sub = lambda x, y: x - y
+mult = lambda x, y: x * y; div = lambda x, y: x / y
+divInt = lambda x, y: x // y; mod = lambda x, y: x % y
+print(f"{double(23)}\t{square(23)}\t{add(23, 46)}\t{sub(46, 23)}")
+print(mult(23, 25), div(9, 3), divInt(9, 3), mod(9, 3))
+#from [file name] import [function] as [our choice name]
+#from func import double_it as dt
+#print(dt(5))
+def add(a, b, c = 0):
+    res = a + b + c;    return res
+print(add(78, 97), add(78, 97, 23))
+def add(*num):
+    res = 0
+    for i in num:
+        res += i; print(res, end = " ")
+    return num
+print(add(2, 3, 6, 8)); add(2, 3, 6, 8); print()
+def task(a, b):
+    add = a + b; sub = a - b
+    mult = a * b; div = a / b; divInt = a // b
+    print([add, sub, mult, div, divInt])
+    return add, sub, mult, div, divInt
+print(task(67, 34)), task(23, 67)
+highest = max([1, 2, 3, 4, 5])
+lowest = min(1, 2, 3, 4, 5, 6)
+count = len([1, 5])
+final = sum([1, 2, 3, 4, 5])
+print(highest, lowest, count, final)
+#list is changeable but tuple no
+def muteable(lst):    lst.append(3)
+lst = [2, 5]; print(muteable(lst), lst)
+def immutable(tup):    tup = tup + (7,)
+tup = (2, 5); print(immutable(tup), tup)
+
+a, b = [1, 3, 5, 7], [2, 4, 6, 8]
+print(list(zip(a, b)), zip(a, b))
+def kwargs(**kw):    print(kw)
+def kwargs(**kw):
+    for key in kw:    
+        print("key = {0}, val = {1}".format(key, kw[key]))
+    for key, val in kw.items():
+        print("%s = %s" %(key, val))
+kwargs(a = "two", b = 1)
+kwargs(first = 'Geeks', mid = 'for', last = 'Geeks')
+def kwargs(**kw):
+    print(kw.get('val', 0))
+    for key, val in kw.items():    print(key, val, end = "\t")
+kwargs(name = "Ab", dept = "Cs", age = "25")
+dic = {'foo': 1, 'bar': 2}; kwargs(**dic)
+kwargs(x = 1, y = 2, z = 3)
+kwargs(); kwargs(val = 1)
+def kwargs(x, **key):    print(x, key)
+kwargs(2, b = 3, c = 4)
+def func(arg, **kw):
+    for key, value in kw.items():
+        print("%s = %s" %(key, value))
+func("Hi", first = 'Geeks', mid = 'for', last = 'Geeks')
+def arges(x, *arg):
+    print("%s" %x, end = " ")
+    for ag in arg:    print("%s" %ag)
+arges(1, "two", 3); arges("who", "are", " you")
+def func(*args):
+    for arg in args:
+        print(arg, end = " ")
+func('Here', 'i', 'am'); func(1, 2, 3); func(*[1, 2, 3])
+def func(fu = None, nc = None):
+    return "{}{}".format(fu, nc)
+val = {"fu" : "molla", "nc" : "vai"}; print(func(**val))
+def arges(ag, *arg, x, y):
+    print("{}".format(ag))
+    for i in arg:    print("{}".format(i), end = " ")
+    print("\n{}".format(x)); print("{}".format(y))
+arges(2, 8, 9, 1, x = 8, y = 9)
+def func(*arg, **kw):
+    print(arg); print(kw)
+args = {1, 2, 3}
+kwargs = {"name" : "hasan", "mid" : "Alom" }; func(args, kwargs)
+def arg(x, y):    print(str(x) + str(y))
+a = (1, 2); b = tuple([3, 4])
+arg(a[0], b[1]); arg(a, b)
+def func(x = 0, y = None, z = None):
+    print("x: %s\ty: %s\tz: %s" %(x, y, z))
+kwarg = {"z" : 3, "y" : "two"}; func(1, **kwarg); func(**kwarg)
+def func(ag1, ag2, ag3):    print(ag1, ag2, ag3)
+arg = ("Here", "I", "am"); func(*arg)
+kwargs = {"ag1" : "Here", "ag2" : "I", "ag3" : "am"}; func(**kwargs)
+def fn(**kwargs):   
+    print(kwargs)   
+    f1(**kwargs)
+def f1(**kwargs):   
+    print(len(kwargs))
+fn(a = 1, b = 2)
+def func(**kw):
+    print(kw); nc(**kw)
+def nc(**kw):    print(len(kw))
+func(a = 1, b = 2)
+def func(a, b, c = 45, d = 60, *arg, **kw): print(a, b, c, d, *arg, **kw)
+func(1, 2, 3, 4); func(2, 1, d = 4, c = 3);
+tup = (3, ); func(1, 2, d = 6, *tup)
+tup = (3, 4); func(1, 2 *tup); func(1, 2, 3, 4, *tup)
+lst = [3]; func(1, 2, *lst, d = 9)
+lst = [3, 4]; func(1, 2, *lst); func(1, 2, 3, 4, *lst)
+dic = {'c' : 3, 'd' : 4}; func(1, 2, **dic)
+dic = {'d' : 4, 'c' : 3}; func(1, 2, **dic)
+dic = {'c' : 3, 'd' : 4, 'para' : 75}
+func(1, 2, *dic)
+def default(nome, cognome, dept = "CS"):
+    print(f"{nome} {cognome}\tdept: {dept}")
+#default arg should be provided after non def arg
+default("Isa", "Molla", "ME"); default(" Isa", "Molla")
+def arbitry(*num, name = "Aslam"):
+    res = 0;
+    for i in num:    res += i
+    print(res, name)
+arbitry(4, 6, 8, name = "Hasan")
+arbitry(4, 6, 8)
+def mixarg(*arg, **kw):
+    for key, val in kw.items():    print(key, val, end = " ")
+    print(arg)
+mixarg(a = 2, b = 4, c = 8, name = "hasan", dept = "mahmud", age = "24")
+mixarg(2, 4, 6, name = "hasan", dept = "mahmud", age = "24")
+def example(*args):
+    total = sum(args); print(total)
+example(2, 6, 9)
+def func(x, y, z):    return (x, y, z)
+print(func(2, 4, 6), func(*[6, 8], 9))
+dic = {'x': 1, 'y': 2,'z': 3}; print(func(**dic))
+def func(x = 'a', y = 'b', z = 'c'):    return (x, y, z)
+print(func(1), func(2, 3), func(y = 2, z = 3))
+print(func(*[1]), func(*[1, 2, 3]), func(*[1, 2]), func(**{'z' : 3}))  
+print(func(**{'x' : 1}), func(**{'x' : 1, 'y' : 2, 'z' : 3}))
+def func(*arg, **kw):    print(arg, kw)
+print(func(1, 2, 3), func(a = 1, b = 2, c = 3), func('x', 'y', 'z', a = 1, b = 2, c = 3))
+def info(name, surname):
+    nome = name.title(); cognome = surname.title()
+    return f"{nome}\t{cognome}\n{name}\t{surname}"
+    #return f"name is: {name} {surname}"
+print(info("Molla", "Ibrahim"))
+print(info(name = "Ibrahim", surname = " Molla"))
+def info(*title, name, surname):
+    return f"{title} {name} {surname}"
+print(info(name = 'ibrahim', surname = 'molla'))
+print(info('Dj',name = 'ibrahim', surname = 'molla',))
+def info(nome, cognome, **title):
+    name = f"{nome} {cognome} {title}"
+    print(title); print(title['pos'])
+    return name
+print(info(nome = "hasan", cognome = "mahmud", pos = "Dj", title = "artist"))
+def greet(name):
+    print("Hello, {0}".format(name))
+    print(input("what's your name: "))
+greet("Molla")
+def greet(ing):    print(ing)
+def gret(ing = "Hello"):    print(ing)
+greet("Hello"); gret()
+def greeting():    return "Hello"
+greet = lambda : "Hello"
+print(greeting(), greet())
+def greet():    print("Hi")
+def disp(other):
+    print("displayed"); other()
+disp(greet)
+def louder(name):    print(name.upper())
+def softer(name):    print(name.lower())
+def hello(other, name):
+    print("displayed"); other(name)
+hello(louder, "molla")
+hello(softer, "MOLLA")
+def hello(name):
+    print("Executed")
+    def greet():    print("Aa")
+    def welche():    print("Bb")
+    if name == "molla":    return greet
+    else:    return welche
+#hello("molla")
+x = hello("molla")
+x()
+case = lambda ing : ing.strip().upper(); print(case(" hello "))
+greet = lambda x, *arg, **kw : print(x, arg, kw)
+greet('Hello', 'world', world = 'world')
+def func(msg):    print(msg)
+greet = lambda x = "Hello World" : func(x); greet()
+def func(act = "nothing"):    return act
+print(func("fun"), func(), func(act = "simple"))
+def counter():
+    num = 0
+    def incr():
+        nonlocal num; num += 1; return num
+    return incr
+x = counter()
+for i in range(1, 12):    print(x(), end = " ")
+def func():
+    if True:    x = "HI"
+    print(x)
+func()
+x = 'Hello'
+def changeLocal():
+    # global x
+    x = 'Bye'; print(x)
+changeLocal(); print(x); del(x)
+x = 1
+def func():
+    #x = 7; print(x); print(globals()['x'])
+    global x; x = 2
+func(); print(x)
+x = 1
+def func():
+    y = x = 2
+    print(x, globals().keys())
+    print(y, locals().keys())
+    print(globals()['x'], locals()['x'])
+func()
+x = 1
+def f1():    
+    y = 1    
+    def f2():        
+        z = 2     
+        print(locals().keys())
+        print('y' in locals(), 'y' in globals()) 
+    def f3():        
+        z = 3; print(y)     
+        print(locals().keys())      
+        print('bar' in locals(), 'bar' in globals()) 
+    def f4():        
+        y = z = 4   
+        print(y, locals().keys())
+        print('y' in locals(), 'y' in globals())
+    return f2, f3, f4
+f2, f3, f4 = f1()
+f2()
+x = 0
+def f1():    
+    x = 1
+    def f2():       
+        x = 2       
+        def f3():          
+            x = 3; print(x); x = 30
+        def f4():           
+            #without global keyword we can access the variable not modify
+            global x; print(x); x = 100
+        f3(); f4()
+    f2()
+f1(); print(x)
+def f1():       
+    def f2():        
+        x = 2 
+        def f3():            
+            nonlocal x; print(x); x = 20 
+        f3(); print(x)
+    f2()
+f1()
+def divide(dividend, divisor):
+    print(dividend / divisor)
+print(divide(10, 2))
+print(divide(divisor = 2, dividend = 10))
+def fact(n):
+    #if n == 0 or n == 1:    return 1
+    #return n * fact(n - 1)
+    res = 1
+    while n > 1:
+        res *= n; n -= 1
+    return res
+def fib(n):
+    #if n == 0 or n == 1:    return n
+    #return fib(n - 1) + fib(n - 2)
+    a, b = 0, 1
+    while n > 0:
+        a, b = b, a + b; n -= 1
+    return a
+def fibb(n):
+    if n <= 1:    return (n, 0)
+    else:
+        (a, b) = fibb(n - 1)
+        return (a + b, a)
+print(fact(12), fib(7), fibb(7)[0])
+for i in range(8):    
+    print(fibb(i)[0], end = " ")
+def fib(n):
+    a, b = 1, 1
+    while True:
+        if a >= n:    break
+        yield a
+        a, b = b, a + b
+def use():
+    yield from fib(10)
+    yield from fib(20)
+print(use())
+def fib(a = 0, b = 1):
+    while True:
+        yield a
+        a, b = b, a + b
+f = fib() 
+print(', '.join(str(next(f)) for _ in range(10)))
+print("\r")
+def recur(n):
+    if n == 1:    return 1
+    else:    return n + recur(n - 1)
+n = 5; res = 0
+for i in range(1, n + 1):    res += i
+print(res, recur(5))
+def cursing(depth):
+    try:    cursing(depth + 1)
+    except RuntimeError as RE:
+        print("recursed {} times".format(depth))
+cursing(0)
+def countdown(n):
+    if n == 0:    print("BlastOff")
+    else:    print(n, end = " "); countdown(n - 1)
+countdown(8)
+def findmax(seq, maxi):
+    if not seq:    return maxi
+    if maxi < seq[0]:    return findmax(seq[1:], seq[0])
+    else:    return findmax(seq[1:], maxi)
+lst = [5, 2, 9, 1, 7]; print(findmax(lst, lst[0]))
+fact = lambda i : 1 if i == 0 else i * fact(i - 1); print(fact(5))
+def tailcall(func):
+    def wrap(*arg, **kwarg):    return func(*arg, **kwarg)
+    return wrap
+@tailcall
+def fact(n, tmp = 1):
+    if n == 0:    return tmp
+    else:    return fact(n - 1, n * tmp)
+print(fact(10))
+@tailcall
+def fib(i, curr = 0, nxt = 1):
+    if i == 0:    return curr
+    else:    return fib(i - 1, nxt, curr + nxt)
+print(fib(10))
+
+def fib(n):
+    def step(a, b):    return b, a + b
+    a, b = 0, 1
+    for i in range(n):    a, b = step(a, b)
+    return a
+for i in range(10):    print(fib(i), end = " ")
+print()
+a = 15
+def display():
+    a = 10
+    def show():    print(a)
+    show()
+display(); print(a)
+a, b = 6, 9
+def disp():
+    if a < b: c = a + b
+    print(c)
+disp()
+def disp():
+    a = 20
+    def show():
+        nonlocal a; a += 5; print(a)
+    print(a); show()
+disp(); print(a)
+a, b = 15, 10
+def add():    print(a + b)
+add()
+def func():
+    var = 10
+    def unc():
+        nonlocal var; var += 10; print(var, end = " ")
+    unc()
+func()
+def fun():
+    total = 0
+    for i in range(10):
+        total += i; yield total
+for i in fun():    print(i, end = " ")
+print()
+dic, lst = {'a' : 1, 'b' : 2}, [1, 2, 3, 4, 5]
+del dic['a']; del lst[1 : 3]; print(dic, lst)
+def cube(x):    return x ** 3
+def add(a, b):    return a + b
+def Istrue(a):    return bool(a)
+print("{}\t{}".format(add(22, 67), Istrue(2 < 8)))
+def func():
+    ing, x = "Here", 10; #return ing, x
+    return [ing, x]
+print(func())
+def func():
+    dic = dict()
+    dic['str'], dic['x'] = "molla", 10
+    return dic
+print(func())
+def adder(x):
+    def add(y):    return x + y
+    return add
+res = adder(5); print(res(10))
+def apply(func, n, x):
+    for i in range(n):    x = func(x)
+    return x
+print(apply(res, 5, 1))
+def incr(x):
+    def inc(y):    return x + y
+    return inc
+a, b = incr(6), incr(8); print(a(5), b(5))
+def incr(x):
+    def inc(y):
+        nonlocal x; x += y; return x
+    return inc
+a, b = incr(6), incr(8); print(a(5), b(5))
+def outer(x):    return x * 10
+def func():    return outer
+res = func(); print(res(5))
+def order(x):    return True if x > 0 else False
+a = b = c = order
+if a(-1) or b(5) or c(10):
+    print("Atleast one of the num is positive")
+def even(num):
+    if num % 2 == 0:    return num * 2
+    else:    return num
+def double(num):    return 2 * num
+num = [1, 2, 3, 4, 5]
+print(list(map(even, num)), list(map(double, num)))
+def gen():    yield 1
+able = gen()
+for x in able:    print(x)
+def func(ing, lst):
+    lst.reverse(); ing += "".join(lst)
+    return ing
+lst, ing = ["you", "stay"], "he said: "
+print(func(ing, lst))
+def lstcheck(check, lst):
+    for item in lst:
+        if check == item:    return True
+    return False
+num = [10, 20, 30, 40]
+print(lstcheck(20, num), lstcheck(50, num))
+fail, num = False, 20
+def func(x):
+    if fail:    return None
+    else:    return num
+x = 5
+if func(x) is not None:    print(func(x) / 2)
+else:    print(x, "couldn't processed")
+def five():    return 5
+print(five(), five() + 5)
+def fives():    return 5, 5
+front, back = fives(); print(front, back)
+def dic():
+    return {"african" : 11.0, "european" : 10.0}  
+speeds = dic() 
+if "european" in speeds:    speed = speeds["european"]
+else:   
+    speed = input("What is the air-speed?")
+print(speed)
+def fu(name):    print(str(name).lower())
+def nc(ing):
+    lst = list(ing); lst.extend((2, 4, 6))
+    return ", ".join(map(str, lst))
+fu("HELLO"); print(nc(["a", "b", "c"]))
+def capture(msg, errormsg = None):
+    while True:
+        try:    return float(input(msg))
+        except ValueError:
+            if errormsg is not None:    print(errormsg)
+            else:    print("Invalid input")
+#num = input("Enter: "); print(num)
+try:    x = 1.0 / 0.0; print(x)
+except ZeroDivisionError:   print("Division by zero")
+print("Hello ", end = "<br>")
+print("Hello", end = "Break\n")
+def twosum(a, b):    return a + b
+def twosum(a : int, b : int) ->int:    return a + b
+def twosum(a : str, b : str):    return a + b
+print(twosum("a", "b"))
+def to_percent(num):   return num * 100
+print(list(map(to_percent, [0.95, 0.75, 1.01, 0.1])))
+x = int(input("Enter digits: "))
+for i in range(1, x + 1):
+    if x / i == x // i:    print(i, end = " - ")
+for i in range(4):    d = i * 2; print(d, end = " ")
+print()
+def switch(val):
+    if val == 1:    return "one"
+    if val == 2:    return "two"
+    if val == 42:    return "Error"
+    raise Exception("No Case Found")
+print(switch(1))
+switch = {1: lambda: 'one', 2: lambda: 'two', 42: lambda: 'Error',}
+def default():    raise Exception('No Case Found')
+def run(val):    return switch.get(val, default)()
+print(switch.get(2, default)(), run(42))
+def types(x):
+    if x < 0:    return "Hello"
+    else:    return 0
+print(types(1), types(-1))
+
+def avrg(*arg):    return float(sum(arg)) / len(arg)
+def median(a, b, c):    return sorted((a, b, c))[1]
+
+class notinlimit(Exception):    pass
+def raisepower(x, y):
+    if y in (3, 4, 5):    return x ** y
+    raise notinlimit('provide a valid exponent')
+
+def func():
+    for x in range(10):    yield x ** 2
+print(sum(i for i in range(10) if i % 2 == 0))
+def function():
+    for x in range(10):    yield x ** 2
+print(sum(i for i in range(10) if i % 2 == 0))
+def print(func):
+    def inner(*arg, **kw):
+        print(arg); print(kw)
+        return func(*arg, **kw)
+    return inner
+@print
+def mult(x, y):    return x * y
+print(mult(5, 7))
+def routine(func):
+    def start(*arg, **kw):
+        cr = func(*arg, **kw)
+        next(cr); return cr
+    return start
+@routine
+def adder(res = 0):
+    while True:
+        x = yield res; res += x
+s = adder(); s.send(1); s.send(2)
+print(s)
+
+def accumulator():
+    res, val = 0, None
+    while True:
+        val = yield res
+        if val is None:    break
+        res += val
+x = accumulator(); print(next(x))
+x.send(1); x.send(10); x.send(100)
+# next(x)
+print(x) 
+def func(x):
+    yield from range (x * 2)
+    yield from range(2)
+print(list(func(5)))
+def xrange(n):
+    i = 0
+    while i < n:
+        yield i
+        i += 1
+for i in xrange(10):    print(i, end = " ")
+a, b, c = xrange(3); print(list(xrange(10)), a, b, c)
+def nums():
+    yield 1; yield 2; yield 3
+x = nums()
+print(next(x, None), next(x, None), next(x, None), (x, None))
+
+def create():
+    value = 42; yield value
+print(list(create()))
+x = (i * 2 for i in range(3)); print(next(x))
+def transform(seq, cond, fun):
+    for val in seq:
+        if cond(val):    
+            return fun(val)
+    raise ValueError("No element satisfies the predicate")  
+seq = [2, 4, 6, 8, 9]
+cond = lambda x : x % 2 == 0
+fu = lambda x : x * x
+item = transform(seq, cond, fu); print(item)
+item = next(fu(x) for x in seq if cond(x)); print(item)
+def func(x):
+    try:    return next(x)
+    except StopIteration:
+        raise ValueError("Generator is empty")
+gen = (x for x in seq if x % 2 == 0)
+print(func(gen))
+var = None
+if var is not None:    print("not none")
+else:    print("None")
+senti = object()
+def func(var = senti):
+    if var is senti:    print("Yes")
+    else:    print("No")
+func(); func(42); func(None)
+def outer(text):
+    def inner():    print(text)
+    #inner()
+    return inner
+if __name__ == '__main__':
+    my = outer('Hey'); my()
+    #outer('Hey!')
 """            ARRAY            """
 import array as arr
 #from array import array
