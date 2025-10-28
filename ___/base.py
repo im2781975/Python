@@ -350,7 +350,11 @@ print(op.pow(4, 3), op.__pow__(4, 3))
 x, y = 2, 6; print(x.__pow__(y), y.__rpow__(x), op.add(x, y), op.sub(x, y), op.truediv(x, y), op.floordiv(x, y))
 from operator import *
 print(add(1, 1), mul(2, 2), mul('a', 10), mul([3], 3))
+from functools import partial
 import operator as op
+rate = 0.9
+dollar = {'a' : 1000, 'b' : 45, 'c' : 5000}
+print(sum(map(partial(op.mul, rate), dollar.values())))
 print(op.contains([1, 2, 3, 4, 5], 2))
 print(op.contains("Hello world", '0'))
 print(op.contains({1, 2, 3, 4, 5}, 6))
