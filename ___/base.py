@@ -456,6 +456,56 @@ print()
 a = (x for x in ['1', '2', '3', '4'])
 b = (x for x in ['a', 'b', 'c'])
 print(' '.join(it.chain(a, b)))
+import functools as fun
+import operator as op
+x = fun.partial(raisepower, y = 3); print(x(5))
+x = fun.partial(raisepower, y = 4); print(x(2))
+print(fun.reduce(lambda x, y : x + y, [2, 4, 6, 8]))
+print(fun.reduce(op.mul, [10, 5, -3]))
+print(fun.reduce(op.and_, [False, True, True, True]))
+print(fun.reduce(op.or_, [True, False, False, False]))
+try:    print(raisepower(2, 6))
+except notinlimit as e:    print(e)
+def func(param):
+    for val in param:
+        print('{}'.format(val))
+        if val == 1:    return
+    return 'could\'nt find value'
+print(func([5, 3, 2, 8, 9]))
+def add(x, y):    return x + y
+def mult(x, y):
+    print(x * y); return x * y
+seq = [1, 2, 3, 4, 5]
+print(fun.reduce(add, seq), fun.reduce(add, seq, 10), fun.reduce(op.add, seq))
+print(fun.reduce(mult, seq), fun.reduce(mult, seq, 10))
+import itertools as it
+def func(n):
+    while True:
+        yield n
+        n += 1
+#x = func(10)
+x = it.count(1)
+print(func(1), x)
+drei = (i * 2 for i in x); print(list(it.islice(drei, 10)))
+x = it.count(1)
+tre = (i for i in x if i % 3 == 0); print(list(it.islice(tre, 10)))
+x = it.count(1)
+tmp = (i for i in x if i % 5 == 0)
+print([next(tmp) for _ in range(3)])
+
+vier = (i * 4 for i in func(1))
+funf = list(it.islice(vier, 5)); print(funf)
+print(next(x), next(drei), next(vier))
+for idx, val in enumerate(drei):
+    print(val, end = " ")
+    if idx == 9:    break
+def fib():
+    a, b = 1, 1
+    while True:
+        yield a; a, b = b, a + b
+print(list(it.islice(fib(), 10)))
+def nth(n):    return next(it.islice(fib(), n - 1, n))
+print(nth(99))
 
 import hashlib as hb
 m = hb.md5(); m.update('Nobody inspects'.encode())
