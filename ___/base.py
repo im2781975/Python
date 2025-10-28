@@ -1239,31 +1239,3 @@ def outer(text):
 if __name__ == '__main__':
     my = outer('Hey'); my()
     #outer('Hey!')
-"""            ARRAY            """
-import array as arr
-#from array import array
-x = arr.array('d', [2.1, 3.4, 5.9, 7.8])
-for i in range(4):    print(x[i], end = " ")
-print("\r")
-x = arr.array('i', [5, 9, 4, 7])
-for i in range(0, 4):    print(x[i], end = " ")
-x.insert(1, 9); x.append(10);print(x.pop(1))
-for i in x:    print(x.pop(), end = " ")
-if 2 in x:    x.remove(2)
-for i in x:    print(x.pop(), end = " ")
-print("\r")
-x = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-l = arr.array('i', x)
-for i in l:    print(i, end = " ")
-print(x[3 : 8], x[:], x.index(5), x.index(7))
-
-x = arr.array('i', [9, 8, 7, 6, 5, 4])
-x[2] = 2; x[4] = 6; x.extend([12, 13, 14]); x.reverse()
-print(x.count(6), *x, x.tolist())
-x.remove(4) #del first occurance
-for i in x:    print(i, end = " ")
-print("\r")
-y = arr.array('i', [7, 8, 9]); x.extend(y)
-c = [11, 12, 13]; x.fromlist(c)
-print(x.buffer_info, x[0], x.index(9))
-
