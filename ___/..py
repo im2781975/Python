@@ -1,6 +1,3 @@
-def unpacking(a
-
-
 a, b = 10, 20
 print("Both are Equal" if a == b else "a is greater" if a > b else "b is greater")
 print(("b is minimum", "a is minimum")[a < b])
