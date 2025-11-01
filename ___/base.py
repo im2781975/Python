@@ -1064,6 +1064,8 @@ def func():
     dic['str'], dic['x'] = "molla", 10
     return dic
 print(func())
+dic = dict(); dic['xyz'] = 123; dic['abc'] = 345
+for i in dic: print("%s %d" % (i, dic[i]))
 def adder(x):
     def add(y):    return x + y
     return add
