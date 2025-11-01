@@ -509,6 +509,15 @@ x[1].insert(2, 15)
 for row in range(len(x)):
     for col in range(len(x[row])):    print(x[row][col], end = " ")
 print(x, x[1][1:])
+for i in [0, 1, 2, 3, 4, 5]:    print(i, end = " ")
+for i in ['One', 'Two', 'Three', 'Four']:
+    print(i, end = ' ')
+print()
+for idx, item in enumurate(["one", "two", " three"]):
+    print(idx, item, end = ' ')
+print()
+x = map(lambda e : e.upper(),['one', 'two', 'three', 'four']) 
+print(x, end = ' ')
 values = [('a', 'b'), ('x', 'y'), ('1', '2')]
 for item in values:    print(item[0], item[1], end = "\t")
 for item in values:
