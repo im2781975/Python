@@ -9,6 +9,7 @@ a, b, c = 1, 2, 3
 if a == 3 or b == 3 or c == 3:    print("TRUE")
 if any([a == 3, b == 3, c == 3]):    print("TRUE")
 if 3 in (a, b, c):    print("3 is present")
+    
 if any(x == 3 for x in (a, b, c)):    print("3 is found")
     a, b, c = 0, 2, 4
 if a > b or b < c:    print("True")
@@ -24,6 +25,12 @@ if a != b:    print(a != b)
 x, y = 10, 10
 if x is y:    print("True")
 else:    print("False")
+n = 5
+print("HI") if n > 10 else print("Bye") if n > 5 else print("GoodBye")
+if n == 3 or 4 or 6:    print("Yes")
+else:    print("No")
+if n in (3, 4, 5):    print("Yes")
+else:    print("No")
 print((7).bit_length(), (7.2).as_integer_ratio())
 print(2 ** 3, (-(2 ** 3)), type(2 ** 1024))
 print(len("jenny"))
