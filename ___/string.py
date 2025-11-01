@@ -464,7 +464,8 @@ x = (12, 45, 22222, 103, 6)
 print('{0} {2} {1} {2} {3} {4}'.format(*x))
 x, y = ('a', 'b', 'c', 'd', 'e'), ('1', '2', '3')
 z = x; print(x + y, x > y, y > x, x == y, len(x), max(x), min(x))
-
+tup = ((1, 2), (3, 4), (5, 6))
+for a, b in tup:    print(a, b)
 """            LIST            """
 #list is muteable
 x = y = [12, 13, 14]
@@ -636,6 +637,7 @@ print([i for i in range(11) if i % 2 == 0])
 print([x ** 2 for x in range(10)])
 for i in[x ** 2 for x in range(10)]:    print(i, end = " ")
 print({x for x in range(5)})
+print([x for x in range(11)])
 print({x for x in range(1, 11) if x % 2 == 0})
 print([[j for j in range(3)]for i in range(3)])
 print([i * 10 for i in range(1, 6)])
