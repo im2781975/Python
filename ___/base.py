@@ -1265,3 +1265,243 @@ def outer(text):
 if __name__ == '__main__':
     my = outer('Hey'); my()
     #outer('Hey!')
+i = 7
+if isinstance(i, int):    i += 1
+elif isinstance(i, str):
+    i = int(i); i += 1
+print(i)
+cnt = 1
+while cnt <= 10:
+    print(cnt, end = " "); cnt += 1
+    if cnt == 7:
+        break #continue
+    print("inner")
+print("outer")
+#in, not, not in, is, is not, or, and
+cond = True
+if cond is True or cond is not False:    print("True")
+else:    print("False")
+coin = 'head'
+if cond == True:
+    print("True")
+    if coin == 'tail':    print("Batting")
+    else:    print("Bowling")
+cnt = 0
+while cnt < 3:
+    cnt += 1; print("HI")
+age = 28
+while age > 19:
+    print("Infinite"); break
+i = 0
+while i < 4:
+    i += 1; print(i, end = " ") #break
+else:    print("No break")
+a, b = 23, 1
+if a > 5:
+    if a % 2 == 0 and a > 7:    print("Even")
+    else:    print("Odd")
+else:    print("less than five")
+while b <= 10:
+    b += 1
+    if b % 2 == 0:    continue
+    print(b, end = " ")
+    if b == 8:    break
+print("\r")
+i = 0
+while i < 10:
+    if i == 6:
+        i += 1; continue
+    else:    print(i, end = " ")
+    i += 1
+print("\r")
+cnt = 1
+while cnt <= 10: print(cnt, end = " "); cnt += 1
+cnt = 5
+while cnt >= 5: print(cnt, end = " "); cnt -= 1
+lst = [2, 3, 4, 5]
+while lst: print(lst, "Hi"); lst.pop()
+print("\r")
+cnt = 1
+#while True:
+while cnt <= 5:
+    print(cnt, end = " "); cnt += 1
+    if cnt == 4:    break
+else:    print("inner")
+print("outer")
+a = 10
+while True:
+    a -= 1; print(a, end = " ")
+    if a < 7:    break
+else:    print("Done")
+i = 25
+if i == 10:    print("Ten")
+elif i == 15:    print("Fifteen")
+elif i == 20:    print("Twenty")
+else:    print("isn't present")
+print("True") if i < 15 else print("False")
+ing = "A"
+if ing == "B":    print("B")
+else:
+    if ing == "C":    print("C")
+    else:
+        if ing == "A":    print("A")
+        else:    print("letter isn't A, B, C")
+ing = "mollavai"
+for x in ing:
+    print(x, end = ' ')
+    if x == 'a' or x == 'i':    break
+i = 0
+while True:
+    print(ing[i], end = ' ')
+    if ing[i] == 'a' or ing[i] == 'i':    break
+    i += 1
+for i in ing:
+    if i == 'o':    print("Executed"); pass
+    print(i, end = ' ')
+print()
+i = 0
+while i < len(ing):
+    if ing[i] == 'e' or ing[i] == 's':
+        i += 1; continue #break
+    print(ing[i], end = " "); i += 1
+print()
+i = 0
+while i < len(ing):
+    i += 1;    pass
+print(i)
+num = 10
+if num > 5:
+    print("Greater than 5")
+    if num <= 5:    print("Between 5 & 15")
+i = 0
+if i != 0:
+    if i > 0:    print("positive")
+    else:    print("Negetive")
+else:    print("Zero")
+a = 10
+for i in range(1, 5):
+    for j in range(2, 6):
+        if j % i == 0:    break
+    print(i, ' ', j)
+for i in range(1, 11):
+    if i == 6:    continue
+    else:    print(i, end = ' ')
+print()
+for i in (0, 1, 2, 3, 4, 5):
+    if i == 2 or i == 4:    continue
+    print(i, end = " ")
+def func():
+    for i in range(1, 5):
+        if i == 2:    return i
+        print(i, end = " ")
+    return (5)
+func(); print(func())
+def func():
+    for i in range(1, 5):
+        for j in range(1, 4):
+            if i * j == 6:    return j
+            print(i * j, end = " ")
+func(); print(func())
+for index, num in enumerate([10, 20, 30]):
+    print(f'Index {index}: {num}')
+res = 0
+for i in range(1, 11, 2):
+    res += i
+    if i == 7:    continue
+    else:    print(i, end = " ")
+print()
+for i in range(5):
+    print("ab", end = " ")
+    if i == 2:    
+        print("welche")
+        if True:    print("Hi")
+print("Bye")
+rang = range(15); print(rang, end = " ")
+for i in range(10, 0, -2):    print(i, end = " ")
+else:    print("done")
+i = 3
+while i < 3:
+    print(i, end = ' '); i += 1
+else:    print("done")
+def table(n):
+    for i in range(n + 1):    print(i * n, end = " ")
+table(5)
+print("\r")
+print(range(10)[0], range(10)[-2], range(10)[2])
+
+def match(val):
+    num = int(input("Enter choice: "))
+    match num:
+        case 1:    print("one")
+        case 2:    print("two")
+        case 3:    print("three")
+        case 1 | 2:    print("one or two")
+        case 3 | 4:    print("three or four")
+        case 5 | 6:    print("five or six")
+        #case _:    print("not between in range") 
+        case num if num > 0:    print("positive")
+        case num if num < 0:    print("negetive")
+        case _:    print("neutral")
+    match val:
+        case 1:    return "one"
+        case 2:    return "two"
+        case 3:    return "three"
+        case _:    return "else"
+print(match(5))
+def match(ing):
+    call = "Hello BrO"
+    match(call[6]):
+        case "o":    print("Case 1 match")
+        case "O":    print("Case 2 match")
+        case _ :    print("not contained")
+    match ing:
+        case ["a"] : print("a")
+        case["a", *b] : print(f'a, {b}')
+        case [*a, "e"] | (*a, "e"):    print(f'{a}, e')
+        case _ : print("No Data")
+match([]); match(["a"])
+match(["b", "c", "d", "e"])
+def match(dic):
+    match dic:
+        case {"name" : nome, "age" : eta} if "salary" not in dic:    print(nome, eta)
+        case {"name" : nome, "salary" : stip} if "age" not in dic:    print(nome, stip)
+        case {"name" : nome, "age" : eta, "salary" : stip}:    print(nome, eta, stip)
+        case {"age" : eta, "salary" : stip}: print("name is missing")
+        case _ : print("doesn't match with any pattern")
+match({"name": "Jay", "age": 24})      
+match({"name": "Ed", "salary": 25000})  
+match({"name": "Al", "age": 27, "salary": 30000})
+match({"age": 30}); match({})            
+from dataclasses import dataclass
+@dataclass
+class person:
+    name : str
+    age : int
+    salary : int
+@dataclass
+class cracker:
+    name : str
+    lang : str
+    frame : str
+def match(inst):
+    match inst:
+        case cracker("bro", lang = "pytho", frame = "Django"): print(name, lang, frame)
+        case cracker("Rishabh", "C++"):
+            print("Name: Rishabh, Language: C++")
+        case person("vai", age = 5, salary = 2300):    print(name)
+        case cracker(name, lang, frame):    print(name, lang, frame)
+        case person():    print("Just a person")
+        case _ : print("This person is nothing")
+match(cracker("Om", "Python", "Django"))
+match(cracker("Rishabh", "C++", None))
+match(cracker("Sankalp", "Javascript", "React"))
+match(person("Vishal", 5, 100))
+initial, factor = 10, 0.5
+height = initial
+while height > 0.1:
+    print(height, end = " "); height *= factor
+else:    print("end")
+for day in range(1, 8):
+    distance = 3 + (day - 1) * 0.5
+    print(f"Day {day}: Run {distance:.1f} miles")
+    
