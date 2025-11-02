@@ -932,3 +932,42 @@ omnivores = ['chicken', 'dove', 'mouse', 'pig']
 def animals(w, x, y, z):    
     return '{0}, {1}, {2}, and {3} ARE ALL ANIMALS'.format(w.title(), x, y, z)
 print(list(map(animals, insects, carnivores, herbivores, omnivores)))
+
+from itertools import chain
+print(list(chain(range(8), range(10, 20, 2))))
+lst = ["A", "B", "C", "D"]
+for i in range(len(lst)):    print(lst[i], i)
+print()
+name, ing = ['Aa', 'Bb', 'Cc'], 'Molla'
+for i in name:
+    print(i, end = " ")
+    if i == 'Cc':    print("Hey")
+for i in ing:    print(i, end = " ")
+x, y = {2, 3, -2, 5, 10}, [2, 3, -2, 5, 10]
+a, b = set(), []
+for i in x:
+    a.add(i ** 2); print(a, end = " ")
+for i in y:
+    b.append(i ** 2); print(b, end = " ")
+print(a, b)
+lst = [2, 4, 6, 8]
+for i in lst:
+    if type(i) is not int:
+        print(i, end = ' '); break
+    else:    print("No Exception")
+while lst:    print(lst.pop(), end = " ")
+lst = ["eat", "sleep", "repeat"]
+for cnt, val in enumerate(lst):    print(cnt, val)
+for i in lst:    print(i, end = " ")
+clothes = ["shirt", "sock", "pants", "sock", "towel"]
+socks = []
+for item in clothes:
+    if item == 'sock':    continue
+    else:    print(item, end = " ")
+socks.append("sock"); print(socks)
+res, num = 0, int(input("Enter: "))
+while num != -1:
+    print(num, end = " "); num = int(input())
+    res += num
+else:    print("outer")
+print(res, "End")
