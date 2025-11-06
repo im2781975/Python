@@ -69,6 +69,10 @@ lower = lambda string : string.lower(); print(lower('Molla'))
 ing = "Hello world!"
 print([ing for ing in 'aeiou'], ing)
 print(str[i] for i in [1, 2, 3, 4, 5])
+#split str
+text = "Python is awesome and versatile"
+filt = [word for word in text.split() if 'o' in word]
+print(filt) 
 ing = ""
 for i in range(1, 22):
     ing += str(i)
@@ -689,6 +693,19 @@ print(list(map(lambda x, y, z : (x, y, z), [1, 2, 3], [1, 2], [1, 2, 3, 4])))
 print(list(zip([0, 1, 2], [2, 3, 4])))
 print(list(map(lambda x : x[0] + x[1], zip(range(5), range(5)))))
 print(list(range(1, 11)))
+# Even or odd
+seq = [0, 1, 1, 2, 3, 5, 8, 13]
+res = filter(lambda x : x % 2 == 0, seq)
+res = filter(lambda x : x % 2 != 0, seq)
+print(list(res))
+#IsMultiple
+def Ismultiple(num):
+    return num % 3 == 0
+num = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+res = list(filter(lambda x : Ismultiple(x), num))
+print(res)
+Even = [i for i in num if i % 2 == 0]
+print(Even)
 print(map(str, [1, 2, 3, 4, 5]), list(map(str, [1, 2, 3, 4, 5])))
 def digsum(n):
     dsum = 0
