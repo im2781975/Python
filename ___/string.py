@@ -739,6 +739,33 @@ for i in range(3):
     grid.append([])
     for j in range(5):    grid[i].append(j)
 print(grid)
+def cube(x):
+    return x * x * x
+lambcube = lambda x : x * x * x
+print(cube(5), lambcube(5))
+#MultList
+multList = [lambda arg = x : arg * 10 for x in range(1, 10)]
+for item in multList:
+    print(item(), end = " ")
+#MaxMin
+maxi = lambda a, b : a if (a > b) else b
+print(maxi(3, 8))
+#secondLargest
+lst = [[2, 3, 4], [1, 4, 16, 64], [3, 6, 9, 12]]
+sortList = lambda x : (sorted(i) for i in x)
+secondLargest = lambda x, f : [y[ -2] for y in f(x)]
+res = secondLargest(lst, sortList);
+print(res)
+#oddList, square, adult
+lst = [5, 7, 22, 97, 54, 62, 77, 23, 73, 61]
+oddList = list(filter(lambda x : (x % 2 != 0), lst))
+square = list(map(lambda x : x ** 2, lst))
+adult = list(filter(lambda age : age > 18, lst))
+print(oddList, square, adult)
+
+#upper
+animals = ['dog', 'cat', 'parrot', 'rabbit']
+print(list(map(lambda animal : animal.upper(), animals)))
 print([[j for j in range(5)]for i in range(3)])
 data = ["a", "bbbbbbb", "ccc"] 
 maxi = max(map(len, data)) 
