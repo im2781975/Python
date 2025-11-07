@@ -484,3 +484,24 @@ print("Occurrences of 3:", np.sum(a == 3))
 print("10 + 2 =", calc.add(10, 2))
 List = [1, 4, True, 800, "python", 27, "hello"]
 print(random.choice(List)) 
+
+import numpy as np
+from scipy.constants import h, k, c
+def planks_law_math(lambda_, T):
+    return 2 * h * c ** 2 / (lambda_ ** 5 * math.expm1(h * c / (lambda_ * k * T)))
+def planks_law_naive_math(lambda_, T):
+    return 2 * h * c ** 2 / (lambda_ ** 5 * (math.e ** (h * c / (lambda_ * k * T)) - 1))
+def planks_law_numpy(lambda_, T):
+    lambda_ = np.array(lambda_, dtype=np.float64)  
+    return 2 * h * c ** 2 / (lambda_ ** 5 * np.expm1(h * c / (lambda_ * k * T)))
+
+lambda_values = [100, 100]
+T = 5000  
+results_math = [planks_law_math(l, T) for l in lambda_values]
+results_naive_math = [planks_law_naive_math(l, T) for l in lambda_values]
+results_numpy = planks_law_numpy(lambda_values, T)
+print("Results using math library:")
+print("planks_law_math:", results_math)
+print("planks_law_naive_math:", results_naive_math)
+print("\nResults using numpy:")
+print("planks_law_numpy:", results_numpy)
