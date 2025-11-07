@@ -529,7 +529,16 @@ tre = (i for i in x if i % 3 == 0); print(list(it.islice(tre, 10)))
 x = it.count(1)
 tmp = (i for i in x if i % 5 == 0)
 print([next(tmp) for _ in range(3)])
-
+from functools import reduce
+def factorial(n):
+    return reduce(lambda a, b: (a * b), range(1, n + 1)
+import dis
+def fib(n):
+    if n <= 2:
+        return 1
+    return fib(n - 1) + fib(n - 2)
+print(dir(fib.__code__))
+print(dis.dis(fib))
 vier = (i * 4 for i in func(1))
 funf = list(it.islice(vier, 5)); print(funf)
 print(next(x), next(drei), next(vier))
