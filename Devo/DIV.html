@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html>
   <head>
     <style type = "text/css">
@@ -77,9 +77,18 @@
         float : left;
       }
       .anchor{
+        text-decoration: none;
+        gap : 50px;
+      }
+      .col6{
         text-decoration : none;
-        text-align: center;
-        float : left;
+        list-style : none;
+        display : flex;
+        gap : 20px;
+      }
+      .menu{
+        text-decoration : none;
+        list-style : none;
       }
     </style>
   </head>
@@ -119,11 +128,13 @@
         </div>
       </div>
       <div class = "row6">
-        <a class = "anchor" href = "">Home</a>
-        <a class = "anchor" href = "">About</a>
-        <a class = "anchor" href = "">Course</a>
-        <a class = "anchor" href = "">Gallary</a>
-        <a class = "anchor" href = "">contact</a>
+        <ul class = "col6">
+          <li><a class = "menu" href = "">Home</a></li>
+          <li><a class = "menu" href = "">About</a></li>
+          <li><a class = "menu" href = "">Course</a></li>
+          <li><a class = "menu" href = "">Gallary</a></li>
+          <li><a class = "menu" href = "">Contact</a></li>
+        </ul>
       </div>
     </div>
   </body>
