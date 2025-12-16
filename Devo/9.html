@@ -22,6 +22,32 @@
         transform : translate-X(10px);
         transform : translate-Y(5px);
       }
+      .skew{
+        width : 150px;
+        height : 150px;
+        border : 2px black solid;
+        margin : auto;
+        margin-top : 25px;
+        /* skew(x | y) deg, rad, turn
+        skewX() |  skewY()  */
+        /*transform : skew(30deg, 25deg);
+          transform : skew(0.1turn, 25deg); */
+        transform : skew(0.1turn, 0.1turn);
+      }
+      .rotate{
+        width : 150px;
+        height : 150px;
+        border : 2px black solid;
+        margin : auto;
+        margin-top : 25px;
+        box-shadow : 0px 0px 10px 5px grey;
+        /* rotate(deg | rad)
+           rotateX(deg | rad)
+           rotateY(deg | rad)
+           rotateZ(deg | rad) */
+        transform : rotateX(70deg);
+        
+      }
     </style>
   </head>
   <body>
@@ -44,9 +70,8 @@
       <img src = "1.jpg"/>
     </div>
     <h2>Transform</h2>
-    <div class = "trans">
-      
-    </div>
+    <div class = "trans"></div></br>
+    <div class = "skew"></div>
+    <div class = "rotate"></div>
   </body>
 </html>
-<<
