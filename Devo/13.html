@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+  <title>Display</title>
+  <style type = "text/css">
+    span{
+      color : red;
+      display : none; /* block */
+    }
+    h2{
+      color : blue;
+      display : inline;
+    }
+    .main{
+      width : 200px;
+      height : 450px;
+      border : 2px solid red;
+      margin : auto;
+    }
+    i{
+      color : blue;
+      font-size : 35px;
+      /*display : inline-block;*/
+      display : list-item;
+    }
+    .flexi{
+      width : 200px;
+      height : 200px;
+      border : 2px solid red;
+      margin : auto;
+      display : flex;
+    }
+    .flexi div{
+      width : 100px;
+      height : 50px;
+      /* float : left; */
+      border : 2px red solid;
+    }
+  </style>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Ut ut maximus sem, sed 
+      iaculis neque. Fusce ultricies augue euismod 
+      mi dignissim, ut efficitur mauris sodales. Nullam
+      dictum tristique facilisis. Fusce at justo in dolor 
+      gravida placerat vel eu sapien. Vivamus purus felis, 
+      pellentesque eu eros ut, efficitur hendrerit diam. sed
+      eu augue lacus. <h2>Hello</h2><span>Hey there </span>Morbi 
+      nulla eros, aliquam quis pharetra in, 
+      blandit a eros. Duis vestibulum, nunc nec maximus efficitur, 
+      nibh dui aliquet tortor, a vulputate ipsum nunc eu erat.
+    </p>
+    <div class = "main">
+      Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Ut ut maximus sem, sed 
+      iaculis neque. Fusce ultricies augue euismod 
+      mi dignissim, ut efficitur mauris sodales. Nullam
+      dictum tristique facilisis. Fusce at justo in dolor 
+      gravida placerat vel eu sapien. Vivamus purus felis, 
+      pellentesque eu eros ut, efficitur hendrerit diam. sed
+      eu augue lacus. <i>Hello</i>Morbi 
+      nulla eros, aliquam quis pharetra in, 
+      blandit a eros. Duis vestibulum, nunc nec maximus efficitur, 
+      nibh dui aliquet tortor, a vulputate ipsum nunc eu erat.
+    </div>
+    <div class = "flexi">
+      <div> 1 </div>
+      <div> 2 </div>
+      <div> 3 </div>
+      <div> 4 </div>
+      <div> 5 </div>
+      <div> 6 </div>
+    </div>
+  </body>
+</html>
