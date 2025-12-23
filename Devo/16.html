@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style type = "text/css">
+      .main{
+        width : 380px;
+        height : 400px;
+        border : 1px black solid;
+        margin : auto;
+        padding : 5px;
+        display : grid;
+        grid-template-columns : 90px 90px 90px 90px; /* auto auto */
+        /* grid-column-gap : 5px;
+        grid-row-gap : 7px; */
+        grid-gap : 7px 5px;
+      }
+      .main div{
+        padding : 30px;
+        background : aqua;
+        font-size : 25px;
+        border : 1px black solid;
+      }
+      #div1{
+        /* grid-column-start: 1;
+        grid-column-end : 3; */
+        grid-row-start : 1;
+        grid-row-end : 3;
+      }
+      .minmax{
+        min-height : 200px;
+        max-height : 600px;
+        min-width : 150px;
+        max-width : 250px;
+        font-size : 15px;
+        overflow : scroll;
+        background : yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class = "main">
+      <div id = "div1"> 1 </div>
+      <div> 2 </div>
+      <div> 3 </div>
+      <div> 4 </div>
+      <div> 5 </div>
+      <div> 6 </div>
+      <div> 7 </div>
+      <div> 8 </div>
+      <div> 9 </div>
+    </div>
+    <h1 style = "text-align : center">MinMaxHeight</h1>
+    <div class = "minmax">
+      Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Ut ut maximus sem, sed 
+      iaculis neque. Fusce ultricies augue euismod 
+      mi dignissim, ut efficitur mauris sodales. Nullam
+      dictum tristique facilisis. Fusce at justo in dolor 
+      gravida placerat vel eu sapien. Vivamus purus felis, 
+      pellentesque eu eros ut, efficitur hendrerit diam. sed
+      eu augue lacus. Morbi nulla eros, aliquam quis pharetra in, 
+      blandit a eros. Duis vestibulum, nunc nec maximus efficitur, 
+      nibh dui aliquet tortor, a vulputate ipsum nunc eu erat.
+      Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Ut ut maximus sem, sed 
+      iaculis neque. Fusce ultricies augue euismod 
+      mi dignissim, ut efficitur mauris sodales. Nullam
+      dictum tristique facilisis. Fusce at justo in dolor 
+      gravida placerat vel eu sapien. Vivamus purus felis, 
+      pellentesque eu eros ut, efficitur hendrerit diam. sed
+      eu augue lacus. Morbi nulla eros, aliquam quis pharetra in, 
+      blandit a eros. Duis vestibulum, nunc nec maximus efficitur, 
+      nibh dui aliquet tortor, a vulputate ipsum nunc eu erat.
+      Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Ut ut maximus sem, sed 
+      iaculis neque. Fusce ultricies augue euismod 
+      mi dignissim, ut efficitur mauris sodales. Nullam
+      dictum tristique facilisis. Fusce at justo in dolor 
+      gravida placerat vel eu sapien. Vivamus purus felis, 
+      pellentesque eu eros ut, efficitur hendrerit diam. sed
+      eu augue lacus. Morbi nulla eros, aliquam quis pharetra in, 
+      blandit a eros. Duis vestibulum, nunc nec maximus efficitur, 
+      nibh dui aliquet tortor, a vulputate ipsum nunc eu erat.
+    </div>
+  </body>
+</html>
