@@ -35,3 +35,29 @@
     // alert(x)
   </script>
 </html>
+<!DOCTYPE HTML>
+<html>
+  <head></head>
+  <body>
+    <h1 id="res" style = "margin : 50px auto; width : 250px"></h1>
+  </body>
+  <script type = "text/javascript">
+    var x = "Even"
+    var y = "Odd"
+    document.write(x + " " + y + " zero ")
+    //alert(x + " " + y + " zero")
+    document.write(3 + 3)
+    var a = 5;
+    var b = 7;
+    var a += b;
+    document.getElementById('res').innerHTML = a * b;
+    document.getElementById('res').innerHTML = ++a;
+    document.getElementById('res').innerHTML = a == b;
+    document.getElementById('res').innerHTML = a >= b;
+    document.getElementById('res').innerHTML = x > y ? "yes" : "no";
+    var x = 0;
+    var y = true;
+    document.getElementById('res').innerHTML = x && y;
+    document.getElementById('res').innerHTML = x || y;
+  </script>
+</html>
