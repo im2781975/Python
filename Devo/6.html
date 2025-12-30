@@ -2,41 +2,138 @@
 <html>
   <head>
     <style type = "text/css">
+      .Anchor{
+        text-decoration : none;
+        color : olive;
+      }
       .text{
-        width : 300px;
-        height : 200px;
-        background-color : gray;
-        font-size : 50px;
-        font-style: oblique;
-        color : #FFFF00;
+        width : 390px;
+        height : 30px;
+        text-align : center;
+        background : aqua;
+        font-size : 25px;
+        font-style.: oblique;
+        color : red;
         font-weight : bold;
-        letter-spacing : 12px;
+        letter-spacing : -1px;
       }
       .para{
-        width : 300px;
-        height : 200px;
-        background-color : wheat;
-        font-size : 15px;
-        text-align : justify;
-        text-transform : capitalize;
-        word-spacing : 20px;
+        width : 200px; height : 290px;
+        background : wheat; font-size : 12px;
+        text-transform: capitalize;
+        word-spacing : 10px;
+        float : left;
       }
-      .anchor{
-        text-decoration: none;
+      .grap{
+        width : 200px; height : 290px;
+        background : yellow; font-size : 12px;
+        text-transform: capitalize;
+        word-spacing : 10px;
+        float : left;
+      }
+      h3{
+        text-align : center;
+        color : blue;
+      }
+      .idx{
+        border : 2px solid olive;
+        width : 390px;
+        height : 15px;
+        text-align : center;
+        margin-top: 2px;
+      }
+      .base{
+        border : 2px solid darkolivegreen;
+        width : 390px;
+        height : 250px;
+        text-align : center;
+        margin-top: 10px;
+        /* margin : auto; */
+        border-bottom : 2px solid olivedrab;
+        border-top : 2px solid yellowgreen;
+      }
+      #col{
+        border : 2px solid olivedrab;
+        width : 390px;
+        height : 280px;
+        font-size : 15px;
+        margin-top: 5px;
+        padding : 5px;
+        background : lime;
+      }
+      .row{
+        background : wheat;
+        width : 390px;
+        height : 100px;
+        margin-top: 0px; 
+        /* margin : 0px 0px 10px 10px;
+        margin : 10px 4px 4px 4px; 
+        margin : 10px 0px 0px 0px; */
+      }
+      .ser{
+        border : 2px solid olivedrab;
+        width : 390px;
+        height : 250px;
+        margin-top: 5px;
+        /* margin : auto;
+        r -> 0 - 255 | g -> 0 - 255
+        b -> 0 - 255 | a -> 0 - 1  */
+        background-color : rgba(211, 240, 111, 0.25);
+        background-color : rgba(0, 0, 0, 0.15);
+        background-color : rgb(211, 200, 240);
+      }
+      .text{
+        background : blue;
+        color : white;
+        font-size : 18px;
+        margin-top: 15px;
+        border : 0.5px solid white;
+        box-shadow : -1px 1px 3px 0.5px blue;
+        box-sizing: round;
+      }
+      h1{
+        display : flex;
+        justify-content: center;
       }
     </style>
   </head>
   <body>
-    <div class = "text">
-      welcome
-    </div>
-    <a href = "" class = "Anchor">SYS</a>
+    <div class = "text"> WELCOME </div>
+    <a href = "" class = "Anchor"> SYS </a></br>
     <p class = "para">
-      Dreaming of a home office that inspires focus, 
-      not distraction? We build custom workspaces that 
-      turn chaos into calm, giving you the clarity to do your 
-      best work. Discover how our ergonomic designs and smart storage 
-      solutions can revolutionize your productivity.
+      Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Ut ut maximus sem, sed 
+      iaculis neque. Fusce ultricies augue euismod 
+      mi dignissim, ut efficitur mauris sodales. Nullam
+      dictum tristique facilisis. Fusce at justo in dolor 
+      gravida placerat vel eu sapien. Vivamus purus felis, 
+      pellentesque eu eros ut, efficitur hendrerit diam. sed
+      eu augue lacus. Morbi nulla eros, aliquam quis pharetra in, 
+      blandit a eros. Duis vestibulum, nunc nec maximus efficitur, 
+      nibh dui aliquet tortor, a vulputate ipsum nunc eu erat.
     </p>
+    <p class = "grap">
+      Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Ut ut maximus sem, sed 
+      iaculis neque. Fusce ultricies augue euismod 
+      mi dignissim, ut efficitur mauris sodales. Nullam
+      dictum tristique facilisis. Fusce at justo in dolor 
+      gravida placerat vel eu sapien. Vivamus purus felis, 
+      pellentesque eu eros ut, efficitur hendrerit diam. sed
+      eu augue lacus. Morbi nulla eros, aliquam quis pharetra in, 
+      blandit a eros. Duis vestibulum, nunc nec maximus efficitur, 
+      nibh dui aliquet tortor, a vulputate ipsum nunc eu erat.
+    </p>
+    <h3> BORDER TAG</h3>
+    <!-- border : solid | dashed | dotted -->
+    <div class = "idx"> PISAR TECH </div>
+    <div class = "base">
+      <div class = "row"> welcome </div>
+    </div>
+    <div id = "col">
+      <div class = "ser"></div>
+    </div>
+    <h1><input type = "reset" name = "reset" class = "text"/></h1>
   </body>
 </html>
+
