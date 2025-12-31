@@ -2,11 +2,11 @@
 <html>
   <head>
     <!--link rel = "stylesheet" type = "text/css" href = "styles.css"/-->
-    <style>
+    <style type = "text/css">
       body{
-        background : lightblue;
+        background : lime;
       }
-      .base{
+      .grand{
         width : 100%;
         height : 25px;
         font-size : 20px;
@@ -17,13 +17,102 @@
       .main:hover{
         text-align : center;
         background-color : wheat;
-        color : gray;
         font-style : italic;
+      }
+      .base{
+        height : 200px; width : 400px;
+        border : 1px solid olive; overflow : scroll;
+        background : lightblue; color : rgb(0,0,100);
+        /*overflow : hidden | scroll 
+          overflow-x : scroll
+          overflow-y : hidden*/
+      }
+      .trans{
+        height : 100px; width : 390px;
+        background : rgb(255, 110, 195);
+        /* tranlate(x, y) -> to move div
+        transform : translate(-5px, -8px); */
+        transform : translate-X(-5px);
+        transform : translate-Y(-8px);
+      }
+      .skew{
+        height : 100px; width : 390px;
+        border : 2px olive solid;
+        background : rgb(255, 110, 195);
+        margin-top : 25px;
+        margin : auto;
+        /*skew(x | y) deg, rad, turn.skewX() |  skewY()
+        transform : skew(30deg, 25deg);
+        transform : skew(0.1turn, 25deg); */
+        transform : skew(0.5turn, 0.5turn);
+      }
+      .rotate{
+        height : 100px; width : 390px;
+        border : 2px olive solid;
+        background : rgb(255, 110, 195);
+        margin-top : 25px;
+        box-shadow : -3px 3px 2px 1px olive;
+        /*rotate(deg | rad)
+          rotateX(deg | rad)
+          rotateY(deg | rad)
+          rotateZ(deg | rad) */
+        transform : rotateX(60deg);
+      }
+      .skale{
+        height : 20px; width : 20px;
+        border : 1px olive solid;
+        background : rgb(255, 110, 195);
+        margin-top : 25px;
+        /* scale() | scaleX() | scaleY() */
+        transform : scaleY(4);
       }
     </style>
   </head>
   <body>
-    <div class = "base"> PISAR&nbsp;TECH</div>
+    <h2 style = "text-align : center"> Hover </h2>
+    <div class = "grand"> PISAR&nbsp;TECH</div>
     <div class = "main" style = "font-style : verdana; color : black; text-align : center; "> ALFA&nbsp;TECH </div>
+    <h2 style = "text-align : center"> OverFlow </h2>
+    <div class = "base">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Ut ut maximus sem, sed 
+        iaculis neque. Fusce ultricies augue euismod 
+        mi dignissim, ut efficitur mauris sodales. Nullam
+        dictum tristique facilisis. Fusce at justo in dolor 
+        gravida placerat vel eu sapien. Vivamus purus felis, 
+        hendrerit diam. sed eu augue lacus. Morbi nulla eros,
+        aliquam quis pharetra in, aliquet tortor, a vulputate 
+        ipsum nunc eu erat.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Ut ut maximus sem, sed 
+        iaculis neque. Fusce ultricies augue euismod 
+        mi dignissim, ut efficitur mauris sodales. Nullam
+        dictum tristique facilisis. Fusce at justo in dolor 
+        gravida placerat vel eu sapien. Vivamus purus felis, 
+        hendrerit diam. sed eu augue lacus. Morbi nulla eros,
+        aliquam quis pharetra in, aliquet tortor, a vulputate 
+        ipsum nunc eu erat.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Ut ut maximus sem, sed 
+        iaculis neque. Fusce ultricies augue euismod 
+        mi dignissim, ut efficitur mauris sodales. Nullam
+        dictum tristique facilisis. Fusce at justo in dolor 
+        gravida placerat vel eu sapien. Vivamus purus felis, 
+        hendrerit diam. sed eu augue lacus. Morbi nulla eros,
+        aliquam quis pharetra in, aliquet tortor, a vulputate 
+        ipsum nunc eu erat.
+      </p>
+      <img src = "1.jpg"/>
+    </div>
+    <h2 style = "text-align : center"> Transform </h2>
+    <div class = "trans"></div>
+    <div class = "skew"></div>
+    <div class = "rotate"></div>
+    <div class = "skale"></div>
   </body>
 </html>
