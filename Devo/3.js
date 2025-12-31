@@ -49,3 +49,42 @@
     }
   </script>
 </html>
+<!DOCTYPE HTML>
+<html>
+  <head></head>
+  <body>
+    <input type = "" name = "nome"/>
+    <button onclick = "getname()"> submit </button></br>
+    <button onclick = "text()"> text </button>
+    <button onclick = "Interval()"> Try! </button>
+    <button onclick = "Delay()"> Delay </button>
+    <h1></h1>
+  </body>
+  <script>
+    //var a = "mollavai" // 1 | true | [] | 
+    //var a = new Array()
+    //document.write(typeof a)
+    function getname(){
+      var name = document.getElementsByName('nome')[0].value;
+      document.getElementsByName('nome')[0].value = "";
+      document.getElementsByTagName("h1")[0].innerHTML = name;
+    }
+    function text(){
+      alert("No")
+    }
+    function Interval(){
+      setInterval(
+        function(){
+          alert("Yes")
+        }, 5000 // repeted alert every 5 sec
+        )
+    }
+    function Delay(){
+      setTimeout(
+        function(){
+          document.write("Hello")
+        },9000 // delay for execute the func
+      );
+    }
+  </script>
+</html>
