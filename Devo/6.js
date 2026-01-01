@@ -77,3 +77,56 @@
     document.write("<h1>" + x + "</h1>")
   </script>
 </html>
+<!DOCTYPE HTML>
+<html>
+  <head></head>
+  <body>
+    <div id = "cnter"></div>
+    <button id = "btn"> Click </button>
+    <button id = "Stop" onclick = "stop()"> Stop </button>
+  </body>
+  <script type = "text/javascript">
+    var i = 0;
+    document.getElementById('btn').addEventListener("click", counter)
+    function counter(){
+      document.getElementById('cnter').innerText = i;
+      i++;
+    }
+    document.getElementById('btn').addEventListener("mouseenter", colorchang);
+    function colorchang(){
+      document.getElementById('cnter').style.background = 'black';
+      document.getElementById('cnter').style.color = 'white';
+    }
+    document.getElementById('btn').addEventListener("mouseleave", colorchange);
+    function colorchange(){
+      document.getElementById('cnter').style.background = 'white';
+      document.getElementById('cnter').style.color = 'black';
+    }
+    function stop(){
+      document.getElementById('btn').removeEventListener("click", counter);
+    }
+  </script>
+</html>
+<!DOCTYPE HTML>
+<html>
+  <head></head>
+  <body>
+    <button onclick = "this.style.display = 'none'"> Click </button></br>
+    <button onclick = "this.style.background = 'olive'"> Click </button></br>
+    <button onclick = "remove(this)"> Remove </button>
+  </body>
+  <script type = "text/javascript">
+    //var x = this; document.write(x);
+    var x = {
+      uno : "molla",
+      duo : "ibrah",
+      fullname : function(){
+        return this.uno + this.duo;
+      }
+    };
+    document.write("<h1>" + x.fullname() + "</h1>")
+    function remove(elem){
+      elem.style.display = 'none'
+    }
+  </script>
+</html>
