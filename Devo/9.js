@@ -46,3 +46,30 @@
     }
   </script>
 </html>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style type = "text/css">
+      .red {
+        color : red;
+      }
+      .blue {
+        color : blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id = "idx" class = "red"> Hello </div>
+    <button onclick = "func()"> click </button>
+    <h1 id = "res"></h1>
+  </body>
+  <script type = "text/javascript">
+    var x = document.getElementById('idx');
+    function func(){
+      var cls = x.getAttribute("class");
+      // document.getElementById('res').innerText = cls;
+      if(cls === "red") x.setAttribute("class", "blue");
+      else x.setAttribute("class", "red");
+    }
+  </script>
+</html>
