@@ -73,3 +73,16 @@
     }
   </script>
 </html>
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body><h1>Regular Expression</h1></body>
+  <script type = "text/javascript">
+    var pattern = /[a-z]+[0-9]+/ig;
+    var ing = "WsCube1234Teach";
+    document.write(pattern.exec(ing));
+    document.write(pattern.test(ing));
+    var pat = new RegExp("[a-z][0-9]", "i");
+    document.write(pat.toString());
+  </script>
+</html>
