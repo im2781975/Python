@@ -86,3 +86,62 @@
     document.write(pat.toString());
   </script>
 </html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name = "viewpoint", content = "width=device-width, initial-scale= 1.0 maximum-scale = 1.0, user-scalable = no">
+    <style type = "text/css">
+      .inner {
+        width : 1170px;
+        margin : auto;
+        border : 1px solid red;
+      }
+      .col {
+        width : 23%; margin : 1%;
+        text-align : center;
+        background : olive; float : left;
+      }
+      .col img{
+        width : 100%;
+      }
+      .clear {
+        clear : both;
+      }
+      @media only screen and (min-width : 568px) and (max-width : 992px ) {
+        .inner {
+          width : 100%;
+        }
+      .col {
+        width : 23%; margin : 1%;
+      }
+      @media only screen and (min-width : 200px) and (max-width : 567px ) {
+        .inner {
+          width : 100%;
+        }
+      /*.col {
+        width : 48%; margin : 1%; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class = "inner">
+      <div class = "col">
+        <img src = ".jpg"/>
+        <h5> Demo </h5>
+      </div>
+      <div class = "col">
+        <img src = ".jpg"/>
+        <h5> Demo </h5>
+      </div>
+      <div class = "col">
+        <img src = ".jpg"/>
+        <h5> Demo </h5>
+      </div>
+      <div class = "col">
+        <img src = ".jpg"/>
+        <h5> Demo </h5>
+      </div>
+      <div class = "clear"></div>
+    </div>
+  </body>
+</html>
