@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--link rel = "stylesheet" href = "style.css"/>-->
+        <style type = "text/css">
+            .container {
+                background : aqua; text-align : center;
+                color : red; margin : 10px;
+            }
+            .title {
+                text-align : center; color : black; background : olive;
+                font-size : 23px; font-style : italic;
+            }
+            #tit {
+                color : red; background : lightyellow;
+            }
+            h1 { color : red; background : lime;}
+            .prod { width : 250px; float : left;}
+            .Hero {
+                border : 1px solid green; padding : 20px;
+                text-align : center; display : flex;
+                align-items : center; justify-content : center; 
+                justify-content : space-around; justify-content : space-between;
+                width : 350px; height : 30px; background : lime;
+            }
+            .product {
+                width : 250px; margin : 0 auto;
+            }
+            .text {
+                width : 390px; height : 30px; text-align : center;
+                background : aqua; font-size : 20px; font-style : oblique;
+                color : orange; font-weight : bold; letter-spacing : -1px;
+            }
+            .anchor {
+                text-decoration : none; color : olive; 
+            }
+            .para {
+                width : 340px; height : 70px; background : wheat;
+                font-size : 12px; text-transform : capitalize; float -> left;
+                word-spacing : 10px; margin-top : 2px; /* lowercase | uppercase */
+            }
+            .idx {
+                width : 390px; height : 25px; text-align : center;
+                border : 1px solid olive; margin-bottom : 3px;
+            }
+            .base {
+                width : 390px; height : 30px; text-align : center;
+                margin-top : 5px; border-bottom : 1px solid olivedrab;
+                border-right : 1px solid yellowgreen; border : 1px solid black;
+            }
+            .row {
+                background : wheat; width : 390px; height : 30px;
+                margin-top : 0px; /* margin : 0px 0px 10px 10px; */
+            }
+            #child {
+                border : 1px solid olivedrab; width : 390px; height : 100px;
+                margin-top : 0.5px; background : rgba(211, 240, 111, 0.25);
+                font-size : 15px; padding : 3px;
+                /* r -> 0 - 255 | g -> 0 - 255 | b -> 0 - 255 | a -> 0 - 1 */
+            }
+            .col {
+                border : 1px solid olivedrab; width : 390px; height : 30px;
+                margin-top : 2px; background-color : rgba(0, 0, 0, 0.15); text-align : center;
+            }
+            .test {
+                background : lightblue; color : white; font-size : 12px;
+                margin-top: 15px; border : 0.5px solid white;
+                box-shadow : -1px 1px 3px 0.5px blue; box-sizing: round;
+            }
+            h2 {
+                display : flex; justify-content : center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class = "container">
+            <h1 style = "color : olive"> BDG </h1>
+            <h1 class = "title" id = "tit"> IND </h1>
+            <h4 style = "color : red; font-size : 25px"> NYK </h4>
+            <h2 class = "title"> PAK </h2> <h2> CDG </h2>
+        </div>
+        <div class = "prod">
+            <img class = "product" src = "./folder_name/img_name.jpg"/>
+        </div>
+        <img src = "../folder_name/img_name.jpg"/>
+        <p class = "title"> Lorem Here I Am </p>
+        <div class = "Hero">
+            <h1> Phitron </h1> <h3> HeroHonda</h3>
+        </div>
+        <div class = "text"> WELCOME </div>
+        <a href = "" class = "anchor"> Design </a>
+        <p class = "para">
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Ut ut maximus sem, sed 
+            iaculis neque. Fusce ultricies augue euismod 
+            mi dignissim, ut efficitur mauris sodales. 
+        </p>
+        <p class = "para">
+            Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Ut ut maximus sem, sed 
+            iaculis neque. Fusce ultricies augue euismod 
+            mi dignissim, ut efficitur mauris sodales. 
+        </p>
+        <!-- border : solid | dashed | dotted -->
+        <h3 style = "text-align : center; color : blue"> BORDER TAG </h3>
+        <div class = "idx"> PISQR </div>
+        <div class = "base"> 
+            <div class = "row"> WELCHE </div> 
+        </div>
+        <div id = "child"> <div class = "col"> WICHE </div> </div>
+        <h2><input type = "reset" name = "reset" class = "test"/></h2>
+    </body>
+</html>
