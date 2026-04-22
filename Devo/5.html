@@ -1,118 +1,76 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-  <head>
-    <!--link rel = "stylesheet" type = "text/css" href = "styles.css"/-->
-    <style type = "text/css">
-      body{
-        background : lime;
-      }
-      .grand{
-        width : 100%;
-        height : 25px;
-        font-size : 20px;
-        text-align : center;
-        font-family : verdana;
-        background : lightyellow;
-      }
-      .main:hover{
-        text-align : center;
-        background-color : wheat;
-        font-style : italic;
-      }
-      .base{
-        height : 200px; width : 400px;
-        border : 1px solid olive; overflow : scroll;
-        background : lightblue; color : rgb(0,0,100);
-        /*overflow : hidden | scroll 
-          overflow-x : scroll
-          overflow-y : hidden*/
-      }
-      .trans{
-        height : 100px; width : 390px;
-        background : rgb(255, 110, 195);
-        /* tranlate(x, y) -> to move div
-        transform : translate(-5px, -8px); */
-        transform : translate-X(-5px);
-        transform : translate-Y(-8px);
-      }
-      .skew{
-        height : 100px; width : 390px;
-        border : 2px olive solid;
-        background : rgb(255, 110, 195);
-        margin-top : 25px;
-        margin : auto;
-        /*skew(x | y) deg, rad, turn.skewX() |  skewY()
-        transform : skew(30deg, 25deg);
-        transform : skew(0.1turn, 25deg); */
-        transform : skew(0.5turn, 0.5turn);
-      }
-      .rotate{
-        height : 100px; width : 390px;
-        border : 2px olive solid;
-        background : rgb(255, 110, 195);
-        margin-top : 25px;
-        box-shadow : -3px 3px 2px 1px olive;
-        /*rotate(deg | rad)
-          rotateX(deg | rad)
-          rotateY(deg | rad)
-          rotateZ(deg | rad) */
-        transform : rotateX(60deg);
-      }
-      .skale{
-        height : 20px; width : 20px;
-        border : 1px olive solid;
-        background : rgb(255, 110, 195);
-        margin-top : 25px;
-        /* scale() | scaleX() | scaleY() */
-        transform : scaleY(4);
-      }
-    </style>
-  </head>
-  <body>
-    <h2 style = "text-align : center"> Hover </h2>
-    <div class = "grand"> PISAR&nbsp;TECH</div>
-    <div class = "main" style = "font-style : verdana; color : black; text-align : center; "> ALFA&nbsp;TECH </div>
-    <h2 style = "text-align : center"> OverFlow </h2>
-    <div class = "base">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Ut ut maximus sem, sed 
-        iaculis neque. Fusce ultricies augue euismod 
-        mi dignissim, ut efficitur mauris sodales. Nullam
-        dictum tristique facilisis. Fusce at justo in dolor 
-        gravida placerat vel eu sapien. Vivamus purus felis, 
-        hendrerit diam. sed eu augue lacus. Morbi nulla eros,
-        aliquam quis pharetra in, aliquet tortor, a vulputate 
-        ipsum nunc eu erat.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Ut ut maximus sem, sed 
-        iaculis neque. Fusce ultricies augue euismod 
-        mi dignissim, ut efficitur mauris sodales. Nullam
-        dictum tristique facilisis. Fusce at justo in dolor 
-        gravida placerat vel eu sapien. Vivamus purus felis, 
-        hendrerit diam. sed eu augue lacus. Morbi nulla eros,
-        aliquam quis pharetra in, aliquet tortor, a vulputate 
-        ipsum nunc eu erat.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Ut ut maximus sem, sed 
-        iaculis neque. Fusce ultricies augue euismod 
-        mi dignissim, ut efficitur mauris sodales. Nullam
-        dictum tristique facilisis. Fusce at justo in dolor 
-        gravida placerat vel eu sapien. Vivamus purus felis, 
-        hendrerit diam. sed eu augue lacus. Morbi nulla eros,
-        aliquam quis pharetra in, aliquet tortor, a vulputate 
-        ipsum nunc eu erat.
-      </p>
-      <img src = "1.jpg"/>
-    </div>
-    <h2 style = "text-align : center"> Transform </h2>
-    <div class = "trans"></div>
-    <div class = "skew"></div>
-    <div class = "rotate"></div>
-    <div class = "skale"></div>
-  </body>
+    <head>
+        <!--link rel = "stylesheet" type = "text/css" href = "style.css"/-->
+        <style type = "text/css">
+            body { background : lightgreen; }
+            .grand {
+                width : 100%; height : 25px;
+                font-size : 20px; text-align : center;
+                font-family : verdana; background : lightyellow;
+            }
+            .main:hover {
+                text-align : center; background : wheat; font-style : italic;
+            }
+            .base {
+                height : 100px; width : 400px;
+                border : 1px solid olive; overflow : scroll;
+                background : lightblue; color : rgb(0, 0, 100);
+                /*overflow : hidden | scroll, overflow-x : scroll, overflow-y : hidden */
+            }
+            .trans {
+                height : 50px; width : 400px; 
+                background : rgb(255, 110, 195);
+                /* tranlate(x, y) -> to move div */
+                transform : translate(-5px, -50px);
+            }
+            .skew {
+                height : 50px; width : 400px; background : rgb(255, 110, 195);
+                border : 1px olive solid; margin-top : 5px; margin : auto;
+                transform : skew(0.5turn, 0.5turn);
+                /*skew(x | y) deg, rad, turn [skewX() |  skewY()]
+                transform : skew(30deg, 25deg) | skew(0.1turn, 0.1turn) */
+            }
+            .rotate {
+                height : 50px; width : 400px; background : rgb(255, 110, 195);
+                border : 1px olive solid; margin-top : 5px;
+                transform : rotateX(50deg);
+                /*rotate(deg | rad), rotateX(deg | rad)
+                rotateY(deg | rad), rotateZ(deg | rad) */
+            }
+            .skale {
+                height : 50px; width : 400px; background : rgb(255, 110, 195);
+                border : 1px olive solid; margin-top : 5px; transform : skaleY(5);
+                // scale() | scaleX() | scaleY()
+            }
+        </style>
+    </head>
+    <body>
+        <h2 style = "text-align : center"> HOVER </h2>
+        <div class = "grand"> PISAR&nbsp;TECH </div>
+        <div class = "main" style = "font-style : verdana; color : black; text-align : center;"> ALFA&nbsp;TECH </div>
+        <h2 style = "text-align : center"> OverFlow </h2>
+        <div class = "base">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Ut ut maximus sem, sed 
+                iaculis neque. Fusce ultricies augue euismod 
+                mi dignissim, ut efficitur mauris sodales. Nullam
+                dictum tristique facilisis
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Ut ut maximus sem, sed 
+                iaculis neque. Fusce ultricies augue euismod 
+                mi dignissim, ut efficitur mauris sodales. Nullam
+                dictum tristique facilisis
+            </p>
+            <img src = "1.jpg"/>
+        </div>
+        <h2 style = "text-align : center"> Transform </h2>
+        <div class = "trans"></div>
+        <div class = "skew"></div>
+        <div class = "rotate"></div>
+        <div class = "skale"></div>
+    </body>
 </html>
