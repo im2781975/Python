@@ -72,3 +72,41 @@ switch(day) {
 }
 let age = 20;
 console.log(age >= 18 ? "can vote" : "can't vote");
+
+let i;
+for(i = 0; i <= 2; i++) console.log("*");
+i = 0;
+while(i <= 2) { console.log("#"); i++;}
+i = 0;
+do {
+    console.log("¥"); i++;
+} while(i <= 2);
+// rectangle
+let row;
+for(let i = 0; i <= 5; i++) {
+    row = "";
+    for(let j = 0; j <= 5; j++) row += "*";
+    console.log(row);
+}
+// holo rect
+row; 
+let n = 5;
+for(let i = 1; i <= n; i++) {
+    row = "";
+    for(let j = 1; j <= n; j++) {
+        if(i == 1 || i == n || j == 1 || j == n) row += "*";
+        else row += " ";
+    }
+    console.log(row);
+}
+//shape
+row; 
+n = 35;
+for(let i = 0; i < n; i++) {
+    row = "";
+    for(let j = 0; j < n; j++) {
+        if(i == 0 || i == n - 1|| j == 0 || j == n - 1 || i == Math.floor(n / 2) || j == Math.floor(n / 2) || i == j || i == n - j - 1 || i + j == Math.floor(n / 2) || i - j == Math.floor(n / 2) || i + j == (n - 1) + Math.floor(n / 2) || j - i == Math.floor(n / 2)) row += "*";
+        else row += " ";
+    }
+    console.log(row);
+}
