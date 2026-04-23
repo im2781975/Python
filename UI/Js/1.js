@@ -44,3 +44,31 @@ let balance = 1000, withdraw = 700;
 if(balance >= withdraw){ balance -= withdraw;}
 else{ console.log("Insufficient"); }
 console.log(balance);
+
+let user = "student"
+switch(user == "admin") {
+    case "admin":
+        console.log("Admin"); break;
+    case "editor":
+        console.log("editor"); break;
+    case "author":
+        console.log("author"); break;
+    default:
+        console.log("denied")
+}
+let day = 0
+switch(day) {
+    case 0:
+    case 6:
+        console.log("Happy weekend!!"); break;
+    case 1:
+        console.log("Monday"); break;
+    case 2:
+    case 3:
+    case 4:
+        console.log("Midweak"); break;
+    case 5:
+        console.log("TGIF"); break;
+}
+let age = 20;
+console.log(age >= 18 ? "can vote" : "can't vote");
