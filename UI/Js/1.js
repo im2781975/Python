@@ -143,5 +143,6 @@ exmp();
 (function() { console.log("called")})();
 // Hoisting
 console.log(l); var l = 100; console.log(l);
+console.log(l); let l = 50; console.log(l);
 greet();
 function greet () { console.log("Hello"); }
