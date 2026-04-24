@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type = "text/css">
+            .main {
+                width : 390px; height : 35px; border : 1px black solid;
+                margin : 25px auto; position : relative;
+            }
+            .create {
+                width : 70px; height : 30px; background : red; text-align : center;
+                margin-top : 2px; margin-left : 2px; animation : create 10s 3;
+                position : absolute; animation-timing-function : linear; /* ease | ease-in | ease-out | ease-in-out*/
+            }
+            @keyframes create {
+                from { left : 0px; }
+                to { left : 320px; }
+            }
+            .grid {
+                width : 390px; height : 300px; border : 1px black solid;
+                margin : auto; position : relative; /*relative think absolute is his parent */
+            }
+            .Box {
+                width : 70px; height : 30px; background : red; margin : 1px 1px 1px 1px;
+                position : absolute; top : 0px; left : 0px;
+                animation-name : Box; animation-duration : 5s;
+                animation-iteration-count : infinite; animation-delay : 2s;
+                /*animation : Box 5s infinite; */  animation-fill-mode: forwards; /* backwards | both */;
+                animation-direction : normal; /*reverse | alternate | alternate-reverse */
+            }
+            @keyframes Box {
+                0% { top : 0px; left : 0px; background : red; }
+                25% { top : 0px; left : 318px; background : green; }
+                50% { top : 268px; left : 318px; background : blue; }
+                75% { top : 268px; left : 0px; background : yellow; }
+                100% { top : 0px; left : 0px; background : red; }
+            }
+            /* remove unnessessary space for tag */
+            *{ margin : 0; padding : 0 };
+            .xob {
+                width : 390px; height : 150px;
+                position : relative; overflow : hidden;
+            }
+            .sun {
+                width : 80px; height : 80px; background : rgba(255, 165, 0, 0.6);
+                border-radius : 50%; position : absolute; top : 38px;
+                left : -15px; animation : sun 5s ease-in-out;
+            }
+            .cld {
+                width : 80px; height : 65px; position : absolute; top : 33px;
+                left : -10px; opacity : 0.8; animation : cld 5s linear;
+            }
+            .cld1 {
+                width : 80px; height : 65px; position : absolute; top : 38px;
+                left : 100px; opacity : 0.8; animation : cld1 2.5s ease-in; animation-delay : 2s;
+            }
+            .cld2 {
+                width : 80px; height : 65px; position : absolute; top : 43px;
+                right : -10px; opacity : 0.8; animation : cld2 5s linear;
+            }
+            @keyframes cld {
+                from { top : 33px; left : -10px; }
+                to { top : 33px; left : 110%; }
+            }
+            @keyframes cld1 {
+                from { top : 38px; left : 100px; }
+                to { top : 38px; left : 110%; }
+            }
+            @keyframes cld2 {
+                from { top : 38px; right : -10px; }
+                to { top : 38px; right : 110%; }
+            }
+            @keyframes sun {
+                from { top : 38px; left : -15px; background : rgba(255, 165, 0, 0.6); }
+                to { top : 26px; left : 110%; background : rgba(255, 165, 0, 1); }
+            }
+        </style>
+    </head>
+    <body> 
+        <h4 style = "text-align : center; color : red"> GRID ANIMATION </h4>
+        <div class = "main"> <div class = "create"> CRT </div> </div>
+        <h4 style = "text-align : center; color : red"> ANIMATION </h4>
+        <div class = "grid"> <div class = "Box"> </div></div> <!--
+        <h2 style = "text-align : center; color : red"> Cloud Animation </h2> 
+        <div class = "xob">
+            <div class = "sun"></div>
+            <div class = "cld"> <img src = "cloud.png" width = "100%" height = "100%"/> </div>
+            <div class = "cld1"> <img src = "cloud.png" width = "100%" height = "100%"/> </div>
+            <div class = "cld2"> <img src = "cloud.png" width = "100%" height = "100%"/> </div>
+        </div> -->
+    </body>
+</html>
+
+
