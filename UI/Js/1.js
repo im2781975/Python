@@ -110,3 +110,38 @@ for(let i = 0; i < n; i++) {
     }
     console.log(row);
 }
+// function
+let a = 100, b = 200;
+function add() {
+    let c = a + b; /*console.log(c); */
+    return c; 
+} console.log(add());
+function sub(x, y) {
+    let c = x - y; /* console.log(c); */
+    return c;
+} console.log(sub(a, b));
+let fun = function(m, n) { return m + n; }
+console.log(fun(5, 9));
+/*let unc = (a, b) => { return a + b; } */
+let unc = (a, b) => a + b;
+console.log(unc(8, 6));
+// persentage
+function calcgrade(marks, total) {
+    let percent = (marks / total) * 100;
+    let grade;
+    if(percent >= 90) grade = 'A';
+    else if(percent >= 80) grade = 'B';
+    else if(percent >= 70) grade = 'C';
+    else if(percent >= 60) grade = 'D';
+    else if(percent >= 50) grade = 'E';
+    else grade = 'F';
+    console.log(grade);
+}
+calcgrade(93, 100);
+let exmp = function() { console.log("called"); }
+exmp();
+(function() { console.log("called")})();
+// Hoisting
+console.log(l); var l = 100; console.log(l);
+greet();
+function greet () { console.log("Hello"); }
