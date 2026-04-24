@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type = "text/css">
+            body { margin : 0; padding : 0; }
+            .nav-container {
+                background : aqua; display : flex; align-items : center;
+                justify-content : space-around; padding : 12px;
+            }
+            .logo { width : 100px; }
+            .logo-container {
+                display : flex; align-items : center; justify-content : flex-start;
+            }
+            .menu-container {
+                display : flex; align-items : center; justify-content : flex-end;
+            }
+            .item-container {
+                display : flex; gap : 25px; list-style : none;
+            }
+            .menu {
+                text-decoration : none; color : black; font-weight : bold;
+            }
+            .product {
+                padding : 40px 20px; text-align : center;
+            }
+            .cardscontainer {
+                display : flex; justify-content : center; align-items : center;
+                flex-direction : column; gap : 10px
+            }
+            .cardcontainer {
+                display : flex; justify-content : space-around;
+            }
+            .sectionTitle {
+                font-size : 32px; margin-bottom : 10px;
+            }
+            .bannercontainer {
+                width: 100%; height: 100px; text-align: center;
+                display: flex; align-items: center; justify-content: center;
+                background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(./source.png);
+                background-repeat: no-repeat; background-size: cover;
+                background-position: center; background-blend-mode: overlay;
+            }
+            .title { font-size : 56px;}
+            .digital { font-weight : bold; }
+            .desc {
+                width : 100%; text-align : center; margin : auto; margin-bottom : 30px;
+            }
+            .btn {
+                padding : 15px 30px; outline : none; border : none;
+            }
+            .primary-btn {
+                text-decoration : none; color : black; font-weight : bold;
+            }
+            .blogcontainer { text-align : center;}
+            .card{ width: 250px; height: 300px; border: 1px solid gray; }
+            .card-img{ width: 100%; height: 100%; object-fit: cover; }
+        </style>
+    </head>
+    <body>
+        <nav class = "nav-container">
+            <div class = "logo-container"> <img class = "logo" src = "./logo.png" alt = "" /></div>
+            <div class = "menu-container">
+                <ul class = "item-container">
+                    <li><a class = "menu" target = "_blank" href = ""> Home </a></li>
+                    <li><a href = ""> Contact </a></li>
+                    <li><a href = ""> Login </a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class = "product">
+            <div class = "cardscontainer">
+                <h1 class = "sectionTitle"> section product </h1>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing </p>
+            </div>
+        </section>
+        <section class = "bannercontainer">
+            <div>
+                <h1 class = "title"><span class = "digital"> Here </span> you <br> are </h1>
+                <p class = "desc"> Lorem ipsum dolor sit amet consectetur adipisicing elit </p>
+                <button class = "btn primary-btn"> Contact me </button>
+                <button class = "btn"> Hire me </button>
+            </div>
+        </section>
+        <section class = "blogcontainer">
+            <h1> Blog & News </h1> <p> Paragraph </p>
+            <div class = "cardcontainer">
+                <div class="card"> <img class = "card-img" src = "./source.png" alt = "" /> </div>
+            </div>
+        </section>
+    </body>
+</html>
