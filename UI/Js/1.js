@@ -146,3 +146,27 @@ console.log(l); var l = 100; console.log(l);
 console.log(l); let l = 50; console.log(l);
 greet();
 function greet () { console.log("Hello"); }
+
+let a;
+function fun() { console.log(a); }
+a = 100; console.log(a);
+fun();
+function unc() {
+    var x = 100; console.log(x);
+}
+// console.log(x);
+unc();
+//block scope
+tmp = 30
+if(tmp > 25) {
+    var cool = tmp - 25; console.log(cool);
+}
+else {
+    var heat = 25 - tmp; console.log(heat);
+}
+console.log(tmp); console.log(heat); console.log(cool);
+function print(num) {
+    for(var i = 1; i <= num; ++i) console.log(i);
+    console.log(i);
+}
+print(8);
