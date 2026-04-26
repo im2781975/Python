@@ -23,3 +23,22 @@ function exp(addd){
 }
 function ad(a, b){ console.log(a + b); } 
 exp(ad); add(300, 600);
+let role = "Admin";
+function checkAccess() {
+    let hasAccess = false;
+    if(role === "Admin") {
+        let welcomemsg = '${role} admin privilages';
+        hasAccess = true;
+        console.log(welcomemsg);
+    }
+    console.log("Has Access: ", hasAccess);
+}
+checkAccess();
+// closure
+void fun1() {
+    console.log("fun1()");
+    void fun2() {
+        console.log("fun2()");
+    } return fun2;
+}
+// go 23 video
