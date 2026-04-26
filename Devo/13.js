@@ -35,10 +35,27 @@ function checkAccess() {
 }
 checkAccess();
 // closure
-void fun1() {
+function fun1() {
     console.log("fun1()");
-    void fun2() {
-        console.log("fun2()");
+    let val = 10;
+    function fun2() {
+        console.log("fun2()", val);
     } return fun2;
 }
-// go 23 video
+exmp = fun1();
+exmp();
+function createcounter() {
+    let counter = 0;
+    return function () {
+        counter += 1; console.log(counter);
+    }
+}
+let countA = createcounter();
+countA();
+// callback
+function add(a, b) { return a + b; }
+function sub(a, b) { return a - b; }
+function mul(a, b) { return a * b; }
+function calc(a, b, callback){ return callback(a, b); }
+
+console.log(add(5, 9));
